@@ -172,9 +172,9 @@ its key features and functionality.
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/scilab"
-            android:padding="54dip" />
+            android:padding="54dip"/>
         
-    </TableRow>
+     </TableRow>
 
 				
 * In order to display the web page for Help and About main2.xml was
