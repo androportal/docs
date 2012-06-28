@@ -52,7 +52,7 @@ Setting up the Android Envionment
           packages (APKs) for distribution.
 	
 	
-1. **Setups for configuring** :
+- **Setups for configuring** :
 			
 _NOTE_ : before starting the ADT plugin process (if installing from
 the internet), apply net settings in the Eclipse, select Windows >
@@ -132,19 +132,12 @@ size and resolution
 * The icons were polished and scaled for glossy display of the
 application on the tablet screen.
 
-* In order to display the web page of the each programming language
-main1.xml was created.
 
-* The webview feature was added in the xml file, which will be
-utilised by the each webpage of programming language to display the
-its key features and functionality.
-
-* CODE AND 2nd SCREENSHOT
 
      <TableRow
    	android:id="@+id/tableRow1"
         	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content" >
+         	android:layout_height="wrap_content" >
 
         <ImageButton
             android:id="@+id/imageButton1"
@@ -173,8 +166,26 @@ its key features and functionality.
             android:layout_height="wrap_content"
             android:background="@drawable/scilab"
             android:padding="54dip"/>
-        
      </TableRow>
+
+<center>![screenshot1](/path/to/img.jpg "Optional title")</center>
+
+
+
+* In order to display the web page of the each programming language
+main1.xml was created.
+
+* The webview feature was added in the xml file, which will be
+utilised by the each webpage of programming language to display the
+its key features and functionality.
+
+
+     <WebView android:id="@+id/webView1"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" />
+
+		
+<center>![screenshot2](/path/to/img.jpg "Optional title")</center>
 
 				
 * In order to display the web page for Help and About main2.xml was
@@ -183,30 +194,104 @@ created.
 * The webview feature and Button was added in the xml file, the
 webview for webpage of help and options , and a close button to take
 back the user back to the previous state.
+
 		
-CODE
-		
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close" />
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 2. **The APL activity**
         
 * The main activity was entiltled as APL Activity.
 
 * The activity contains the essential and required import like
 		
-CODE
+    import com.aakash.lab.R;
+    import android.app.Activity;
+    import android.app.AlertDialog;
+    import android.content.DialogInterface;
+    import android.content.Intent;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.view.View.OnClickListener;
+    import android.widget.ImageButton;
+    import android.widget.TextView;    
 		
 * The activity intializes all the essential parameters and variables.
 		  
-CODE
+    ImageButton rd1, rd2, rd4, rd5; 
+        TextView tv1,tv2; 
+        @Override 
+        public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main); 
+    
+        // parameters initialisation for image buttons  
+        rd1 = (ImageButton)findViewById(R.id.imageButton1);
+        rd2 = (ImageButton)findViewById(R.id.imageButton2);	
+        rd3 = (ImageButton)findViewById(R.id.imageButton3);
+        rd4 = (ImageButton)findViewById(R.id.imageButton4); 
+        tv1 = (TextView)findViewById(R.id.textView1);
+        tv2 = (TextView)findViewById(R.id.textView2); 
+        rd1.setOnClickListener(this);
+        rd2.setOnClickListener(this);	
+        rd3.setOnClickListener(this);
+        rd5.setOnClickListener(this);	
+        }
 		
 * Synchronises the four subclasses created mainly for C, C++, Python
 and Scilab.
 		
-CODE
-		
+
+    public void onClick(View v) {
+    	// TODO Auto-generated method stub
+    	
+    	switch (v.getId()) { 
+	
+    	case R.id.imageButton1:	
+    	Intent myIntent = new Intent(v.getContext(),
+    	c.class);
+        startActivityForResult(myIntent, 0);
+    	break; 
+	
+    	case R.id.imageButton2:		
+    	Intent myIntent1 = new Intent(v.getContext(),
+    	cp.class);
+    	startActivityForResult(myIntent1, 0);
+    	break; 			  
+	
+    	case R.id.imageButton3:   
+    	Intent myIntent2 = new Intent(v.getContext(),
+    	py.class);
+        startActivityForResult(myIntent2, 0);	
+    	break;
+    	
+    	case R.id.imageButton4:			
+    	ntent myIntent3 = new Intent(v.getContext(),
+    	sci.class);
+    	startActivityForResult(myIntent3, 0);
+    	
+    	break;	 
+    	
+    	default:
+    	break;
+    	
+    	}
+    	}
+
+
 * Contains the code for user to quit and switch to another programming
 language.
 		
-CODE
+    CODE
 		
 3. **The Sub Classes**		
 	
@@ -216,7 +301,25 @@ CODE
 
 - The subclass contains the essential and required import like
             
-CODE
+
+        import android.app.ActivityGroup;
+		import android.app.AlertDialog;
+		import android.os.Bundle;
+		import android.os.Environment;
+		import android.util.Log;
+		import android.view.Menu;
+		import android.view.MenuInflater;
+		import android.view.MenuItem;
+		import android.webkit.WebChromeClient;
+		import android.webkit.WebSettings;
+		import android.webkit.WebView;
+		import com.aakash.lab.R;
+		import android.webkit.JsResult;
+		
+		import android.app.AlertDialog.Builder;
+		import android.app.Dialog;
+		import android.content.DialogInterface;
+		import java.io.*;
 			
 - Webview feature implementation- the java script is enabled,
 
@@ -226,21 +329,22 @@ CODE
 
 - the pop ups in the webview are enabled to take the arguments.
 			
-CODE
-			
+    CODE
+	
+				
 - Menu implementation for options like _Save_, _Open_ and _Example_,
 _Help_ and _About_.  
 
-CODE
+    CODE
 			
 - Save feature to save the code in sdcard.
 			
-CODE
+    CODE
 			
 - Open feature to display the list of files saved in sdcard and
 display the file in codemirror of the webpage using javascript.
 			
-CODE
+    CODE
 			
 - Examples for the demo part was also added in the simlar fashion as
 open was implemented .
@@ -260,7 +364,7 @@ the tablet.
 - In Scilab along with the output, the garpical output (plot) is also
 displayed , so additional feature like Save Figure was implemented.
 			
-CODE
+    CODE
 			
 * _help.java_
 		
@@ -269,7 +373,7 @@ this feature a new sub class is created and whenevr the user opts for
 Help in menu, it directs him to the new webview that displays the
 contents of help.html.
 			
-CODE
+    CODE
 			
 * _options.java_
 		
@@ -279,7 +383,7 @@ functionality, the options was added in the menu.
 - Whenever the user opts for the options in menu, the class directs
 the user to new screen displaying the required important content.
 	
-CODE
+    CODE
 			
 4. **The Android Manifest.xml**			
 	
@@ -292,16 +396,16 @@ the webview feature.
 * The permission to read and write from the External Source, handling
 the sdcard.
 
-CODE
+    CODE
 		
 * The application intilaization and icon and its label information.
 		  
-CODE
+    CODE
 		
 * The main activity APL and its sub classes intilaization,name, label
 and name information.
 		
-CODE
+    CODE
 		
 		
 
@@ -341,20 +445,22 @@ and Scilab, besides the main heading **Aakash Programming Lab (APL)**.
 utilised by the each webpage of programming language to display the
 its key features and functionality.
 	
-CODE and SCREENSHOT
+    CODE 
+	
+<center>![screenshot](/path/to/img.jpg "Optional title")</center>	
 
 * To display the graphical output of the scilab on a two column web
 page format, we need an image view and close button thus the layout
 was sketched at  `main3.xml`.
 
-CODE
+    CODE
 
 * In order to display the web page for Help and About `main3.xml` was
 created. The webview feature and Button was added in the xml file, the
 webview for webpage of help and options , and a close button to take
 back the user back to the previous state.
 
-CODE
+    CODE
 
 
 ## The APL activity
@@ -362,21 +468,21 @@ CODE
 * The main activity was entiltled as APL Activity.
 * The activity contains the essential and required import like,
 
-CODE
+    CODE
 
 * The activity intializes all the essential parameters and variables.
 
-CODE
+    CODE
 
 * Synchronises the four subclasses created mainly for C, C++, Python
 and Scilab.
 
-CODE
+    CODE
 
 * Contains the code for user to quit and switch to another programming
   language.
   
-CODE
+    CODE
 
 ## The Sub Classes
 
@@ -404,14 +510,14 @@ shell in a box .
 
 * For the first web view
 		
-CODE
+    CODE
 		
 * For the second web view 
 		
-CODE
+    CODE
 		
 * Menu implementation for options like Save, Open and Example, Help
 and About .
 		
-CODE
+    CODE
 		
