@@ -12,28 +12,25 @@ CodeMirror is a JavaScript component that provides a code editor in the browser.
  
 To use CodeMirror load the script and style sheet found under lib/ in the distribution, plus a mode script from one of the mode/ directories and a theme stylesheet from theme. For example:<br>
 
----
 		<script src="lib/codemirror.js"></script>
 		<link rel="stylesheet" href="../lib/codemirror.css">
 		<script src="mode/javascript/javascript.js"></script>
----
+
 
 
 Having done this, an editor instance can be created like this
 
----
         var myCodeMirror = CodeMirror(document.body);
----
+
 The editor will be appended to the document body, will start empty, and will use the mode and theme that we loaded. The configuration object can be passed to CodeMirror as a second argument:
 
----
 <pre><code>
 	var myCodeMirror = CodeMirror(document.body, {
   	value: "function myScript(){return 100;}\n",
   	mode:  "javascript"
 	});
 </code></pre>
----
+
 There are much more configuration options available with CodeMirror ,for detailed information visit the link [http://codemirror.net/doc/manual.html](http://codemirror.net/doc/manual.html)
 
 ###<u>**Features implemented in APL Editor**
@@ -48,7 +45,7 @@ Determines whether brackets are matched whenever the cursor is moved next to a b
 * **Theme**  
 Various themes to style the editor with.
 
----
+
 <pre><code>
 	var myCodeMirror = CodeMirror(document.getElementById("code"),
 	{
@@ -59,7 +56,7 @@ Various themes to style the editor with.
 	lineWrapping: true
 	});
 </code></pre>
----
+
 
 ###**<u>CodeMirror functions used</u>**  
 
