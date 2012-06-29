@@ -52,58 +52,59 @@ Setting up the Android Envionment
           packages (APKs) for distribution.
 	
 	
-- **Setups for configuring** :
++ **Setups for configuring** :
 			
-_NOTE_ : before starting the ADT plugin process (if installing from
+ _NOTE_ : before starting the ADT plugin process (if installing from
 the internet), apply net settings in the Eclipse, select Windows >
 Preferences . On General option , click on Network and configure the
 internet settings.
 
-2. Start Eclipse, then select Help > Install New Software....
+ 2. Start Eclipse, then select Help > Install New Software....
 			
-2. Click Add, in the top-right corner.
+ 2. Click Add, in the top-right corner.
 			
-2. In the Add Repository dialog that appears, enter "ADT Plugin" for
+ 2. In the Add Repository dialog that appears, enter "ADT Plugin" for
 the Name and the following URL for the location
 <https://dl-ssl.google.com/android/eclipse/>
 			
-2. Click OK. _Note_, If you have trouble acquiring the plugin, try
+ 2. Click OK. _Note_, If you have trouble acquiring the plugin, try
 using 'http' in the Location URL, instead of 'https' (https is
 preferred for security reasons).
 			
-2. In the Available Software dialog, select the checkbox next to
+ 2. In the Available Software dialog, select the checkbox next to
 Developer Tools and click Next.
 			
-2. In the next window, you'll see a list of the tools to be
+ 2. In the next window, you'll see a list of the tools to be
 downloaded. Click Next.
 			
-2. Read and accept the license agreements, then click Finish.
+ 2. Read and accept the license agreements, then click Finish.
 			
-2. When the installation completes, restart Eclipse.
+ 2. When the installation completes, restart Eclipse.
+
 
 + **Configure the ADT Plugin**
   
-* After you've installed ADT and restarted Eclipse, you must specify
+ * After you've installed ADT and restarted Eclipse, you must specify
 the location of your Android SDK directory.
 
-* Select Window > Preferences... to open the Preferences panel (on Mac
+ * Select Window > Preferences... to open the Preferences panel (on Mac
 OS X, select Eclipse > Preferences).
 
-* Select Android from the left panel.
+ * Select Android from the left panel.
 
-* For the SDK Location in the main panel, click Browse... and locate
+ * For the SDK Location in the main panel, click Browse... and locate
 your downloaded Android SDK directory (such as android-sdk-windows).
 
-* Click Apply, then OK.
+ * Click Apply, then OK.
 
 + **Create new AVD**
 	
-* Create a new avd in AVD manager and mention proper memory size of
+ * Create a new avd in AVD manager and mention proper memory size of
 the SDcard and launch the emulator.
 
 + **Create your new project**
 	
-* The android environment is set , create new projects and enjoy the
+ * The android environment is set , create new projects and enjoy the
 android versions.
 
 
@@ -120,7 +121,7 @@ layout,Activity(java class) and in AndroidManifest.xml
 1. **Designing the Layout for the application**
 
 * The layout of the android APK consists of three xml files namely as
-`main.xml, main1.xml, and main2`.
+`main.xml, main1.xml, and main2.`
 
 * `main.xml` contains the features for the first screen that displays
 the four main icons of the programming languages **C, C++, Python and
@@ -134,10 +135,10 @@ application on the tablet screen.
 
 
 
-     <TableRow
-   	android:id="@+id/tableRow1"
-        	android:layout_width="wrap_content"
-         	android:layout_height="wrap_content" >
+        <TableRow
+   	     android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
         <ImageButton
             android:id="@+id/imageButton1"
@@ -166,7 +167,9 @@ application on the tablet screen.
             android:layout_height="wrap_content"
             android:background="@drawable/scilab"
             android:padding="54dip"/>
-     </TableRow>
+        </TableRow>
+
+
 
 <center>![screenshot1](/path/to/img.jpg "Optional title")</center>
 
@@ -196,106 +199,102 @@ webview for webpage of help and options , and a close button to take
 back the user back to the previous state.
 
 		
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Close" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Close" />
 
-    <WebView
-        android:id="@+id/webView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        WebView
+            android:id="@+id/webView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
 2. **The APL activity**
         
-* The main activity was entiltled as APL Activity.
+ * The main activity was entiltled as APL Activity.
+ * The activity contains the essential and required import like
 
-* The activity contains the essential and required import like
+
+            import com.aakash.lab.R;
+            import android.app.Activity;
+            import android.app.AlertDialog;
+            import android.content.DialogInterface;
+            import android.content.Intent;
+            import android.os.Bundle;
+            import android.view.View;
+            import android.view.View.OnClickListener;
+            import android.widget.ImageButton;
+            import android.widget.TextView;    
 		
-    import com.aakash.lab.R;
-    import android.app.Activity;
-    import android.app.AlertDialog;
-    import android.content.DialogInterface;
-    import android.content.Intent;
-    import android.os.Bundle;
-    import android.view.View;
-    import android.view.View.OnClickListener;
-    import android.widget.ImageButton;
-    import android.widget.TextView;    
-		
-* The activity intializes all the essential parameters and variables.
+ * The activity intializes all the essential parameters and variables.
 		  
-    ImageButton rd1, rd2, rd4, rd5; 
-        TextView tv1,tv2; 
-        @Override 
-        public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main); 
+            ImageButton rd1, rd2, rd4, rd5; 
+            TextView tv1,tv2; 
+            @Override 
+            public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.main); 
     
-        // parameters initialisation for image buttons  
-        rd1 = (ImageButton)findViewById(R.id.imageButton1);
-        rd2 = (ImageButton)findViewById(R.id.imageButton2);	
-        rd3 = (ImageButton)findViewById(R.id.imageButton3);
-        rd4 = (ImageButton)findViewById(R.id.imageButton4); 
-        tv1 = (TextView)findViewById(R.id.textView1);
-        tv2 = (TextView)findViewById(R.id.textView2); 
-        rd1.setOnClickListener(this);
-        rd2.setOnClickListener(this);	
-        rd3.setOnClickListener(this);
-        rd5.setOnClickListener(this);	
-        }
+            // parameters initialisation for image buttons  
+            rd1 = (ImageButton)findViewById(R.id.imageButton1);
+            rd2 = (ImageButton)findViewById(R.id.imageButton2);	
+            rd3 = (ImageButton)findViewById(R.id.imageButton3);
+            rd4 = (ImageButton)findViewById(R.id.imageButton4); 
+            tv1 = (TextView)findViewById(R.id.textView1);
+            tv2 = (TextView)findViewById(R.id.textView2); 
+            rd1.setOnClickListener(this);
+            rd2.setOnClickListener(this);	
+            rd3.setOnClickListener(this);
+            rd5.setOnClickListener(this);	
+            }
 		
-* Synchronises the four subclasses created mainly for C, C++, Python
+ * Synchronises the four subclasses created mainly for C, C++, Python
 and Scilab.
 		
 
-    public void onClick(View v) {
-    	// TODO Auto-generated method stub
-    	
-    	switch (v.getId()) { 
+             public void onClick(View v) {
+    	     // TODO Auto-generated method stub
+    	     switch (v.getId()) { 
 	
-    	case R.id.imageButton1:	
-    	Intent myIntent = new Intent(v.getContext(),
-    	c.class);
-        startActivityForResult(myIntent, 0);
-    	break; 
+    	     case R.id.imageButton1:	
+    	     Intent myIntent = new Intent(v.getContext(),
+             c.class);
+             startActivityForResult(myIntent, 0);
+    	     break; 
 	
-    	case R.id.imageButton2:		
-    	Intent myIntent1 = new Intent(v.getContext(),
-    	cp.class);
-    	startActivityForResult(myIntent1, 0);
-    	break; 			  
+    	    case R.id.imageButton2:		
+    	    Intent myIntent1 = new Intent(v.getContext(),
+    	    cp.class);
+    	    startActivityForResult(myIntent1, 0);
+    	    break; 			  
 	
-    	case R.id.imageButton3:   
-    	Intent myIntent2 = new Intent(v.getContext(),
-    	py.class);
-        startActivityForResult(myIntent2, 0);	
-    	break;
+    	    case R.id.imageButton3:   
+    	    Intent myIntent2 = new Intent(v.getContext(),
+    	    py.class);
+            startActivityForResult(myIntent2, 0);	
+    	    break;
     	
-    	case R.id.imageButton4:			
-    	ntent myIntent3 = new Intent(v.getContext(),
-    	sci.class);
-    	startActivityForResult(myIntent3, 0);
-    	
-    	break;	 
-    	
-    	default:
-    	break;
-    	
-    	}
-    	}
+    	    case R.id.imageButton4:			
+    	    ntent myIntent3 = new Intent(v.getContext(),
+    	    sci.class);
+    	    startActivityForResult(myIntent3, 0);
+    	    break;	 
+    	    default:
+    	    break;
+    	    }
+    	    }
 
 
-* Contains the code for user to quit and switch to another programming
+ * Contains the code for user to quit and switch to another programming
 language.
 		
-    CODE
+            CODE
 		
 3. **The Sub Classes**		
 	
-* _c.java_
+ * _c.java_
 		
 - The sub class for programming language C.
 
@@ -486,7 +485,7 @@ and Scilab.
 
 ## The Sub Classes
 
-1. _c.java_
+ 1. _c.java_
 	
 * The sub class for programming language C.
 
