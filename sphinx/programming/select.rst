@@ -1,0 +1,62 @@
+Scilab Function
+
+Last update : April 1993
+
+**select** - select keyword
+
+Description
+~~~~~~~~~~~
+
+::
+
+
+     select expr,
+       case expr1 then instructions1,
+       case expr2 then instructions2,
+       ...
+       case exprn then instructionsn,
+       [else instructions],
+     end
+       
+        
+
+Notes:
+
+**-**The only constraint is that each "then" keyword must be on the same
+line line as corresponding "case" keyword.
+
+**-**The keyword "then" can be replaced by a carriage return or a comma.
+``           instructions1         `` are executed if
+``           expr1=expr         ``, etc.
+
+Warning: the number of characters used to define the body of any
+conditionnal instruction (if while for or select/case) must be limited
+to 16k.
+
+Examples
+~~~~~~~~
+
+::
+
+
+    while %t do
+      n=round(10*rand(1,1))
+      select n
+      case 0 then 
+        disp(0)
+      case 1 then
+        disp(1)
+      else
+        break
+      end
+    end
+      
+     
+      
+
+See Also
+~~~~~~~~
+
+```           if         `` <if.htm>`_,
+```           while         `` <while.htm>`_,
+```           for         `` <for.htm>`_,

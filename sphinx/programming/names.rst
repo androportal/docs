@@ -1,0 +1,39 @@
+Scilab Syntax
+
+Last update : April 1993
+
+**names** - scilab names syntax
+
+Description
+~~~~~~~~~~~
+
+Names of variables and functions must begin with a letter or one of the
+following special characters '``         %       ``',
+'``         _       ``', '``         #       ``',
+'``         !       ``', '``         $       ``',
+'``         ?       ``'.
+
+Next characters may be letters or digits or any special character in
+'``         _       ``', '``         #       ``',
+'``         !       ``', '``         $       ``',
+'``         ?       ``'
+
+Names may be as long as you want but only the first 24 characters are
+taken into account. Upper and lower case letters are different.
+
+Examples
+~~~~~~~~
+
+::
+
+
+    //Valid names
+    %eps
+    A1=123
+    #Color=8
+    My_Special_Color_Table=rand(10,3)
+    //Non valid names
+    //1A , b%, .C
+     
+      
+
