@@ -173,8 +173,9 @@ Developing the APK for the Porting of the Programming Languages
     </TableRow>
 
  
-.. image:: /img.jpg
-   :name: screenshot1
+.. image:: images/apl.png
+   :name: apl main icon page
+   :align: center
 
 +
 
@@ -192,8 +193,9 @@ Developing the APK for the Porting of the Programming Languages
               android:layout_height="fill_parent" />
 
 		
-.. image:: /img.jpg
-   :name: screenshot1
+.. image:: images/text_console.png
+   :name: text editor and console output page
+   :align: center
 
 +
 				

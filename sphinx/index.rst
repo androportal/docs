@@ -2,39 +2,78 @@
    sphinx-quickstart on Sat Jun 30 12:06:25 2012.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
+====
 Welcome to Aakash programming lab(APL) documentation!
-===============================
+====
 
 Contents:
 
-.. toctree::
-   :maxdepth: 5
+1. Installing Aakash Programming Lab(APL)
+====
+.. topic:: Installation
 
-   	      
-   android_fs
-   rooting
-   adb
-   setting_chroot_env
-   beyond_w3scilab
-   showing_webpage_in_webview
-   replace_output_textarea_with_shellinabox
-   calling_chrootjs_from_app
-   setting_up_gui
-   ref
-   bibliography
-   team
+	   .. toctree::
+	      :maxdepth: 5
+			 
+	      install
 
-..   app_on_android
-   ctutorial
+2. User Manual
+====
+.. topic:: Manual
+
+	   .. toctree::
+	      :maxdepth: 5
+
+	      user_manual
 
 
+3. Developer’s manual
+====
+.. topic:: Developers
+
+	   .. toctree::
+	      :maxdepth: 5
+
+	      developer
+
+4. Reference Manual
+====
+.. topic:: References   
 
 
-Indices and tables
+	   .. toctree::
+	      :maxdepth: 5
+
+	      ref
+
+5. FAQ's
+====
+.. topic:: faq's
+
+
+	   .. toctree::
+	      :maxdepth: 5
+
+	      faq
+   
+
+6. Bibligraphy
+====
+.. topic:: Bibliography
+
+
+	   .. toctree::
+	      :maxdepth: 5
+
+	      bib
+	   
+
+7. Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
 

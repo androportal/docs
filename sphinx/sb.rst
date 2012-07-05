@@ -26,6 +26,7 @@ A line was commented
                   var partial = height % this.cursorHeight;
                   // this.scrollable.style.height = (height > 0 ? height : 0) + 'px';  
                   this.padding.style.height    = (partial > 0 ? partial : 0) + 'px';
+
 1.2 Horizontal scroll
 ====
 
