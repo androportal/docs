@@ -1,0 +1,111 @@
+====
+"rand"
+====
+
+Scilab Function Last update : 19/11/2004
+**rand** - random number generator
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+rand(m1,m2,.. [,key])
+rand(x [, key])
+rand()
+
+rand(key)
+rand("seed" [,n])
+rand("info")
+
+
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ **mi** : integers
++ **key** : character string with value in **"uniform"** ,
+  **"normal"**
++ **x** : a matrix. Only its dimensions are taken into account.
+
+
+
+
+Description
+~~~~~~~~~~~
+
+random matrix generator.
+
+Without key argument the syntaxes below produce random matrices with
+the current random generator (default is "uniform")
+
+**rand(m1,m2)** is a random matrix of dimension **m1** by **m2** .
+**rand(m1,m2,..,mn)** is a random matrix of dimension **m1** by **m2**
+  ,.. by **mn** .
+**rand(a)** is a random matrix of same size as a. **rand(a)** is
+  complex if **a** is a complex matrix.
+**rand() : with no arguments gives a scalar whose value changes** each
+  time it is referenced.
+
+
+If present, the key argument allows to specifie an other random
+distribution.
+
+**rand('uniform')** The current random generator is set to a uniform
+  random generator. Random numbers are uniformly distributed in the
+  interval (0,1).
+**rand('normal')** The current random generator is set to a Gaussian
+  (with mean 0 and variance 1) random number generator.
+**str=rand('info')** return the type of the default random generator
+  ('uniform' or 'normal')
+
+
+IT is possible to (re-)initialize the seed of the rand generator:
+
+**rand('seed')** returns the current value of the seed.
+**rand('seed',n)** puts the seed to **n** . (by default **n=0** at
+  first call).
+
+
+
+
+Remark
+~~~~~~
+
+Use the more powerful function ` **grand** `_ instead.
+
+
+
+Examples
+~~~~~~~~
+
+
+::
+
+    
+    
+    x=rand(10,10,'uniform')
+    rand('normal')
+    rand('info')
+    y=rand(x,'normal');
+    x=rand(2,2,2)
+     
+      
+
+
+
+
+See Also
+~~~~~~~~
+
+` **grand** `_,` **ssrand** `_,
+
+.. _
+      : ://./elementary/ssrand.htm
+.. _
+      : ://./elementary/../dcd/grand.htm
+
+

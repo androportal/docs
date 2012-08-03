@@ -1,0 +1,62 @@
+====
+"modulo"
+====
+
+Scilab Function Last update : April 1993
+**modulo** - symetric arithmetic remainder modulo m
+
+**pmodulo** - positive arithmetic remainder modulo m
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+i=modulo(n,m)
+i=pmodulo(n,m)
+
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ **n,m** : integers
+
+
+
+
+Description
+~~~~~~~~~~~
+
+**modulo** computes **i= n (modulo m)** i.e. remainder of **n**
+divided by **m** ( **n** and **m** integers).
+
+i = n - m .* int (n ./ m). Here the answer may be negative if **n** or
+**m** are negative.
+
+**pmodulo** computes **i = n - m .* floor (n ./ m)** , the answer is
+positive or zero
+
+
+
+Examples
+~~~~~~~~
+
+
+::
+
+    
+    
+    n=[1,2,10,15];m=[2,2,3,5];
+    modulo(n,m)
+    
+    modulo(-3,9)
+    pmodulo(-3,9)
+     
+      
+
+
+
+

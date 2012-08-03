@@ -1,0 +1,30 @@
+====
+"AdCommunications"
+====
+
+Scilab description Last update : 05/08/2005
+**AdCommunications** - advanced communication toolbox for parallel
+programming
+
+
+
+Description
+~~~~~~~~~~~
+
+This the beta version of the Advanced Communications Toolbox (ACT).
+
+This toolbox is based on existing libraries, such as
+
+PVM - Parallel Vitual Machine
+
+PBLAS - Message Passing Library dedicated to Matrix
+
+ScaLapack - Parallel linear algebra Library
+
+ACT manage remote executions of softwares and allow efficient
+exchanges of messages between those softwares. It offers the
+possibility to exploit numerous machines on a network, as a virtual
+computer, by creating a distributed group of independent softwares.
+
+
+

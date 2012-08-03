@@ -1,0 +1,112 @@
+====
+"champ_properties"
+====
+
+Scilab Data type Last update : 10/10/2005
+**champ_properties** - description of the 2D vector field entity
+properties
+
+
+
+Description
+~~~~~~~~~~~
+
+The Champ entity is a leaf of the graphics entities hierarchy. This
+entity defines the parameters for a 2D vector field.
+
+**visible: **This properties contains the **visible** property value
+  for the entity . It should be **"on" ** or **"off"** . If **"on" **
+  the vector field is drawn, If **"off"** the vector field is not
+  displayed on the screen.
+**data: **This field defines a **tlist** data structure of type
+  **"champdata"** composed of a row and column indices of each element :
+  the x and y grid coordinates are contained respectively in **data.x **
+  and **data.y** . The complementary fields named **data.fx** and
+  **data.fy** are matrices which describe respectively the **x** and
+  **y** component of the vector field at point **(x(i),y(j))** .
+**user_data: **This field can be use to store any scilab variable in
+  the champ data structure, and to retreive it.
+**line_style: **The **line_style** property value should be an integer
+  in [0 9]. 0 stands for solid the other value stands for a selection of
+  dashes. This property applies to all lines used to draw the vector
+  field.
+**thickness: **This property contains the **thickness** property for
+  all lines used to draw the vector field. Its value should be a non
+  negative integer..
+**colored: **If this this property value is **"on"** , fields vectors
+  are drawn using a color proportional to the intensity of the field.
+**clip_state: **This field contains the **clip_state** property value
+for the champ. It should be :
+    **** **"off"** this means that the vector field is not clipped
+    **** **"clipgrf"** this means that the vector field is clipped outside
+      the Axes box.
+    **** **"on"** this means that the vector field is clipped outside the
+      rectangle given by property clip_box.
+
+
+**clip_box: **This property contains the **clip_box** property. Its
+  value should be an empty matrix if clip_state is "off" .Other cases
+  the vector **[x,y,w,h]** (upper-left point width height) defines the
+  portions of the vector field to display, however **clip_state**
+  property value will be changed.
+**parent: **This property contains the handle of the parent. The
+  parent of the 2D vector field entity should be of the type **"Axes"**
+  or **"Compound"** .
+
+
+
+
+Examples
+~~~~~~~~
+
+
+::
+
+    
+    
+      
+      set("figure_style","new") //create a figure
+       a=get("current_axes");//get the handle of the newly created axes
+       a.data_bounds=[-10,-10;10,10];
+       champ(-5:5,-5:5,rand(11,11),rand(11,11))
+    
+       c=a.children
+    
+       c.colored="on";
+       c.thickness=2;
+       c.data // display the tlist of type "scichampdata"
+       a.data_bounds=[-5,-5;5,5];
+    
+     
+      
+
+
+
+
+See Also
+~~~~~~~~
+
+` **set** `_,` **get** `_,` **delete** `_,` **champ** `_,` **champ1**
+`_,` **graphics_entities** `_,
+
+
+
+Author
+~~~~~~
+
+Djalel ABDEMOUCHE
+
+.. _
+      : ://./graphics/graphics_entities.htm
+.. _
+      : ://./graphics/set.htm
+.. _
+      : ://./graphics/champ.htm
+.. _
+      : ://./graphics/champ1.htm
+.. _
+      : ://./graphics/get.htm
+.. _
+      : ://./graphics/delete.htm
+
+

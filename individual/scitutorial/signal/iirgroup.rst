@@ -1,0 +1,42 @@
+====
+"iirgroup"
+====
+
+Scilab Function Last update : April 1993
+**iirgroup** - group delay Lp IIR filter optimization
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+[lt,grad]=iirgroup(p,r,theta,omega,wt,td)
+[cout,grad,ind]=iirlp(x,ind,p,[flag],lambda,omega,ad,wa,td,wt)
+
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ **r** : vector of the module of the poles and the zeros of the
+  filters
++ **theta** : vector of the argument of the poles and the zeros of the
+  filters
++ **omega** : frequencies where the filter specifications are given
++ **wt** : weighting function for and the group delay
++ **td** : desired group delay
++ **lt, grad** : criterium and gradient values
+
+
+
+
+Description
+~~~~~~~~~~~
+
+optimization of IIR filters for the Lp criterium for the the group
+delay. (Rabiner & Gold pp270-273).
+
+
+

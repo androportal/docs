@@ -1,0 +1,93 @@
+====
+"sensi"
+====
+
+Scilab Function Last update : April 1993
+**sensi** - sensitivity functions
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+[Se,Re,Te]=sensi(G,K)
+[Si,Ri,Ti]=sensi(G,K,flag)
+
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ **G** : standard plant ( **syslin** list)
++ **K** : compensator ( **syslin** list)
++ **flag** : character string **'o'** (default value) or **'i'**
++ **Se** : output sensitivity function **(I+G*K)^-1**
++ **Re** : **K*Se**
++ **Te** : **G*K*Se** (output complementary sensitivity function)
+
+
+
+
+Description
+~~~~~~~~~~~
+
+**sensi** computes sensitivity functions. If **G** and **K** are given
+in state-space form, the systems returned are generically minimal.
+Calculation is made by **lft** , e.g., **Se** can be given by the
+commands ** P = augment(G,'S')** , **Se=lft(P,K)** . If **flag** =
+**'i'** , **[Si,Ri,Ti]=sensi(G,K,'i')** returns the input sensitivity
+functions.
+
+
+::
+
+    
+    
+    [Se;Re;Te]= [inv(eye()+G*K);K*inv(eye()+G*K);G*K*inv(eye()+G*K)];
+    [Si;Ri;Ti]= [inv(eye()+K*G);G*inv(eye()+K*G);K*G*inv(eye()+K*G)];
+       
+        
+
+
+
+
+Examples
+~~~~~~~~
+
+
+::
+
+    
+    
+    G=ssrand(1,1,3);K=ssrand(1,1,3);
+    [Se,Re,Te]=sensi(G,K);
+    Se1=inv(eye()+G*K);  //Other way to compute
+    ss2tf(Se)    //Se seen in transfer form
+    ss2tf(Se1)
+    ss2tf(Te)
+    ss2tf(G*K*Se1)
+    [Si,Ri,Ti]=sensi(G,K,'i');
+    w1=[ss2tf(Si);ss2tf(Ri);ss2tf(Ti)]
+    w2=[ss2tf(inv(eye()+K*G));ss2tf(G*inv(eye()+K*G));ss2tf(K*G*inv(eye()+K*G))];
+    clean(w1-w2)
+     
+      
+
+
+
+
+See Also
+~~~~~~~~
+
+` **augment** `_,` **lft** `_,` **h_cl** `_,
+
+.. _
+      : ://./robust/h_cl.htm
+.. _
+      : ://./robust/lft.htm
+.. _
+      : ://./robust/augment.htm
+
+

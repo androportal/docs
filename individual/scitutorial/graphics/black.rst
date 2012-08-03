@@ -1,0 +1,109 @@
+====
+"black"
+====
+
+Scilab Function Last update : 28/06/2004
+**black** - Black's diagram (Nichols chart)
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+black( sl,[fmin,fmax] [,step] [,comments] )
+black( sl,frq [,comments] )
+black(frq,db,phi [,comments])
+black(frq,repf [,comments])
+
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ **sl** : list ( linear system **syslin** )
++ **fmin,fmax** : real scalars (frequency bounds)
++ **frq** : row vector or matrix (frequencies)
++ **db,phi** : row vectors or matrices (modulus, phase)
++ **repf** : row vectors or matrices (complex frequency response)
++ **step** : real
++ **comments** : string
+
+
+
+
+Description
+~~~~~~~~~~~
+
+Black's diagram (Nichols'chart) for a linear system **sl** . **sl**
+can be a continuous-time or discrete-time SIMO system (see **syslin**
+). In case of multi-output the outputs are plotted with different
+symbols.
+
+The frequencies are given by the bounds **fmin,fmax** (in Hz) or by a
+row-vector (or a matrix for multi-output) **frq** .
+
+**step** is the ( logarithmic ) discretization step. (see **calfrq**
+for the choice of default value).
+
+**comments** is a vector of character strings (captions).
+
+**db,phi** are the matrices of modulus (in Db) and phases (in
+degrees). (One row for each response).
+
+**repf** matrix of complex numbers. One row for each response.
+
+To plot the grid of iso-gain and iso-phase of **y/(1+y)** use
+**chart()** .
+
+Default values for **fmin** and **fmax** are **1.d-3** , **1.d+3** if
+**sl** is continuous-time or **1.d-3** , **0.5** if **sl** is
+discrete-time.
+
+
+
+Examples
+~~~~~~~~
+
+
+::
+
+    
+    
+    s=poly(0,'s')
+    h=syslin('c',(s^2+2*0.9*10*s+100)/(s^2+2*0.3*10.1*s+102.01))
+    chart();
+    sstr='(s^2+2*0.9*10*s+100)/(s^2+2*0.3*10.1*s+102.01)';
+    black(h,0.01,100,sstr);
+    h1=h*syslin('c',(s^2+2*0.1*15.1*s+228.01)/(s^2+2*0.9*15*s+225))
+    clf()
+    black([h1;h],0.01,100,['h1';'h'])
+     
+      
+
+
+
+
+See Also
+~~~~~~~~
+
+` **bode** `_,` **nyquist** `_,` **chart** `_,` **freq** `_,`
+**repfreq** `_,` **calfrq** `_,` **phasemag** `_,
+
+.. _
+      : ://./graphics/../control/repfreq.htm
+.. _
+      : ://./graphics/nyquist.htm
+.. _
+      : ://./graphics/../control/calfrq.htm
+.. _
+      : ://./graphics/../control/phasemag.htm
+.. _
+      : ://./graphics/chart.htm
+.. _
+      : ://./graphics/bode.htm
+.. _
+      : ://./graphics/../control/freq.htm
+
+

@@ -1,0 +1,43 @@
+====
+"prbs_a"
+====
+
+Scilab Function Last update : 16/12/2004
+**prbs_a** - pseudo random binary sequences generation
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+[u]=prbs_a(n,nc,[ids])
+
+
+
+
+Description
+~~~~~~~~~~~
+
+generation of pseudo random binary sequences **u=[u0,u1,...,u_(n-1)]**
+u takes values in {-1,1} and changes at most nc times its sign. ids
+can be used to fix the date at which u must change its sign ids is
+then an integer vector with values in **[1:n]** .
+
+
+
+Examples
+~~~~~~~~
+
+
+::
+
+    
+    
+    u=prbs_a(50,10);
+    plot2d2("onn",(1:50)',u',1,"151",' ',[0,-1.5,50,1.5]);
+     
+      
+
+
+
+

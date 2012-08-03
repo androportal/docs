@@ -1,0 +1,93 @@
+=========
+utilities
+=========
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   utilities/realtime
+   utilities/dirname
+   utilities/intersci
+   utilities/setlanguage
+   utilities/with_atlas
+   utilities/unix_g
+   utilities/chdir
+   utilities/man
+   utilities/add_demo
+   utilities/ilib_compile
+   utilities/link
+   utilities/savehistory
+   utilities/add_palette
+   utilities/head_comments
+   utilities/sleep
+   utilities/ilib_gen_gateway
+   utilities/printsetupbox
+   utilities/rmdir
+   utilities/clipboard
+   utilities/listfiles
+   utilities/configure_msvc
+   utilities/tohome
+   utilities/foo
+   utilities/with_gtk
+   utilities/ilib_gen_loader
+   utilities/getshortpathname
+   utilities/clc
+   utilities/make_index
+   utilities/ilib_build
+   utilities/perl
+   utilities/findmsvccompiler
+   utilities/getshell
+   utilities/ilib_for_link
+   utilities/sethomedirectory
+   utilities/banner
+   utilities/getos
+   utilities/language
+   utilities/datenum
+   utilities/toprint
+   utilities/scipad
+   utilities/toolbar
+   utilities/with_javasci
+   utilities/timer
+   utilities/about
+   utilities/apropos
+   utilities/whatis
+   utilities/ilib_gen_Make
+   utilities/with_texmacs
+   utilities/getmemory
+   utilities/console
+   utilities/getlongpathname
+   utilities/gethistory
+   utilities/getscilabkeywords
+   utilities/with_pvm
+   utilities/calendar
+   utilities/basename
+   utilities/unix_x
+   utilities/pathconvert
+   utilities/scilink
+   utilities/with_tk
+   utilities/ulink
+   utilities/loadhistory
+   utilities/c_link
+   utilities/unix_w
+   utilities/resethistory
+   utilities/winopen
+   utilities/help_skeleton
+   utilities/edit_error
+   utilities/G_make
+   utilities/dec2hex
+   utilities/datevec
+   utilities/winqueryreg
+   utilities/help
+   utilities/add_help_chapter
+   utilities/hex2dec
+   utilities/unix_s
+   utilities/unix
+   utilities/sci2map
+   utilities/scilab
+   utilities/percenthelps
+   utilities/mkdir
+   utilities/create_palette
+   utilities/sci2exp
+   utilities/xmlt.rstl

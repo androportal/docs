@@ -1,0 +1,63 @@
+====
+"mps2linpro"
+====
+
+Scilab Function Last update : MAY 1998
+**mps2linpro** - convert lp problem given in MPS format to linpro
+format
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+lp = mps2linpro(mps)
+[p,C,b,ci,cs,mi] = mps2linpro(mps)
+
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ **mps** : either a character string, path of the MPS file, or an mps
+  data structure returned by **readmps**
++ **lp** : a linpro data tlist with following fields:
+
+    + **p** : real (column) vector (dimension ** n** )
+    + **C** : real matrix (dimension ** (mi + md) x n** ) (If no
+      constraints are given, you can set **C = []** )
+    + **b** : RHS vector (dimension **1 x (mi + md)** )
+    + **ci** : (column) vector of lower-bounds (dimension ** n** ). If
+      there are no lower bound constraints, put **ci = []** . If some
+      components of **x** are bounded from below, set the other
+      (unconstrained) values of **ci** to a very large negative number (e.g.
+      **ci(j) = -(% eps)^(-1)** .
+    + **cs** : (column) vector of upper-bounds. (Same remarks as above).
+    + **mi** : number of equality constraints (i.e. **C(1:mi,:)*x =
+      b(1:mi)** )
+
+
+
+
+
+Description
+~~~~~~~~~~~
+
+mps2linpro forms Linear programing data compatible with linpro out of
+MPS data format.
+
+
+
+See Also
+~~~~~~~~
+
+` **linpro** `_,` **readmps** `_,
+
+.. _
+      : ://./elementary/../fileio/readmps.htm
+.. _
+      : ://./elementary/../nonlinear/linpro.htm
+
+

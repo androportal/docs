@@ -1,0 +1,51 @@
+====
+"slash"
+====
+
+Scilab Function Last update : April 1993
+**slash** - (/) right division and feed back
+
+
+
+Description
+~~~~~~~~~~~
+
+Right division. **x=A / b** is the solution of **x*b=A** .
+
+**b/a = (a' \ b')'** .
+
+**a ./ b** is the matrix with entries **a(i,j)/ b(i,j)** . If **b** is
+scalar (1x1 matrix) this operation is the same as ** a./b*ones(a)** .
+(Same convention if **a** is a scalar).
+
+Remark that **123./b** is interpreted as **(123.)/b** . In this cases
+dot is part of the number not of the operator.
+
+Backslash stands for left division.
+
+System feed back. **S=G/.K** evaluates **S=G*(eye()+K*G)^(-1)** this
+operator avoid simplification problem.
+
+Remark that **G/.5** is interpreted as **G/(.5)** . In such cases dot
+is part of the number, not of the operator.
+
+Comment **//** comments a line i.e lines which begin by **//** are
+ignored by the interpreter.
+
+
+
+See Also
+~~~~~~~~
+
+` **inv** `_,` **percent** `_,` **backslash** `_,` **ieee** `_,
+
+.. _
+      : ://./programming/percent.htm
+.. _
+      : ://./programming/../linear/inv.htm
+.. _
+      : ://./programming/backslash.htm
+.. _
+      : ://./programming/ieee.htm
+
+

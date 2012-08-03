@@ -1,0 +1,188 @@
+=================================
+Using Aakash Programming Lab(APL)
+=================================
+
+Overview
+========
+
+1. Locate and click on Aakash Programming Lab(APL) icon in
+   application menu
+   
+.. image:: icons/apl.png
+   :align: center
+   :alt: apl icon
+   :width: 50px 
+   :height: 50px
+   
+2. After clicking on APL icon, you will see a screen with four icons
+   horizontally placed, naming **C, C++, Python and Scilab**
+
+.. image:: images/apl.png
+   :align: center
+   :alt: apl main page
+   :width: 400px 
+   :height: 250px
+	   
+3. In any of the above four option(*C, C++, Python, Scilab) we have
+   these common  components.
+
+    - *Text editor*: is located on the left hand side. One can write
+      source code in text editor. If you click on the text editor
+      area, a virtual keyboard will appear and one can use it to write
+      programs. Click ``back button`` (located at right top corner on
+      Android status bar) to close the virtual keyboard.
+
+    - *Console output*: is located at right hand side, this will show
+      the output of the program.
+
+      .. image:: images/text_area_console_output.png
+	 :align: center
+	 :alt: text area and output console
+	 :width: 400px 
+	 :height: 250px
+
+    .
+
+    - *Execute button*: is located on left side of text area. It is a
+      small icon(looks like gears). After writing code in text
+      editor, one can click on ``execute`` button to view output. The
+      output will appear in console output screen(it should take
+      approximately 2 to 10 seconds, depends upon code and algorithm).
+
+      .. image:: images/execute.png
+	 :align: center
+	 :alt: execute
+	 :width: 50px
+	 :height: 50px
+
+    .
+    
+    - *Example Programs*: Clicking on the ``option button`` at top
+      right corner, next to the ``back button`` will pop up the
+      horizontal menubar from the bottom. with ``Example`` Programs
+      button at the bottom.
+
+      .. image:: images/horizontal_menubar.png
+	 :align: center
+	 :alt: horizontal menubar
+	 :width: 400px 
+
+    .
+    
+    - *Save Code*: The ``Save Code`` option will pop up a dialog box
+      which ask's for a file name. You don't have to provide the file
+      extension, it will be appended by-default. All codes will be
+      saved in ``/mnt/sdcard/APL/`` directory. Within the ``/APL/``
+      directory, you can browse through respective language directory
+      to view your code or an [image]_ file.
+
+      .. image:: images/cpp_name_code.png
+	 :align: center
+	 :alt: horizontal menubar
+	 :width: 400px 
+
+    .
+
+    - Click on the ``Example`` Programs button, it will show list of
+      example programs. Click on any example to select. The example
+      code will appear on text editor. Then click on the execute
+      button to run. Output will appear in Console output. One can
+      optionally edit the code in text editor and execute again.
+
+
+      .. image:: images/choose_ur_file.png
+	 :align: center
+	 :alt: choose examples(scilab)
+	 :width: 400px 
+	 :height: 150px	
+
+.
+
+4. Scilab has one extra component, i.e *plot* option. This will appear
+   at the bottom-left of the page. Check this option if your code has
+   any plots involved. Uncheck when not needed. All the examples
+   provided in Scilab have graphical output, hence graphical option is
+   selected automatically when one choose an example.
+
+   .. image:: images/plot_icon.png
+      :align: center
+      :alt: plot icon chexk box for scilab graphical output
+
+.
+
+5. One can switch back to other programming environment by clicking
+   ``back button`` which will land you to step 2 (page with 4
+   options).
+
+6. To exit APL one has to click ``back button`` twice, this will pop
+   up one confirmation dialog box. Click ``Yes`` to exit Aakash
+   Programming Lab
+
+   .. image:: images/exit.png
+      :align: center
+      :alt: exit APL
+      :width: 400px 
+      :height: 250px	
+
+C programming using **APL**
+================================
+
+.. topic:: Text output
+
+	   * Locate and click on Aakash Programming Lab(APL)
+             icon
+   
+	     .. image:: icons/apl.png
+		:align: center
+		:alt: apl icon
+		:width: 50px 
+		:height: 50px	
+
+	   .
+	   
+	   * After clicking on APL icon, you will see a screen with
+	     four icons horizontally placed, naming **C, C++, Python
+	     and Scilab**
+
+	     .. image:: images/apl.png
+		:align: center
+		:alt: apl main page
+		:width: 400px 
+		:height: 250px
+	   .
+	     
+	   * Click on `C` icon, this will land you in the
+	     `C` programming console.
+	     
+	     .. image:: images/c_blank_screen.png
+		:align: center
+		:alt: C blank screen
+		:width: 400px 
+		:height: 250px
+
+	   .
+	   
+	   * Touch on ``Text area`` to pop up the virtual
+             keyboard. Type your C code in the provided `Text
+             area`.
+	     
+	     .. image:: images/c_with_code.png
+		:align: center
+		:alt: C text console
+		:width: 400px 
+		:height: 250px
+
+	     .
+	     
+	   * and click on ``execute`` button to see the output in
+	     `Console Output`
+
+	     .. image:: images/c_with_output.png
+		:align: center
+		:alt: C output console
+		:width: 400px 
+		:height: 250px
+
+	     
+.. [image] right now, only scilab has an additional directory called
+	   ``image`` beside ``code`` directory. The complete path is ``/mnt/sdcard/APL/scilab/image``
