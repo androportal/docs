@@ -1,0 +1,1338 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 10 Classes &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chapter-10-classes">
+<h1>Chapter 10 Classes<a class="headerlink" href="#chapter-10-classes" title="Permalink to this headline">¶</a></h1>
+<p>This module will cover how to create classes in C++ and thus create
+objects. Defining an object involves describing a new data type
+together with the functions that can manipulate that type.</p>
+<div class="section" id="naming-and-coding-conventions">
+<h2>10.1 Naming and Coding Conventions<a class="headerlink" href="#naming-and-coding-conventions" title="Permalink to this headline">¶</a></h2>
+<p>In order to introduce consistency in the naming of classes and the
+components of those classes, such as data items and functions, a
+naming and coding convention is needed. Both Microsoft and Borland
+have put forth recommendations for naming conventions of classes and
+the associated components of those classes. Some common
+characteristics exist between both recommendataions. Both companies
+suggest that all variable and class names use a mixed case convention
+in which words are capitalized and concatenated. Names of classes
+begin with a capital letter, while names of instances begin with a
+lower-case letter. Borland supplied class names start with a capital
+<strong>T</strong>, for type, where Microsoft supplied class names start with a
+capital <strong>C</strong>, for class. Both suggest that the next letter also be
+capitalized.</p>
+<div class="section" id="fig-10-1">
+<h3>Fig. 10-1<a class="headerlink" href="#fig-10-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>Borland                     Microsoft
+---------------------       -------------------------
+class TMainWindow       class CMainWindow
+{                       {
+   ...                     ...
+};                      };</pre>
+</div>
+<p>Data members and member functions of a class also are to use mixed
+case, and start with a lower-case letter. Borland makes no suggestions
+about data member naming. Microsoft suggests that data members start
+with a <strong>m_</strong> pair of characters. The <strong>m_</strong> indicates that the data
+items are member variables. Other sources suggest that private and
+protected data member names start with an underscore character. Using
+an underscore for the private data member allows the access function
+to have the same name as the data member, but without the underscore.
+The use of the underscore has been a common convention used by C
+programmers to indicate private symbols. The functions with the class
+should represent whether they belong to a group of accessor functions
+or mutator functions. Accessor functions only return the value of data
+members within the class. Mutator functions allow for the setting or
+changing of data members within the class. Accessor functions should
+start with the word get and mutator functions should start with the
+word set. Both types of functions should be followed by the name of
+the member variable that is being accessed.</p>
+</div>
+<div class="section" id="fig-10-2">
+<h3>Fig. 10-2<a class="headerlink" href="#fig-10-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>Borland                           Microsoft
+---------------------                 -------------------------
+class TMainWindow                 class CMainWindow
+{                                 {
+private:                          private:
+   int _data;                            int m_data;
+public:                               public:
+// Accessor                       // Accessor
+   int getData();                    int getData();
+// Mutator                        // Mutator
+   void setData( const int x );      void setData( const  int x );
+};                                };</pre>
+</div>
+<p>Occasionally, it is only possible or reasonable for one instance of a
+particular class to exist in a program. When this situation occurs,
+the name of that instance begins with the word the.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Application</span> <span class="o">*</span><span class="n">theApplication</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>All classes should use encapsulation as much as possible. Therefore,
+classes contain no public data members. When other classes need access
+to a data member, the class provides an inline accessor function. So,
+a sample class that contains some data needed outside the class can be
+written as:</p>
+</div>
+<div class="section" id="fig-10-3">
+<h3>Fig. 10-3<a class="headerlink" href="#fig-10-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>class CSampleClass
+{
+private:
+   int  _someData;     // an internally used int member
+   char *_aString;     // an internally used string member
+
+public:
+   SampleClass();      // constructor
+   //   Accessor functions
+   int getSomeData() { return (_someData); }
+   const char *const getAString() { return (_aString); }
+};</pre>
+</div>
+<p>If a class needs to allow an outside entity to set the value of a data
+member, the class can provide a function that assigns a new value to
+the <strong>protected</strong> data. If we wish to extend the previous example to
+allow the <strong>_someData</strong> member to be changed, we can provide a
+<strong>setSomeData()</strong> member function like this:</p>
+</div>
+<div class="section" id="fig-10-4">
+<h3>Fig. 10-4<a class="headerlink" href="#fig-10-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>class CSampleClass
+{
+private:
+   int  _someData;     // an internally used int member
+   char *_aString;     // an internally used string member
+
+public:
+   SampleClass();      // constructor
+   //   Accessor functions
+   int getSomeData() { return (_someData); }
+   const char *const getAString() { return (_aString); }
+   //   Mutator function sets private data
+   void setSomeData( int newValue )
+   { _someData = newValue; }
+};</pre>
+</div>
+<p>It is usually most convenient to maintain each C++ class separately,
+in two files. The class is declared in a header file, while the member
+functions are implemented in a separate source file. The name of the
+header file is usually the name of the class, with a <strong>.h</strong> suffix
+(i.e. Stack.h), while the name of the source file is the name of the
+class with a <strong>.cpp</strong> suffix for PC compilers and <strong>.cxx</strong> or <strong>.C</strong>
+or <strong>.cc</strong> for UNIX compilers. (i.e. stack.cpp or Stack.cxx). The GNU
+C++ compiler as of version 2.7.0 allows the use of <strong>.cpp</strong> as a
+source file extension. Some programmers also use a <strong>.H</strong> or <strong>.hpp</strong>
+suffix for the header file. Some compilers, GNU C++, may still require
+the use of a <strong>#pragma</strong> statement in both the header file and the C++
+source file. In the header file the statement has the form</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#pragma interface</span>
+</pre></div>
+</div>
+<p>and in the C++ source file the statement is</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#pragma implementation</span>
+</pre></div>
+</div>
+<p>Both statements must appear as the first statement in the their
+respective source files. The <strong>#pragma</strong> interface statement is used
+to indicate that the file holds the declaration of the interface to
+the class. The <strong>#pragma</strong> implementation indicates that the file
+holds the definition or implementation of the interface. These
+statements are required in older versions of the GNU C++ compiler and
+are recognized in the Borland C++ compiler, but have no effect. To
+prevent problems with multiple declarations, which can easily occur
+when header files are nested, all class header files have the form:</p>
+</div>
+<div class="section" id="fig-10-5">
+<h3>Fig. 10-5<a class="headerlink" href="#fig-10-5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#ifndef   CLASSNAME_H
+#define   CLASSNAME_H
+
+//   class declaration goes here
+class SampleClass
+{
+    ...
+};
+#endif</pre>
+</div>
+<p>In each file, <strong>CLASSNAME</strong> is replaced by the name of the class. In
+defining C++ classes it is usually the practice to include all header
+files needed by the class in the interface or <strong>.h</strong> file of that
+class. For example, a header file for a class named <strong>CStack</strong> would
+look like this:</p>
+</div>
+<div class="section" id="fig-10-6">
+<h3>Fig. 10-6<a class="headerlink" href="#fig-10-6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>// *********************************************************
+//   CStack.h:  Header file for the Stack class
+// *********************************************************
+#pragma interface
+
+#ifndef   CSTACK_H
+#define   CSTACK_H
+
+#include &lt;iostream.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+class CStack
+{
+public:
+    CStack();  // constructor
+    //   miscellaneous members
+};
+#endif</pre>
+</div>
+<p>The file <strong>CStack.cpp</strong> contains the implementation of all <strong>CStack</strong>
+member functions, as follows:</p>
+</div>
+<div class="section" id="fig-10-7">
+<h3>Fig. 10-7<a class="headerlink" href="#fig-10-7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>// *********************************************************
+//   CStack.cpp:     Implementation file for CStack class
+// *********************************************************
+#pragma implementation
+
+#include "CStack.h"
+
+CStack::CStack()
+{
+    // various initialization statements
+}</pre>
+</div>
+<p>Notice that <strong>CStack.cpp</strong> includes <strong>CStack.h</strong>, which contains the
+class declaration. Any other class that wishes to use an instance of
+<strong>CStack</strong> needs to include the file <strong>CStack.h</strong> as well. Because
+class headers may be included in many different source files in a
+program, it is important that the header contain only the class member
+declarations for both data members and function prototypes (except for
+<strong>inline</strong> functions) and does not define global variables or
+functions. The use of <strong>#define</strong> defined constants global to the
+class declaration is acceptable, although, the use of class local
+<strong>const</strong> identifiers is recommended. The terminology used by C++
+differs slightly from that used by many other object-oriented
+languages. C++ defines member functions instead of methods; calls a
+member function for an object instead of sending a message; creates
+base classes and derived classes instead of subclasses and
+superclasses, and so on. This book will primarily use the C++
+terminology, but occasionally slips into the more traditional object-
+oriented mode when these terms make more sense in the context of a
+discussion.</p>
+</div>
+</div>
+<div class="section" id="discovering-classes">
+<h2>10.2 Discovering Classes<a class="headerlink" href="#discovering-classes" title="Permalink to this headline">¶</a></h2>
+<p>One of the first decisions that must be made in creating an object-
+oriented application is the selection of classes. Classes in object-
+oriented programming can have several different types of
+responsibilities, and thus not surprisingly there are different
+categories of classes. The following categories, however, cover the
+majority of cases.
+:Data Managers, Data, or State Classes. These are classes whose</p>
+<blockquote>
+<div>principle responsibility is to maintain data or state information of
+one sort or another. Data manager classes are often recognizable as
+the nouns in a problem description and are usually the fundamental
+building blocks of a design. :Data Sinks, or Data Sources. These are
+classes that generate data, such as a random number generator, or
+accept data and then process them further, such as a class performing
+output to a disk file. Unlike a data manager, a data sink or data
+source does not hold the data for a period of time, but generates it
+on demand (for a data source), or processes it when called upon (for a
+data sink). :View or Observer classes. An essential portion of most
+applications is the display of information on an output device, such
+as a terminal screen. Because the code for performing such activity is
+often complex, frequently modified, and largely independent of the
+actual data being displayed, it is good programming practice to
+isolate display behavior in separate classes from those classes that
+maintain the data being displayed. Often the base data is called the
+model class while the display class is called the view. The model and
+view classes are coordinated through a control class, thus the term
+Model/View/Controller (MVC). The MVC types of classes are so common
+and important that this association of classes is described in a
+design pattern. Because we separate the model, also known as the
+document, from the view, the design of the model is usually greatly
+simplified. Ideally, the model should neither require nor contain any
+information about the view. This facilitates code reuse, since a model
+can then be used in several different applications. It is not uncommon
+for a single model to have more than one view. For example, financial
+information could be displayed as bar charts, pie charts, or tables of
+figures, all without changing the underlying model. Occasionally
+interaction between a model and a view is unavoidable. If the figures
+in the financial table just described are permitted to change
+dynamically, for example, the programmer might wish the view to be
+instantly updated. Thus it is necessary for the model to alert the
+view that the model has been changed and that the corresponding view
+should be updated. Some programmers refer to such a model as a
+subject, in order to distinguish it from a model with no knowledge of
+use. :Facilitater or Helper classes. These are classes that maintain
+little or no state information themselves but assist in the execution
+of complex tasks. For example, in displaying a card image on the
+screen, the programmer could use the services of a facilitater class
+that handles the drawing of lines and text on the display device.
+Another facilitater class would be one that helps maintain a linked
+list. These categories are intended to be representative of the most
+common uses of classes, and hence useful as a guide in the design
+phase of object-oriented programming, but the list is certainly not
+complete. Most object-oriented applications will include examples of
+each of these categories, as well as some that do not seem to fit into
+any group. If a class appears to span two or more of these categories,
+it can often be broken up into two or more classes.</div></blockquote>
+<p>:</p>
+<p>:</p>
+</div>
+<div class="section" id="classes-as-objects">
+<h2>10.3 Classes as Objects<a class="headerlink" href="#classes-as-objects" title="Permalink to this headline">¶</a></h2>
+<p>Defining an object involves describing a new data type together with
+the functions that can manipulate that type. A previous chapter has
+shown how to declare a data type using a <strong>struct</strong>. The <strong>struct</strong> in
+C++ allows for the data hiding of the implementation of a String and
+for the presentation of a public interface to be used by the
+programmer. But structures are limited in functionality in C++. To
+gain complete access to object-oriented capabilities, an object must
+be able to exist as part of a hierarchy of objects, where objects have
+inherited behavior and data members from base objects. The structure
+mechanism does not allow for inheritance or the inclusion into a
+hierarchy. The <strong>class</strong> in C++ provides all the functionality of the
+struct but also allows for the object being described to exist within
+a hierarchy of objects and to participate in polymorphic behavior.
+Behavior that structures cannot accomplish.</p>
+<div class="section" id="listing-10-1">
+<h3>Listing 10-1<a class="headerlink" href="#listing-10-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#if (__BORLANDC__ || __GNUC__)
+#pragma interface
+#endif
+
+#ifndef _CSTRING_H      // Make sure file is included only once
+#define _CSTRING_H
+
+#include &lt;iostream.h&gt;
+#include &lt;stddef.h&gt;    // for size_t type
+#include &lt;string.h&gt;    // for ANSI C string library
+#include &lt;sys/types.h&gt;
+#ifndef bool
+     enum bool
+     { false, true };
+#endif
+
+#define MAXLEN     256
+#define DEFAULT_STRING_SIZE_INCREM     10
+
+class CString
+{
+public:
+//  Constructor
+
+    CString();
+    CString( const size_t );
+    CString( const char *);
+    CString( const CString&amp; );
+    CString( const char *, const size_t );
+    CString( const CString&amp;, const size_t );
+
+//  Destructor
+
+    ~CString() { delete s; }
+
+protected:
+//  Internal data members of this class
+
+    char *_s;           //   pointer to allocated space
+    size_t _length;     //   current length of string
+    size_t _maxlen;     //   numbers of bytes allocated
+    size_t _sizeIncr;   //   increment on resize
+
+};
+#endif</pre>
+</div>
+<p>The <strong>public</strong> section lists the members that are accessible to any
+function in the program. Only member functions of the class can access
+the <strong>private</strong> and <strong>protected</strong> section. When inheritance is
+discussed it will be shown why the protected section is needed. For
+now, remember that the members in the <strong>protected</strong> section are
+accessible to other members of this class and to classes that are
+derived from this one. The class can have multiple <strong>public</strong>,
+<strong>private</strong>, and <strong>protected</strong> sections in a class. Each section label
+determines the access level of the members listed between that label
+and the next label or the closing right brace that marks the end of
+the class declaration. If the programmer does not provide any label at
+the beginning of a class, the compiler considers as <strong>private</strong> all
+members up to the next access control label.</p>
+</div>
+</div>
+<div class="section" id="returning-private-values-with-public-functions">
+<h2>10.4 Returning private values with public Functions<a class="headerlink" href="#returning-private-values-with-public-functions" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>public</strong> section of a class usually declares all the member
+functions of the class that can be invoked through an instance of the
+class in the program. These functions are the interface of the class
+to the outside world. To provide the value of a <strong>private</strong> variable
+to the outside world, the programmer can write a <strong>public</strong> member
+function, usually classified as an accessor function. For example, the
+following will give the length of the string held in the <strong>CString</strong>
+class:</p>
+<div class="highlight-python"><pre>.
+.
+.
+    CString x.
+.
+.
+.
+
+            if( x.getLength() &gt; 0 ) ...
+.
+.
+.</pre>
+</div>
+<p>Caution must be taken when returning a <strong>private</strong> data member is a
+pointer. By simply returning the value the pointer holds, which is an
+address, the value at that address is now open to modification from
+outside the class. It is best to return a const to a pointer type,
+which will prohibit the receiver of the address from using it to
+modify the data item through the address. A better and safer way to
+limit access to <strong>private</strong> data members would be to not use pointer
+data types but use an instance of another class, such as <strong>CString</strong>
+or <strong>CVector</strong> and return a reference to a class.</p>
+</div>
+<div class="section" id="member-functions">
+<h2>10.5 Member Functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
+<p>Member functions are the functions that are designed to implement the
+operations allowed on the data type represented by a class. To declare
+a member function, place its prototype in the body of the class. The
+definition of the function can be inside the class, outside the class
+but in the same file or in a separate file.</p>
+</div>
+<div class="section" id="inline-member-functions">
+<h2>10.5.1 Inline Member Functions<a class="headerlink" href="#inline-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>Defining a function inside the body of a class has a special
+consequence. Such definitions are considered to be <strong>inline</strong> and the
+entire body of an <strong>inline</strong> function is repeated whenever that
+function is called. The programmer does not have to define a function
+within a class to make it inline. Use the <strong>inline</strong> keyword in front
+of the function&#8217;s definition and the function becomes an inline
+function. However, the programmer can define an <strong>inline</strong> function
+only in the file in which it is defined. This is because the compiler
+needs the entire definition of an <strong>inline</strong> function so that it can
+insert the body of the function wherever the function is called. The
+programmer should place the definitions of <strong>inline</strong> functions in the
+same header file that declares a class to ensure that every program
+that uses the class can also use its <strong>inline</strong> functions.</p>
+</div>
+<div class="section" id="typical-public-member-functions">
+<h2>10.5.2 Typical Public Member Functions.<a class="headerlink" href="#typical-public-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>public</strong> member functions of a class are important because they
+provide the user interface to the class. Public member functions
+should include the following categories of functions:
+:Class Management Functions: This is a standard set of functions that</p>
+<blockquote>
+<div>perform chores such as creating an instance of the class
+(constructor), destroying it (destructor), creating an instance and
+initializing it by copying from another instance (copy constructor),
+assigning one instance to another ( <strong>operator=</strong> function), and
+converting an instance to some other type (type conversion operator).
+:Class Implementation Functions: These functions implement the
+behavior of the data type represented by the class. They are the
+workhorse of the class. For a <strong>CString</strong> class, these functions might
+include operator+ for concatenating strings and comparison operators
+such as <strong>operator==</strong>, <strong>operator&gt;</strong>, and <strong>operator&lt;</strong>. :Class
+Accessor Functions: These functions return information about the
+internal variables of a class. The outside world can access the
+object&#8217;s internal state through these functions. The <strong>getLength()</strong>
+function in the <strong>CString</strong> class is a good example of this type of
+member function. These types of functions should avoid returning
+pointers to private or protected data members. Returning a pointer
+gives direct access to the data member whose address has been
+returned. For example, suppose there is an accessor function that
+returns the null terminated array of characters held in the
+<strong>CString</strong> class, <strong>getString()</strong>. To limit the exposure to this
+internal data member by returning its address, return a const char *
+type. The use of const char * as the return type allows the return of
+the address but prohibits the use of the pointer to modify the data
+held at that address. In most cases the return of a pointer is
+discouraged. :Class Mutator Functions: These member functions allow
+for the passing of values into the class and the setting of private or
+protected data members. The data values passed must be protected so
+that the class member function does not have access to a data member
+outside the class. The arguments receiving the data values should be
+typed with <strong>const</strong> to access to the outside data variables. :Class
+Utility Functions: These member functions, often declared to be
+<strong>private</strong>, are used internally within the class for miscellaneous
+tasks such as error-handling.</div></blockquote>
+<p>:</p>
+</div>
+<div class="section" id="const-member-functions">
+<h2>10.5.3 const Member Functions<a class="headerlink" href="#const-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>If a member function does not alter any data in the class, the
+programmer should declare that member function to be a <strong>const</strong>
+function. For instance, the <strong>getLength()</strong> function of the
+<strong>CString</strong> class simply returns the value of a member variable. It is
+definitely a <strong>const</strong> function, because it does not change any data
+of the <strong>CString</strong> class. The programmer can declare it as such by
+appending a <strong>const</strong> to the usual function prototype:</p>
+<div class="highlight-python"><pre>size_t getLength( void ) const;</pre>
+</div>
+<p>This informs the compiler that the <strong>getLength()</strong> function is not
+supposed to alter any variable in the class. The compiler will
+generate an error message if the definition of the <strong>getLength()</strong>
+function includes any code that inadvertently assigns a value to any
+variable in the <strong>CString</strong> class.</p>
+</div>
+<div class="section" id="implementing-a-class">
+<h2>10.6 Implementing a Class<a class="headerlink" href="#implementing-a-class" title="Permalink to this headline">¶</a></h2>
+<p>When the programmer implements a class, he/she should think of the
+class as a provider of some service that other classes or functions
+need. The class is a server that acts on the requests of its clients.
+This is the idea behind the client-server architecture, and it works
+well when the programmer is implementing classes in object-oriented
+programs. The clients of a class make requests by calling the member
+functions of that class. The interface to the class refers to the
+information that a client must have in order to use the facilities of
+a class. At a minimum, the client has to know the following:</p>
+<ol class="arabic simple">
+<li>The names of the public member functions of the class.</li>
+<li>The prototypes of the member functions.</li>
+<li>The purpose of each member function.</li>
+</ol>
+<p>The header file describes the interface to a class. In fact, it shows
+the programmer everything except the functions that are defined in
+another file, but the application can access only those members that
+appear in the <strong>public</strong> section. Because the <strong>public</strong> section
+interface to the class is important to its clients, the programmer
+should place these declarations at the very beginning of a class.
+These can be followed by the <strong>protected</strong> section which is the same
+as <strong>private</strong> except when inheritance is involved . The <strong>private</strong>
+members can come last, because these members are visible only to the
+member functions of that class. A simple version of a <strong>CString</strong>
+class would be as follows:</p>
+<div class="section" id="listing-10-2">
+<h3>Listing 10-2<a class="headerlink" href="#listing-10-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;iostream.h&gt;
+#include &lt;string.h&gt;  // required by strlen, and strcpy
+
+class CString
+{
+public:
+    CString(const char *s);
+    ~CString();
+    void print() { cout &lt;&lt; str;}
+private:
+    char *_str;    // A traditional string
+    int _size;     // Size of str buffer
+};
+
+CString::CString(const char *s)
+{
+    _size = strlen(s);
+    _str = new char[size + 1];
+    strcpy(_str, s);
+}
+
+CString::~CString()
+{
+    delete _str;
+}
+
+int main()
+{
+CString s("Strings should be easy to use.\n");
+    s.print();
+    return 0;
+}</pre>
+</div>
+<p>Make sure that the header file includes all other header files that
+are required by the class. That way all that a user of the class has
+to remember is to include the particular class header file. The
+clients of a class do not need the definition of the member functions
+of a class. The programmer should place the actual definitions of the
+member functions in a separate file. For a class defining a
+<strong>CString</strong>, the programmer would define the interface to the class in
+the file <strong>cstring.h</strong>, and the member functions would be implemented
+in a second file, such as <strong>cstring.cpp</strong>. When the programmer defines
+a member function outside the body of a class, he/she has to associate
+each function with the class by explicitly using the scope resolution
+operator ( <strong>::</strong>). For the <strong>CString</strong> class, the programmer has to
+use a <strong>CString::</strong> prefix with each member function. A well-designed
+C++ class behaves like one of the basic data types such as <strong>int</strong>,
+<strong>char</strong>, or <strong>double</strong>, except that a class is likely to allow
+different types of operations than those allowed for the basic types.
+This is because the operations defined for a class include all of its
+public member functions, which can be as diverse as the functionality
+of a class warrants. Like the basic data types, to use a class in a
+program, the programmer has to follow these steps:</p>
+<ol class="arabic simple">
+<li>Define one or more instances of the class. These are the objects of
+object-oriented programming. Just as the programmer would write:</li>
+</ol>
+<div class="highlight-python"><pre> double x, y, z;     // doubles named x, y and z
+
+to create three instances of double variables, the programmer can
+create three **CString** objects with this code:</pre>
+</div>
+<div class="highlight-python"><pre> CString s1, s2, s3;  // CStrings names s1, s2, s3
+
+For a class that provides all required interface functions, the
+programmer should be able to create and initialize instances in a
+variety of ways:</pre>
+</div>
+<div class="highlight-python"><pre>CString s1 = "String 1";
+CString s2("Testing.1..2...3");
+CString s3 = s1;</pre>
+</div>
+<p>In each of these cases, the compiler calls the appropriate constructor
+and creates the <strong>CString</strong>.
+#. Call the member functions of the objects and use the available
+operators to manipulate the objects. For <strong>CString</strong> objects, the
+programmer might write code such as this:</p>
+</div>
+</div>
+<div class="section" id="listing-10-3">
+<h2>Listing 10-3<a class="headerlink" href="#listing-10-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>//
+//   tstring.cpp
+//
+#include "cstring.h"
+
+int main()
+{
+CString one, two("My Name is Charles Babbage"), both;
+CString a, b(20), c("I came by horse.");
+
+static char *str="I came on foot.";
+
+    a = "I came by bus.";
+    b = str;
+    one = "My name is Alan Turing.";
+    // Print shorter of one and two
+    cout &lt;&lt; "One Length: " &lt;&lt; one.length() &lt;&lt; endl;
+    cout &lt;&lt; "Two Length: " &lt;&lt; two.length() &lt;&lt; endl;
+    if( one.getLength() &lt;= two.getLength() )
+         one.print();
+    else
+         cout &lt;&lt; two;
+    cout &lt;&lt; "************* Begin Concatenation Test\n";
+    //  plus overloaded to be concatenated
+    both = one + two;
+    // using print method of String class
+    both.print();
+    // using overloaded &lt;&lt; operator of String
+    both = one + "::" + two;
+    cout &lt;&lt; both;
+
+    cout &lt;&lt; "************* End Concatenation Test\n";
+
+    // print each CString value
+    a.print();
+    b.print();
+    c.print();
+    // do it again showing the use of an overloaded operator
+    cout &lt;&lt; a;
+    cout &lt;&lt; b;
+    cout &lt;&lt; c;
+
+}</pre>
+</div>
+</div>
+<div class="section" id="creating-objects-on-the-fly">
+<h2>10.7 Creating Objects on the Fly<a class="headerlink" href="#creating-objects-on-the-fly" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways of creating instances of classes:</p>
+<ol class="arabic simple">
+<li>Define the objects just like defining int or double variables.</li>
+<li>Create the objects dynamically as needed.</li>
+</ol>
+<p>When the programmer creates objects through a class definition, the
+compiler can reserve storage for the objects during compilation. To
+dynamically create objects, the programmer needs a way to get a chunk
+of memory for the object. In C, the programmer can dynamically create
+variables or arrays by calling the functions such as <strong>malloc()</strong> or
+<strong>calloc()</strong> from the C library. Although the programmer can often
+create objects by defining instances of classes, dynamic allocation of
+objects is more interesting because this approach enables the
+programmer to use as much memory as is available in a system.</p>
+</div>
+<div class="section" id="allocating-objects-on-the-free-store">
+<h2>10.8 Allocating Objects on the Free Store<a class="headerlink" href="#allocating-objects-on-the-free-store" title="Permalink to this headline">¶</a></h2>
+<p>In C++, what was referred to as the heap in C is now referred to as
+the free store. In C++, the programmer gets the functionality of
+<strong>malloc()</strong> and <strong>calloc()</strong> by using the <strong>new</strong> operator, which
+allocates enough memory to hold all members of a class or a struct. If
+the programmer were to define a structure such as Opcode:</p>
+<div class="highlight-python"><pre>struct Opcode
+{
+     char *name;
+     void (*action)( void );
+};</pre>
+</div>
+<p>the programmer would allocate space for an instance of this structure
+as follows:</p>
+<div class="highlight-python"><pre>Opcode *p_code;
+p_code = new Opcode;</pre>
+</div>
+<p>In addition to the cleaner syntax, the new operator provides another
+advantage. If the <strong>Opcode</strong> structure has a constructor that takes no
+arguments, the new operator automatically calls that constructor to
+initialize the newly created instance of <strong>Opcode</strong>. In fact, the
+programmer has the option of specifying other initial values for an
+object allocated by <strong>new</strong>, if the class has additional
+constructors.. For example, the programmer can write:</p>
+<div class="highlight-python"><pre>CString *file_name = new CString("cpphelp.doc");
+int *first_byte = new int(128);</pre>
+</div>
+<p>to allocate and initialize a <strong>CString</strong> and an <strong>int</strong> object. The
+<strong>CString</strong> is initialized to <strong>cpphelp.doc</strong>, whereas the <strong>int</strong> is
+set to <a href="#id1"><span class="problematic" id="id2">**</span></a><strong>. The **CString</strong> is initialized by calling the
+<strong>CString(const char *)</strong> constructor of the <strong>CString</strong> class.</p>
+</div>
+<div class="section" id="destroying-objects-on-the-free-store">
+<h2>10.9 Destroying Objects on the Free Store<a class="headerlink" href="#destroying-objects-on-the-free-store" title="Permalink to this headline">¶</a></h2>
+<p>In C++, the <strong>delete</strong> operator serves the same purpose as C&#8217;s free.
+Like free, the <strong>delete</strong> operator expects a pointer to an object as
+its operand. Thus, if <strong>p_code</strong> is the pointer to an instance of
+<strong>Opcode</strong> created by the <strong>new</strong> operator, the programmer can destroy
+it by the statement:</p>
+<div class="highlight-python"><pre>delete p_code;</pre>
+</div>
+<p>In addition to freeing up storage used by the object, if that object&#8217;s
+class has a destructor defined, <strong>delete</strong> calls the destructor to
+ensure a proper clean-up.</p>
+</div>
+<div class="section" id="arrays-of-objects-on-the-free-store">
+<h2>10.10 Arrays of Objects on the Free Store<a class="headerlink" href="#arrays-of-objects-on-the-free-store" title="Permalink to this headline">¶</a></h2>
+<p>One use of <strong>new</strong> is to allocate an array of objects. The syntax for
+this is very much like the way the programmer would define arrays. For
+example, the programmer could define an array of <strong>CString</strong> objects
+by writing:</p>
+<div class="highlight-python"><pre>CString edit_buf[128];</pre>
+</div>
+<p>To create the same array on the free store, the programmer would use
+this:</p>
+<div class="highlight-python"><pre>CString *edit_buf = new String[128];</pre>
+</div>
+<p>The programmer can use the array of <strong>CString</strong> items as he/she would
+any other array. The first <strong>CString</strong> is <strong>edit_buf[0]</strong>, the second
+one is <strong>edit_buf[1]</strong>, and so on. There is a special syntax for
+deallocating the array of objects on free store. The programmer has to
+specify the size of the array when deallocating it by using the delete
+operator as follows:</p>
+<div class="highlight-python"><pre>delete[128] edit_buf;   or      delete [] edit_buf;</pre>
+</div>
+<p>This ensures that the destructor of the <strong>CString</strong> class is called
+for each element of the array. Each <strong>CString</strong> object maintains an
+internal pointer to a character array that is allocated by the
+constructor and freed by the destructor. Thus, a call to the
+destructor of each <strong>CString</strong> in the array takes care of properly
+deallocating the internal char arrays used by the <strong>CString</strong> objects.</p>
+</div>
+<div class="section" id="handling-errors-in-memory-allocation">
+<h2>10.11 Handling Errors in Memory Allocation<a class="headerlink" href="#handling-errors-in-memory-allocation" title="Permalink to this headline">¶</a></h2>
+<p>If the programmer can allocate many objects dynamically, chances are
+that sooner or later the free space will be exhausted and the new
+operator will fail. In ANSI C, when <strong>malloc()</strong> or <strong>calloc()</strong>
+fails, the function returns a NULL pointer. C++ gives the programmer a
+way to intercept allocation errors. When the <strong>new</strong> operator fails,
+it tests a function pointer named <strong>_new_handler</strong>. If this pointer is
+zero, <strong>new</strong> returns a NULL just as <strong>malloc()</strong> and <strong>calloc()</strong>.
+However, if <strong>_new_handler</strong> is nonzero, <strong>new</strong> calls the function
+whose address is in <strong>_new_handler</strong>. The programmer can handle all
+memory allocation errors in a central function by setting
+<strong>_new_handler</strong> to the address of the error-handling function. The
+advantage of handling errors this way is that the programmer no longer
+has to test each use of the <strong>new</strong> operator for a return value of
+NULL. The programmer can install an error-handler for <strong>new</strong> in one
+of two ways:</p>
+<ol class="arabic simple">
+<li>The function pointer <strong>_new_handler</strong> pointer is defined in the
+header file as follows:</li>
+</ol>
+<div class="highlight-python"><pre>     void (*_new_handler)();
+
+Thus, the programmer can simply include and directly set the
+**_new_handler** pointer as follows:</pre>
+</div>
+<div class="highlight-python"><pre>#include
+
+void my_new_handler();   // our own error_handler
+_new_handler = my_new_handler;</pre>
+</div>
+<ol class="arabic simple">
+<li>The second method is to use the set_new_handler function to install
+the error-handling function as follows:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#include</span>
+
+<span class="n">set_new_handler</span><span class="p">(</span> <span class="n">my_new_handler</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calling-member-functions">
+<h2>10.12 Calling Member Functions<a class="headerlink" href="#calling-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>In C++, object-oriented programs are built by creating instances of
+classes ( the objects ) as necessary. The program does its work by
+calling the member functions of the objects. The syntax for calling
+the member functions is similar to the syntax used to call any other
+function, except that the programmer has to use the <strong>.</strong> and <strong>-&gt;</strong>
+operators to identify the member function within the object. For
+example, to use the <strong>getLength()</strong> function of a <strong>CString</strong> object
+named <strong>s1</strong>, the programmer must use the <strong>.</strong> operator to specify
+the function:</p>
+<div class="highlight-python"><pre>CString s1;
+size_t len;
+len = s1.getLength();</pre>
+</div>
+<p>Apart from the use of the <strong>.</strong> operator to identify the function, the
+calling syntax is like other function calls. As with any function, the
+programmer has to know the member function&#8217;s return type as well as
+the number and type of arguments that it takes. For dynamically
+allocated objects, use the <strong>-&gt;</strong> operator as illustrated here:</p>
+<div class="highlight-python"><pre>CString *p_s = new CString( "Hello, World!");
+size_t len;
+len = p_s-&gt;getLength();</pre>
+</div>
+</div>
+<div class="section" id="using-static-member-variables">
+<h2>10.13 Using static Member Variables<a class="headerlink" href="#using-static-member-variables" title="Permalink to this headline">¶</a></h2>
+<p>When the programmer defines the member variables for a class, each
+instance of the class gets its own unique copy of the member
+variables. However, sometimes the programmer may want a single
+variable for all instances of a class. C++ makes use of the <strong>static</strong>
+keyword to introduce this type of member variable. Here the static
+member variables appear in the context of a rather useful class. Most
+C programmers at some time have debugged their program by inserting
+calls to <strong>printf()</strong> or <strong>fprintf()</strong> and printing out messages as
+well as values of variables of interest. These messages can help the
+programmer pinpoint where a program fails. Often programmers enclose
+these calls to <strong>fprintf()</strong> in an <strong>#if</strong> directive like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if defined(DEBUG)</span>
+<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&quot;Loop ended. Index = </span><span class="si">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+<span class="c">#endif</span>
+</pre></div>
+</div>
+<p>so that such messages are printed only when the preprocessor macro
+<strong>DEBUG</strong> is defined. In C++, the programmer can use a similar
+strategy for debugging, but instead of inserting calls to
+<strong>fprintf()</strong>, he/she can get the work down by a <strong>CDebug</strong> class. The
+class is designed so that whenever an instance of the <strong>CDebug</strong> class
+is created, it prints a message, properly indented to make it easier
+to follow the sequence of function calls. The <strong>CDebug</strong> class also
+provides a member function called print that can be used just like
+<strong>printf</strong>.</p>
+<div class="section" id="listing-10-4">
+<h3>Listing 10-4<a class="headerlink" href="#listing-10-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>//***************************************************************
+//  File:     CDebug.h
+//
+//  A class for debugging C++ programs.
+//
+//***************************************************************
+
+#if !defined(__DEBUG_H)
+#define __DEBUG_H
+
+#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+class CDebug
+{
+public:
+    CDebug( const char *label = " " );
+    ~CDebug();
+    void print( const char *format, ... );
+private:
+    unsigned int indent();
+    void draw_separator();
+
+    static unsigned int debug_level;
+    static unsigned int debug_on;
+    static unsigned int indent_by;
+    static unsigned int line_size;
+    enum { off = 0, on = 1 };
+
+};
+//***************************************************************
+//  INLINE FUNCTIONS
+//***************************************************************
+
+//***************************************************************
+// Destructor for the Debug class
+inline CDebug::~CDebug()
+{
+    debug_level--;
+    draw_separator();
+}
+
+#endif
+
+//
+//  CDebug.cpp - Implementation of Methods (Functions) for CDebug Class
+//
+#include "cdebug.h"
+//***************************************************************
+// Constructor for CDebug class
+CDebug::CDebug( const char *label )
+{
+int i;
+    if( debug_on )
+    {
+         draw_separator();
+         (void) indent();
+         fprintf(stderr, "%s\n", label);
+    }
+    debug_level++;
+}
+//***************************************************************
+// Use ANSI C's vfprintf() function to print debug message
+void CDebug::print( const char *format, ... )
+{
+va_list argp;
+    if( debug_on )
+    {
+         (void)indent();
+         va_start( argp, format );
+         vfprintf(stderr, format, argp );
+    }
+}
+//***************************************************************
+// Indent line according to debug_level; return the number
+// of spaces indented
+unsigned int CDebug::indent()
+{
+int i;
+unsigned int num_spaces = debug_level * indent_by;
+    for( i = 0; i &lt; num_spaces; ++i )
+         fputc(' ', stderr );
+    return( num_spaces );
+}
+//***************************************************************
+// Draw a separator using dashes (-) to identify debug levels
+void CDebug::draw_separator()
+{
+unsigned int i;
+
+    if( debug_on )
+    {
+         for( i = indent(); i &lt; line_size; ++i )
+              fputc( '-', stderr );
+         fputc('\n',stderr);
+    }
+}
+
+//***************************************************************
+//  File:     tdebug.cpp
+//
+//  Test the "Debug" class.
+//***************************************************************
+
+#include "cdebug.h"
+
+// Initialize the debug_level to 0 and debug_on to "on"
+// Static members MUST be initialized outside the scope of a
+// class member function
+
+unsigned int CDebug::debug_level = 0;
+unsigned int CDebug::debug_on = Debug::on;
+
+// Set number of characters per line to 55
+
+unsigned int CDebug::line_size = 55;
+
+// Indent by four spaces for each level
+
+unsigned int CDebug::indent_by = 4;
+
+//***************************************************************
+// Recursive function that evaluates factorial
+unsigned long factorial( int n )
+{
+CDebug dbg( "factorial" );
+    dbg.print( "argument = %d\n", n);
+    if( n == 1 )
+         return 1;
+    else
+         return n*factorial( n - 1 );
+}
+//***************************************************************
+// Main function to test "CDebug" class
+
+int main()
+{
+CDebug dbg("main");
+unsigned long n = factorial(4);
+    dbg.print("result = %ld\n", n );
+    return 0;
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="static-member-functions">
+<h2>10.14 Static Member Functions<a class="headerlink" href="#static-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>Like <strong>static</strong> member variables, the C++ programs can also use
+<strong>static</strong> member functions. In C programs, programmers often define
+<strong>static</strong> functions to confine the visibility of a function to a
+specific file. In C, by using the <strong>static</strong> keyword, the programmer
+can have more than one function with the same name in different files.
+C++ goes one step further and enables the programmer to use functions
+that are <strong>static</strong> within a class. The programmer can invoke such
+functions without creating any instance of the class. All the
+programmer has to do is use the scope resolution operator with the
+name of the class. As an example, suppose the programmer wants a
+<strong>static</strong> member function of the <strong>CDebug</strong> class that sets the
+debug_on variable. The programmer can declare such a function inside
+the body of the class as follows:</p>
+<div class="section" id="fig-10-8">
+<h3>Fig. 10-8<a class="headerlink" href="#fig-10-8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>class CDebug
+{
+public:
+//   ...
+static void set_debug( int on_off);
+//   ...
+private:
+//   ...
+};</pre>
+</div>
+<p>The function is defined just like any other member functions (notice
+that the programmer does not need the static keyword in the
+definition):</p>
+</div>
+<div class="section" id="fig-10-9">
+<h3>Fig. 10-9<a class="headerlink" href="#fig-10-9" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>void CDebug::set_debug( int on_off )
+{
+     if( on_off )
+          debug_on = on;
+     else
+          debug_on = off;
+}</pre>
+</div>
+<p>Once defined, the programmer can call this function just like an
+ordinary function but with a <strong>CDebug::</strong> prefix as follows:</p>
+</div>
+<div class="section" id="fig-10-10">
+<h3>Fig. 10-10<a class="headerlink" href="#fig-10-10" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>//   Turn debugging off
+CDebug::set_debug(0);
+//   ...
+//   Turn debugging on
+CDebug::set_debug(1);</pre>
+</div>
+<p>Notice that the programmer does not need an instance of the <strong>CDebug</strong>
+class to call the set_debug function. The scope resolution prefix (
+<strong>CDebug::</strong>) is necessary to indicate which <strong>set_debug</strong> function
+the programmer is calling. After all, another class may have also
+defined a static member function named <strong>set_debug</strong>.</p>
+</div>
+</div>
+<div class="section" id="using-pointers-to-class-members">
+<h2>10.15 Using Pointers to Class Members<a class="headerlink" href="#using-pointers-to-class-members" title="Permalink to this headline">¶</a></h2>
+<p>Because of encapsulation of data and functions in a class, C++
+includes the notion of a pointer to a class member in addition to
+ordinary pointers to class and functions. The pointer to a class
+member is actually the offset of the member from the beginning of a
+particular instance of that class. In other words, a pointer to a
+class member is a relative address, whereas regular pointers denote
+the absolute address of an object. The syntax for declaring a pointer
+to a class member is <strong>classname::*</strong>, where <strong>classname</strong> is the name
+of the class. Thus, if the programmer declares a class as follows:</p>
+<div class="section" id="fig-10-11">
+<h3>Fig. 10-11<a class="headerlink" href="#fig-10-11" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>class CSample
+{
+public:
+     short step;
+     void set_step( short s );
+//   ...
+private:
+};</pre>
+</div>
+<p>the programmer can define and initialize a pointer to a short member
+variable of the <strong>Sample</strong> class like this:</p>
+<div class="highlight-python"><pre>short CSample::*p_s; // pointer to short in class sample
+p_s = ::step; // initialize to member "step"</pre>
+</div>
+<p>Notice that to define and even initialize the pointer, the programmer
+does not need an instance of the <strong>Sample</strong> class. Contrast this with
+the way the programmer would initialize a regular pointer to a short
+variable. With the regular pointer the programmer would have to define
+a short variable before he/she can assign its address to the pointer.
+With pointers to class members, the programmer needs a concrete
+instance of the class only when using the pointers. Thus, the
+programmer has to define an instance of the <strong>Sample</strong> class before
+he/she can use the pointer p_s. A typical use of <strong>p_s</strong> might be to
+assign a new value to the class member through the pointer:</p>
+<div class="highlight-python"><pre>CSample s1;
+s1.*p_s = 5;</pre>
+</div>
+<p>Note that the syntax for dereferencing the pointer is of the form
+instance. <strong>*p</strong>, where instance is an instance of the class and <strong>p</strong>
+is a pointer to a class member. Instead of a class instance, if the
+programmer had a pointer to an instance of a <strong>Sample</strong> class, the
+syntax for using p_s changes to this:</p>
+<div class="highlight-python"><pre>CSample s1;
+CSample *p_sample1 =
+p_sample-&gt;*p_s = 5;</pre>
+</div>
+</div>
+</div>
+<div class="section" id="pointer-to-member-functions">
+<h2>10.16 Pointer to Member Functions<a class="headerlink" href="#pointer-to-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>The syntax for declaring a pointer to a member function of the class
+is similar to the syntax used for declaring pointers to ordinary
+functions. The only difference is that the programmer has to use the
+class name together with the scope resolution operator ( <strong>::</strong>). Here
+is an example that defines a pointer to a member function of the class
+Sample. The definition says that the member function to which
+<strong>p_func</strong> points will return nothing but requires a short as
+argument:</p>
+<div class="highlight-python"><pre>void (CSample::*p_func)(short) = CSample::set_step;</pre>
+</div>
+<p>The sample definition also initializes the pointer <strong>p_func</strong> to the
+address of the function <strong>set_step</strong> of class <strong>Sample</strong>. The
+programmer can call the function through the pointer like this:</p>
+<div class="highlight-python"><pre>CSample s1;
+(s1.*p_func)(2);    // call function through pointer</pre>
+</div>
+<p>The following is another small program that shows how pointers to
+member functions are used:</p>
+<div class="section" id="listing-10-5">
+<h3>Listing 10-5<a class="headerlink" href="#listing-10-5" title="Permalink to this headline">¶</a></h3>
+<p>&lt;&lt; &#8220;Inside the Help Function!&#8221; &lt;&lt; endl; return SUCCESS; } Result
+moveLeft() { cout &lt;&lt; &#8220;Inside the MoveLeft Function!&#8221; &lt;&lt; endl; return
+SUCCESS; } Result moveRight() { cout &lt;&lt; &#8220;Inside the MoveRight
+Function!&#8221; &lt;&lt; endl; return SUCCESS; } Result quit() { cout &lt;&lt; &#8220;Inside
+the Quit Function!&#8221; &lt;&lt; endl; return FAILURE; } private: // ... }; //
+Initialize array of pointers to member functions Result
+(CCommandSet::<a href="#id3"><span class="problematic" id="id4">*</span></a>(pCmd[]))() = {CCommandSet::help ,CCommandSet::moveLeft
+,CCommandSet::moveRight ,CCommandSet::quit }; int main() { int cmd =
+0; Result val; CCommandSet cmdSet; // // loop on command input // do {
+// // prompt for command input // cout &lt;&lt; &#8220;Command(0-3): &#8221;; cin &gt;&gt;
+cmd; // Invoke a member function through the pointer array val =
+(cmdSet.*pCmd[cmd])(); } while( val != FAILURE ); return 0; } The
+example makes calls to the functions via the array of pointers. This
+example could be developed further to be the command set handler for a
+text editor or a word processor.</p>
+</div>
+</div>
+<div class="section" id="the-this-pointer">
+<h2>10.17 The this Pointer<a class="headerlink" href="#the-this-pointer" title="Permalink to this headline">¶</a></h2>
+<p>Here is an observation about the member variables and member functions
+of a class. Although there is a unique copy of member variables for
+each instance of a class, all instances share a single set of member
+functions. Yet none of the member functions that the programmer has
+seen thus far have any way of indicating the class instance whose
+member variables are being used in the function. Take, for instance,
+the <strong>getLength()</strong> function of the <strong>CString</strong> class. If the
+programmer writes this:</p>
+<div class="highlight-python"><pre>CString s1("hello"), s2("Hi");
+len1 = s1.getLength(); // len1 = 5
+len2 = s2.getLength(); // len2 = 2</pre>
+</div>
+<p>each call to <strong>getLength()</strong> returns a unique answer, yet the
+<strong>getLength()</strong> function is defined as follows:</p>
+<div class="highlight-python"><pre>inline size_t CString::getLength( void ) const
+{
+     return len;
+}</pre>
+</div>
+<p>where <strong>len</strong> is a member variable of the <strong>CString</strong> class. How did
+the function know how to return the current length for each string?
+The answer is in <strong>this</strong>.</p>
+</div>
+<div class="section" id="this-points-to-instance-of-class">
+<h2>10.17.1 this Points to Instance of Class<a class="headerlink" href="#this-points-to-instance-of-class" title="Permalink to this headline">¶</a></h2>
+<p>The C++ compiler alters each member function in a class by making two
+changes:</p>
+<p>#. It passes an additional argument named this, which is a pointer to
+the specific object for which the function is being invoked. Thus, the
+call <strong>s1.getLength()</strong> will include an argument this set to the
+address of the <strong>CString</strong> instance <strong>s1</strong>.
+#. It adds the <strong>this-&gt;</strong> prefix to all member variables and</p>
+<blockquote>
+<div>functions. Thus, the <strong>len</strong> variable in the <strong>getLength()</strong> function
+becomes <strong>this-&gt;len</strong>, which refers to the copy of the <strong>len</strong> in the
+class instance whose address is in <strong>this</strong>.</div></blockquote>
+<p>Typically, the programmer does not have to use <strong>this</strong> explicitly in
+a member function, but he/she can refer to <strong>this</strong> if there is a
+need. For example, if the programmer has to return the object to the
+calling program, you can do so with the following statement:</p>
+<div class="highlight-python"><pre>return (*this);</pre>
+</div>
+<p>The programmer can return a reference to the object with the same
+statement. The programmer has to return references when defining
+certain operators such as the assignment operator ( <strong>operator=</strong>).</p>
+</div>
+<div class="section" id="friend-functions">
+<h2>10.17 friend Functions<a class="headerlink" href="#friend-functions" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>friend</strong> construct is a useful adjunct to encapsulation and data
+hiding, but one that should be used with caution. Some benefits of
+encapsulation and data hiding, namely, the localization of maintenance
+if changes are made to the representation of the underlying data type
+and consistency of usage for a class of objects throughout the
+software system may be compromised by <strong>friend</strong> functions. A possible
+drawback of encapsulation and data hiding using classes is that they
+tightly bind a data type to a set of methods and force the user to
+manipulate the underlying data type using the methods specified for
+the underlying type. That is, only a prescribed set of messages can be
+send to an object of the given class. The <strong>private</strong> data and methods
+of a class are available only within the class definition and also
+within the implementation of the methods, which might be in different
+files. This limited availability imposes an enormous responsibility on
+the software designer to ensure that each class has sufficient methods
+to provide manipulation of the underlying data for all situations that
+might be encountered. A class can bestow a special privilege on a
+function external to the class or to another class. This privilege is
+called friendship. By declaring another class or function to be a
+<strong>friend</strong>, all member function definitions in the <strong>friend</strong> class or
+the definition of the function external to the class can directly
+access all fields of the class bestowing the friendship. This limited
+violation of data-hiding can be very useful if used in a disciplined
+manner. Clearly, the function or class enjoying the friendship
+relationship must be very closely related to the class bestowing this
+friendship. The motivation for establishing friendship is efficiency.
+Instead of relying on access methods (member functions that provide
+access to the <strong>private</strong> fields of an object), friendship provides
+direct access to these private fields.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 10 Classes</a><ul>
+<li><a class="reference internal" href="#naming-and-coding-conventions">10.1 Naming and Coding Conventions</a><ul>
+<li><a class="reference internal" href="#fig-10-1">Fig. 10-1</a></li>
+<li><a class="reference internal" href="#fig-10-2">Fig. 10-2</a></li>
+<li><a class="reference internal" href="#fig-10-3">Fig. 10-3</a></li>
+<li><a class="reference internal" href="#fig-10-4">Fig. 10-4</a></li>
+<li><a class="reference internal" href="#fig-10-5">Fig. 10-5</a></li>
+<li><a class="reference internal" href="#fig-10-6">Fig. 10-6</a></li>
+<li><a class="reference internal" href="#fig-10-7">Fig. 10-7</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#discovering-classes">10.2 Discovering Classes</a></li>
+<li><a class="reference internal" href="#classes-as-objects">10.3 Classes as Objects</a><ul>
+<li><a class="reference internal" href="#listing-10-1">Listing 10-1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#returning-private-values-with-public-functions">10.4 Returning private values with public Functions</a></li>
+<li><a class="reference internal" href="#member-functions">10.5 Member Functions</a></li>
+<li><a class="reference internal" href="#inline-member-functions">10.5.1 Inline Member Functions</a></li>
+<li><a class="reference internal" href="#typical-public-member-functions">10.5.2 Typical Public Member Functions.</a></li>
+<li><a class="reference internal" href="#const-member-functions">10.5.3 const Member Functions</a></li>
+<li><a class="reference internal" href="#implementing-a-class">10.6 Implementing a Class</a><ul>
+<li><a class="reference internal" href="#listing-10-2">Listing 10-2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#listing-10-3">Listing 10-3</a></li>
+<li><a class="reference internal" href="#creating-objects-on-the-fly">10.7 Creating Objects on the Fly</a></li>
+<li><a class="reference internal" href="#allocating-objects-on-the-free-store">10.8 Allocating Objects on the Free Store</a></li>
+<li><a class="reference internal" href="#destroying-objects-on-the-free-store">10.9 Destroying Objects on the Free Store</a></li>
+<li><a class="reference internal" href="#arrays-of-objects-on-the-free-store">10.10 Arrays of Objects on the Free Store</a></li>
+<li><a class="reference internal" href="#handling-errors-in-memory-allocation">10.11 Handling Errors in Memory Allocation</a></li>
+<li><a class="reference internal" href="#calling-member-functions">10.12 Calling Member Functions</a></li>
+<li><a class="reference internal" href="#using-static-member-variables">10.13 Using static Member Variables</a><ul>
+<li><a class="reference internal" href="#listing-10-4">Listing 10-4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#static-member-functions">10.14 Static Member Functions</a><ul>
+<li><a class="reference internal" href="#fig-10-8">Fig. 10-8</a></li>
+<li><a class="reference internal" href="#fig-10-9">Fig. 10-9</a></li>
+<li><a class="reference internal" href="#fig-10-10">Fig. 10-10</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-pointers-to-class-members">10.15 Using Pointers to Class Members</a><ul>
+<li><a class="reference internal" href="#fig-10-11">Fig. 10-11</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pointer-to-member-functions">10.16 Pointer to Member Functions</a><ul>
+<li><a class="reference internal" href="#listing-10-5">Listing 10-5</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-this-pointer">10.17 The this Pointer</a></li>
+<li><a class="reference internal" href="#this-points-to-instance-of-class">10.17.1 this Points to Instance of Class</a></li>
+<li><a class="reference internal" href="#friend-functions">10.17 friend Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chap10.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

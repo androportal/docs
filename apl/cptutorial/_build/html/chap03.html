@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 3 Basic Input-Output Statements &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chapter-3-basic-input-output-statements">
+<h1>Chapter 3 Basic Input-Output Statements<a class="headerlink" href="#chapter-3-basic-input-output-statements" title="Permalink to this headline">¶</a></h1>
+<p>In order to learn how to program effectively in the C or C++ language,
+a student must learn how these languages manage the input and output
+of data to and from the screen and keyboard.</p>
+<div class="section" id="basic-screen-and-keyboard-i-o-in-c">
+<h2>3.1 Basic Screen and Keyboard I/O in C<a class="headerlink" href="#basic-screen-and-keyboard-i-o-in-c" title="Permalink to this headline">¶</a></h2>
+<p>The C language provides several functions that give different levels
+of input and output capability. These functions are, in most cases,
+implemented as routines that call lower level input/output functions.
+The input and output functions in C are built around the concept of a
+set of standard data streams being connected from each executing
+program to the basic input/output devices. These standard data streams
+or files are opened by the operating system and are available to every
+C and assembler program to use without having to open or close the
+files. These standard files or streams are called:</p>
+<div class="highlight-python"><pre>- stdin : connected to the keyboard
+- stdout : connected to the screen
+- stderr : connected to the screen</pre>
+</div>
+<p>The following two data streams are also available on MS-DOS based
+computers, but not on UNIX or other multi-user based operating
+systems.</p>
+<div class="highlight-python"><pre>- stdaux : connected to the first serial communications port
+- stdprn : connected to the first parallel printer port</pre>
+</div>
+<p>The input/output functions fall into two categories, formatted display
+and read functions, and non-formatted display and read functions. The
+following are descriptions of the formatted display and read
+functions.</p>
+<div class="highlight-python"><pre> **
+int printf( const char *format [,argument, ...] );
+**</pre>
+</div>
+<p>where <strong>format</strong> is composed of literal text, escape sequences used as
+carriage control, and format specifiers for conversion of data in the
+arguments to a display format. This function returns the number of
+characters printed.
+<strong>printf()</strong> returns the number of bytes output. In the event of
+error, <strong>printf</strong> returns EOF. <strong>Example:</strong></p>
+<div class="highlight-python"><pre>main()
+{
+ char name[30];
+
+ printf("\nEnter your name:");
+ gets(name);
+ printf("\nHello %s",name);
+}</pre>
+</div>
+<p>The <strong>printf()</strong> function has the capability to manage conversion
+control.</p>
+<div class="highlight-python"><pre>General form
+
+    **%[-][width][flags]format**
+
+where:
+
+ **%**      : marks the start of the conversion control string
+ **-**      : specifies that the data is to be printed left-justified
+ **width**  : the width of field or number of spaces to allot on the display
+ **flags**  : precision of output to be displayed
+ **format** : the format specifier desired</pre>
+</div>
+<div class="section" id="listing-3-1">
+<h3>Listing 3-1<a class="headerlink" href="#listing-3-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+ printf("/%d/\n",336);
+ printf("/%2d/\n",336);
+ printf("/%10d/\n",336);
+ printf("/%-10d/\n",336);
+ return 0;
+}</pre>
+</div>
+<p>results:</p>
+<div class="section" id="fig-3-1">
+<h4>Fig 3-1:<a class="headerlink" href="#fig-3-1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><pre>/336/
+/336/
+/ 336/
+/336 /</pre>
+</div>
+</div>
+<div class="section" id="listing-3-2">
+<h4>Listing 3-2<a class="headerlink" href="#listing-3-2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+ printf("/%f/\n",1234.56);
+ printf("/%e/\n",1234.56);
+ printf("/%4.f/\n",1234.56);
+ printf("/%3.1f/\n",1234.56);
+ printf("/%10.3f/\n",1234.56);
+ printf("%10.3e/\n",1234.56);
+ return 0;
+}</pre>
+</div>
+<p>results:</p>
+</div>
+<div class="section" id="fig-3-2">
+<h4>Fig 3-2:<a class="headerlink" href="#fig-3-2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><pre>/1234.560059/
+/1.23456E+03/
+/1234.56/
+/1234.6/
+/ 1234.560/
+/ 1.234E+03/</pre>
+</div>
+</div>
+<div class="section" id="listing-3-3">
+<h4>Listing 3-3<a class="headerlink" href="#listing-3-3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><pre>#include "stdio.h"
+#define BLURB "Outstanding Program!"
+
+int main()
+{
+ printf("/%2s/\n",BLURB);
+ printf("/%22s/\n",BLURB);
+ printf("/%22.5s/\n",BLURB);
+ printf("/%-22.5s/\n",BLURB);
+ return 0;
+}
+
+results:
+
+ /Outstanding Program!/
+ / Outstanding Program!/
+ /Outst/
+ /Outst/</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="formatted-input-and-output">
+<h2>3.2 Formatted Input and Output<a class="headerlink" href="#formatted-input-and-output" title="Permalink to this headline">¶</a></h2>
+<p><strong>int scanf( const char *format [,address, ...] );</strong>
+where <strong>format</strong> is a list of format specifiers indicating the format
+and type of data to be read from the keyboard and stored in the
+corresponding <strong>address</strong>. There must be the same number of format
+specifiers and addresses as there are input fields.
+<strong>scanf</strong> returns the number of input fields successfully scanned,
+converted, and stored. The return value does not include scanned
+fields that were not stored. If <strong>scanf</strong> attempts to read end-of-
+file, the return value is EOF. If no fields were stored, the return
+value is 0.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+
+int main()
+{
+char last_name[30];
+int age, ret;
+
+ printf("\nEnter Last_name and age");
+ scanf("%s %d%c", last_name, &amp;age, &amp;ret);
+ return 0;
+}</pre>
+</div>
+<p>The <strong>scanf()</strong> function scans the data input through the keyboard and
+by default delimits values by whitespace. Whitespace is defined as
+being a TAB, a blank or the newline character (&#8216;n&#8217;). Therefore, data
+that is input with the intention of having embedded blanks as part of
+the data value will be broken into several values and distributed
+among the input variables specified in the <strong>scanf()</strong> statement. The
+result will more than likely not be what was desired.
+In the above example, notice that although the prompt asks for the
+input of a name value and an age value, the <strong>scanf()</strong> function is
+told to read values for three arguments. The argument <strong>ret</strong> is an
+integer variable but <strong>scanf()</strong> is reading a <strong>%c</strong> or character
+value from the keyboard. The <strong>ret</strong> variable will hold the newline
+character input by the user pressing the RETURN or ENTER key on the
+keyboard. If the newline character is not extracted from the keyboard
+buffer, the newline will be picked up as the first argument of the
+next input statement, which could be a <strong>scanf()</strong>, a <strong>gets()</strong> or a
+<strong>getchar()</strong> function.
+The format string is a character string that contains three types of
+specifiers: whitespace characers, non-whitespace characters and
+format-specifiers.
+The format-specifiers have the following form:</p>
+<div class="highlight-python"><pre>**%[*] [width] [h|l|L] type-character**</pre>
+</div>
+<p>Each format begins with the percent character, <strong>%</strong>, after which come
+the following, in this order: - An optional assignment-suppression
+character, <strong>[*]</strong>. This states that the value being read will not be
+assigned to an argument, but will be dropped. - An optional width
+specifier, <strong>[width]</strong>. This designates the maximum number of
+characters to be read that compose the value for the associated
+argument. Encountering whitespace before the width is satisfied
+terminates the input of this value and moves to the next. - An
+optional argument-type modifier, <strong>[h|l|L]</strong>. This modifies the type-
+character specifier to accept format for a type of : h = short int l =
+long int, if the type-character specifiers an integer conversion l =
+double, if the type-character specifiers a floating-point conversion L
+= long double, which is valid only with floating- point conversions
+<strong>NOTE:</strong> Simple data objects must be passed by reference in order for
+<strong>scanf()</strong> to be able to store data in the correct memory location.
+To pass by reference means to pass the memory address of a variable.
+The <strong>&amp;</strong> operator in front of a variable name signifies that the
+address of the following variable is to obtained.
+The following are format specifiers which apply only to <strong>printf()</strong>
+and <strong>scanf()</strong>.</p>
+<p>Format Specifiers for printf and scanf Type Character Input Argument
+Format of Output %d integer signed decimal int %i integer signed
+decimal int %o integer unsigned octal int %u integer unsigned decimal
+int %x integer unsigned hex int (a,b,c,d,e,f) %X integer unsigned hex
+int (A,B,C,D,E,F) %f floating point signed value of form [-]dddd.dddd
+%e floating point signed value of form [-]d.dddd or <strong>e**[+/-]ddd %g
+floating point signed value in either **e</strong> or <strong>f</strong> form trailing
+zeros and the decimal point are printed only if necessary. %E floating
+point same as <strong>e</strong>, but with <strong>E</strong> for exponent %G floating point
+same as <strong>g</strong>, but with <strong>E</strong> for exponent if <strong>e</strong> format %c
+character single character %s string pointer prints characters until a
+null-terminator is pressed or precision is reached %% none the <strong>%</strong>
+character is printed %n pointer to <strong>int</strong> stores (in the location
+pointed to by the input argument) a count of the characters written so
+far %p pointer prints the input argument as a memory address
+<strong>NOTE:**Numerics with **scanf()</strong> an <strong>h</strong> or <strong>l</strong> or <strong>L</strong> can be
+used with each of the following in order to modify the format; <strong>h</strong> =
+short; <strong>l</strong> and <strong>L</strong> = long.</p>
+</div>
+<div class="section" id="non-formatted-input-and-output">
+<h2>3.3 Non-formatted Input and Output<a class="headerlink" href="#non-formatted-input-and-output" title="Permalink to this headline">¶</a></h2>
+<p><strong>int puts( const char *s );</strong>
+<strong>puts()</strong> displays a string literal or a stored character string on
+the screen. The function automatically carriage return and line feeds
+at the end of the display. The string can contain escape sequences but
+not format specifiers.
+On successful completion, <strong>puts()</strong> returns a nonnegative value.
+Otherwise, it returns a value of EOF.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+char name[30];
+
+ printf("\nEnter your name:");
+ gets(name);
+ printf("\nHello ");
+ puts(name);
+ return 0;
+}</pre>
+</div>
+<p><strong>char *gets( char *s );</strong>
+<strong>gets()</strong> reads characters from the keyboard and stores them in a
+passed character array. The reading of keyboard is terminated when the
+&#8216;n&#8217; (RETURN/ENTER) key is pressed.
+On success, <strong>gets()</strong> returns the string argument <strong>s</strong>; it returns
+NULL on end-of-file or error.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+char name[30];
+
+ printf("\nEnter your name:");
+ gets(name);
+ printf("\nHello %s",name);
+ return 0;
+}</pre>
+</div>
+<p><strong>int putchar( int c );</strong>
+<strong>putchar()</strong> writes a character to the stdout data stream.
+On success, <strong>putchar()</strong> returns the character <strong>c</strong>. On error,
+<strong>putchar()</strong> returns EOF.
+<strong>int putch( int c );</strong>
+<strong>putch()</strong> writes the character directly to the screen. This function
+is available only on PC based compilers.
+On success, <strong>putch</strong> returns the characer printed, <strong>c</strong>. On error,
+it returns EOF.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+int c;
+
+ c = 'A';
+ putchar(c);
+ putch(c);
+ return 0;
+}
+
+result:
+
+ AA</pre>
+</div>
+<p><strong>int getchar( void );</strong> <strong>int getch( void );</strong> <strong>int getche( void
+);</strong>
+<strong>getchar()</strong> reads a single character the from the input data stream;
+but does not return the character to the program until the &#8216;n&#8217;
+(RETURN/ENTER) key is pressed.
+<strong>getch()</strong> reads, without echoing, a single character from the
+keyboard and immediately returns that character to the program;
+available only on PC compilers.
+<strong>getche()</strong> reads, with echo, a single character from the keyboard
+and immediately returns that character to the program; available only
+on PC compilers.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+int ch;
+
+ printf("\nContinue(Y/N)?");
+ ch = getchar();
+ return 0;
+}
+
+The result:
+
+ Continue(Y/N)?Y &lt; RETURN &gt;</pre>
+</div>
+<p><strong>NOTE:</strong> The &#8216;n&#8217; (RETURN/ENTER) key must be pressed after the
+response in order for the character to be stored in &#8216;ch&#8217;. Also, the
+character pressed is automatically displayed on the screen.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+int ch;
+
+ printf("\nContinue(Y/N)?");
+ ch = getch();
+ return 0;
+}
+
+The result:
+
+ Continue(Y/N)? (Y pressed)</pre>
+</div>
+<p><strong>NOTE:</strong> Upon pressing the &#8216;Y&#8217; or &#8216;N&#8217; key the character is
+immediately stored in &#8216;ch&#8217;, but the character pressed is not
+automatically shown on the screen. This is available only with PC
+based compilers.</p>
+<div class="highlight-python"><pre>#include "stdio.h"
+int main()
+{
+int ch;
+
+ printf("\nContinue(Y/N)?");
+ ch = getche();
+ return 0;
+}
+
+The result:
+
+ Continue(Y/N)?N</pre>
+</div>
+<p><strong>NOTE:</strong> Upon pressing the &#8216;Y&#8217; or &#8216;N&#8217; key the character is
+immediately stored in &#8216;ch&#8217; and also is echoed on the screen. This is
+available only with PC based compilers.</p>
+</div>
+<div class="section" id="predefined-classes-in-c">
+<h2>3.4 Predefined Classes in C++<a class="headerlink" href="#predefined-classes-in-c" title="Permalink to this headline">¶</a></h2>
+<p>Like C, C++ has no built-in facilities for I/O. Instead, you must rely
+on a library of functions, for performing I/O. In ANSI C, the I/O
+functions are a part of the standard library, but C++ does not have
+any standard library yet. Of course, you can call the ANSI C library
+routines in C++, but for I/O, C++ release 2.0 and above provides an
+alternative to printf and scanf. C++ comes with the iostream library,
+which handles I/O through a class of objects.
+The C++ iostream library is an object-oriented implementation of the
+abstraction of a stream as a flow of bytes from source (producer) to a
+sink (consumer). The iostream library includes input streams (istream
+class), output streams (ostream class), and streams (iostream class)
+that can handle both input and output operations. The istream class
+provides the functionality of scanf and fscanf, and ostream includes
+capabilities similar to those of printf and fprintf. Like the
+predefined C streams stdin, stdout, and stderr, the iostream library
+includes four predefined streams:</p>
+<div class="highlight-python"><pre>**cin** is an input stream connected to the standard input. It is analogous to C's stdin.
+
+**cout** is an output stream connected to the standard output and is analogous to stdout in C.
+
+**cerr** is an output stream set up to provide unbuffered output to the standard error device. This is the same as C's stderr.
+
+**clog** is like cerr, but it is a fully buffered stream like cin and cout.</pre>
+</div>
+<p>To use the iostream library, your C++ program must include the header
+file &#8220;iostream.h&#8221;. This file contains the definitions of the classes
+that implement the stream objects and provides the buffering. The file
+&#8220;iostream.h&#8221; is analogous to &#8220;stdio.h&#8221; in ANSI C.</p>
+<p>Instead of defining member functions that perform I/O, the iostream
+library provides an operator notation for input as well as output. It
+uses C++&#8217;s ability to overload operators and defines &lt;&lt; and &gt;&gt; as the
+output and input operators, respectively.</p>
+<p>When you see the &lt;&lt; and &gt;&gt; operators in use, you will realize their
+appropriateness. For example, consider the following program that
+prints some variables to the cout stream, which is usually connected
+to standard output:</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+
+int main()
+{
+int count = 2;
+double result = 5.4;
+char *id = "Trying out iostream: ";
+
+ cout &lt;&lt; id;
+ cout &lt;&lt; "count = " &lt;&lt; count &lt;&lt; '\n' ;
+ cout &lt;&lt; "result = " &lt;&lt; result &lt;&lt; endl;
+ return 0;
+}</pre>
+</div>
+<p>When you run this program, it prints the following:</p>
+<div class="highlight-python"><pre>Trying out iostream: count = 2
+result = 5.4</pre>
+</div>
+<p>You can make three observations from this example:</p>
+<p>#. The ** &lt;&lt; ** operator is a good choice to represent the output
+operation, because it points in the direction of data movement that,
+in this case, is toward the <strong>cout</strong> stream.
+#. You can concatenate multiple ** &lt;&lt; ** operators in a single line,
+all reading the same stream.
+#. You use the same syntax to print all the basic data types on a</p>
+<blockquote>
+<div>stream. The ** &lt;&lt; ** operator automatically converts the internal
+representation of the variable into a textual representation. Contrast
+this with the need to use different format strings for printing
+different data types using <strong>printf</strong>.</div></blockquote>
+<p>Accepting input from the standard input is also equally easy. Here is
+a small example that combines both input and output:</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+
+int main()
+{
+int count;
+float price;
+char *prompt = "Enter count (int) and unit price (float): ";
+
+ // display the prompt string
+ cout &lt;&lt; prompt ;
+ // read from standard input
+ cin &gt;&gt; count &gt;&gt; price;
+ // display total cost
+ cout &lt;&lt; count &lt;&lt; " at " &lt;&lt; price &lt;&lt; " will cost: ";
+ cout &lt;&lt; (price * count) &lt;&lt; endl;
+ return 0;
+}</pre>
+</div>
+<p>When you run the program and enter the input shown in boldface, the
+program interacts as follows:</p>
+<div class="highlight-python"><pre>Enter count (int) and unit price (float):  **5 2.5
+** 5 at 2.5 will cost: 12.5</pre>
+</div>
+<p>Ignoring, for the moment, items that you do not recognize, notice how
+easy it is to read values into variables from the <strong>cin</strong> stream. You
+simply send the data from <strong>cin</strong> to the variables using the <strong>&gt;&gt;</strong>
+operator. Like the ** &lt;&lt; ** operator, you can also concatenate
+multiple ** &gt;&gt; ** operators. The <strong>&gt;&gt;</strong> operator automatically
+converts the strings into the internal representations of the
+variables according to their types. The simple syntax of input from
+<strong>cin</strong> is in sharp contrast with ANSI C&#8217;s rather complicated
+<strong>scanf</strong> function, which serves the same purpose but needs proper
+format strings and addresses of variable as arguments. Also, <strong>cin</strong>
+has the same limitations on input of string type data as <strong>scanf</strong>.</p>
+</div>
+<div class="section" id="manipulators">
+<h2>3.5 Manipulators<a class="headerlink" href="#manipulators" title="Permalink to this headline">¶</a></h2>
+<p>Among the new items in the last example, you may have noticed the
+identifier <strong>endl</strong> in the last one line. This is a special function
+known as a <strong>manipulator</strong>. Manipulators are functions which are
+written in such a way that by placing a manipulator in the chain of **
+&lt;&lt; ** operators, you can alter the state of the stream. The <strong>endl</strong>
+manipulator sends a newline to the stream, forcing the cursor to the
+beginning of a newline.
+The following table summarizes some of the manipulators available in
+the <strong>iostream</strong> package. The manipulators that take arguments are
+declared in the file <strong>iomanip.h</strong> the rest are in <strong>iostream.h</strong></p>
+<p>Available Manipulators in C++ Manipulator Sample Usage Effect dec cout
+&lt;&lt; dec &lt;&lt; intvar; or cin &gt;&gt; dec &gt;&gt; intvar; Converts integers into
+decimal digits. Similar to the %d format in C. hex cout &lt;&lt; hex &lt;&lt;
+intvar; or cin &gt;&gt; hex &gt;&gt; intvar; Hexadecimal conversion as in ANSI C&#8217;s
+%x format. oct cout &lt;&lt; oct &lt;&lt; intvar; or cin &gt;&gt; oct &gt;&gt; intvar; Octal
+conversion (%o in C). ws cin &gt;&gt; ws; Discards whitespace characters in
+the input stream. endl cout &lt;&lt; endl; Sends newline to ostream and
+flushes buffer. ends cout &lt;&lt; ends; Inserts null character into a
+string. flush cout &lt;&lt; flush; Flushes ostream&#8217;s buffer.
+resetiosflags(long) cout &lt;&lt; resetiosflags (ios::dec); or cin &gt;&gt;
+resetiosflags(ios::hex); Resets the format bits specified by the long
+integer argument. setbase(int) cout &lt;&lt; setbase(10); or cin &gt;&gt;
+setbase(8); Sets base of conversion to integer argument must be 0, 8,
+10, or 16). Zero sets base to the default. setfill(int) cout &lt;&lt;
+setfill(&#8216;.&#8217;); or cin &gt;&gt; setfill(&#8216; &#8216;); Sets the fill character used to
+pad fields (width comes from <strong>setw</strong>). setiosflags(long) cout &lt;&lt;
+setiosflags(ios::dec);or cin &gt;&gt; setiosflags(ios::hex); Sets the format
+bits specified by the long integer argument. setprecision(int) cout &lt;&lt;
+setprecision(6); or cin &gt;&gt; setprecision(15); Sets the precision of
+floating-point conversions to the specified number of digits.
+setw(int) cout &lt;&lt; setw(6) &lt;&lt; var; or cin &gt;&gt; setw(24) &gt;&gt; buf; Sets the
+width of a field to the specified number of characters.</p>
+</div>
+<div class="section" id="formatted-i-o">
+<h2>3.6 Formatted I/O<a class="headerlink" href="#formatted-i-o" title="Permalink to this headline">¶</a></h2>
+<p>You can use the manipulators for some simple formatted I/O. Formatting
+refers to the process of converting to and from the internal binary
+representation of a variable and its character string representation.
+For example, if a 16-bit integer variable holds the bit pattern 0000
+0000 0110 0100, its character string representation in the decimal
+number system is 100 and 64 in hexadecimal. If the base of conversion
+is octal, the representation will be 144. You can display all three
+forms on separate lines using the following output statements:</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+
+int main()
+{
+int i = 100;
+
+ cout &lt;&lt; dec &lt;&lt; i &lt;&lt; endl;
+ cout &lt;&lt; hex &lt;&lt; i &lt;&lt; endl;
+ cout &lt;&lt; oct &lt;&lt; i &lt;&lt; endl;
+ return 0;
+}
+
+This produces the following output:
+
+ 100
+ 64
+ 144</pre>
+</div>
+<p>What if you want to use a fixed field width of six characters to
+display each value? You can do this by using the <strong>setw</strong> manipulators
+as follows:</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+#include "iomanip.h"
+
+int main()
+{
+int i = 100;
+
+ cout &lt;&lt; setw(6) &lt;&lt; dec &lt;&lt; i &lt;&lt; endl;
+ cout &lt;&lt; setw(6) &lt;&lt; hex &lt;&lt; i &lt;&lt; endl;
+ cout &lt;&lt; setw(6) &lt;&lt; oct &lt;&lt; i &lt;&lt; endl;
+ return 0;
+}
+
+This produces the following output:
+
+ 100
+ 64
+ 144</pre>
+</div>
+<p>Here each variable is displayed in a six-character field aligned at
+the right and padded with blanks at the left. You can change both the
+padding and the alignment. To change the padding character, you can
+use the <strong>setfill</strong> manipulator. For example, just before the <strong>cout</strong>
+statements just shown, insert the following line:</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+#include "iomanip.h"
+
+int main()
+{
+int i = 100;
+
+ cout &lt;&lt; setfill('.');
+ cout &lt;&lt; setw(6) &lt;&lt; dec &lt;&lt; i &lt;&lt; endl;
+ cout &lt;&lt; setw(6) &lt;&lt; hex &lt;&lt; i &lt;&lt; endl;
+ cout &lt;&lt; setw(6) &lt;&lt; oct &lt;&lt; i &lt;&lt; endl;
+ return 0;
+}
+
+This produces the following output:
+
+ ...100
+ ....64
+ ...144</pre>
+</div>
+<p>The default alignment of fixed-width output fields is to pad on the
+left, resulting in right-justified output. The justification
+information is stored in a bit pattern called the <strong>format bits</strong> in a
+class named <strong>ios</strong>, which forms the basis of all stream classes. You
+can set or reset specific bits by using the <strong>setiosflags</strong> and
+<strong>resetiosflags</strong> manipulators, respectively. Following is a sample
+use of these manipulators:</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+#include "iomanip.h"
+
+int main()
+{
+int i = 100;
+
+ cout &lt;&lt; setfill('.');
+ // left-justified labels followed by
+ // right-justified values
+ cout &lt;&lt; setiosflags(ios::left); // left justification
+ cout &lt;&lt; setw(20) &lt;&lt; "Decimal";
+ cout &lt;&lt; resetiosflags(ios::left); // turn off left just
+ cout &lt;&lt; setw(6) &lt;&lt; dec &lt;&lt; i &lt;&lt; endl;
+
+ cout &lt;&lt; setiosflags(ios::left);
+ cout &lt;&lt; setw(20) &lt;&lt; "Hexadecimal";
+ cout &lt;&lt; resetiosflags(ios::left);
+ cout &lt;&lt; setw(6) &lt;&lt; hex &lt;&lt; i &lt;&lt; endl;
+
+ cout &lt;&lt; setiosflags(ios::left);
+ cout &lt;&lt; setw(20) &lt;&lt; "Octal";
+ cout &lt;&lt; resetiosflags(ios::left);
+ cout &lt;&lt; setw(6) &lt;&lt; oct &lt;&lt; i &lt;&lt; endl;
+ return 0;
+}
+
+This produces the following output:
+
+ Decimal................100
+ Hexadecimal.............64
+ Octal..................144</pre>
+</div>
+<p>This output amply illustrates how the <strong>setiosflags</strong> and
+<strong>resetiosflags</strong> manipulators work and how the they should be used.
+All you need to know are the names of the enumerated list of
+formatting flags so that you can use them as arguments to the
+<strong>setiosflags</strong> and <strong>resetiosflags</strong> manipulators.
+To use any of the format flags in the following table, insert the
+manipulator <strong>setiosflags</strong> with the name of the flag as the argument.
+Use <strong>resetiosflags</strong> with the same argument to revert to the format
+state before you use the <strong>setiosflags</strong> manipulator.</p>
+<p>Additional Manipulators Name of Flag Meaning When Flag Is Set
+ios::skipws Skips whitespace on input. ios::left Left justifies output
+within the specified width of the field ios::right Right justifies
+output. ios::scientific Uses scientific notation for floating point
+numbers (such as -1.23e+02). ios::fixed Uses decimal notation for
+floating-point numbers (such as -123.45). ios::dec Uses decimal
+notation for integers. ios::hex Uses hexadecimal notation for
+integers. ios::oct Uses octal notation for integers. ios::uppercase
+Uses uppercase letters in output (such as F4 in hexadecimal,
+1.23E+02). ios::showbase Indicates the base of the number system in
+the output (a <strong>0x</strong> prefix for hexadecimal and a <strong>0</strong> prefix for
+octal). ios::showpoint Includes a decimal point for floating-point
+output (for example, -123.) . ios::showpos Shows a positive sign when
+display positive values. ios::internal Padding after sign or base
+indicator ios::unitbuf Flush all streams after insertion ios::stdio
+Flush stdout, stderr after insertion
+In addition to the above method of manipulating output and input,
+another method can be used which involves accessing methods
+(functions) of the <strong>cout</strong> and <strong>cin</strong> objects of the <strong>iostream</strong>
+class. This manipulation or formatting can be done with the following
+set of functions:</p>
+<p>Functions Instead of Manipulators Function Name Purpose setf Set a
+formatting flag unsetf Undo a flag set ty setf width Read/set the
+field width fill read/set the padding character precision Read/set
+digits of precision</p>
+<div class="highlight-python"><pre>#include "iostream.h"
+
+int main()
+{
+ cout.setf(ios::right|ios::showpoint|ios::fixed);
+ cout.precision(2);
+ cout.width(20);
+ cout &lt;&lt; 500000.0 &lt;&lt; endl;
+ return 0;
+}</pre>
+</div>
+<p>The correspondence between <strong>iostream.h</strong> methods (functions) and
+<strong>iomanip.h</strong> manipulators is as follows:</p>
+<p>Correspondence between iostream and iomanip iomanip.h iostream.h
+setiosflags(...) setf(...) resetiosflags(...) unsetf(...) setbase(10)
+setf(ios::dec) setbase(8) setf(ios::oct) setbase(16) setf(ios::hex)
+setfill(&#8216;.&#8217;) fill(&#8216;.&#8217;) setprecision(2) precision(2) setw(20) width(20)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 3 Basic Input-Output Statements</a><ul>
+<li><a class="reference internal" href="#basic-screen-and-keyboard-i-o-in-c">3.1 Basic Screen and Keyboard I/O in C</a><ul>
+<li><a class="reference internal" href="#listing-3-1">Listing 3-1</a><ul>
+<li><a class="reference internal" href="#fig-3-1">Fig 3-1:</a></li>
+<li><a class="reference internal" href="#listing-3-2">Listing 3-2</a></li>
+<li><a class="reference internal" href="#fig-3-2">Fig 3-2:</a></li>
+<li><a class="reference internal" href="#listing-3-3">Listing 3-3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formatted-input-and-output">3.2 Formatted Input and Output</a></li>
+<li><a class="reference internal" href="#non-formatted-input-and-output">3.3 Non-formatted Input and Output</a></li>
+<li><a class="reference internal" href="#predefined-classes-in-c">3.4 Predefined Classes in C++</a></li>
+<li><a class="reference internal" href="#manipulators">3.5 Manipulators</a></li>
+<li><a class="reference internal" href="#formatted-i-o">3.6 Formatted I/O</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chap03.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

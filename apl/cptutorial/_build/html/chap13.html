@@ -1,0 +1,2095 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 13 File Processing &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chapter-13-file-processing">
+<h1>Chapter 13 File Processing<a class="headerlink" href="#chapter-13-file-processing" title="Permalink to this headline">¶</a></h1>
+<p>This chapter is designed to explore the mechanisms used by C and C++
+to access external files residing on disk.</p>
+<div class="section" id="high-level-buffered-or-stream-i-o">
+<h2>13.1 High Level, Buffered or Stream I/O<a class="headerlink" href="#high-level-buffered-or-stream-i-o" title="Permalink to this headline">¶</a></h2>
+<p>C programs have access to two completely different sets of file input-
+output functions. High level file functions are recognized by the ANSI
+C standards committee. Low level file access are what the high level
+functions are built upon. The low level routines reside as intrinsics
+built into the operating system in most multi-user, multi-tasking
+operating systems and as such provide improvements in speed and size
+over functions residing within a library. In MS-DOS, the low-level
+routines are functions that reside in the standard C library and
+provide no benefit over the high-level file functions.
+High-level file access structures the file access through memory
+buffers. These buffers hold data going to or coming from the file. On
+a file being accessed for write, the data being written to the file is
+actually written to the memory buffer for the file. When the buffer is
+full, then the data is transferred to the disk with one physical
+write. Therefore, it is proper to say that high-level file access has
+two distinct views of the file, the logical view and the physical
+view. The logical view is where the programmer assumes that each time
+a write is performed the data is written to the file, where in reality
+the data is placed into a memory buffer for later transfer to the
+file. The physical view is where the input-output subsystem of the
+operating system is used to transfer the memory buffer contents to the
+disk with one input-output operation.
+High-level file access makes life easier for the programmer because
+there is no need to know about sector sizes, buffer lengths or other
+operating system dependent considerations. The only need is to have a
+pointer to FILE type data and through that pointer access to the
+caching buffer that holds the data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>High-level file access has the following functions available:</p>
+<div class="highlight-python"><pre>**FILE *fopen(char *filename, char *mode);**</pre>
+</div>
+<p>The argument <strong>filename</strong> is the physical name of the file on disk,
+including the drive designator, path, and extension. This argument can
+be a string literal, or variable.
+The <strong>mode</strong> is a string literal or variable holding the mode that the
+file is to be opened with. Allowable modes for IBM PC are:</p>
+<div class="highlight-python"><pre>"r" =&gt; read; file must exist
+
+"w" =&gt; write; file does not exist it is created;
+       if it does exist, it is overwritten
+
+"a" =&gt; append; data added to the end of the
+       existing data, or new file created
+
+"r+" =&gt; open for both read and write; the file must exist
+
+"w+" =&gt; open for both read and write; if file
+        exists contents over-written; if doesn't exist,
+        created
+
+"a+" =&gt; open for both read and appending; if
+        doesn't exist, create</pre>
+</div>
+<p>The function returns an address if the file is opened. If the file
+could not be opened, the function returns a NULL value for the
+address.</p>
+<div class="section" id="fig-13-1">
+<h3>Fig. 13.1<a class="headerlink" href="#fig-13-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *fp;
+    ...
+    if((fp=fopen("test.dat","w")) == NULL)
+    {
+         puts("Cannot Open File");
+         exit(1);
+    }</pre>
+</div>
+<div class="highlight-python"><pre>**int fclose( FILE *stream);**</pre>
+</div>
+<p>This function closes an open stream in an orderly fashion, which
+includes the flushing of any data held in internal data buffers to the
+disk. The function returns an EOF if an error is detected, otherwise
+it returns zero.</p>
+<div class="highlight-python"><pre>**int fputc(char c, FILE *fp);**</pre>
+</div>
+<p>The argument <strong>c</strong> is a character to be written to the disk and <strong>fp</strong>
+is the FILE pointer to the data stream where the data is to be
+written.
+The function returns an <strong>EOF</strong>, usually a -1, to indicate an end-of-
+file or error. If the function succeeded, the function returns the
+character that was written.</p>
+</div>
+<div class="section" id="fig-13-2">
+<h3>Fig. 13-2<a class="headerlink" href="#fig-13-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+/*
+*   The following statements send a line of output to a stream
+*/
+    ...
+    for(i = 0;
+        (i &lt; 80) &amp;&amp; (fputc( str[i], stream) != EOF)
+         &amp;&amp; (str[i] != '\n'); i++);</pre>
+</div>
+<div class="highlight-python"><pre>**int fgetc( FILE *fp );**</pre>
+</div>
+<p>The argument <strong>fp</strong> is a pointer to a <strong>FILE</strong> type object that has
+been opened and is capable of handling output.
+On success the function returns the integer ASCII value that
+represents the read. If the function fails, meaning it encountered an
+end-of-file condition or someother error, it returns an <strong>EOF</strong>,
+usually -1.</p>
+</div>
+<div class="section" id="fig-13-3">
+<h3>Fig. 13-3:<a class="headerlink" href="#fig-13-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+/*
+*   The following statements gathers a line of input from a
+*   stream
+*/
+    ...
+    for(i = 0;
+         (i &lt; 80) &amp;&amp; ((ch = fgetc(stream)) != EOF)
+         &amp;&amp; (ch != '\n'); i++)
+              buffer[i] = ch;
+    buffer[i] = '\0';</pre>
+</div>
+<div class="highlight-python"><pre>**char *fgets(char *str, int num, FILE *fp);**</pre>
+</div>
+<p>The argument <strong>str</strong> is a character array or pointer to a character
+array and <strong>num</strong> is the maximum number of characters to be read into
+the string <strong>str **. The argument **fp</strong> is the FILE pointer into the
+data stream. Characters are read from the input stream into <strong>str</strong>
+until</p>
+<ol class="arabic simple">
+<li>a newline is seen,</li>
+<li>end-of-file is reached, or</li>
+<li>num-1 characters have been read without encountering end-of-file or
+a newline character.</li>
+</ol>
+<p>On success the function returns the address of the buffer that was
+filled, in the example, that would be the address of <strong>str</strong>. If an
+error or end-of-file is encountered, the function returns a NULL
+value.</p>
+</div>
+<div class="section" id="fig-13-4">
+<h3>Fig. 13-4:<a class="headerlink" href="#fig-13-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+/*
+*   The following statement gets a line of input from a stream.
+*   No more than 99 characters, or up to \n, are read from the
+*   stream
+*/
+    ...
+    result = fgets(line,100,stream);</pre>
+</div>
+<p><strong>int fputs(char *str, FILE *fp);</strong>
+The argument <strong>str</strong> is the character array or pointer to an array of
+null-terminated characters that are to be written to the stream
+<strong>fp</strong>.
+The function returns the last character output, if successful. If the
+string is empty, the return value is 0 on most systems, but some UNIX
+implementations return an indeterminate value. A return of EOF,
+usually -1, indicates an error.</p>
+</div>
+<div class="section" id="fig-13-5">
+<h3>Fig. 13-5:<a class="headerlink" href="#fig-13-5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+/*
+*   The following statement writes a string to a stream
+*/
+    ...
+    result = fputs(buffer,stream);</pre>
+</div>
+<p><strong>int fprintf(FILE *stream,char *format-string[,arguments...]);</strong>
+The argument <strong>stream</strong> is the data stream where the data is to be
+written. <strong>format-string</strong> contains escape-sequences and format-
+specifiers exactly like those used in <strong>printf()</strong>, and the
+<strong>arguments</strong> are data items that correspond to the format-specifiers.
+On success the function returns the number of characters printed. If
+the function cannot write to the data stream, the return value is EOF.</p>
+</div>
+<div class="section" id="fig-13-6">
+<h3>Fig. 13-6:<a class="headerlink" href="#fig-13-6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+File *stream;
+int i = 10;
+double fp = 1.5;
+char *s = "this is a string";
+char c = '\n';
+    ...
+    stream = fopen("results","w");
+    ...
+    fprintf(stream,"%s%c",s,c);
+    fprintf(stream,"%d\n",i);
+    fprintf(stream,"%f",fp);</pre>
+</div>
+<p><strong>int fscanf(FILE *stream,char *format-string[,arguments...]);</strong>
+The argument <strong>stream</strong> is the data stream to be read. <strong>format-
+string</strong> contains the format-specifiers for data conversion,
+<strong>arguments</strong> are those variables that data is to be stored into.
+On success the function returns the number of fields that were
+successfully converted and assigned. The return value does not include
+fields that were read but not assigned. The EOF value is returned on
+attempt to read end-of-file. The value 0 is returned, if no fields
+were assigned.</p>
+</div>
+<div class="section" id="fig-13-7">
+<h3>Fig. 13-7:<a class="headerlink" href="#fig-13-7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *stream;
+long l;
+float fp;
+char s[81];
+char c;
+    ...
+    stream = fopen("data","r");
+    ...
+    fscanf(stream,"%s",s);
+    fscanf(stream,"%c",);
+    fscanf(stream,"%ld",);
+    fscanf(stream,"%f",);</pre>
+</div>
+<p><strong>int fread(char *buffer, int size, int count, FILE *stream);</strong>
+This function reads up to <strong>count</strong> items of length <strong>size</strong> from the
+input <strong>stream</strong> and stores them in the given <strong>buffer</strong>. The file
+pointer is incremented by the number of bytes actually read.
+If the given <strong>stream</strong> was opened in text mode, carriage-
+return/linefeed pairs are replaced with single linefeed characters.
+The replacement has no effect on the file pointer or the return value.
+On success the function returns the number of full items actually
+read, which may be less than <strong>count</strong> if an error occurs or if the
+end-of-file is encountered before reaching <strong>count</strong>.</p>
+</div>
+<div class="section" id="fig-13-8">
+<h3>Fig. 13-8:<a class="headerlink" href="#fig-13-8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *stream;
+long list[100];
+int numread;
+    ...
+    stream = fopen("data","r+b");
+    .
+    .
+    .
+    numread = fread((char *)list,sizeof(long),100,stream);</pre>
+</div>
+<p><strong>int fwrite(char *buffer,int size,int count,FILE *stream);</strong>
+The function writes up to <strong>count</strong> items of length <strong>size</strong> from
+<strong>buffer</strong> to the output <strong>stream</strong>. The file pointer associated with
+<strong>stream</strong> is incremented by the number of bytes actually written.
+If the given <strong>stream</strong> was opened in text mode, each carriage-return
+is replaced with a carriage-return/linefeed pair. The replacement has
+no effect on the return value.
+On success the function returns the number of full items actually
+written, which may be less than <strong>count</strong> if an error occurs.</p>
+</div>
+<div class="section" id="fig-13-9">
+<h3>Fig. 13-9:<a class="headerlink" href="#fig-13-9" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *stream;
+long list[100];
+int numwritten;
+    ...
+    stream = fopen("data","w+b");
+    ...
+    numwritten = fwrite((char *)list,sizeof(long),100,stream);</pre>
+</div>
+<p><strong>int fseek(stream,offset,origin)</strong> <strong>stream **to a new location that
+is **offset</strong> bytes from the <strong>origin</strong>. The next operation on the
+stream takes place at the new location. On a stream open for update,
+the next operation can be either a read or a write.
+The <strong>origin</strong> can be one of the following defined constants that
+appear in <strong>io.h</strong>.</p>
+<div class="highlight-python"><pre>constant          origin         meaning
+
+SEEK_SET             0            beginning of file
+SEEK_CUR             1            current position
+                                  of file pointer
+SEEK_END             2            end of file</pre>
+</div>
+<p>On success the function returns the value 0 if the pointer was
+successfully moved. A nonzero return value indicates an error. On
+devices incapable of seeking, the value returned is undefined.</p>
+</div>
+<div class="section" id="fig-13-10">
+<h3>Fig. 13-10:<a class="headerlink" href="#fig-13-10" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *stream;
+int result;
+    ...
+    stream = fopen("data","r");
+    .
+    .
+    .
+    result = fseek(stream,0L,0);  /* beginning of file */</pre>
+</div>
+<p><strong>int feof(FILE *stream);</strong>
+This function determines whether the end of the given <strong>stream</strong> has
+been reached. Once end-of-file is reached, read operations return an
+end-of-file indicator until the stream is closed or rewind() is
+called.
+On success the function resturns a nonzero value when the current
+position is end-of-file. The value 0 is returned if the current
+position is not end-of-file. There is no error return.</p>
+</div>
+<div class="section" id="fig-13-11">
+<h3>Fig. 13-11:<a class="headerlink" href="#fig-13-11" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+char string[100]
+FILE *stream;
+    ...
+    while(!feof(stream))
+    {
+         if(fscanf(stream,"%s",string))
+              process(string);
+    }</pre>
+</div>
+<p><strong>int ferror(FILE *stream);</strong>
+This function tests for a reading or writing error on the given
+<strong>stream</strong>. If an error has occurred, the error indicator for the
+<strong>stream</strong> remains set until the <strong>stream</strong> is closed, rewound or
+until clearerr() is called.
+On success this function returns a nonzero value to indicate an error
+on the given <strong>stream</strong>. The return value 0 means no error has
+occurred.</p>
+</div>
+<div class="section" id="fig-13-12">
+<h3>Fig. 13-12:<a class="headerlink" href="#fig-13-12" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *stream;
+char *string;
+...
+    fprintf(stream,"%s\n",string);
+    if(ferror(stream))
+    {
+         perror("write error");
+         clearerr(stream);
+    }</pre>
+</div>
+<p><strong>void perror(char *string);</strong>
+This function prints an error message to stderr. The <strong>string</strong>
+argument is printed first, followed by a colon, the system error
+message for the last library call that produced an error, and a
+newline.
+The actual error number is in the variable <strong>errno</strong>, which should be
+declared at the external level. The system error messages are accessed
+through the variable <strong>sys_errlist</strong>, which is an array of messages
+ordered by error number. This function has no return values.</p>
+</div>
+<div class="section" id="fig-13-13">
+<h3>Fig. 13-13:<a class="headerlink" href="#fig-13-13" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+...
+FILE *stream;
+...
+    if((stream = fopen("data","r")) == NULL)
+    {
+         perror("Couldn't open file");
+         abort();
+    }</pre>
+</div>
+</div>
+</div>
+<div class="section" id="low-level-unix-like-i-o-or-un-buffered-i-o">
+<h2>13.2 Low Level Unix Like I/O or Un-buffered I/O<a class="headerlink" href="#low-level-unix-like-i-o-or-un-buffered-i-o" title="Permalink to this headline">¶</a></h2>
+<p>Although these functions are defined within the ANSI C standard, they
+are available on all C compilers. The true use of these functions when
+a multi-user, multi-tasking operating system such as UNIX is used. On
+such operating systems these routines are built into the operating
+system kernel and give low-level access to all devices available on
+the system. All device drivers for such operating systems are written
+using these system routines to open, close, read and write to the
+specified device. In the MS- DOS operating system and Microsoft
+Windows operating environment, these are functions that reside within
+the standard C library and do not necessarily provide any low-level
+access to devices.
+When these routines are used there is no buffering within the
+operating system between the application and the disk file. The
+programmer is responsible for setting up a buffer within the
+application that holds the data to be written or filled on a read.
+Since there is no operating system buffer to contend with, these
+routines are more efficient than standard high-level I/O functions.
+Use of the low-level routines tend to produce smaller programs and
+faster execution speeds.
+The functions available: <strong>int open(char *pathname, int oflag[, int
+pmode]);</strong>
+This function opens the file specified by <strong>pathname</strong> and prepares
+the file for subsequent reading or writing as defined by <strong>oflag</strong>.
+The argument <strong>oflag</strong> is an integer expression formed by combining
+one or more of the following manifest constants, defined in
+<strong>fcntl.h</strong>. When more than one manifest constant is given, the
+constants are joined with the bitwise OR operator.</p>
+<div class="highlight-python"><pre>O_RDONLY            Open for reading only.
+O_WRONLY            Open for writing only.
+O_RDWR              Open for reading and writing.
+O_APPEND            Each write to the file will be at the
+                    end of the file.
+O_CREAT             If the file exists, O_CREAT is ignored.
+                    However, if the file does not exist, it
+                            is created with mode  **pmode**.
+O_TRUNC             If the file exists, its contents will
+                    be discarded.
+O_EXCL              If O_CREAT and O_EXCL are set, then
+                             **open()** fails if the file exists.
+O_NDELAY            When opeing pipes, FIFOs, and
+                    communication-line special files, this
+                            flag determines whether  **open()** waits
+                    or returns immediately.  Subsequent reads
+                    and writes are also affected.  This has
+                    no effect on ordinary files and
+                    directories.
+O_BINARY            Can be given to explicitly open the file
+                    in binary mode.
+O_TEXT              Can be given to explicitly open the file
+                    in text mode.</pre>
+</div>
+<p>The argument <strong>pmode</strong> is only if the O_CREAT flag is in effect. This
+argument is used in constructing the access permissions to the file.
+The permissions are found as manifest constants in the <strong>sys/stat.h</strong>
+header file. Those constants are defined as follows:</p>
+<div class="highlight-python"><pre>S_IWRITE            Permission to write for the user.
+S_IREAD             Permission to read for the user.</pre>
+</div>
+<p>The above two constants are the only ones available on a PC compiler.
+With UNIX the above constants are defined as S_IRUSR and S_IWUSR and
+the following constants are also available:</p>
+<div class="highlight-python"><pre>S_ISUID             set user ID on executions
+S_ISGID             set group ID on execution
+S_IRWXU             read, write, execute permission (owner)
+S_IRUSR             read permission (owner)
+S_IWUSR             write permission (owner)
+S_IXUSR             execute permission (owner)
+S_IRWXG             read, write, execute permission (group)
+S_IRGRP             read permission (group)
+S_IWGRP             write permission (group)
+S_IXGRP             execute permission (group)
+S_IRWXO             read, write, execute permission (other)
+S_IROTH             read permission (other)
+S_IWOTH             write permission (other)
+S_IXOTH             execute permission (other)</pre>
+</div>
+<p>On success the function returns a file handle or descriptor for the
+opened file. A return value of -1 indicates an error, and <strong>errno</strong> is
+set to an error code value.</p>
+<div class="section" id="fig-13-14">
+<h3>Fig. 13-14:<a class="headerlink" href="#fig-13-14" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;fcntl.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;io.h&gt;
+#include &lt;stdlib.h&gt;
+...
+int fh1, fh2;
+...
+    fh1 = open("data1",O_RDONLY);
+    if(fh1 == -1 )
+         perror("Open Failed");
+    ...
+    fh2 = open("data2",O_WRONLY|O_TRUNC);
+    if(fh2 == -1)
+         perror("Couldn't Open Output");</pre>
+</div>
+<p><strong>int creat(char *pathname, int pmode);</strong>
+This function creates a new file or opens and truncates an existing
+file. The permission setting, <strong>pmode</strong>, applies to newly created
+files only. The new file receives the specified permission setting
+after it is closed for the first time.
+The <strong>pmode</strong> is an integer expression containing one or both of the
+manifest constants defined in <strong>/sys/stat.h</strong>.
+On success the function returns a handle for the created file if the
+call is successful. A return value of -1 indicates an error, errno is
+set to one of the manifest constant error codes.</p>
+</div>
+<div class="section" id="fig-13-15">
+<h3>Fig. 13-15:<a class="headerlink" href="#fig-13-15" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>int fh;
+...
+    fh = creat("data",S_IREAD|S_IWRITE);
+    if(fh = -1)
+         perror("Couldn't Create File");</pre>
+</div>
+<p><strong>int read(int handle, char *buffer, int count);</strong>
+This function attempts to read <strong>count</strong> bytes from the file
+associated with <strong>handle</strong> into <strong>buffer</strong>. After the read, the file
+pointer points to the next unread character in the file.
+On success this function returns the number of bytes actually read,
+which may be less than <strong>count</strong> if there are fewer than <strong>count</strong>
+bytes left in the file or if the file was opened in text mode. A value
+of 0 indicates end-of-file. A value of -1 indicates an error.</p>
+</div>
+<div class="section" id="fig-13-16">
+<h3>Fig. 13-16:<a class="headerlink" href="#fig-13-16" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>int fh, bytesread;
+unsigned int nbytes = BUFSIZ;
+char buffer[BUFSIZ];
+...
+    bytesread = read(fh,buffer,nbytes);</pre>
+</div>
+<p><strong>int write(int handle,char *buffer,int count);</strong>
+This function attempts to write <strong>count</strong> bytes from <strong>buffer</strong> into
+the file associated with <strong>handle</strong>.
+On success this function returns the number of bytes actually written.
+The value of -1 is returned to indicate an error.</p>
+</div>
+<div class="section" id="fig-13-17">
+<h3>Fig. 13-17:<a class="headerlink" href="#fig-13-17" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>int fh, byteswritten;
+unsigned int nbytes = BUFSIZ;
+char buffer[BUFSIZ];
+...
+    byteswritten = write(fh,buffer,nbytes);</pre>
+</div>
+<p><strong>long lseek(int handle,long offset,int origin)</strong>
+This function moves the file pointer associated with <strong>handle</strong> to a
+new location that is <strong>offset</strong> bytes form the <strong>origin</strong>. The
+<strong>origin</strong> can be one of the following defined constants that appear
+in <strong>io.h</strong>.</p>
+<div class="highlight-python"><pre>constant          origin         meaning
+
+SEEK_SET             0            beginning of file
+SEEK_CUR             1            current position
+                                  of file pointer
+SEEK_END             2            end of file</pre>
+</div>
+<p>On success this function returns the offset, in bytes, of the new
+position relative to the beginning of the file. A return value of -1L
+indicates an error.</p>
+</div>
+<div class="section" id="fig-13-18">
+<h3>Fig. 13-18:<a class="headerlink" href="#fig-13-18" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;io.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdlib.h&gt;
+...
+int fh;
+long position;
+...
+    fh = open("data",O_RDONLY);
+...
+    /* 0 offset from beginning */
+    position = lseek(fh, 0L, SEEK_BEG);
+    if(position == -1L)
+         perror("lseek failed");</pre>
+</div>
+<p><strong>int unlink(char *pathname);</strong>
+This function deletes the file specified by <strong>pathname</strong>.
+On success this function returns the value of 0 if the file is
+successfully deleted. A return value of -1 indicates an error and
+<strong>errno</strong> is set to hold the system error number.</p>
+</div>
+<div class="section" id="fig-13-19">
+<h3>Fig. 13-19:<a class="headerlink" href="#fig-13-19" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;io.h&gt;
+#include &lt;stdlib.h&gt;
+...
+int result;
+...
+    result = unlink("tmpfile");
+    if(result == -1)
+         perror("Couldn't Delete File");</pre>
+</div>
+</div>
+<div class="section" id="listing-13-1">
+<h3>Listing 13-1<a class="headerlink" href="#listing-13-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>/***************************************************************
+*   Program Name    :   testio
+*   Source Name     :   testio.c
+*   Description     :   Demonstration program to show different
+*                   :   techniques for writing to and reading
+*                   :   from the disk.
+****************************************************************/
+
+
+#include &lt;stdio.h&gt;  /* all I/O functions */
+#include &lt;fcntl.h&gt;  /* all UNIX low level functions*/
+#include &lt;string.h&gt; /* all string manipulation functions */
+#include &lt;stdlib.h&gt; /* permission modes for UNIX low level */
+#include &lt;io.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+
+extern int errno;   /* needed to go with perror() */
+/*
+*       describe a structure template, no variable of declared
+*/
+typedef
+struct tagPERSON
+{
+    char name[30];
+    char street[20];
+    char city[20];
+    char state[3];
+    char zip[6];
+    char ssn[13];
+    int age;
+    int height;
+    int weight;
+} PERSON;
+/*
+*   function prototypes
+*/
+int getdata( PERSON * );
+int showdata(PERSON * );
+int puts_gets( void );
+int fprnt_fscan( void );
+int fread_fwrite( void );
+int read_write( void );
+int err_handler(FILE *, char *, int );
+/*
+*       S T A R T   O F   P R O G R A M
+*/
+int main()
+{
+char ans[2];
+int which;
+    /*
+    *       which functions are to be executed
+    */
+    do {
+        printf("\nWhich set of I/O functions are to be tested?");
+        printf("\n    1. fputs and fgets");
+        printf("\n    2. fprintf and fscanf");
+        printf("\n    3. fread and fwrite");
+        printf("\n    4. read and write");
+        printf("\n    5. quit this program");
+        printf("\nEnter your selection: ");
+        gets(ans);
+        which = atoi(ans);
+        switch(which)
+        {
+            case 1:
+                puts_gets();
+                break;
+            case 2:
+                fprnt_fscan();
+                break;
+            case 3:
+                fread_fwrite();
+                break;
+            case 4:
+                read_write();
+                break;
+            case 5:
+                return(0);
+            default:
+                printf("\n\nInvalid selection . . . try again!");
+                break;
+        }
+    }while(1);
+}
+/*
+*   read data from screen into structure elements
+*/
+int
+getdata( PERSON *ptr)
+{
+int result;
+
+    printf("\nEnter your name: ");
+    gets(ptr-&gt;name);
+    printf("\nEnter your street: ");
+    gets(ptr-&gt;street);
+    printf("\nEnter your city: ");
+    gets(ptr-&gt;city);
+    printf("\nEnter your state: ");
+    gets(ptr-&gt;state);
+    printf("\nEnter your zip code: ");
+    gets(ptr-&gt;zip);
+    printf("\nEnter your ssn: ");
+    gets(ptr-&gt;ssn);
+    printf("\nEnter your age: ");
+    scanf("%d",&gt;age);
+    printf("\nEnter your height: ");
+    scanf("%d",&gt;height);
+    printf("\nEnter your weight: ");
+    scanf("%d",&gt;weight);
+    /*
+    *    flush the input data stream so no newlines are left
+    */
+    if((result = fflush(stdin)) == EOF)
+        err_handler(stdin,"stdin",1);
+    return 0;
+}
+/*
+*   display the data held in structure elements on the screen
+*/
+int
+showdata(PERSON *ptr)
+{
+    printf("\nPERSON: %s",ptr-&gt;name);
+    printf("\n      : %s",ptr-&gt;street);
+    printf("\n      : %s",ptr-&gt;city);
+    printf("\n      : %s",ptr-&gt;state);
+    printf("\n      : %s",ptr-&gt;zip);
+    printf("\n      : %s",ptr-&gt;ssn);
+    printf("\n      : %d",ptr-&gt;age);
+    printf("\n      : %d",ptr-&gt;height);
+    printf("\n      : %d",ptr-&gt;weight);
+    return 0;
+}
+/*
+*   Using fputs() and fgets() write data to and read data back
+*   from the disk.  These functions only work with string data.
+*/
+int
+puts_gets()
+{
+FILE *fp;
+PERSON my;
+char *val;
+char ans[2],filename[16],text[80];
+int
+    rtnval
+    ,linecnt
+    ,lgth
+    ;
+    /*
+    *       load file name
+    */
+    strcpy(filename,"testfil1.dat");
+    /*
+    *       open test data set
+    */
+    if((fp = fopen(filename,"w")) == NULL)
+        err_handler(fp,filename,1);
+    do {
+        /*
+        *       acquire data
+        */
+        printf("\nEnter Text:");
+        gets(text);
+        /*
+        *       write to disk
+        */
+        lgth = strlen(text);
+        text[lgth] = '\n';      /* replace NULL terminator */
+        text[lgth + 1] = '\0';  /* place NULL terminator  */
+        if((rtnval = fputs(text,fp)) == EOF)
+            err_handler(fp,filename,2);
+        /*
+        *       keep going?
+        */
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    if((rtnval = fclose(fp)) == EOF)
+    {
+        err_handler(fp,filename,3);
+    }
+    /*
+    *       open test data set
+    */
+    if((fp = fopen(filename,"r")) == NULL)
+        err_handler(fp,filename,3);
+    /*
+    *       print the data back on the screen
+    */
+    linecnt = 0;
+    do {
+        /*
+        *   read data from disk, newline is only way to
+        *   distinguish records
+        */
+        if((val = fgets(text,sizeof(text),fp)) == NULL)
+            if(err_handler(fp,filename,3))
+                break;
+        /*
+        *       display data on screen
+        */
+        printf("\nLine %d:%s",linecnt,text);
+        ++linecnt;
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    if((rtnval = fclose(fp)) == EOF)
+    {
+        err_handler(fp,filename,3);
+    }
+    return 0;
+}
+/*
+*   Using fprintf() and fscanf() functions write data to and
+*   read data from the disk.  Notice that fscanf() has same
+*   limitations as scanf()
+*/
+int
+fprnt_fscan()
+{
+FILE *fp;
+PERSON my;
+char filename[16],lname[20],tstreet[20],ans[2];
+int
+    rtnval
+    ;
+    /*
+    *       load filename
+    */
+    strcpy(filename,"testfil2.dat");
+    /*
+    *       open test data set
+    */
+    if((fp = fopen(filename,"w")) == NULL)
+    {
+        perror("FPRNT_FSCAN(): cannot open file for write");
+        exit(3);
+    }
+    do
+    {
+         /*
+         *    inform user of limitations
+         */
+         printf("\nEnter only a single string ");
+         printf("for name, street and city");
+        /*
+        *       acquire data
+        */
+        getdata();
+        /*
+        *       write to disk
+        */
+        if((rtnval = fprintf(fp,"%s %s %s %s %s %s %d %d %d\n",
+                             my.name,
+                             my.street,
+                             my.city,
+                             my.state,
+                             my.zip,
+                             my.ssn,
+                             my.age,
+                             my.height,
+                             my.weight)) == EOF)
+        {
+            perror("FPRNT_FSCAN(): cannot fprintf to file");
+            exit(4);
+        }
+        /*
+        *       keep going?
+        */
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    fclose(fp);
+    /*
+    *       open test data set
+    */
+    if((fp = fopen(filename,"r")) == NULL)
+    {
+        perror("FPRNT_FSCAN(): cannot open file for read");
+        exit(5);
+    }
+    /*
+    *       print the data back on the screen
+    */
+    do
+    {
+        /*
+        *     read data from disk, notice fscanf has same
+        *     limitation in scanning disk data as scanf has
+        *     in screen data; it delimits values by whitespace
+        */
+        if((rtnval = fscanf(fp,
+                            "%s %s %s %s %s %s %s %s %d %d %d",
+                            my.name,
+                            lname,
+                            my.street,
+                            tstreet,
+                            my.city,
+                            my.state,
+                            my.zip,
+                            my.ssn,
+                            ,
+                            ,
+                            )) == NULL)
+        {
+            perror("FPRNT_FSCAN(): cannot fscanf from file");
+            exit(3);
+        }
+        /*
+        *       display data on screen
+        */
+        showdata();
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    fclose(fp);
+    return 0;
+}
+/*
+*   Using the fwrite() and fread() functions write data to and
+*   read data from the disk.  These are block oriented,
+*   high-level buffered I/O functions.
+*/
+int
+fread_fwrite()
+{
+FILE *fp;
+PERSON my;
+char filename[16],ans[2];
+int
+    rtnval
+    ;
+    /*
+    *       load filename
+    */
+    strcpy(filename,"testfil3.dat");
+    /*
+    *    open test data set, binary mode because of integer
+    *    values to be written
+    */
+    if((fp = fopen(filename,"w+b")) == NULL)
+    {
+        perror("FREAD_FWRITE(): cannot open file for write");
+        exit(6);
+    }
+    do {
+        /*
+        *       acquire data
+        */
+        getdata();
+        /*
+        *     write to disk;
+        *      = the address of the buffer to be written
+        *     sizeof(my) = the number of bytes to be written
+        *     1 = the number of items of the above size to be
+        *         written
+        *     fp = the stream pointer
+        */
+        if((rtnval = fwrite(,sizeof(my),1,fp)) == EOF)
+        {
+            perror("FREAD_FWRITE(): cannot fwrite to file");
+            exit(7);
+        }
+        /*
+        *       keep going?
+        */
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    fclose(fp);
+    /*
+    *    open test data set, allow for binary data because of
+    *    integer type values
+    */
+    if((fp = fopen(filename,"r+b")) == NULL)
+    {
+        perror("FREAD_FWRITE(): cannot open file for read");
+        exit(8);
+    }
+    /*
+    *       print the data back on the screen
+    */
+    do {
+        /*
+        *     read data from disk; must be tested for less than
+        *     the count of items (1) to detect EOF
+        */
+        if((rtnval = fread(,sizeof(my),1,fp)) &lt; 1)
+            if(err_handler(fp,filename,9))
+                break;
+        /*
+        *       display data on screen
+        */
+        showdata();
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    fclose(fp);
+    return 0;
+}
+/*
+*   Using the write() and read() functions, write data to and
+*   read data from the disk.  These are low-level, unbuffered,
+*   UNIX like I/O functions.
+*/
+int
+read_write()
+{
+char buf[512];
+int fp;
+PERSON my;
+char filename[16], ans[2];
+int
+    rtnval
+    ;
+    /*
+    *       load filename
+    */
+    strcpy(filename,"testfil4.dat");
+    /*
+    *    open test data set, binary mode because of integer
+    *    values to be written; create dataset if not there
+    *    O_WRONLY|O_CREAT|O_BINARY = open the file and write
+    *         only if the file is not there then create it and
+    *         write to the file in binary mode.
+    *    S_IWRITE = if the file has to be created then create
+    *         it as as read/write file, which implies read and
+    *         write capability allowed.
+    */
+#ifdef PC
+    if((fp =
+         open(filename,O_WRONLY|O_CREAT|O_BINARY,S_IWRITE))
+         == EOF)
+    {
+        perror("READ_WRITE(): cannot open file for write");
+        exit(10);
+    }
+#else
+    if((fp =
+         open(filename,O_RDWR|O_CREAT,S_IREAD|S_IWRITE))
+         == EOF)
+    {
+        perror("READ_WRITE(): cannot open file for write");
+        exit(10);
+    }
+#endif
+    do
+    {
+#ifndef PC
+        /*
+        *    inform user of limitations
+        */
+        printf("\nEnter only a single string ");
+        printf("for name, street and city");
+#endif
+        /*
+        *       acquire data
+        */
+        getdata();
+        /*
+        *       write to disk
+        */
+#ifdef PC
+        if((rtnval = write(fp,,sizeof(my))) == EOF)
+        {
+            perror("READ_WRITE(): cannot write to file");
+            exit(7);
+        }
+#else
+        sprintf(buf,"%s %s %s %s %s %s %d %d %d",
+                my.name,
+                my.street,
+                my.city,
+                my.state,
+                my.zip,
+                my.ssn,
+                my.age,
+                my.height,
+                my.weight);
+        if((rtnval = write(fp,buf,sizeof(my))) == EOF)
+        {
+            perror("READ_WRITE(): cannot write to file");
+            exit(7);
+        }
+#endif
+        /*
+        *       keep going?
+        */
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    close(fp);
+    /*
+    *    open test data set, allow for binary data because of
+    *    integer type values
+    */
+#ifdef PC
+    if((fp = open(filename,O_RDONLY|O_BINARY)) == EOF)
+    {
+        perror("READ_WRITE(): cannot open file for read");
+        exit(11);
+    }
+#else
+    if((fp = open(filename,O_RDONLY)) == EOF)
+    {
+        perror("READ_WRITE(): cannot open file for read");
+        exit(11);
+    }
+#endif
+    /*
+    *       print the data back on the screen
+    */
+    do
+    {
+        /*
+        *     read data from disk, notice fscanf has same
+        *     limitation in scanning disk data as scanf has
+        *     in screen data; it delimits values by whitespace
+        */
+#ifdef PC
+        if((rtnval = read(fp,,sizeof(my))) &lt; 0)
+        {
+            perror("READ_WRITE(): cannot read from file");
+            exit(12);
+        }
+        if( rtnval == 0 )
+        {
+            fprintf(stderr,"\nEnd Of File Reached");
+            break;
+        }
+#else
+        if((rtnval = read(fp,buf,sizeof(my))) &lt;0)
+        {
+            perror("READ_WRITE(): cannot write to file");
+            exit(7);
+        }
+        if( rtnval == 0 )
+        {
+            fprintf(stderr,"\nEnd Of File Reached");
+            break;
+        }
+        sscanf(buf,"%s %s %s %s %s %s %d %d %d",
+               my.name,
+               my.street,
+               my.city,
+               my.state,
+               my.zip,
+               my.ssn,
+               ,
+               ,
+               );
+#endif
+        /*
+        *       display data on screen
+        */
+        showdata();
+        strcpy(ans," ");
+        printf("\nContinue(Y/N)? ");
+        gets(ans);
+    }while(!strcmp(ans,"y"));
+    close(fp);
+    return 0;
+}
+/*
+*   Sample error handler for I/O functions.  Will determine if
+*   error was encountered or simply end-of-file
+*/
+int
+err_handler(FILE *fileptr, char *filename, int exitnum)
+{
+char errmsg[80];
+
+    if ferror(fileptr)
+    {
+        sprintf(errmsg,"ERROR - cannot access file:%s",filename);
+        putchar('\n');
+        perror(errmsg);
+        clearerr(fileptr);
+        exit(exitnum);
+    }
+    if feof(fileptr)
+    {
+        sprintf(errmsg,"End of File reached on file:%s",
+                filename);
+        putchar('\n');
+        perror(errmsg);
+        clearerr(fileptr);
+        return(1);
+    }
+    return 0;
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="c-input-output-classes">
+<h2>13.3 C++ Input/Output Classes<a class="headerlink" href="#c-input-output-classes" title="Permalink to this headline">¶</a></h2>
+<p>The C++ input/output mechanism (provided with C++ compilers that
+support at least AT release 2.0) is comprised of a series of classes
+that have been created to handle the problem of sending and receiving
+data. Here is a brief description of these classes:</p>
+<p>#. The <strong>streambuf</strong> class provides memory for a buffer along with
+class methods for filling the buffer, accessing buffer contents,
+flushing the buffer, and managing the buffer memory. It handles the
+most primitive functions for streams on a first-in-first-out basis.
+#. The <strong>filebuf</strong> class is derived from class <strong>streambuf</strong> and
+extends it by providing basic file operations.
+#. The <strong>strstreambuf</strong> class is derived from class <strong>streambuf</strong> and
+is designed to handle memory buffers.
+#. The <strong>ios</strong> class represents general properties of a stream, such
+as whether it&#8217;s open for reading and whether it is a binary or a text
+stream, and it includes a pointer member to a <strong>streambuf</strong> class.
+#. The <strong>ostream</strong> class derives from the <strong>ios</strong> class and provides
+output methods. That is, it formats the data you send to an output
+device so that it appears in the way you expect.
+#. The <strong>istream</strong> class also derives from the <strong>ios</strong> class and
+provides input methods. That is, it accepts data from an input device
+in the way you expect.
+#. The <strong>iostream</strong> class is based on the <strong>istream</strong> and <strong>ostream</strong></p>
+<blockquote>
+<div>class and thus inherits both input and output methods.</div></blockquote>
+</div>
+<div class="section" id="instances-of-the-class-ostream">
+<h2>13.3.1 Instances of the class ostream<a class="headerlink" href="#instances-of-the-class-ostream" title="Permalink to this headline">¶</a></h2>
+<p>Of course, classes in and of themselves do no good unless they are
+used to create instances, or objects, of those classes. Fortunately,
+this has already been done at a global scope, so that these objects
+are immediately available for use. Here is a list of the objects to
+which messages can be sent:</p>
+<p>#. The <strong>cout</strong> object corresponds to the standard output stream. By
+default, this stream is associated with the standard output device,
+typically a monitor. <strong>cout</strong> is an instance of the class <strong>ostream</strong>.
+#. The <strong>cerr</strong> object corresponds to the standard error stream, which
+can be used for displaying error messages. By default, this stream is
+associated with the standard output device, typically a monitor, and
+the stream is unbuffered. Unbuffered means that information is sent
+directly to the screen without waiting for a buffer to fill or for a
+newline character.
+#. The <strong>clog</strong> object also corresponds to the standard error stream.</p>
+<blockquote>
+<div>By default, this stream is associated with the standard output device,
+typically a monitor, and the stream is buffered.</div></blockquote>
+<p>C++ treats the terminal screen as an object in the real world. This
+object has a state and a public interface. By sending both mutator and
+accessor messages to this object, the programmer can effectively
+perform all the same operations that were available using the output
+functions provided in the <strong>stdio</strong> library.
+The global instance <strong>cout</strong> of class <strong>ostream</strong> is used to initiate
+all output operations to the monitor. In the class <strong>ostream</strong>, the
+function usee the most often is the overloaded bitwise left-shift
+operator, <strong>&lt;&lt;</strong>. It is typically called the insertion operator. The
+name &#8220;insertion&#8221; comes from the fact that characters are being
+&#8220;inserted&#8221; into an output buffer, as represented by the object
+<strong>cout</strong>.
+Within the class <strong>ostream</strong> the operator <strong>&lt;&lt;</strong> (left_shift) has been
+overloaded many times as a binary member function (requires two
+operands). The one implicit argument is, of course, the instance of
+<strong>cout</strong>, and the one explicit argument is the data item that is to be
+output. It is recommended that a listing of the file <strong>iostream.h</strong> be
+printed. Inside the file can be seen the many declarations for this
+overloaded function within the <strong>ostream</strong> class.</p>
+<div class="highlight-python"><pre>ostream&amp; operator&lt;&lt;( int );
+ostream&amp; operator&lt;&lt;( long );
+ostream&amp; operator&lt;&lt;( double );
+ostream&amp; operator&lt;&lt;( char );
+ostream&amp; operator&lt;&lt;( const signed char * );
+ostream&amp; operator&lt;&lt;( unsigned char );
+ostream&amp; operator&lt;&lt;( short int );
+ostream&amp; operator&lt;&lt;( unsigned long );
+ostream&amp; operator&lt;&lt;( float );
+ostream&amp; operator&lt;&lt;( long double );
+ostream&amp; operator&lt;&lt;( void * );
+ostream&amp; operator&lt;&lt;( streambuf * );
+ostream&amp; operator&lt;&lt;( ostream&amp; (*) (ostream&amp;) );</pre>
+</div>
+<p>These are essentially all of the types that <strong>printf()</strong> can accept.
+The last item is designed to accommodate a <strong>manipulator function</strong>.</p>
+</div>
+<div class="section" id="stream-input">
+<h2>13.3.2 Stream Input<a class="headerlink" href="#stream-input" title="Permalink to this headline">¶</a></h2>
+<p>The class <strong>istream</strong> is derived from the class <strong>ios</strong> and controls
+the handling of input from the keyboard. The global instance that the
+programmer uses is called <strong>cin</strong>. Think of <strong>cin</strong> as being the
+keyboard object, from which data will be extracted.
+The function used the most often to read input from the keyboard is
+called the <strong>extraction</strong> operator, <strong>&gt;&gt;</strong>. Note that it is the
+overloaded right-shift operator, whereas the insertion function
+<strong>operator&lt;&lt;()</strong> is the overloaded left-shift operator. Within the
+class <strong>istream</strong> it has been overloaded many times as a binary member
+function. Thus, it is declared as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">istream</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span> <span class="o">...</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>The name &#8220;extraction&#8221; comes from the fact that data is being
+&#8220;extracted&#8221; (taken) from the input data stream. The argument to this
+function is the variable name that references the storage location for
+the data. Note that all such overloaded functions ignore leading
+whitespace characters from the keyboard, and terminate upon
+encountering a whitespace character within the data.
+The extraction operator function has been overloaded to accommodate
+these types:</p>
+<div class="highlight-python"><pre>unsigned char *
+signed char *
+unsigned char&amp;
+signed char&amp;
+unsigned short int&amp;
+short int&amp;
+int&amp;
+unsigned int&amp;
+long&amp;
+unsgined long&amp;
+float&amp;
+double&amp;
+long double&amp;
+streambuf *
+istream&amp; (*) (istream&amp;)</pre>
+</div>
+<p>Note that unlike <strong>scanf()</strong>, there is no need to use the address
+operator (for a non-array type), nor is there a need to specify any
+type of conversion specification. The function knows which overloaded
+function is to be used because it matches the type of function
+argument to the corresponding overloaded <strong>operator&gt;&gt;</strong> function that
+takes the same type of argument. All arguments are passed by
+reference.</p>
+</div>
+<div class="section" id="writing-manipulators">
+<h2>13.4 Writing Manipulators<a class="headerlink" href="#writing-manipulators" title="Permalink to this headline">¶</a></h2>
+<p>Manipulators really are functions, but when the name of a function is
+stated without writing parentheses, the compiler generates the address
+of that function. Therefore, in the following statement there are no
+direct function calls occurring, so the left-to-right order of items
+to be output when sending data to the <strong>cout</strong> instance can be
+guaranteed. This means that when the following in written:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arg1</span> <span class="o">&lt;&lt;</span> <span class="n">manipulator</span> <span class="o">&lt;&lt;</span> <span class="n">arg2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>the compiler assures that first <strong>arg1</strong> will be sent, followed by the
+<strong>manipulator</strong> and finally <strong>arg2</strong>.
+In the case of a manipulator function, since we are supplying the
+address of a function, that takes as its one argument a reference to
+<strong>cout</strong> and returns a reference, the compiler will look for an
+overloaded <strong>operator&lt;&lt;()</strong> function that conforms to this scheme.
+Since a pointer-to-function is usually what is being passed in the
+<strong>cout</strong> or <strong>cin</strong> stream, the function being pointed to can be
+executed by dereferencing the pointer variable that was passed and
+enclosing the entire expression within parentheses. Since <strong>*this</strong>
+always refers to the invoking instance of any nonstatic member
+function call, in this case it&#8217;s the object <strong>cout</strong>, which will be
+passed to the manipulator function as an actual argument. Finally,
+since the manipulator function itself returns a reference to <strong>cout</strong>,
+this reference must, in turn, be passed back to the original statement
+to allow the function chaining to occur.
+This is how the insertion function to accommodate manipulators is
+written:</p>
+<div class="highlight-python"><pre>ostream&amp; ostream::operator&lt;&lt; (ostream&amp; (*ptr) (ostream&amp;))
+{
+     return (*ptr)(*this);
+}</pre>
+</div>
+</div>
+<div class="section" id="manipulator-with-no-arguments">
+<h2>13.4.1 Manipulator with No Arguments<a class="headerlink" href="#manipulator-with-no-arguments" title="Permalink to this headline">¶</a></h2>
+<p>This is the simplest type of manipulator and only a reference to the
+data stream be passed and that a reference be returned.</p>
+<div class="section" id="listing-13-2">
+<h3>Listing 13-2<a class="headerlink" href="#listing-13-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;iostream.h&gt;
+
+ostream&amp; showDollars( ostream&amp; stream )
+{
+    stream.setf( ios::fixed );
+    stream.fill( '$' );
+    stream.width( 8 );
+    stream.precision( 2 );
+    stream.setf( ios::right );
+    return stream;
+
+}
+
+int main()
+{
+float cash = 123.45;
+
+    cout &lt;&lt; "The amount " &lt;&lt; showDollars
+         &lt;&lt; cash &lt;&lt; " is due." &lt;&lt; endl;
+    return 0;
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="manipulator-with-one-argument">
+<h2>13.4.2 Manipulator with One Argument<a class="headerlink" href="#manipulator-with-one-argument" title="Permalink to this headline">¶</a></h2>
+<p>The generic form of an output manipulator that accepts one argument
+is:</p>
+<div class="highlight-python"><pre>ostream&amp; manipulator(ostream&amp; stream, type arg)
+{
+     //   your code goes here that uses arg
+     return stream;
+}</pre>
+</div>
+<p>where type is either <strong>int</strong> or <strong>long</strong>, and <strong>arg</strong> is the formal
+argument name.
+Next, the following code must be included:</p>
+<div class="highlight-python"><pre>OMANIP(type) manipulator( type arg)
+{
+     return OMANIP(type) (manipulator, arg);
+}</pre>
+</div>
+<p>where <strong>OMANIP</strong> is a class defined in the file <strong>iomanip.h</strong>. (
+<strong>NOTE:</strong> This only works on Microsoft C++ v7.0, Visual C++ v1.5x and
+Borland C/C++ v3.1.)
+As an example, here is a manipulator called <strong>set</strong> that sets the
+field width to whatever the argument happens to be, and also sets the
+fill character to an &#8216;*&#8217;.</p>
+<div class="section" id="listing-13-3">
+<h3>Listing 13-3<a class="headerlink" href="#listing-13-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>//
+//  example of manipulator set
+//  source file: setmanip.cpp
+//
+#include &lt;iostream.h&gt;
+#include &lt;iomanip.h&gt;
+
+ostream&amp; set( ostream&amp; stream, int length )
+{
+    return stream &lt;&lt; setw(length) &lt;&lt; setfill('*');
+}
+
+OMANIP(int) set( int length )
+{
+    return OMANIP(int) (set, length );
+}
+
+int main()
+{
+    cout &lt;&lt; set(7) &lt;&lt; 123 &lt;&lt; endl;
+    cout &lt;&lt; set(5) &lt;&lt; 45 &lt;&lt; endl;
+    return 0;
+}</pre>
+</div>
+<p>Here is another manipulator that is designed to tab to an absolute
+column position on some output device. This would be useful when
+column alignment of data is needed on a report. If the tab position is
+less than the current file position marker, then a newline is
+performed.</p>
+</div>
+<div class="section" id="listing-13-4">
+<h3>Listing 13-4<a class="headerlink" href="#listing-13-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;iostream.h&gt;
+#include &lt;iomanip.h&gt;
+#include &lt;string.h&gt;
+//
+//  Declaration
+//
+ostream&amp; TAB( ostream&amp;, long );
+OMANIP(long) TAB(long);
+
+//
+//  Definition
+//
+ostream&amp; TAB( ostream&amp; stream, long col )
+{
+    long here = stream.tellp();
+    if( col &lt; here )
+    {
+         stream &lt;&lt; endl;
+         here = 0L;
+    }
+    return stream &lt;&lt; setw(col-here) &lt;&lt; " ";
+}
+
+OMANIP(long) TAB(long col)
+{
+    return OMANIP(long) (TAB, col);
+}
+
+class Person
+{
+private:
+    char *name;
+    long age;
+    long income;
+
+public:
+    Person( const char * = "", int = 0, float = 0.0 );
+    ~Person();
+    friend ostream&amp; operator&lt;&lt;(ostream&amp;, const Person&amp; );
+};
+
+inline Person::Person(const char *n, int a, float i)
+{
+    name = new char[strlen(n) +1];
+    strcpy(name,n);
+    age = a;
+    income = i;
+}
+
+inline Person::~Person()
+{
+    delete [] name;
+}
+
+ostream&amp; operator&lt;&lt;(ostream&amp; stream, const Person&amp; p )
+{
+    stream.seekp(0L);
+    stream &lt;&lt; p.name;
+    stream &lt;&lt; TAB(20) &lt;&lt; p.age;
+    stream &lt;&lt; TAB(30) &lt;&lt; p.income;
+    stream &lt;&lt; endl;
+    return stream;
+}
+
+int main()
+{
+Person staff[] =
+    {
+         Person("John Doe", 21, 34566.67 )
+         ,Person("Mary Jones", 23, 35700.33)
+         ,Person("Pat Lowry", 20, 33100.10)
+    };
+
+const int size = sizeof( staff ) / sizeof( Person );
+
+    for( int i = 0; i &lt; size; ++i )
+         cout &lt;&lt; staff[i];
+
+    return 0;
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="manipulator-with-two-arguments">
+<h2>13.4.3 Manipulator with Two Arguments&lt;<a class="headerlink" href="#manipulator-with-two-arguments" title="Permalink to this headline">¶</a></h2>
+<p>There are no built-in manipulators in the standard C++ language
+definition that takes two arguments. However, Borland C++ provides a
+constream class that supplies some manipulators that handle two
+arguments. Suppose a manipulator that requires two arguments is needed
+to output a line consisting of a variable number of any given
+character. This means that the manipulator requires two arguments: (1)
+the number of characters to be output, and (2) the character itself.
+The first thing that must be done is to package the arguments into a
+structure object. Here it is called <strong>args</strong>.</p>
+<div class="section" id="id1">
+<h3>Fig. 13-18<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>#include &lt;iostream.h&gt; #include &lt;iomanip.h&gt; struct ARGS { char ch; int
+number; };
+Next, the name of the structure becomes the type that is used in the
+IOMANIPdeclare declaration.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">IOMANIPdeclare</span><span class="p">(</span> <span class="n">ARGS</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>Next, write the manipulator function as though it were taking just one
+argument. This argument is of the type of the structure. The name of
+manipulator is <strong>fill</strong>. It loops the requisite number of times and
+outputs the character.</p>
+</div>
+<div class="section" id="id2">
+<h3>Fig. 13-19<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>ostream&amp; fill( ostream&amp; stream, ARGS a )
+{
+    for( int i = 0; i &lt; a.number; ++i )
+         stream &lt;&lt; a.ch;
+    return stream;
+}</pre>
+</div>
+<p>Finally, write the <strong>OMANIP</strong> macro shown below. Note that the
+arguments are listed individually, and the body of the macro creates
+an instance of the structure and assigns the input values to it.</p>
+</div>
+<div class="section" id="fig-13-20">
+<h3>Fig. 13-20<a class="headerlink" href="#fig-13-20" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>OMANIP( ARGS ) fill(char ch, int number )
+{
+ARGS a;
+
+    a.ch = ch;
+    a.number = number;
+    return OMANIP( ARGS )(fill,a);
+}
+
+int main()
+{
+    cout &lt;&lt; "How many characters? ";
+    int number;
+    while( !(cin &gt;&gt; number).eof() )
+    {
+         if( cin.fail() )
+              cout &lt;&lt; "Invalid entry\n";
+         else
+         {
+              cout &lt;&lt; "Enter the character: ";
+              char ch;
+              cin &gt;&gt; ch;
+              cout &lt;&lt; fill(ch, number) &lt;&lt; endl;
+         }
+         cout &lt;&lt; "How many characters? ";
+    }
+    return 0;
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="file-i-o">
+<h2>13.5 File I/O&lt;<a class="headerlink" href="#file-i-o" title="Permalink to this headline">¶</a></h2>
+<p>In ANSI C, file I/O is handled by functions such as <strong>fopen</strong> to open
+a file, <strong>fclose</strong> to close it, and <strong>fscanf</strong> and <strong>fprintf</strong> to read
+from and write to a file. In the iostream package, the classes meant
+for file I/O are defined in the header file ** <strong>.
+There are three classes of interest in ** **: the **ifstream</strong> class
+is meant for input, <strong>ofstream</strong> for output, and the <strong>fstream</strong>
+supports both input and output.
+The simplest way to open a file for I/O is to create an instance of
+the <strong>ifstream</strong> or <strong>ofstream</strong> class, as follows:</p>
+<div class="section" id="fig-13-21">
+<h3>Fig. 13-21<a class="headerlink" href="#fig-13-21" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;fstream.h&gt;
+//
+// open file named "infile" for input operations only and
+// connect it to the istream "ins"
+//
+ifstream ins("ifile");
+//
+// open file name "outfile" for output operations only and
+// connect it to the ostream "outs"
+//
+ofstream outs("outfile");</pre>
+</div>
+<p>As can be seen, the file can be opened and connected to a data stream
+when the the instance of the <strong>ifstream</strong> or <strong>ofstream</strong> class is
+declared. There are two distinct streams for input and output. The
+ANSI C equivalent for connecting a file to an <strong>ifstream</strong> is to call
+<strong>fopen</strong> with the &#8220;r&#8221; mode. On the other hand, using <strong>ofstream</strong> in
+C++ is similar to calling <strong>fopen</strong> with the &#8220;w&#8221; mode in ANSI C.
+Before using the stream connected to a file, it should be checked to
+see if the stream was successfully created. The logical NOT operator
+<strong>!</strong> is overloaded for the stream classes so that it can be used to
+check a stream using a test like this:</p>
+</div>
+<div class="section" id="fig-13-22">
+<h3>Fig. 13-22<a class="headerlink" href="#fig-13-22" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>//
+// open stream
+//
+ifstream ins("infile");
+//
+// check whether stream has been opened successfully
+//
+if( !ins )
+{
+    cerr &lt;&lt; "Cannot open : infile" &lt;&lt; endl;
+    exit( 1 );
+}</pre>
+</div>
+<p>An <strong>ifstream</strong> or <strong>ofstream</strong> does not have to be attached to any
+file at the time of creation. The instance of the class can be created
+first and then at a later point in the logic flow the open member
+function of the stream can be used to connect the class instance to a
+file:</p>
+</div>
+<div class="section" id="fig-13-23">
+<h3>Fig. 13-23<a class="headerlink" href="#fig-13-23" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>ifstream ins;
+
+ins.open( "infile" );
+
+if( !ins )          // open failed</pre>
+</div>
+<p>When the data stream is close with the <strong>close()</strong> method the file is
+disconnected from the stream.</p>
+</div>
+<div class="section" id="fig-13-24">
+<h3>Fig. 13-24<a class="headerlink" href="#fig-13-24" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>// close file
+ins.close();</pre>
+</div>
+<p>This does not destroy the instance of the class or the data stream, so
+the stream can be reconnected to another file by calling <strong>open()</strong>
+again.</p>
+</div>
+</div>
+<div class="section" id="controlling-the-stream-operating-modes">
+<h2>13.5.1 Controlling the Stream Operating Modes<a class="headerlink" href="#controlling-the-stream-operating-modes" title="Permalink to this headline">¶</a></h2>
+<p>When a data stream is opened by simply providing the name of a file to
+the stream&#8217;s constructor, the method is taking advantage of C++&#8217;s
+allowance for default argument values. When an instance of
+<strong>ifstream</strong> is declared as follows:</p>
+<div class="highlight-python"><pre>ifstream ins("infile");</pre>
+</div>
+<p>the constructor that gets invoked is declared as follows:</p>
+<div class="highlight-python"><pre>ifstream( const char *, int = ios::in,
+     int = filebuf::openprot);</pre>
+</div>
+<p>The last two integer-valued arguments are used with the default
+values. The second argument to the constructor indicates the mode in
+which the stream operates. For <strong>ifstream</strong>, the default is
+<strong>ios::in</strong>, which means the file is opened for reading. For an
+<strong>ofstream</strong> object, the default mode is <strong>ios::out</strong>, implying that
+the file is opened for writing.
+The constructors allow you to declare a file stream without specifying
+a named file. Later, the file can be associated with the data stream.</p>
+<div class="section" id="fig-13-25">
+<h3>Fig. 13-25<a class="headerlink" href="#fig-13-25" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>ofstream ofile;      // creates output file stream
+...
+ofile.open("payroll");   // ofile connects to file "payroll"
+//   do some payrolling...
+
+ofile.close();      // close the ofile stream
+ofile.open("employee");  // ofile can be reused</pre>
+</div>
+<p>By default, files are opened in text mode. This means that on input,
+carriage-return/linefeed sequences are converted to the &#8216;n&#8217;
+character. On output, the &#8216;n&#8217; character is converted to a carriage-
+return/linefeed sequence. These translations are not done in binary
+mode. The file opening mode is set with an optional second parameter
+to the open function, chosen from the following table:</p>
+</div>
+<div class="section" id="table-13-1">
+<h3>Table 13-1<a class="headerlink" href="#table-13-1" title="Permalink to this headline">¶</a></h3>
+<p>Modes for File Open Mode Name Operation ios::app Appends data to the
+file. ios::ate When first opened, positions file at end-of-file (
+<strong>ate</strong> stand for at end ). ios::in Opens file for reading.
+ios::nocreate Fails to open file if it does not already exist.
+ios::noreplace If file exists, open for output fails unless
+<strong>ios::app</strong> or <strong>ios::ate</strong> is set. ios::out Opens file for writing.
+ios::trunc Truncates file if it already exists. ios::binary Opens file
+in binary mode.
+Note that more than one mode can be specified for a file, simply use a
+bitwise OR of the required modes. For example, to open a file for
+output and position it at the end of existing data, bitwise OR the
+modes <strong>ios::out</strong> and <strong>ios::ate</strong> as follows:</p>
+<div class="highlight-python"><pre>ofstream outs("outfile",ios::out|ios::ate);</pre>
+</div>
+<p>As an example of file I/O in C++, consider a utility program that
+copies one file to another. Assume that the utility is named
+<strong>filecopy</strong> and that when the following command is typed:</p>
+<div class="highlight-python"><pre>filecopy in.fil out.fil</pre>
+</div>
+<p><strong>filecopy</strong> copies the contents of the file named <strong>in.fil</strong> to a
+second file named <strong>out.fil</strong>.</p>
+</div>
+<div class="section" id="listing-13-6">
+<h3>Listing 13-6<a class="headerlink" href="#listing-13-6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>//
+//  filecopy.cpp - Source available on instructors diskette
+//
+#include &lt;fstream.h&gt;
+#include &lt;stdlib.h&gt;
+
+const int bufsize=256;
+
+main(int argc, char *argv[])
+{
+char ch;
+ifstream f1;
+ofstream f2(argv[2]);
+char buff[bufsize];
+    //
+    //   open the source file that is to be copied
+    //
+    f1.open( argv[1], ios::in );
+    if( !f1 )
+    {
+         cerr &lt;&lt; "Cannot open " &lt;&lt; argv[1] &lt;&lt; "for input"
+              &lt;&lt; endl;
+         exit( 1 );
+    }
+    else
+         cout &lt;&lt; "File " &lt;&lt; argv[1] &lt;&lt; " opened for input."
+              &lt;&lt; endl;
+    //
+    //   check to see if the destination file was opened
+    //
+    if( !f2 )
+    {
+         cerr &lt;&lt; "File " &lt;&lt; argv[2] &lt;&lt; " was not opened "
+              &lt;&lt; "for output"
+              &lt;&lt; endl;
+         exit( 2 );
+    }
+    else
+         cout &lt;&lt; "File " &lt;&lt; argv[2] &lt;&lt; " opened for output."
+              &lt;&lt; endl;
+    //   copy one file to another
+    //
+    //   the following will copy one character at a time
+    //   from the file associated with f1 to the file
+    //   associated with f2
+    //
+//  while ( f2 &amp;&amp; f1.get( ch ) )
+//         f2.put( ch );
+    //
+    //   the following will copy a line at a time
+    //
+    while( !f1.eof() )
+    {
+         f1.read( buff, sizeof( buff ) );
+         f2.write( buff, sizeof( buff ) );
+    }
+    return ( 0 );
+}</pre>
+</div>
+<p>There is another way to implement the last <strong>while</strong> loop that
+actually copies data between the files. The data can be read a line at
+a time and written a line at a time. To read a line, use the same
+<strong>get</strong> function but with the address of a buffer and the buffer&#8217;s
+size as arguments:</p>
+</div>
+<div class="section" id="fig-13-26">
+<h3>Fig. 13-26<a class="headerlink" href="#fig-13-26" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>const bufsize = 128;
+char buf[bufsize];
+// ...
+f1.get( buf, bufsize );</pre>
+</div>
+<p>The call to <strong>get</strong> will extract from the input stream into the
+specified buffer, up to <strong>bufsize-1</strong> characters or until a newline
+character is encountered. The <strong>get</strong> places a terminating null
+character in the buffer. By default, the <strong>get</strong> function stops at the
+newline character, but another delimiter can be specified as a third
+argument to the <strong>get</strong> function. Note that this call to <strong>get</strong> is
+similar to the <strong>fgets</strong> function in C except that unlike <strong>fgets</strong>,
+<strong>get</strong> does not copy the newline character into the buffer. Nor does
+<strong>get</strong> skip over the newline character. Therefore, to read lines
+repeatedly from a file, the newline must be extracted separately after
+each line is read.</p>
+</div>
+</div>
+<div class="section" id="positioning-in-a-file">
+<h2>13.5.2 Positioning in a File<a class="headerlink" href="#positioning-in-a-file" title="Permalink to this headline">¶</a></h2>
+<p>Many times files must be read containing binary data that have a
+specific internal structure. For instance, there may be a 128- byte
+header followed by blocks of data. Information extracted from the
+header might tell that the data needed is at a specific location
+inside the file. To read this data, the program must be able to
+position the stream properly before reading from the file. In ANSI C,
+functions such as <strong>fseek</strong> and <strong>ftell</strong> can be used for positioning
+within data streams. The <strong>iostream</strong> library also enables programs to
+reposition within streams and, as expected, classes provide member
+functions that accomplish this task.
+It is possible to position a stream in the <strong>iostream</strong> library by
+calling the member functions <strong>seekg</strong> or <strong>seekp</strong> of that stream.
+Because the same stream may be used for both input and output, the
+stream classes have the concept of a <strong>get position</strong> and a <strong>put **
+**position</strong> that respectively indicate the location from which the
+next read or write will occur. The <strong>get position</strong> is set using
+<strong>seekg</strong>, whereas <strong>seekp</strong> alters the <strong>put position</strong>. For example,
+to position the stream at the 513th byte in the input stream <strong>ins</strong>,
+<strong>seekg</strong> can be called as follows:</p>
+<div class="highlight-python"><pre>ins.seekg(512);     // next get will start at 513th byte</pre>
+</div>
+<p>On the other hand, the position can be specified relative to some
+reference point such as the end of the file. For example, to move 8
+bytes backward from the end of the stream, use the following:</p>
+<div class="highlight-python"><pre>ins.seekg( -8, ios::end );</pre>
+</div>
+<p>There are three reference points identified by constants defined in
+the <strong>ios</strong> class: <strong>ios::beg</strong> is the beginning of the stream,
+<strong>ios::end</strong> is the end, and <strong>ios::cur</strong> represents the current
+position.
+The current <strong>get</strong> or <strong>put</strong> position in a file can be determined by
+using the <strong>tellg</strong> function which returns the current location in an
+input stream, and <strong>tellp</strong> returns the corresponding item for an
+output stream. Both functions return a variable of type <strong>streampos</strong>.
+The returned position value can be saved and used with <strong>seekg</strong> or
+<strong>seekp</strong> to return to the old location in a file:</p>
+<div class="section" id="fig-13-27">
+<h3>Fig. 13-27<a class="headerlink" href="#fig-13-27" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>streampos saved_pos = ins.tellg();
+//   other operations on stream...
+//   ...
+//   get back to old location
+ins.seekg(saved_pos);</pre>
+</div>
+</div>
+</div>
+<div class="section" id="detecting-errors-in-file-i-o">
+<h2>13.5.3 Detecting Errors in File I/O<a class="headerlink" href="#detecting-errors-in-file-i-o" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>iostream</strong> library provides a number of functions for checking
+the status of a stream. The <strong>fail</strong> function tells whether something
+has gone wrong with the last file access method. Thus, it is possible
+to check for problems by calling <strong>fail</strong> for the stream as follows:</p>
+<div class="section" id="fig-13-28">
+<h3>Fig. 13-28<a class="headerlink" href="#fig-13-28" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>ifstream ins("infile");
+if( ins.fail() )
+{
+     // stream creation has failed
+     ....
+}</pre>
+</div>
+<p>In fact, the logical NOT operator <strong>!</strong> has been overloaded to call
+<strong>fail</strong> for a stream so that the <strong>if</strong> test can be written more
+simply as:</p>
+</div>
+<div class="section" id="fig-13-29">
+<h3>Fig. 13-29<a class="headerlink" href="#fig-13-29" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>if( !ins )
+{
+     // handle error
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="detecting-the-end-of-file">
+<h2>13.5.4 Detecting the End-of-File<a class="headerlink" href="#detecting-the-end-of-file" title="Permalink to this headline">¶</a></h2>
+<p>When reading from a file, it is desired to know whether the end- of-
+file is reached. The <strong>eof</strong> function returns <strong>true</strong> if the stream
+is at the end-of-file. Once a stream has reached the end-of- file, it
+does not perform any I/O even if the next I/O operation is attempted
+after moving the stream away from the end by using <strong>seekg</strong> or
+<strong>seekp</strong>. This is because the stream&#8217;s internal state remembers the
+encounter with the end-of-file. The method <strong>clear</strong> must be called to
+reset the state before any further I/O can take place. Thus, sometimes
+<strong>eof</strong> and <strong>clear</strong> are used as follow:</p>
+<div class="section" id="fig-13-30">
+<h3>Fig. 13-30<a class="headerlink" href="#fig-13-30" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>//   "ins" is an istream.  If the stream reached eof, clear
+//   the state before attempting the read from the stream
+if( ins.eof() )
+     ins.clear();
+//   reposition stream and read again...
+ins.seekg( -16, ios::cur );   // move back 16 bytes
+ins.get( buf, 8 );  // read 8 bytes into buffer</pre>
+</div>
+<p>Two other member functions, <strong>good</strong> and <strong>bad</strong>, indicate the general
+condition of a stream. As the names imply, <strong>good</strong> returns true (a
+nonzero value) if no error has occurred on the stream, and <strong>bad</strong>
+returns true if an invalid I/O has been attempted or if the stream has
+an irrecoverable failure. The functions <strong>good</strong> and <strong>bad</strong> could be
+used in tests such as this:</p>
+</div>
+<div class="section" id="fig-13-31">
+<h3>Fig. 13-31<a class="headerlink" href="#fig-13-31" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>if( ins.bad() )
+{
+     // invalid operation
+}
+if( ins.good() )
+{
+     // everything ok, continue using stream
+}</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 13 File Processing</a><ul>
+<li><a class="reference internal" href="#high-level-buffered-or-stream-i-o">13.1 High Level, Buffered or Stream I/O</a><ul>
+<li><a class="reference internal" href="#fig-13-1">Fig. 13.1</a></li>
+<li><a class="reference internal" href="#fig-13-2">Fig. 13-2</a></li>
+<li><a class="reference internal" href="#fig-13-3">Fig. 13-3:</a></li>
+<li><a class="reference internal" href="#fig-13-4">Fig. 13-4:</a></li>
+<li><a class="reference internal" href="#fig-13-5">Fig. 13-5:</a></li>
+<li><a class="reference internal" href="#fig-13-6">Fig. 13-6:</a></li>
+<li><a class="reference internal" href="#fig-13-7">Fig. 13-7:</a></li>
+<li><a class="reference internal" href="#fig-13-8">Fig. 13-8:</a></li>
+<li><a class="reference internal" href="#fig-13-9">Fig. 13-9:</a></li>
+<li><a class="reference internal" href="#fig-13-10">Fig. 13-10:</a></li>
+<li><a class="reference internal" href="#fig-13-11">Fig. 13-11:</a></li>
+<li><a class="reference internal" href="#fig-13-12">Fig. 13-12:</a></li>
+<li><a class="reference internal" href="#fig-13-13">Fig. 13-13:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#low-level-unix-like-i-o-or-un-buffered-i-o">13.2 Low Level Unix Like I/O or Un-buffered I/O</a><ul>
+<li><a class="reference internal" href="#fig-13-14">Fig. 13-14:</a></li>
+<li><a class="reference internal" href="#fig-13-15">Fig. 13-15:</a></li>
+<li><a class="reference internal" href="#fig-13-16">Fig. 13-16:</a></li>
+<li><a class="reference internal" href="#fig-13-17">Fig. 13-17:</a></li>
+<li><a class="reference internal" href="#fig-13-18">Fig. 13-18:</a></li>
+<li><a class="reference internal" href="#fig-13-19">Fig. 13-19:</a></li>
+<li><a class="reference internal" href="#listing-13-1">Listing 13-1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#c-input-output-classes">13.3 C++ Input/Output Classes</a></li>
+<li><a class="reference internal" href="#instances-of-the-class-ostream">13.3.1 Instances of the class ostream</a></li>
+<li><a class="reference internal" href="#stream-input">13.3.2 Stream Input</a></li>
+<li><a class="reference internal" href="#writing-manipulators">13.4 Writing Manipulators</a></li>
+<li><a class="reference internal" href="#manipulator-with-no-arguments">13.4.1 Manipulator with No Arguments</a><ul>
+<li><a class="reference internal" href="#listing-13-2">Listing 13-2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manipulator-with-one-argument">13.4.2 Manipulator with One Argument</a><ul>
+<li><a class="reference internal" href="#listing-13-3">Listing 13-3</a></li>
+<li><a class="reference internal" href="#listing-13-4">Listing 13-4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manipulator-with-two-arguments">13.4.3 Manipulator with Two Arguments&lt;</a><ul>
+<li><a class="reference internal" href="#id1">Fig. 13-18</a></li>
+<li><a class="reference internal" href="#id2">Fig. 13-19</a></li>
+<li><a class="reference internal" href="#fig-13-20">Fig. 13-20</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file-i-o">13.5 File I/O&lt;</a><ul>
+<li><a class="reference internal" href="#fig-13-21">Fig. 13-21</a></li>
+<li><a class="reference internal" href="#fig-13-22">Fig. 13-22</a></li>
+<li><a class="reference internal" href="#fig-13-23">Fig. 13-23</a></li>
+<li><a class="reference internal" href="#fig-13-24">Fig. 13-24</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#controlling-the-stream-operating-modes">13.5.1 Controlling the Stream Operating Modes</a><ul>
+<li><a class="reference internal" href="#fig-13-25">Fig. 13-25</a></li>
+<li><a class="reference internal" href="#table-13-1">Table 13-1</a></li>
+<li><a class="reference internal" href="#listing-13-6">Listing 13-6</a></li>
+<li><a class="reference internal" href="#fig-13-26">Fig. 13-26</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#positioning-in-a-file">13.5.2 Positioning in a File</a><ul>
+<li><a class="reference internal" href="#fig-13-27">Fig. 13-27</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#detecting-errors-in-file-i-o">13.5.3 Detecting Errors in File I/O</a><ul>
+<li><a class="reference internal" href="#fig-13-28">Fig. 13-28</a></li>
+<li><a class="reference internal" href="#fig-13-29">Fig. 13-29</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#detecting-the-end-of-file">13.5.4 Detecting the End-of-File</a><ul>
+<li><a class="reference internal" href="#fig-13-30">Fig. 13-30</a></li>
+<li><a class="reference internal" href="#fig-13-31">Fig. 13-31</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chap13.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

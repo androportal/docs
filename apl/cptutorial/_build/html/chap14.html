@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 14 The Preprocessor &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chapter-14-the-preprocessor">
+<h1>Chapter 14 The Preprocessor<a class="headerlink" href="#chapter-14-the-preprocessor" title="Permalink to this headline">¶</a></h1>
+<p>This module explores the use of the preprocessor to help achieve
+portability across hardware platforms, perform inclusion of source
+files and develop macros to aide in program readability and debugging.</p>
+<div class="section" id="the-preprocessor">
+<h2>14.1 The Preprocessor<a class="headerlink" href="#the-preprocessor" title="Permalink to this headline">¶</a></h2>
+<p>The C preprocessor can conceptually be thought of as a program that
+processes the source text of a C or C++ program before the compiler.
+It can be an independent program or its functionality may be embedded
+in the compiler. It has three major functions:</p>
+<ol class="arabic simple">
+<li>macro replacement;</li>
+<li>conditional inclusion;</li>
+<li>file inclusion.</li>
+</ol>
+<p>Macro replacement is the replacement of one string by another,
+conditional inclusion is the selective inclusion and exclusion of
+portions of source text on the basis of a computed condition, and file
+inclusion is the insertion of the text of a file into the current
+file.
+Actions of the preprocessor are controlled by special directives
+placed in the source file. A preprocessor directive begins with the
+character <strong>#</strong> on a new line, and is terminated by the newline
+character unless continued on the next line by placing a backslash at
+the end of the line. Whitespaces may precede or follow the directive-
+introducing character <strong>#</strong>.</p>
+</div>
+<div class="section" id="macro-replacement">
+<h2>14.2 Macro Replacement<a class="headerlink" href="#macro-replacement" title="Permalink to this headline">¶</a></h2>
+<p>The general form for a simple macro definition is</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define   macro-name     value</span>
+</pre></div>
+</div>
+<p>and it associates with the <strong>macro-name</strong> whatever <strong>value</strong> appears
+from the first blank after the <strong>macro-name</strong> to the end of the line.
+The value constitutes the body of the macro. Previously defined macros
+can be used in the definition of a macro. Notice that the <strong>value</strong> of
+the macro does not end with a semicolon. The preprocessor replaces
+every occurrence of a simple macro in the program text by a copy of
+the body of the macro, except that the macro names are not recognized
+within comments or string constants. Because the macros are used
+within expressions in the body of the program, it is not appropriate
+to end a macro with a semicolon. Macros that represent single numeric,
+string or character values can also be referred to as defined
+constants. Some examples of simple macro definitions are</p>
+<div class="highlight-python"><pre>/*   mass of an electron at rest in grams */
+#define   ELECTRON       9.107e-28
+/*   mass of a proton at rest  in grams */
+#define   PROTON         1837 * ELECTRON
+/*   number of bits in an integer */
+#define   BITSININT      32</pre>
+</div>
+<p>The <strong>#define</strong> directive can also be used for defining parameterized
+macros. The general form for defining a parameterized macro is</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define macro-name(param1, param2, ...)      body-of-macro</span>
+</pre></div>
+</div>
+<p>Parameterized macros are primarily used to define functions that
+expand into in-line code. Some examples of parameterized macro
+definitions are</p>
+<div class="highlight-python"><pre>#define   ABS(N)    ( (N) &gt;= 0 ? (N) : -(N) )
+#define   READ(I)   scanf( "%d",  )
+#define   CONVERT(I)     \
+          printf("decimal %d = octal %o, hex %x\n",I, I, I )</pre>
+</div>
+<p>A macro can be defined to have zero parameters as in</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define   getchar()      getc(stdin)</span>
+</pre></div>
+</div>
+<p>which is useful for simulating functions that take no arguments.
+The preprocessor performs two levels of replacement on parameterized
+macros: first the formal parameters in the body of the macro are
+replaced by the actual arguments, and then the resulting macro body is
+substituted for the macro call. Thus, the preprocessor will replace
+the following statements</p>
+<div class="highlight-python"><pre>    x = ABS(x);
+    READ(n);
+    CONVERT(n);
+    c = getchar();
+by
+
+    x = ( (x) &gt;= 0 ? (x) : -(x) );
+    scanf( "%d",  );
+    printf( "decimal %d = octal %o, hex %x\n",n,n,n);
+    c = getc(stdin);</pre>
+</div>
+<p>Arguments in a macro call can be any sequence of tokens, including
+commas, provided that the sequence is bracketed within a pair of
+parentheses as in</p>
+<div class="highlight-python"><pre>    #define DEGUG(FORMAT,ARGS)    printf(FORMAT, ARGS)
+
+    DEBUG("%s = %f\n", ("x",0) );
+
+which is replaced by
+
+    printf("%s = %f\n", "x", 0 );</pre>
+</div>
+<p>One danger with macro development is that at the time of macro
+development it is unknown as to what types of expressions the macro
+will be used. Liberal use of parenthesis is encouraged when developing
+a macro. One example of the danger associated with macros is the
+following:</p>
+</div>
+<div class="section" id="listing-14-1">
+<h2>Listing 14-1<a class="headerlink" href="#listing-14-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+
+#define SQR(x)     x * x     /* square a number */
+
+int main()
+{
+int result;
+int a=5, b=6;
+
+    result = SQR( 4 );  /* everything is OK */
+    result = SQR( a+b );     /* not what was desired */
+
+}</pre>
+</div>
+<p>In the above example, the passing of <strong>a+b</strong> to the macro results in
+the expanded code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span> <span class="o">*</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which is evaluated as <strong>a + (b * a) + b</strong> which will not give the
+answer that was expected. What was expected was <strong>121</strong> and what was
+received as <strong>41</strong>. The problem of course is the evaluation of the
+operators involving with the expanded macro. The multiplication
+operator is evaluated before the addition operator. By adding
+parenthesis the following is produced:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define SQR(x)      (x * x)</span>
+</pre></div>
+</div>
+<p>which when passed <strong>a+b</strong>, expands to <strong>(a + (b*a) + b)</strong> which not
+give what is desired. Therefore, more parenthesis are required:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define SQR(x)      ( (x) * (x) )</span>
+</pre></div>
+</div>
+<p>This will finally give the desired results to the macro expansion.</p>
+</div>
+<div class="section" id="the-operator">
+<h2>14.3 The # Operator<a class="headerlink" href="#the-operator" title="Permalink to this headline">¶</a></h2>
+<p>If a macro parameter appears inside a string in the body of a macro,
+the parameter is not replaced by the corresponding argument at the
+time of macro expansion. Thus, if you define a macro as</p>
+<div class="highlight-python"><pre>    #define PRINT(V,F)  printf("V = %F", V)
+
+and call it as
+
+    PRINT(i,d);
+
+the call will expand into
+
+    printf("V = %F", i);</pre>
+</div>
+<p>ANSI C introduced a new preprocessing operator <strong>#</strong>, called the
+stringizing operator, which in conjunction with string concatenation
+provides a facility to overcome this difficulty. If a parameter
+follows the character <strong>#</strong> in the definition of a parameterized
+macro, both <strong>#</strong> and the parameter are replaced during macro
+expansion by the corresponding actual argument enclosed with double
+quotes. For example, given the macro definition</p>
+<div class="highlight-python"><pre>    #define PRINT(V,F)  printf(#V " = " #F, V )
+
+the macro call
+
+    PRINT(i,%d);
+
+expands into
+
+    printf("i" " = " "%d", i );
+
+which after string concatenations becomes
+
+    printf("i = %d", i );</pre>
+</div>
+<p>A <strong>** character is automatically inserted before each **&#8221;</strong> or <a href="#id1"><span class="problematic" id="id2">**</span></a>**
+character that appears inside, or surrounding, a character constant or
+string literal in the argument. For example, given the macro
+definition</p>
+<div class="highlight-python"><pre>    #define PRINT(s)    printf("%s\n", #s)
+
+the macro call
+
+    PRINT(use \ ("backslash") not /);
+
+expands into
+
+    printf("%s\n", "use \\ (\"backslash\") not /");</pre>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>14.4 The ## Operator<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ANSI C introduced another preprocessing operator <strong>##</strong>, called the
+token pasting operator, to build a new token by macro replacement. The
+<strong>##</strong> operator is recognized within both forms of macro definitions,
+and concatenates the two preprocessing tokens surrounding it into one
+composite token during a macro expansion. For example, given the macro
+definition</p>
+<div class="highlight-python"><pre>    #define processor(n)     CPU: ## n
+
+the macro call
+
+    processor(586)
+
+expands into
+
+    CPU:586</pre>
+</div>
+</div>
+<div class="section" id="conditional-inclusion">
+<h2>14.5 Conditional Inclusion<a class="headerlink" href="#conditional-inclusion" title="Permalink to this headline">¶</a></h2>
+<p>Conditional inclusion allows selective inclusion of lines of source
+text on the basis of a computed condition. Conditional inclusion is
+performed using the preprocessor directives:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if  #ifdef    #ifndef   #elif     #else     #endif</span>
+</pre></div>
+</div>
+<p>A directive of the form</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if constant-expression</span>
+</pre></div>
+</div>
+<p>checks whether the constant-expression evaluates to nonzero (true) or
+0 (false). A directive of the form</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#ifdef    identifier</span>
+</pre></div>
+</div>
+<p>is equivalent in meaning to</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if 1</span>
+</pre></div>
+</div>
+<p>when identifier has been defined, and to</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if 0</span>
+</pre></div>
+</div>
+<p>when identifier has not been defined, or has been undefined with a
+<strong>#undef</strong> directive. The <strong>#ifndef</strong> directive has just the opposite
+sense, and a directive of the form</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#ifndef   identifier</span>
+</pre></div>
+</div>
+<p>is equivalent in meaning to</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if  0</span>
+</pre></div>
+</div>
+<p>when identifer has been defined, and to</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if  1</span>
+</pre></div>
+</div>
+<p>when identifier has not been defined, or has been undefined with a
+<strong>#undef</strong> directive. An identifier can be defined by writing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define   identifier</span>
+</pre></div>
+</div>
+<p>or by using the <strong>-D</strong> switch on the command line of the compiler. For
+instance, to define that a program is being compiled in a PC
+environment either of the following would work.</p>
+<div class="highlight-python"><pre>    #define   PC
+
+or
+
+    cc -DPC program.c</pre>
+</div>
+<p>Both establish the identifier <strong>PC</strong> as having been defined. Notice
+that <strong>#ifdef</strong> and <strong>#ifndef</strong> do not look at any value associated
+with the identifier, they merely look to see if the identifier has
+been defined.
+Conditional inclusion is frequently used in developing programs that
+run under diffferent environments. For example, BITS_IN_INT may be
+defined as</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#if HOST == PC</span>
+     <span class="c">#define   BITS_IN_INT    16</span>
+<span class="c">#elif HOST == DECSYSTEM10</span>
+     <span class="c">#define   BITS_IN_INT    36</span>
+<span class="c">#else</span>
+     <span class="c">#define   BITS_IN_INT    32</span>
+<span class="c">#endif</span>
+</pre></div>
+</div>
+<p>The preprocessor can then select an appropriate value for BITS_IN_INT,
+depending upon the defined value of HOST.
+Conditional inclusion is also used to control debugging. You may write
+in your program</p>
+<div class="highlight-python"><pre>#ifndef   DEBUG
+     if( !(i % FREQUENCY) ) printf("Iteration: %d\n",i);
+#endif</pre>
+</div>
+<p>and then turn debugging on and off simply by defining and undefining
+DEBUG.
+Instead of embedding <strong>#ifdef DEBUG</strong> directives all over the code
+when you require many debugging statements in a program, you may
+define a PRINT macro as</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#ifndef   DEBUG</span>
+     <span class="c">#define   PRINT(arg)</span>
+<span class="c">#else</span>
+     <span class="c">#define   PRINT(arg)     printf arg</span>
+<span class="c">#endif</span>
+</pre></div>
+</div>
+<p>and then write</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PRINT</span><span class="p">(</span> <span class="p">(</span><span class="s">&quot;iteration: </span><span class="si">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="p">);</span>
+<span class="n">PRINT</span><span class="p">(</span> <span class="p">(</span><span class="s">&quot;x = </span><span class="si">%f</span><span class="s">, y = </span><span class="si">%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>which expands into</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">printf</span> <span class="p">(</span><span class="s">&quot;iteration: </span><span class="si">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="n">printf</span> <span class="p">(</span><span class="s">&quot;x = </span><span class="si">%f</span><span class="s">, y = </span><span class="si">%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>or null statements depending on whether DEBUG has been defined or not.
+Note the use of two pairs of parentheses when calling PRINT.</p>
+</div>
+<div class="section" id="predefined-macros">
+<h2>14.6 Predefined Macros<a class="headerlink" href="#predefined-macros" title="Permalink to this headline">¶</a></h2>
+<p>The traditional K &amp; R C standard specified certain predefined macros
+be supported by conforming compilers. These macros are used mostly in
+debugging. These macros are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__LINE__</span>
+<span class="n">__FILE__</span>
+<span class="n">__DATE__</span>
+<span class="n">__TIME__</span>
+<span class="n">__STDC__</span>
+</pre></div>
+</div>
+<p>All of these macro names are formed by having two underscore
+characteres both precede and follow the macro name. The macros
+<strong>__LINE__</strong> and <strong>__FILE__</strong> are replaced by the current line number
+and file name when they are expanded. The macros <strong>__DATE__</strong> and
+<strong>__TIME__</strong> will expand into the date and time of when the
+compilation took place. The <strong>__DATE__</strong> and <strong>__TIME__</strong> macros can
+be used to initialize program variables. The <strong>__STDC__</strong> macro will
+be a <strong>1</strong> or undefined depending upon if the current compiler
+conforms to the ANSI C standard or not.</p>
+</div>
+<div class="section" id="file-inclusion">
+<h2>14.7 File Inclusion<a class="headerlink" href="#file-inclusion" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>#include</strong> directive allows for the inclusion of a source file
+into the current source file that is being processed. The form of the
+<strong>#include</strong> directive is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#include &quot;filename&quot;      or   #include</span>
+</pre></div>
+</div>
+<p>where the <strong>filename</strong> is the name of a file, possibily with a
+pathname associated, that contains source statements that are to be
+placed at the current location in the file being processed. The
+included file can contain other include statements as well as other
+preprocessor directives and C or C++ statements.
+Notice the use of double quotes ( <strong>&#8221; &#8220;</strong>) or angle brackets ( <strong>&lt;
+&gt;</strong>) to surround the name of the file. Traditionaly, the use of double
+quotes to surround the name of the file to be included has indicated
+that the file is be looked for in the current or local directory or
+the pathname indicated with the filename. If not found there, then the
+subdirectory where the standard C header files reside is to be
+searched. The use of angle brackets to surround the name of the file
+indicates that the file is to be looked for in the standard C header
+file subdirectory, no search of the local directory is made.
+All the following are valid representations of filenames to be
+included:</p>
+<div class="highlight-python"><pre>#include "local.h"      /* searches for this file in current */
+                        /* directory; if not found then look */
+                        /* in the subdirectory associated    */
+                        /* with the standard C header files */
+
+#include "/usr/local/include/stuff.h" /* searches for the file */
+                                      /* in the directory      */
+                                      /* indicated; if not     */
+                                      /* found then look       */
+                                      /* in the subdirectory   */
+                                      /* associated with the   */
+                                      /* standard C header     */
+                                      /* files */
+
+#include       /* searches for this file in the       */
+                        /* subdirectory associated with the    */
+                        /* standard C header files             */
+
+#include type.h&gt;   * searches for this file in the sys   */
+                        /* subdirectory under the subdirectory */
+                        /* associated with the standard C      */
+                        /* header files                        */
+
+#include "func.c"       /* search for this file in the local   */
+                        /* subdirectory; if not found then look*/
+                        /* in the subdirectory associated      */
+                        /* with the standard C header files;   */
+                        /* this file is a C source file        */</pre>
+</div>
+<p>Most files that are included are header files which contain macro
+definitions, defined constants, type definitions ( <strong>struct</strong> or
+<strong>union</strong> templates), enumerated types and function prototypes. Header
+files should not contain global variable declarations. The use of
+global variables should be avoided if at all possible because of the
+difficulty in controlling the integrity of data values placed in a
+global variable. Global variables must not be declared in header files
+because most applications consist of several source files. Each source
+file is a module of the application and may consist of one or more C
+or C++ functions needed to perform a specific task. Each source file
+usually includes not only the standard C header files needed for that
+module but also will include a header file that is application
+specific. This application specific header file will have the macro
+definitions, defined constants, type defiitions, enumerated types and
+function prototypes for the current application. If each source file
+associated with an application includes this local header file and if
+there is a global variable declaration in that header file the
+application will not be linked by the linkage editor. The linker will
+complain that there is a &#8220;duplicate redefinition of ....&#8221;. Since the
+linker is trying to bind several object files together and each object
+file has the same global declaration, the linker does not know which
+global declaration to use.
+If it is absolutely necessary to have global declarations in a header
+file, then protect the header file from multiple inclusion by
+surrounding the contents of the header file as follows:</p>
+<div class="section" id="fig-14-1">
+<h3>Fig. 14-1<a class="headerlink" href="#fig-14-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>/***********************************************************
+*   Header File    :    sample.h
+*   Application    :    sample
+************************************************************
+
+#ifndef _SAMPLE_H
+#define _SAMPLE_H
+
+#include &lt;stdio.h&gt;
+.
+.
+.
+#endif</pre>
+</div>
+<p>The above code uses the preprocessor to detect if the header file has
+been previously included. On the first inclusion of the header file,
+the identifier <strong>_SAMPLE_H</strong> was defined and the statements composing
+the header file where processed. On subsequent inclusions of the
+header file none of the statements within this header file are not
+seen because of the conditional inclusion.</p>
+</div>
+</div>
+<div class="section" id="other-directives">
+<h2>14.8 Other Directives<a class="headerlink" href="#other-directives" title="Permalink to this headline">¶</a></h2>
+<p>The following preprocessor directives were added by the ANSI C
+standard.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#line</span>
+<span class="c">#error</span>
+<span class="c">#pragma</span>
+</pre></div>
+</div>
+<p><strong>#line</strong> provides a mechanism for altering the settings of
+<strong>__LINE__</strong> and <strong>__FILE__</strong>. This directive has the form of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#line lineno &quot;filename&quot;</span>
+</pre></div>
+</div>
+<p>where <strong>lineno</strong> is a new value for <strong>__LINE__</strong> and <strong>&#8220;filename&#8221;</strong> is
+a new value for <strong>__FILE__</strong>. The <strong>&#8220;filename&#8221;</strong> parameter is
+optional, but if present, then <strong>lineno</strong> must be present. <strong>#error</strong>
+will immediately terminate the compilation. This would most likely be
+used in conjunction with a <strong>#if</strong> directive. <strong>#pragma</strong> is an
+implementation dependent directive which allows a compiler vendor to
+add extensions to the standard preprocessor.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 14 The Preprocessor</a><ul>
+<li><a class="reference internal" href="#the-preprocessor">14.1 The Preprocessor</a></li>
+<li><a class="reference internal" href="#macro-replacement">14.2 Macro Replacement</a></li>
+<li><a class="reference internal" href="#listing-14-1">Listing 14-1</a></li>
+<li><a class="reference internal" href="#the-operator">14.3 The # Operator</a></li>
+<li><a class="reference internal" href="#id3">14.4 The ## Operator</a></li>
+<li><a class="reference internal" href="#conditional-inclusion">14.5 Conditional Inclusion</a></li>
+<li><a class="reference internal" href="#predefined-macros">14.6 Predefined Macros</a></li>
+<li><a class="reference internal" href="#file-inclusion">14.7 File Inclusion</a><ul>
+<li><a class="reference internal" href="#fig-14-1">Fig. 14-1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-directives">14.8 Other Directives</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chap14.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

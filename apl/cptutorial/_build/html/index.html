@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>C++ tutorial &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="#" />
+    <link rel="next" title="Chapter 1 Introduction" href="chap01.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chap01.html" title="Chapter 1 Introduction"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="c-tutorial">
+<h1>C++ tutorial<a class="headerlink" href="#c-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">Chapter 1 Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#history-of-c">1.1 History of C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#higher-level-languages">1.2 Higher Level Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#operating-systems">1.3 Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#structured-programming-and-problem-solving">1.4 Structured Programming and Problem Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#problem-analysis-and-specification">1.4.1 Problem Analysis and Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#algorithm-development">1.4.2 Algorithm Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#program-coding">1.4.3 Program Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#program-execution-and-testing">1.4.4 Program Execution and Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#software-engineering">1.4.5 Software Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">Chapter 2 Basic Program Structure, Variables, Data Types and Constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#the-c-and-c-programming-languages">2.1 The C and C++ Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#advantages-and-disadvantages-of-c-and-c">2.2 Advantages and Disadvantages of C and C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#program-structure-and-rules">2.3 Program Structure and Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#header-files">2.4 Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#c-and-c-compiler">2.5 C and C++ Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#variables-data-types-and-constants">2.6 Variables, Data Types and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#data-types">2.7 Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#storage-classes">2.8 Storage Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#allocated-space-for-data-types">2.9 Allocated Space for Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#variable-names">2.10 Variable Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#constants">2.11 Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#const-and-volatile">2.11.1 const and volatile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap02Q.html">Chapter 2: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">Chapter 3 Basic Input-Output Statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#basic-screen-and-keyboard-i-o-in-c">3.1 Basic Screen and Keyboard I/O in C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#formatted-input-and-output">3.2 Formatted Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#non-formatted-input-and-output">3.3 Non-formatted Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#predefined-classes-in-c">3.4 Predefined Classes in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#manipulators">3.5 Manipulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#formatted-i-o">3.6 Formatted I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap03PE.html">Chapter 3: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03PP.html">Chapter 3: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03Q.html">Chapter 3: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap04.html">Chapter 4 Operators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#order-of-precedence-of-operators">4.1 Order of Precedence of Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#operators-arithmetic">4.2 Operators: Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#sizeof">4.4 sizeof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#relational-and-logical">4.5 Relational and Logical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#the-conditional-operator">4.6 The Conditional Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#increment-and-decrement">4.7 Increment and Decrement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#assignment">4.8 Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#bitwise-operators">4.9 Bitwise Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#bitwise-complement">4.10 Bitwise Complement: ~</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#bitwise-shift-operators">4.11 Bitwise Shift Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#left-shift-operator">4.11.1 Left Shift Operator: &lt;&lt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#right-shift-operator">4.11.2 Right Shift Operator: &gt;&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#multiplication-and-division-thru-shifting-bits">4.12 Multiplication and Division thru Shifting Bits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#precedence-and-associativity">4.13 Precedence and Associativity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#bitwise-and-operator">4.14 Bitwise AND Operator: &amp;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#bitwise-inclusive-or-operator">4.15 Bitwise Inclusive OR Operator: |</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#bitwise-exclusive-or-operator">4.16 Bitwise Exclusive OR Operator: ^</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#id17">4.17 Precedence and Associativity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#sequence-points-or-comma">4.18 Sequence Points or comma</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap04PE.html">Chapter 4: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap04Q.html">Chapter 4: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">Chapter 5 Making Decisions and Looping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#program-control">5.1 Program Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#switch-statement">5.2 Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#while-loops">5.3 while Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#for-loops">5.4 for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#do-while-loops">5.5 do-while Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#break-statement">5.6 break Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#continue-statement">5.7 continue Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#declarations-within-blocks">5.8 Declarations within Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#scope-qualifier-operator">5.9 Scope Qualifier Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#scope-of-identifiers">5.10 Scope of Identifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap05PE.html">Chapter 5: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05PP.html">Chapter 5: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05Q.html">Chapter 5: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">Chapter 6 Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#functions">6.1 Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#returning-values">6.2 Returning Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#passing-arguments">6.3 Passing Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#command-line-arguments">6.4 Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#default-arguments">6.5 Default Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#functions-with-an-unspecified-number-of-parameters">6.6 Functions with an Unspecified Number of Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#inline-functions">6.7 Inline Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#reference-types-as-arguments">6.8 Reference Types as Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#overloaded-functions">6.9 Overloaded Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap06PE.html">Chapter 6: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06PP.html">Chapter 6: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06Q.html">Chapter 6: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">Chapter 7 Arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#arrays">7.1 Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#declaring-and-initialization">7.1.1 Declaring and Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#multi-dimensional-arrays">7.1.2 Multi-Dimensional Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#arrays-as-arguments">7.2 Arrays as Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#string-functions">7.3.1 String Functions&lt;</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap07PE.html">Chapter 7: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07PP.html">Chapter 7: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07Q.html">Chapter 7: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">Chapter 8 Pointers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#what-is-a-pointer">8.1 What is a pointer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#why-are-pointers-used">8.2 Why are pointers used?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointer-operators">8.3 Pointer Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#declaring-a-pointer-variable">8.4 Declaring a Pointer Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-and-passing-arguments">8.5 Pointers and Passing Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-without-functions">8.6 Pointers Without Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-and-arrays">8.7 Pointers and Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#strings-initialized-as-pointers">8.8 Strings Initialized as Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#arrays-of-pointers">8.9 Arrays of Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#lvalue-and-rvalue">8.10 Lvalue and Rvalue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-to-functions">8.11 Pointers to Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#arrays-of-pointers-to-functions">8.12 Arrays of Pointers to Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-to-pointers">8.13 Pointers to Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#const-volatile-and-pointers">8.14 const, volatile and Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-and-memory-addresses">8.15 Pointers and Memory Addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#the-new-and-delete-operators">8.16 The new and delete Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#allocating-multi-dimensional-arrays">8.17 Allocating Multi-dimensional Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#pointers-to-void-and-functions-that-return-void">8.18 Pointers to void and Functions That return void</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap08PE.html">Chapter 8: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08PP.html">Chapter 8: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08Q.html">Chapter 8:Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">Chapter 9 Structures, Unions and Enumerated Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#structures">9.1 Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#fig-9-1">Fig. 9-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#declaring-structure-variables">9.2 Declaring structure variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#initializing-structures">9.3 Initializing Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#assignment-of-structures">9.4 Assignment of Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#nested-structures">9.5 Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#arrays-of-structures">9.6 Arrays of Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#passing-structures-to-functions">9.7 Passing Structures to Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#unions">9.8 Unions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#accessing-members-of-a-union">9.9 Accessing Members of a union</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#anonymous-unions-in-c">9.10 Anonymous unions in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#bit-fields">9.11 Bit Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#byte-alignment">9.12 Byte Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#enumerated-data-types">9.13 Enumerated Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#enumerated-types-in-c">9.14 Enumerated Types in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#structures-as-abstract-data-types">9.15 Structures as Abstract Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#constructors-and-destructors">9.16 Constructors and Destructors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#what-is-object-oriented-programming">9.17 What Is Object-Oriented Programming?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#procedure-oriented-programming">9.18 Procedure-Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#adding-a-new-shape">9.19 Adding a New Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#oop-terminology">9.20 OOP Terminology</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap09PE.html">Chapter 9: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09PP.html">Chapter 9: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09Q.html">Chapter 9: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">Chapter 10 Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#naming-and-coding-conventions">10.1 Naming and Coding Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#discovering-classes">10.2 Discovering Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#classes-as-objects">10.3 Classes as Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#returning-private-values-with-public-functions">10.4 Returning private values with public Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#member-functions">10.5 Member Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#inline-member-functions">10.5.1 Inline Member Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#typical-public-member-functions">10.5.2 Typical Public Member Functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#const-member-functions">10.5.3 const Member Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#implementing-a-class">10.6 Implementing a Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#listing-10-3">Listing 10-3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#creating-objects-on-the-fly">10.7 Creating Objects on the Fly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#allocating-objects-on-the-free-store">10.8 Allocating Objects on the Free Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#destroying-objects-on-the-free-store">10.9 Destroying Objects on the Free Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#arrays-of-objects-on-the-free-store">10.10 Arrays of Objects on the Free Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#handling-errors-in-memory-allocation">10.11 Handling Errors in Memory Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#calling-member-functions">10.12 Calling Member Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#using-static-member-variables">10.13 Using static Member Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#static-member-functions">10.14 Static Member Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#using-pointers-to-class-members">10.15 Using Pointers to Class Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#pointer-to-member-functions">10.16 Pointer to Member Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#the-this-pointer">10.17 The this Pointer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#this-points-to-instance-of-class">10.17.1 this Points to Instance of Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#friend-functions">10.17 friend Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap10PP.html">Chapter 10: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10PE.html">Chapter 10: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10Q.html">Chapter 10: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap11.html">Chapter 11 Operators as Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#defining-an-overload-operator">11.1 Defining an Overload Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#arguments-to-operator-functions">11.2 Arguments to Operator Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#operators-that-can-be-overloaded">11.3 Operators That Can Be Overloaded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#copying-class-instances">11.4 Copying Class Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#overloading-the-input-and-output-operators">11.5 Overloading the Input and Output Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#input-operator">11.5.1 Input Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#fig-11-4">Fig. 11-4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#output-operator">11.5.2 Output Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#templates">11.6 Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#function-templates">11.6.1 Function Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#class-templates">11.6.2 Class Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#exceptions">11.7 Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#throw">11.7.1 throw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#try">11.7.2 try</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#catch">11.7.3 catch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#exception-specifications">11.7.4 Exception Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap11.html#terminate-and-unexpected">11.7.5 terminate() and unexpected()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap11PE.html">Chapter 11: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap11PP.html">Chapter 11: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap11Q.html">Chapter 11: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap12PP.html">Chapter 12: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap12PE.html">Chapter 12: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap13.html">Chapter 13 File Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#high-level-buffered-or-stream-i-o">13.1 High Level, Buffered or Stream I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#low-level-unix-like-i-o-or-un-buffered-i-o">13.2 Low Level Unix Like I/O or Un-buffered I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#c-input-output-classes">13.3 C++ Input/Output Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#instances-of-the-class-ostream">13.3.1 Instances of the class ostream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#stream-input">13.3.2 Stream Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#writing-manipulators">13.4 Writing Manipulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#manipulator-with-no-arguments">13.4.1 Manipulator with No Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#manipulator-with-one-argument">13.4.2 Manipulator with One Argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#manipulator-with-two-arguments">13.4.3 Manipulator with Two Arguments&lt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#file-i-o">13.5 File I/O&lt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#controlling-the-stream-operating-modes">13.5.1 Controlling the Stream Operating Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#positioning-in-a-file">13.5.2 Positioning in a File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#detecting-errors-in-file-i-o">13.5.3 Detecting Errors in File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap13.html#detecting-the-end-of-file">13.5.4 Detecting the End-of-File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap13PE.html">Chapter 13: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap13PP.html">Chapter 13: Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap13Q.html">Chapter 13: Review Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap14.html">Chapter 14 The Preprocessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#the-preprocessor">14.1 The Preprocessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#macro-replacement">14.2 Macro Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#listing-14-1">Listing 14-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#the-operator">14.3 The # Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#id3">14.4 The ## Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#conditional-inclusion">14.5 Conditional Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#predefined-macros">14.6 Predefined Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#file-inclusion">14.7 File Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap14.html#other-directives">14.8 Other Directives</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap14PE.html">Chapter 14: Programming Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap14Q.html">Chapter 14: Review Questions</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">C++ tutorial</a><ul>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chap01.html"
+                        title="next chapter">Chapter 1 Introduction</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chap01.html" title="Chapter 1 Introduction"
+             >next</a> |</li>
+        <li><a href="#">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

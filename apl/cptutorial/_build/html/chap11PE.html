@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 11: Programming Exercises &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chapter-11-programming-exercises">
+<h1>Chapter 11: Programming Exercises<a class="headerlink" href="#chapter-11-programming-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><pre>Given the following class interface file.
+
+//***************************************************************
+//  File :    cstring.h
+//
+//  Declare a "CString" data type.
+//
+//  Note:     Couldn't use String.h as name because we include
+//            ANSI C's string.h, and some systems (such as MS-DOS)
+//            do not differentiate between uppercase and lowercase
+//            letters in file names.
+//***************************************************************
+#pragma interface
+
+#ifndef CSTRING_H      // Make sure file is included only once
+#define CSTRING_H
+
+#ifndef bool
+    enum bool { false, true };
+#endif
+
+#include
+#include           // for size_t type
+#include           // for ANSI C string library
+#include types.h&gt;
+
+#define MAXLEN     256
+#define DEFAULT_STRING_SIZE_INCREM     10
+
+class CSubstring;
+
+class CString
+{
+public:
+    /  Constructor
+    CString();
+    CString( const size_t );
+    CString( const char *);
+    CString( const CString&amp; );
+    CString( const char *, const size_t );
+    CString( const CString&amp;, const size_t );
+    //  Destructor
+    ~CString() { delete s; }
+    //  Overloaded operators
+    //***********************************************************
+    // CString equality operator.  Returns nonzero if strings
+    // are equal
+    bool operator==(const CString&amp; str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str.s, s ) ? false : true) );
+
+    }
+    //***********************************************************
+    // CString equality operator.  Returns nonzero if string
+    // and pointer to char are equal
+    bool operator==(const char *str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str, s ) ? false : true ) );
+
+    }
+    //***********************************************************
+    // CString less than operator.  Returns nonzero if string 1
+    // is less than string 2
+    bool operator&lt;(const CString&amp; str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str.s, s ) &lt; 0 ? true : false ) );
+
+    }
+    //***********************************************************
+    // CString greater than operator.  Returns nonzero if string1
+    // is greater than string2
+    bool operator&gt;(const CString&amp; str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str.s, s ) &gt; 0 ? true : false) );
+
+    }
+    //***********************************************************
+    // CString less than or equal to operator.  Returns nonzero if
+    // string1 is less than or equal to string2
+    bool operator&lt;=(const CString&amp; str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str.s, s ) &lt;= 0 ? true : false ) );
+
+    }
+    //***********************************************************
+    // CString greater than or equal to  operator.  Returns
+    // nonzero if string1 is greater than or equal to string2.
+    bool operator&gt;=(const CString&amp; str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str.s, s ) &gt;= 0 ? true : false ) );
+
+    }
+    //***********************************************************
+    // CString not equal to operator.  Returns nonzero if string1
+    // is not equal to
+    bool operator!=(const CString&amp; str) const
+    {
+         // Use ANSI C's strcmp() function to compare the
+         // strings.  Remember strcmp() returns 0 if strings
+         // match, but this function has to return non-zero
+         // for a match
+         return( (strcmp( str.s, s ) != 0 ? true : false ) );
+
+    }
+    //***********************************************************
+    // CString not equal to operator.  Returns nonzero if string1
+    // is not equal to
+    bool operator!=( const char *str ) const
+    {
+         return( (strcmp( str, s) != 0 ? true : false ));
+    }
+    //  Assignment operator
+    CString&amp; operator=(const CString&amp;);
+    CString&amp; operator=(const char *);
+    CString&amp; operator=(const char);
+    //  Type conversion operator from CString to char *
+    operator const char*() const { return s; }
+    //  The += operator concatenates and assigns
+    CString&amp; operator+=(const CString&amp; );
+    CString&amp; operator+=(const char* );
+    CString&amp; operator+=(const char );
+    //  The + operator concatenates strings
+    friend CString operator+(char *, CString&amp; );
+    friend CString operator+(CString&amp;, CString&amp; );
+    friend CString operator+(CString&amp;, char *);
+    //  Access operator
+    char&amp; operator[](int index);
+    // resize of string
+    CString&amp; resize(unsigned );
+    // return string content as char *
+    char *getContent()
+    {
+         return s;
+    }
+    //  Function giving access to internal variable
+    size_t length( void ) const { return ( len ); }
+    //  Function to print a CString
+    void print( ostream&amp; os ) const;
+    void print( void ) const;
+    //  Function to access a character in a CString
+    char&amp; char_at_pos( int );
+    //  Replace a portion of a string with another
+    //  Used to insert or delete parts of a string
+    CString&amp; replace( size_t pos, size_t len, const char* s);
+    //  operator ()
+    //  Overload the function call operator to return a
+    //  CSubstring
+    CSubstring operator()( size_t pos, size_t len );
+
+protected:
+    //  Internal data members of this class
+    char *s;            //   pointer to allocated space
+    size_t len;         //   current length of string
+    size_t maxlen;      //   numbers of bytes allocated
+    size_t sizeIncr;    //   increment on resize
+
+};
+// Stream I/O operators for CString class
+
+// #include
+
+ostream&amp; operator&lt;&lt;(ostream&amp; os, CString&amp; str);
+istream&amp; operator&gt;&gt;(istream&amp; is, CString&amp; str);
+
+//**************************************************************
+//  Declare the Substring class
+
+class CSubstring    :    public CString
+{
+public:
+    friend CString;// Give the CString class access to this class
+
+    //   CSubstring operators ...
+    CString&amp; operator=( const char* str )
+    {
+         return s_original.replace( pos, len, str );
+    }
+
+    CString&amp; operator=( CSubstring&amp; s1 )
+    {
+         return s_original.replace( pos, len, s1.s );
+    }
+
+private:
+    CString&amp;   s_original;   // Reference to original CString
+    size_t    pos;           // Position of Substring in CString
+
+    //   CSubstring constructor
+    CSubstring( CString&amp; s1, const char *cs, size_t pos1
+              , size_t len1 )
+    : CString(cs, len1), s_original(s1), pos( pos1 ) {}
+
+    //   CSubstring copy constructor
+    CSubstring( const CSubstring&amp; s1) : CString( s1 ),
+         s_original( s1.s_original) , pos( s1.pos ) {}
+};
+#endif
+
+Develop the following operator overload functions:
+
+ 1. CString equality operator.  Returns 'true' if strings
+    are equal and 'false' if not.
+
+ 2. CString equality operator.  Returns 'true' if string
+    and pointer to char are equal and 'false' if not.
+
+ 3. CString less than operator.  Returns 'true' if string 1
+    is less than string 2 and 'false' if not.
+
+ 4. CString greater than operator.  Returns 'true' if
+    string1 is greater than string2 and 'false' if not.
+
+ 5. CString less than or equal to operator.  Returns 'true'
+    if string1 is less than or equal to string2 and 'false'
+    if not.
+
+ 6. CString greater than or equal to  operator.  Returns
+    'true' if string1 is greater than or equal to string2
+    and 'false' if not.
+
+ 7. CString not equal to operator.  Returns 'true' if
+    string1 is not equal to and 'false' if not.
+
+ 8. CString not equal to operator.  Returns 'true' if
+    string1 is not equal to string2 and 'false' if not.
+
+ 9. CString&amp; operator=(const CString&amp;);
+    CString&amp; operator=(const char *);
+    CString&amp; operator=(const char);
+    //  Type conversion operator from CString to char *
+    operator const char*() const { return s; }
+    //  The += operator concatenates and assigns
+    CString&amp; operator+=(const CString&amp; );
+    CString&amp; operator+=(const char* );
+    CString&amp; operator+=(const char );
+    //  The + operator concatenates strings
+    friend CString operator+(char *, CString&amp; );
+    friend CString operator+(CString&amp;, CString&amp; );
+    friend CString operator+(CString&amp;, char *);
+    //  Access a single character operator
+    char&amp; operator[](int index);
+
+10. Develop a test program that tests all of the operator
+    overload functions of the CString class.</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chap11PE.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

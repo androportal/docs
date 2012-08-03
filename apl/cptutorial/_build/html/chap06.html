@@ -1,0 +1,706 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 6 Functions &mdash; cpp 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cpp 0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chapter-6-functions">
+<h1>Chapter 6 Functions<a class="headerlink" href="#chapter-6-functions" title="Permalink to this headline">¶</a></h1>
+<p>Functions are a basic building block for writing C/C++ programs.
+Breaking a program up into separate functions, each of which performs
+a particular task, makes it easier to develop and debug a program.</p>
+<div class="section" id="functions">
+<h2>6.1 Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>There are several advantages of using functions in program
+development. Functions allow for breaking down the program into
+discrete units. Programs that use functions are easier to design,
+program, debug and maintain. It is possible to perform separate
+compilation of functions. Functions can return data via arguments and
+can return a value. Functions have local variables plus have access to
+global variables. The general structure of a function is as follows:</p>
+<div class="highlight-python"><pre>storage_class function_return_type function_name(arguments)
+declaration of argument types;
+{
+local_variable declarations;
+
+     body_of_the_function;
+}</pre>
+</div>
+<p>The components are:</p>
+<div class="highlight-python"><pre> **storage_class** -    This is an optional item that indicates the
+storage class of a function.  If this is not present, the default
+storage class type is  **extern**.  The only other allowable storage
+class is  **static**.  Neither  **auto** nor  **register** are valid storage
+class types for functions.</pre>
+</div>
+<p><strong>function-return_type</strong> - This tells the type of data item that will
+be returned by this function. The function can only return one value
+and it will be of this type. All standard C data types, plus
+constructed data types, plus &#8216;void&#8217; are allowed.</p>
+<div class="highlight-python"><pre> **function_name** - The name of the function which follows the rules
+previously stated for variable names.  This name must be unique
+within the program.
+
+ **arguments**     - These are optional.  Some functions do not
+require arguments to be passed to them, so the argument list is
+empty, getchar(), for example.  Arguments are separated by
+commas with a maximum of 16 arguments.  The argument list must
+be enclosed in parentheses with no semi-colon following the function
+header.  With a traditional or K &amp; R  **C** compiler the data type of
+the arguments is listed separately from the actual argument list.
+With an ANSI  **C** or  **C++** compiler the data type of each argument is
+listed in the argument list.
+
+ **declaration of argument types**     - For each argument passed to
+the function, its data type must be declared.  The declaration
+must occur before the opening curly brace of the function.  Each
+list of arguments of a specific type must end with a semi-colon.
+All variable declarations are treated as local or  **auto** class
+variables.  This style of argument type declaration is used only
+with traditional or K &amp; R style  **C** compilers.
+
+ **{**        - This marks the beginning of the function.
+
+ **local_variable declarations**  -  Declare any variables needed to
+accomplish the task of the function.  These are  **auto** class
+variables by default and are visible only to the function and
+disappear when the function passes control back to the calling
+function.  Other storage class type variables may be declared at
+this location.
+
+ **body_of_the_function**    -  C and C++ statements that perform the
+task of the function which can also include calls to other C or
+C++ functions, assembler routines, Pascal procedures, or FORTRAN
+subroutines.
+
+ **}**        - The closing curly brace indicates the end of the
+function.  This forces a return value of zero for the
+ **function_return_type** specified unless a prior return statement
+has explicitly stated a value that is to be returned.</pre>
+</div>
+<div class="section" id="listing-6-1">
+<h3>Listing 6-1<a class="headerlink" href="#listing-6-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include
+
+int main()
+{
+int age;
+int getInteger( char [], int, int );
+
+    age = getInteger( "Enter your age: ", 21, 50 );
+    cout &lt;&lt; "Glad to here you are "
+         &lt;&lt; age
+         &lt;&lt; " years old."
+         &lt;&lt; endl;
+    return 0;
+}
+
+int getInteger( char prompt[], int min, int max )
+{
+int temp, valid = 0;
+
+    do
+    {
+         cout &lt;&lt; prompt;
+         cin &gt;&gt; temp;
+         if( temp &gt;= min &amp;&amp; temp &lt;= max )
+              valid = 1;
+         else
+         {
+              cout &lt;&lt; "Input must be between "
+                   &lt;&lt; min
+                   &lt;&lt; " and "
+                   &lt;&lt; max
+                   &lt;&lt; ". Try Again!" &lt;&lt; endl;
+              valid = 0;
+         }
+
+    } while( !valid );
+    return temp;
+}</pre>
+</div>
+<p>Notice that in the above example the prototype of the function to be
+called</p>
+<div class="highlight-python"><pre>int getInteger( char [], int, int );</pre>
+</div>
+<p>is in the function that will call that function. The prototype must
+appear before the first call to the function. In the function
+prototype, only the data types of the arguments need be present, not
+the actual argument names as appears in the function.</p>
+</div>
+</div>
+<div class="section" id="returning-values">
+<h2>6.2 Returning Values<a class="headerlink" href="#returning-values" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>return</strong> statement allows a function to return a value of the
+stated data item type. This statement immediately pushes a value onto
+the return stack and causes control to move to the ending curly brace,
+<strong>}</strong>, of the function, which returns control back to the calling
+function. Without a <strong>return</strong> statement a function implicitly returns
+a value of zero for the data type for which the function was typed.
+The general form of the <strong>return</strong> statement is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">return</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="listing-6-2">
+<h3>Listing 6-2<a class="headerlink" href="#listing-6-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;iostream.h&gt;
+int main()
+{
+int ch, type, chkletter();
+
+    cout &lt;&lt; "\nPress any key followed by RETURN:";
+    cin &gt;&gt; ch;
+    type = chkletter( ch );
+    switch(type)
+    {
+         case 0:
+              cout &lt;&lt; "\nNon alpha";
+              break;
+         case 1:
+              cout &lt;&lt; "\nUppercase alpha";
+              break;
+         case 2:
+              cout &lt;&lt; "\nLowercase alpha";
+              break;
+    }
+    return 0;
+}
+
+int chkletter( int c)
+{
+    if(c &gt;= 'A' &amp;&amp; c &lt;= 'Z')
+         return( 1 );
+    if(c &gt;= 'a' &amp;&amp; c &lt;= 'z')
+         return( 2 );
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="passing-arguments">
+<h2>6.3 Passing Arguments<a class="headerlink" href="#passing-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Arguments can be constants or variables holding values. The default
+method is that arguments are passed by value. Passing by value means
+that only a copy of the value held in the argument is brought into the
+locally declared argument within the function. Passing by value
+prevents the function from altering the original variable&#8217;s value in
+the calling function.</p>
+<div class="section" id="fig-6-1">
+<h3>Fig 6-1<a class="headerlink" href="#fig-6-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>int main()
+{
+         .
+         .
+         .
+    x = add(10,20);
+}
+
+int add( int a, int b)
+{
+    return(a+b);
+}</pre>
+</div>
+<p><strong>C</strong> and <strong>C++</strong> supports calling functions and passing arguments by
+reference. Passing arguments by reference means passing the actual
+address of a variable so that the called function can affect data
+stored in the original variable. To pass an address of a variable
+requires that the <strong>address of</strong> operator, <strong>&amp;</strong>, be used on the
+calling side. The address passed is then received in a pointer type
+data item. Pointer is a data type just as <strong>int</strong> and <strong>float</strong> are
+data types. Pointer type variables are intended to hold memory
+addresses. These memory addresses represent the locations in computer
+memory where data values are stored. To look at the values at those
+address, the <strong>value at the address</strong> operator, <strong>*</strong>, must be used to
+dereference the pointer holding the memory address and obtain the
+value stored at that memory address.</p>
+</div>
+<div class="section" id="listing-6-3">
+<h3>Listing 6-3<a class="headerlink" href="#listing-6-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;stdio.h&gt;
+int main()
+{
+int x , y;
+void swap( int *, int *);
+
+    x = 10;
+    y = 20;
+    swap( ,  );
+    printf("%d  %d",x,y);
+    return 0;
+}
+
+void swap(int *a, int *b)
+{
+int temp;
+
+    temp = *a;     // store the value at the address held
+                   // in pointer a
+    *a = *b;       // store the value at the address held
+                   // in pointer b into the value at the
+                   // address held in pointer a
+    *b = temp;     // store the value held in temp into
+                   // the value at the address held in
+                   // pointer b
+}</pre>
+</div>
+</div>
+</div>
+<div class="section" id="command-line-arguments">
+<h2>6.4 Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>main()</strong> function can have arguments passed to it from the
+command line. Three arguments can be passed to the <strong>main() **
+function; **argc</strong> which gives the number of arguments on the command
+line; <strong>argv</strong> which holds the actual arguments from the command line;
+and, <strong>envp</strong> which holds the current settings for any environment
+block variables, this is an optional argument and is usually not
+included. What is the command line? The operating system has a task
+running that reads the command line associated with the operating
+system prompt. The command line is anything from just after the
+operating system prompt upto and including the first newline
+character. Anything typed on the command line can be passed to a
+<strong>C</strong>, <strong>C++</strong> or assembly language program.</p>
+<div class="section" id="listing-6-4">
+<h3>Listing 6-4<a class="headerlink" href="#listing-6-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;iostream.h&gt;
+int main( int argc, char *argv[], char *envp[] )
+{
+int indx;
+
+    cout &lt;&lt; "\nNumber of arguments is " &lt;&lt; argc;
+    for( indx = 0; indx &lt; argc; ++indx )
+         cout &lt;&lt; "\nARGV[ " &lt;&lt; indx &lt;&lt; "]= " &lt;&lt; argv[indx];
+    for( indx = 0; envp[indx]; ++indx )
+         cout &lt;&lt; "\nENVP[ " &lt;&lt; indx &lt;&lt; "]= " &lt;&lt; envp[indx];
+    return 0;
+}</pre>
+</div>
+<p>Notice that there are two arrays passed to the <strong>man()</strong> function,
+<strong>char *argv[]</strong> and <strong>char *envp[]</strong>. These arguments are declared as
+arrays of pointers to character type data. The concept of pointers
+will be discussed in a later chapter but for now assume that these
+arguments hold lists of strings.</p>
+</div>
+</div>
+<div class="section" id="default-arguments">
+<h2>6.5 Default Arguments<a class="headerlink" href="#default-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Another improvement to functions in <strong>C++</strong> is that you can specify
+the default values for the arguments when you provide a prototype for
+a function. For example, if you are defining a function named
+<strong>create_window</strong> that sets up a window (a rectangular region) in a
+graphics display and fills it with a background color, you may opt to
+specify default values for the window&#8217;s location, size, and background
+color, as follows:</p>
+<div class="highlight-python"><pre>//   A function with default argument values
+//   Assume that Window is a user-defined type
+
+Window create_window(int x = 0, int y = 0, int width = 100,
+                     int height = 50, int bgpixel = 0 );</pre>
+</div>
+<p>With <strong>create_window</strong> declared this way, you can use any of the
+following calls to create new windows;</p>
+<div class="highlight-python"><pre>Window w;
+
+//   The following is the same as:
+     create_window(0,0,100,50,0);
+
+w = create_window();
+
+//   This is the same as:
+     create_window(100,0,100,50,0);
+
+w = create_window(100);
+
+//   Equivalent to:
+     create_window(30,20,100,50,0);
+
+w = create_window(30, 20 );</pre>
+</div>
+<p>As you can see from the examples, it is impossible to give a
+nondefault value for the <strong>height</strong> argument without specifying the
+values for <strong>x</strong>, <strong>y</strong>, and <strong>width</strong> as well, because <strong>height</strong>
+comes after them and the compiler can only match arguments by
+position. In other words, the first argument you specify in a call to
+<strong>create_window</strong> always matches <strong>x</strong>, the second one matches <strong>y</strong>,
+and so on. Thus, you can leave only trailing arguments unspecified.</p>
+</div>
+<div class="section" id="functions-with-an-unspecified-number-of-parameters">
+<h2>6.6 Functions with an Unspecified Number of Parameters<a class="headerlink" href="#functions-with-an-unspecified-number-of-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Using the ellipsis, <strong>...</strong>, with C++ function prototypes, means that
+the function can be specified with an unknown number and type of
+parameters. This feature can be used to suppress parameter type
+checking and to allow flexibility in the interface to the function.
+C++ allows functions be to declared with an unspecified number of
+arguments. Ellipsis marks are used to indicate this, as follows:</p>
+<div class="highlight-python"><pre>return_type function_name( ... )</pre>
+</div>
+<p>The function <strong>printf()</strong>, from header stdio.h, is declared as</p>
+<div class="highlight-python"><pre>int printf( char *, ... );</pre>
+</div>
+<p>Calls to <strong>printf()</strong> must have at least one argument, namely a
+string, beyond this, the additional arguments are unspecified both in
+type and in number. Argument checking is turned off when a function is
+declared to have an unspecified number of arguments. It is therefore
+recommend against using this capability unless it is absolutely
+necessary. Header <strong>stdarg.h</strong> contains a set of macros for accessing
+unspecified arguments. The reader is urged to study the macros in this
+header file.</p>
+</div>
+<div class="section" id="inline-functions">
+<h2>6.7 Inline Functions<a class="headerlink" href="#inline-functions" title="Permalink to this headline">¶</a></h2>
+<p>Inline functions are like preprocessor macros, because the compiler
+substitutes the entire function body for each inline function call.
+The inline functions are provided to support efficient implementation
+of OOP techniques in C++. Because the OOP approach requires extensive
+use of member functions, the overhead of function calls can hurt the
+performance of a program. For smaller functions, you can use the
+<strong>inline</strong> specifier to avoid the overhead of function calls. On the
+surface, inline functions look like preprocessor macros, but the two
+differ in a crucial aspect. Unlike the treatment of macros, the
+compiler treats inline functions as true functions. To see how this
+can be an important factor, consider the following example. Suppose
+you have defined a macro named <strong>multiply</strong> as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#define multiply(x,y)    (x*y)</span>
+</pre></div>
+</div>
+<p>If you were to use this macro as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span> <span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By straightforward substitution of the <strong>multiply</strong> macro, the
+preprocessor will transform the right-hand side of this statement into
+the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="o">*</span><span class="mi">6</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This evaluates to 10 instead of the result of multiplying (4+1) and 6,
+which should have been 30. Of course, you know that the solution is to
+use parentheses around the macro arguments, but consider what happens
+when you define an inline function exactly as you defined the macro:</p>
+<div class="section" id="listing-6-5">
+<h3>Listing 6-5<a class="headerlink" href="#listing-6-5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include
+
+//   Define inline function to multiply two integers
+
+inline int multiply ( int x, int y )
+{
+    return( x * y );
+}
+//   an overloaded version that multiplies two doubles
+inline double multiply( double x, double y )
+{
+    return( x * y );
+}
+
+int main()
+{
+    cout &lt;&lt; "Product of 5 and 6 "
+         &lt;&lt; multiply( 4+1, 6 );
+    cout &lt;&lt; "Product of 3.1 and 10.0 "
+         &lt;&lt; multiply( 3.0+.1, 10.0 );
+    return 0;
+}</pre>
+</div>
+<p>When you compile and run this program, it correctly produces the
+following output:</p>
+<div class="highlight-python"><pre>Product of 5 and 6 = 30
+Product of 3.1 and 10.0 = 31.000000</pre>
+</div>
+<p>As you can see from this example, inline functions never have the kind
+of errors that plague ill-defined macros. Additionally, because inline
+functions are true functions, you can overload them and rely on the
+compiler to use the correct function based on the argument types.
+Because the body of an inline function is duplicated wherever that
+function is called, you should use inline functions only when the
+functions are small in size. In addition, any looping construct that
+appears within an inline function will cause the compiler to force the
+function to not be inline. Most compilers will generate a warning to
+the effect that the function is being treated as a non-inline
+function.</p>
+</div>
+</div>
+<div class="section" id="reference-types-as-arguments">
+<h2>6.8 Reference Types as Arguments<a class="headerlink" href="#reference-types-as-arguments" title="Permalink to this headline">¶</a></h2>
+<p>C normally passes arguments by value. This means that when you call a
+function with some arguments, the values of the arguments are copied
+to a special area of memory known as the stack. The function uses
+these copies for its operation. To see the effect of call by value,
+consider the following code:</p>
+<div class="section" id="fig-6-2">
+<h3>Fig 6-2<a class="headerlink" href="#fig-6-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>void twice( int a )
+{
+     a *= 2;
+}
+.
+.
+int x = 5;
+//   call the "twice" function
+twice( x );
+
+printf( "x = %d\n", x);</pre>
+</div>
+<p>You will find that this program prints 5 as the value of <strong>x</strong>, not
+10, even though the function <strong>twice</strong> multiplies its argument by 2.
+This is because the function <strong>twice</strong> receives a copy of <strong>x</strong> and
+whatever changes it makes to that copy are lost on return from the
+function. In C, the only way you can change the value of a variable
+through a function is by explicitly passing the address of the
+variable to the function. For example, to double the value of a
+variable, you can write the function <strong>twice</strong> as follows:</p>
+</div>
+<div class="section" id="fig-6-3">
+<h3>Fig 6-3<a class="headerlink" href="#fig-6-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>void twice( int *a )
+{
+     *a *= 2;
+}
+.
+.
+int x = 5;
+//   call the "twice" function
+twice(  );
+
+printf( "x = %d\n", x);</pre>
+</div>
+<p>This time, the program prints 10 as the result. Thus, you can pass
+pointers to alter variables through a function call, but the syntax is
+messy. In the function, you have to dereference the argument by using
+the <strong>*</strong> operator. C++ provides a way of passing arguments by
+reference by introducing the concept of a <strong>reference</strong>, which is the
+idea of defining an alias or alternative name for any instance of
+data. The syntax is to append an ampersand ( <strong>&amp;</strong>) to the name of the
+data type. For example, if you have the following:</p>
+<div class="highlight-python"><pre>int i = 5;
+int *p_i =  // a pointer to in initialized to point to i
+int _i = i;  // a reference to the int variable i</pre>
+</div>
+<p>then you can use <strong>r_i</strong> anywhere you would use <strong>i</strong> or <strong>*p_i</strong>. In
+fact, if you write this:</p>
+<div class="highlight-python"><pre>r_i += 10;     // adds 10 to i</pre>
+</div>
+<p><strong>i</strong> will change to 15, because <strong>r_i</strong> is simply another name for
+<strong>i</strong>. Using reference types, you can rewrite the function named
+<strong>twice</strong> to multiply an integer by 2 in a much simpler manner:</p>
+</div>
+<div class="section" id="fig-6-4">
+<h3>Fig 6-4<a class="headerlink" href="#fig-6-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>void twice( int&amp; a )
+{
+     a *= 2;
+}
+.
+.
+int x = 5;
+//   call the "twice" function
+twice( x );
+
+cout &lt;&lt; "x = " &lt;&lt; x;</pre>
+</div>
+<p>As expected, the program prints 10 as the result, but it looks a lot
+simpler than trying to accomplish the same task using pointers.
+Another reason for passing arguments by reference is that when
+structures or classes are passed by value, there is the overhead of
+copying objects to and from the stack. Passing a reference to an
+object avoids this unnecessary copying and allows an efficient
+implementation of OOP.</p>
+</div>
+</div>
+<div class="section" id="overloaded-functions">
+<h2>6.9 Overloaded Functions<a class="headerlink" href="#overloaded-functions" title="Permalink to this headline">¶</a></h2>
+<p>C++ provides the ability to overload functions. Function overloading
+is a type of polymorphism and is one way of allowing the programming
+environment to be dynamically extended. In C++, two or more functions
+can share the same name. Therefore, a program could have several
+functions to perform the absolute value function with all of them
+named <strong>abs</strong>. The functions are distinguished from each other by have
+the types of their arguments differ or by having the number of their
+arguments differ or both. Because these functions share the same name
+they are said to be overloaded. The compiler will automatically select
+the correct version to call based upon the number and/or type of
+arguments used to call the function.</p>
+<div class="section" id="listing-6-6">
+<h3>Listing 6-6<a class="headerlink" href="#listing-6-6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>#include &lt;iostream.h&gt;
+//
+//  prototype functions
+//
+int abs( int );
+long abs( long );
+float abs( float );
+double abs( double );
+
+int main()
+{
+int intValue;
+long longValue;
+float floatValue;
+double doubleValue;
+    //
+    //   ask for values
+    //
+    cout &lt;&lt; "\nEnter a negative integer value: ";
+    cin &gt;&gt; intValue;
+    cout &lt;&lt; "\nEnter a negative long integer value: ";
+    cin &gt;&gt; longValue;
+    cout &lt;&lt; "\nEnter a negative floating point value: ";
+    cin &gt;&gt; floatValue;
+    cout &lt;&lt; "\nEnter a negative double floating point value: ";
+    cin &gt;&gt; doubleValue;
+    cout &lt;&lt; "\nAbsolute values are: " &lt;&lt; endl;
+    cout &lt;&lt; "\t Integer: " &lt;&lt; abs( intValue ) &lt;&lt; endl;
+    cout &lt;&lt; "\t Long: " &lt;&lt; abs( longValue ) &lt;&lt; endl;
+    cout &lt;&lt; "\t Floating Point: " &lt;&lt; abs( floatValue ) &lt;&lt; endl;
+    cout &lt;&lt; "\t Double Floating Point: " &lt;&lt; abs( doubleValue )
+              &lt;&lt; endl;
+    return 0;
+}
+int abs( int x )
+{
+    return (x &lt; 0 ? (-1 * x ) : x);
+}
+long abs( long x )
+{
+    return (x &lt; 0 ? (-1L * x ) : x);
+}
+float abs( float x )
+{
+    return (x &lt; 0 ? (-1 * x ) : x);
+}
+double abs( double x )
+{
+    return (x &lt; 0 ? ((double)-1 * x ) : x);
+}</pre>
+</div>
+<p>This program defines four functions called <strong>abs()</strong>. With function
+overloading, a single name can be used to describe a general class of
+action. Unlike in C, there is no need for four differently named
+functions, one for each data type to be handled. In C++, the compiler
+determines which function is appropriate to perform the task. This is
+a rudimentary form of polymorphism, which is simply one interface
+representing multiple methods or functions.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 6 Functions</a><ul>
+<li><a class="reference internal" href="#functions">6.1 Functions</a><ul>
+<li><a class="reference internal" href="#listing-6-1">Listing 6-1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#returning-values">6.2 Returning Values</a><ul>
+<li><a class="reference internal" href="#listing-6-2">Listing 6-2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#passing-arguments">6.3 Passing Arguments</a><ul>
+<li><a class="reference internal" href="#fig-6-1">Fig 6-1</a></li>
+<li><a class="reference internal" href="#listing-6-3">Listing 6-3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-line-arguments">6.4 Command Line Arguments</a><ul>
+<li><a class="reference internal" href="#listing-6-4">Listing 6-4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#default-arguments">6.5 Default Arguments</a></li>
+<li><a class="reference internal" href="#functions-with-an-unspecified-number-of-parameters">6.6 Functions with an Unspecified Number of Parameters</a></li>
+<li><a class="reference internal" href="#inline-functions">6.7 Inline Functions</a><ul>
+<li><a class="reference internal" href="#listing-6-5">Listing 6-5</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference-types-as-arguments">6.8 Reference Types as Arguments</a><ul>
+<li><a class="reference internal" href="#fig-6-2">Fig 6-2</a></li>
+<li><a class="reference internal" href="#fig-6-3">Fig 6-3</a></li>
+<li><a class="reference internal" href="#fig-6-4">Fig 6-4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overloaded-functions">6.9 Overloaded Functions</a><ul>
+<li><a class="reference internal" href="#listing-6-6">Listing 6-6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chap06.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cpp 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, demo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
