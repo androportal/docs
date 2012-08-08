@@ -23,7 +23,7 @@ Overview
    :align: center
    :alt: apl main page
    :width: 400px 
-   :height: 250px
+   :height: 240px
 
    `APL main page`
 	   
@@ -33,14 +33,14 @@ Overview
     - *Text editor*: is located on the left hand side. One can write
       source code in text editor. If you click on the text editor
       area, a virtual keyboard will appear and one can use it to write
-      programs. Click ``back button`` (located at right top corner on
+      programs. Click ``back button`` (located at bottom left corner on
       Android status bar) to close the virtual keyboard.
 
       .. figure:: images/text_area_console_output.png
 	 :align: center
 	 :alt: text area and output console
 	 :width: 400px 
-	 :height: 250px
+	 :height: 240px
 
 	 `Text editor with console output`
       
@@ -69,10 +69,9 @@ Overview
 
 	 `Execute button`
     
-    - *Example Programs*: Clicking on the ``option button`` at top
-      right corner, next to the ``back button`` will pop up the
-      horizontal menubar from the bottom. One of the option is
-      ``Example`` programs.
+    - *Example Programs*: Clicking on the ``option button`` at bottom
+      (looks like three vertical dots), will pop up the horizontal
+      menubar from the bottom. One of the option is ``Example`` menu.
       
       .. figure:: images/option_button.png
 	 :align: center
@@ -85,8 +84,8 @@ Overview
       .. figure:: images/horizontal_menubar.png
 	 :align: center
 	 :alt: horizontal menubar
-	 :width: 400px 
-	 :height: 40px	
+	 :width: 450px 
+	 :height: 35px	
 		 
 	 `Menu bar with options`
     
@@ -108,20 +107,20 @@ Overview
       example programs. Click on any example to select. The example
       code will appear on text editor. Then click on the execute
       button to run. Output will appear in Console output. One can
-      optionally edit the code in text editor and execute again.
+      optionally edit the code in text editor and execute it again.
 
       .. figure:: images/choose_ur_file.png
 	 :align: center
-	 :alt: choose examples(scilab)
-	 :width: 400px 
+	 :alt: choose examples(python)
+	 :width: 300px 
 	 :height: 150px	
 
 	 `List of examples`
 
-4. Scilab has one extra component, i.e *plot* option. This will appear
-   at the bottom-left of the page. Check this option if your code has
-   any plots involved. Uncheck when not needed. Most examples provided
-   in Scilab have graphical output.
+4. Scilab has one extra component, i.e *plot* option. It is located at
+   top left corner of the page. Check this option if your code has any
+   plots involved. Uncheck when not needed. Most examples provided in
+   Scilab have graphical output.
 
    .. figure:: images/plot_icon.png
       :align: center
@@ -133,8 +132,8 @@ Overview
    ``back button`` which will land you to ``Main page`` (step 2).
 
 6. To exit ``APL`` one has to click ``back button`` twice, this will pop
-   up one confirmation dialog box. Click ``Yes`` to exit Aakash
-   Programming Lab
+   up one confirmation dialog box. Click ``Yes`` to exit `Aakash
+   Programming Lab`
 
    .. figure:: images/exit.png
       :align: center
