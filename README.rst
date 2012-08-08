@@ -54,3 +54,9 @@ or you can do seperate cleaning by typing in particular directory:
    make clean
 
 
+Browse docs
+-----------
+
+After running ``make``, a temporary directory ``/_build/html/`` is
+created in each parent directory. Locate the file ``index.html`` to
+browse documentation.
