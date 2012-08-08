@@ -8,7 +8,7 @@ Overview
 1. Locate and click on Aakash Programming Lab(APL) icon in
    application menu
 
-.. figure:: icons/apl.png
+.. figure:: ../icons/apl.png
    :align: center
    :alt: apl icon
    :width: 50px 
@@ -19,11 +19,11 @@ Overview
 2. After clicking on APL icon, you will see a screen with four icons
    horizontally placed, naming **C, C++, Python and Scilab**
 
-.. figure:: images/apl.png
+.. figure:: ../com_images/apl.png
    :align: center
    :alt: apl main page
    :width: 400px 
-   :height: 250px
+   :height: 240px
 
    `APL main page`
 	   
@@ -33,21 +33,21 @@ Overview
     - *Text editor*: is located on the left hand side. One can write
       source code in text editor. If you click on the text editor
       area, a virtual keyboard will appear and one can use it to write
-      programs. Click ``back button`` (located at right top corner on
+      programs. Click ``back button`` (located at bottom left corner on
       Android status bar) to close the virtual keyboard.
 
-      .. figure:: images/text_area_console_output.png
+      .. figure:: ../com_images/text_area_console_output.png
 	 :align: center
 	 :alt: text area and output console
 	 :width: 400px 
-	 :height: 250px
+	 :height: 240px
 
 	 `Text editor with console output`
       
     - *Console output*: is located at right hand side, this will show
       the output of the program.
 
-      .. figure:: images/back_button.png
+      .. figure:: ../com_images/back_button.png
 	 :align: center
 	 :alt: back button
 	 :width: 50px
@@ -61,7 +61,7 @@ Overview
       will appear in console output screen(it should take
       approximately 2 to 10 seconds, depends upon code and algorithm).
 
-      .. figure:: images/execute.png
+      .. figure:: ../com_images/execute.png
 	 :align: center
 	 :alt: execute
 	 :width: 50px
@@ -69,12 +69,11 @@ Overview
 
 	 `Execute button`
     
-    - *Example Programs*: Clicking on the ``option button`` at top
-      right corner, next to the ``back button`` will pop up the
-      horizontal menubar from the bottom. One of the option is
-      ``Example`` programs.
+    - *Example Programs*: Clicking on the ``option button`` at bottom
+      (looks like three vertical dots), will pop up the horizontal
+      menubar from the bottom. One of the option is ``Example`` menu.
       
-      .. figure:: images/option_button.png
+      .. figure:: ../com_images/option_button.png
 	 :align: center
 	 :alt: option button
 	 :width: 50px 
@@ -82,11 +81,11 @@ Overview
 	    
 	 `Option button`
 
-      .. figure:: images/horizontal_menubar.png
+      .. figure:: ../com_images/horizontal_menubar.png
 	 :align: center
 	 :alt: horizontal menubar
-	 :width: 400px 
-	 :height: 40px	
+	 :width: 500px 
+	 :height: 45px	
 		 
 	 `Menu bar with options`
     
@@ -97,7 +96,7 @@ Overview
       directory, you can browse through respective language directory
       to view your code or an [image]_ file.
 
-      .. figure:: images/cpp_name_code.png
+      .. figure:: ../com_images/cpp_name_code.png
 	 :align: center
 	 :alt: horizontal menubar
 	 :width: 400px 
@@ -108,22 +107,22 @@ Overview
       example programs. Click on any example to select. The example
       code will appear on text editor. Then click on the execute
       button to run. Output will appear in Console output. One can
-      optionally edit the code in text editor and execute again.
+      optionally edit the code in text editor and execute it again.
 
-      .. figure:: images/choose_ur_file.png
+      .. figure:: ../com_images/choose_ur_file.png
 	 :align: center
-	 :alt: choose examples(scilab)
-	 :width: 400px 
+	 :alt: choose examples(python)
+	 :width: 280px 
 	 :height: 150px	
 
 	 `List of examples`
 
-4. Scilab has one extra component, i.e *plot* option. This will appear
-   at the bottom-left of the page. Check this option if your code has
-   any plots involved. Uncheck when not needed. Most examples provided
-   in Scilab have graphical output.
+4. Scilab has one extra component, i.e *plot* option. It is located at
+   top left corner of the page. Check this option if your code has any
+   plots involved. Uncheck when not needed. Most examples provided in
+   Scilab have graphical output.
 
-   .. figure:: images/plot_icon.png
+   .. figure:: ../com_images/plot_icon.png
       :align: center
       :alt: plot icon check box for scilab graphical output
 
@@ -133,10 +132,10 @@ Overview
    ``back button`` which will land you to ``Main page`` (step 2).
 
 6. To exit ``APL`` one has to click ``back button`` twice, this will pop
-   up one confirmation dialog box. Click ``Yes`` to exit Aakash
-   Programming Lab
+   up one confirmation dialog box. Click ``Yes`` to exit `Aakash
+   Programming Lab`
 
-   .. figure:: images/exit.png
+   .. figure:: ../com_images/exit.png
       :align: center
       :alt: exit APL
       :width: 400px 
@@ -144,66 +143,4 @@ Overview
 	       
       `exit Aakash programming lab`
 
-C programming using **APL**
-===========================
 
-.. topic:: Text output
-
-	   * Locate and click on Aakash Programming Lab(APL) icon
-   
-	     .. figure:: icons/apl.png
-		:align: center
-		:alt: apl icon
-		:width: 50px 
-		:height: 50px	
-
-		`Aakash Programming Lab Icon`
-	   
-	   * After clicking on APL icon, you will see a screen with
-	     four icons horizontally placed, naming **C, C++, Python
-	     and Scilab**
-
-	     .. figure:: images/apl.png
-		:align: center
-		:alt: apl main page
-		:width: 400px 
-		:height: 250px
-
-		`APL main page`
-	     
-	   * Click on `C` icon, this will land you in the
-	     `C` programming console.
-	     
-	     .. figure:: images/c_blank_screen.png
-		:align: center
-		:alt: C blank screen
-		:width: 400px 
-		:height: 250px
-
-		`C programmming console`
-	   
-	   * Touch on ``Text area`` to pop up the virtual
-             keyboard. Type your C code in the `Text area`.
-	     
-	     .. figure:: images/c_with_code.png
-		:align: center
-		:alt: C text console with code loaded
-		:width: 400px 
-		:height: 250px
-
-	        `Text area with code`
-	     
-	   * and click on ``execute`` button to see the output in
-	     `Console Output`
-
-	     .. figure:: images/c_with_output.png
-		:align: center
-		:alt: C output console
-		:width: 400px 
-		:height: 250px
-
-		`Output of C code`
-	     
-.. [image] right now, only scilab has an additional directory called
-	   ``image`` beside ``code`` directory. The complete path is
-	   ``/mnt/sdcard/APL/scilab/image``

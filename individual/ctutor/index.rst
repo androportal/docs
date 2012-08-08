@@ -15,7 +15,8 @@ User Manual
 	   .. toctree::
 	      :maxdepth: 2
 
-	      user_manual
+	      overview
+	      using_apl_c
 
 
 Reference manual
