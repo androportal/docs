@@ -22,7 +22,7 @@ clone the repo using
 
 ::
 
-   git clone git://github.com/androportal/documentation.git
+   git clone git://github.com/androportal/docs.git
 
 
 to generate all html in one go, type:
