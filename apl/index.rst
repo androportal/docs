@@ -8,8 +8,8 @@ Welcome to Aakash programming lab(APL) documentation!
 
 Contents:
 
-1. Installing Aakash Programming Lab(APL)
-====
+Installing Aakash Programming Lab(APL)
+======================================
 .. topic:: Installation
 
 	   .. toctree::
@@ -17,8 +17,8 @@ Contents:
 			 
 	      install
 
-2. User Manual
-====
+User Manual
+===========
 .. topic:: Manual
 
 	   .. toctree::
@@ -27,8 +27,8 @@ Contents:
 	      user_manual
 
 
-3. Developer’s manual
-====
+Developer’s manual
+==================
 .. topic:: Developers
 
 	   .. toctree::
@@ -36,17 +36,8 @@ Contents:
 
 	      developer
 
-4. Reference Manual
-====
-.. topic:: References   
 
-	   .. toctree::
-	      :maxdepth: 5
-
-	      ref
-
-
-7. Indices and tables
+Indices and tables
 ==================
 
 * :ref:`genindex`

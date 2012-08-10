@@ -1,6 +1,10 @@
 #!/bin/bash 
 # htm2sphinx.sh
-
+# --------------------
+# -bash sript which helps to converts html pages to rst (sphinx) format
+# recursively, including index.rst
+# -requires `html2rest`
+# --------------------
 
 function convert() {
     # ----
@@ -61,3 +65,19 @@ function reSt() {
 # _init__
 convert
 reSt
+
+# --------------------
+# BUGS
+# 
+# 1)
+# =========
+# some_name
+# =========
+# 
+# 2)
+# circular toctree detected
+# 
+# 3)
+# mtlb/Matlab-Scilab_character_strings    in /string/
+# 
+# --------------------
