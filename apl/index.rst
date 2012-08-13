@@ -24,8 +24,10 @@ Contents:
 	   .. toctree::
 	      :maxdepth: 5
 
+	      
 	      user_manual
-
+	      
+	      
 
 3. Developer’s manual
 ====
@@ -36,22 +38,6 @@ Contents:
 
 	      developer
 
-4. Reference Manual
-====
-.. topic:: References   
-
-	   .. toctree::
-	      :maxdepth: 5
-
-	      ref
-
-
-7. Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 
 
