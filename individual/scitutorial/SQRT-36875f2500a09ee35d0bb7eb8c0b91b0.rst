@@ -1,0 +1,132 @@
+
+
+
+SQRT
+====
+
+Square root
+
+
+
+Block Screenshot
+~~~~~~~~~~~~~~~~
+
+
+
+
+
+Contents
+~~~~~~~~
+
+
++ `Square root`_
+  +
+
+    + `Palette`_
+    + `Description`_
+    + `Dialog box`_
+    + `Default properties`_
+    + `Interfacing function`_
+    + `Computational function`_
+    + `See also`_
+
+
+
+
+
+Palette
+~~~~~~~
+
+
++ `Math operations palette`_
+
+
+
+
+Description
+~~~~~~~~~~~
+
+This block computes the square root of each element of the input
+matrix. It support double and complex data types ( **Datatype**
+parameter).
+
+
+
+Dialog box
+~~~~~~~~~~
+
+
+
+
+
+
++ **Datatype (1=real double 2=Complex)** It indicates the type of the
+  output. It support only the two types double (1) and complex (2). If
+  we input another entry in this label Xcos will print the message
+  "Datatype is not supported". Properties : Type 'vec' of size 1.
+
+
+
+
+Default properties
+~~~~~~~~~~~~~~~~~~
+
+
++ **always active:** no
++ **direct-feedthrough:** yes
++ **zero-crossing:** no
++ **mode:** no
++ **regular inputs:** **- port 1 : size [-1,-2] / type 1**
++ **regular outputs:** **- port 1 : size [-1,-2] / type 1**
++ **number/sizes of activation inputs:** 0
++ **number/sizes of activation outputs:** 0
++ **continuous-time state:** no
++ **discrete-time state:** no
++ **object discrete-time state:** no
++ **name of computational function:** mat_sqrt
+
+
+
+
+Interfacing function
+~~~~~~~~~~~~~~~~~~~~
+
+
++ SCI/modules/scicos_blocks/macros/MatrixOp/SQRT.sci
+
+
+
+
+Computational function
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ SCI/modules/scicos_blocks/src/c/mat_sqrt.c
++ SCI/modules/scicos_blocks/src/c/matz_sqrt.c
+
+
+
+
+See also
+~~~~~~~~
+
+
++ `POWBLK_f - Array power`_
++ `EXPBLK_m - Exponential of a scalar (Bloc Xcos)`_
++ `LOGBLK_m - Logarithm (Bloc Xcos)`_
+
+
+.. _Interfacing function: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Interfacingfunction_SQRT
+.. _Description: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Description_SQRT
+.. _Dialog box: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Dialogbox_SQRT
+.. _EXPBLK_m - Exponential of a scalar (Bloc Xcos): EXPBLK_m.html
+.. _POWBLK_f - Array power: POWBLK_f.html
+.. _Default properties: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Defaultproperties_SQRT
+.. _See also: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Seealso_SQRT
+.. _Computational function: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Computationalfunction_SQRT
+.. _Math operations palette: Mathoperations_pal.html
+.. _Palette: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html#Palette_SQRT
+.. _Square root: SQRT-36875f2500a09ee35d0bb7eb8c0b91b0.html
+.. _LOGBLK_m - Logarithm (Bloc Xcos): LOGBLK_f.html
+
+

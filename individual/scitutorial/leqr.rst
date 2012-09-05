@@ -1,0 +1,109 @@
+
+
+
+leqr
+====
+
+H-infinity LQ gain (full state)
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+
+::
+
+    [K,X,err]=leqr(P12,Vx)
+
+
+
+
+Arguments
+~~~~~~~~~
+
+:P12 `syslin` list
+: :Vx symmetric nonnegative matrix (should be small enough)
+: :K,X two real matrices
+: :err a real number (l1 norm of LHS of Riccati equation)
+:
+
+
+
+Description
+~~~~~~~~~~~
+
+`leqr` computes the linear suboptimal H-infinity LQ full-state gain
+for the plant `P12=[A,B2,C1,D12]` in continuous or discrete time.
+
+`P12` is a `syslin` list (e.g. `P12=syslin('c',A,B2,C1,D12)`).
+
+
+::
+
+    [C1' ]               [Q  S]
+    [    ]  * [C1 D12] = [    ]
+    [D12']               [S' R]
+
+
+`Vx` is related to the variance matrix of the noise `w` perturbing
+`x`; (usually `Vx=gama^-2*B1*B1'`).
+
+The gain `K` is such that `A + B2*K` is stable.
+
+`X` is the stabilizing solution of the Riccati equation.
+
+For a continuous plant:
+
+
+::
+
+    (A-B2*`inv`_(R)*S')'*X+X*(A-B2*`inv`_(R)*S')-X*(B2*`inv`_(R)*B2'-Vx)*X+Q-S*`inv`_(R)*S'=0
+
+
+
+::
+
+    K=-`inv`_(R)*(B2'*X+S)
+
+
+For a discrete time plant:
+
+
+::
+
+    X-(Abar'*`inv`_((`inv`_(X)+B2*`inv`_(R)*B2'-Vx))*Abar+Qbar=0
+
+
+
+::
+
+    K=-`inv`_(R)*(B2'*`inv`_(`inv`_(X)+B2*`inv`_(R)*B2'-Vx)*Abar+S')
+
+
+with `Abar=A-B2*inv(R)*S'` and `Qbar=Q-S*inv(R)*S'`
+
+The 3-blocks matrix pencils associated with these Riccati equations
+are:
+
+
+::
+
+    discrete                        continuous
+    |I  -Vx  0|   | A    0    B2|       |I   0   0|   | A    Vx    B2|
+    z|0   A'  0| - |-Q    I    -S|      s|0   I   0| - |-Q   -A'   -S |
+    |0   B2' 0|   | S'   0     R|       |0   0   0|   | S'   -B2'   R|
+
+
+
+
+See Also
+~~~~~~~~
+
+
++ `lqr`_ LQ compensator (full state)
+
+
+.. _lqr: lqr.html
+
+

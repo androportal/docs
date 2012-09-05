@@ -1,0 +1,54 @@
+
+
+
+List manipulation
+~~~~~~~~~~~~~~~~~
+
+
++ `isListType`_ Check if it is a list, mlist, tlist variable.
++ `list_boolean_reading_API`_ How to read matrix of boolean in a list.
++ `list_boolean_writing_API`_ How to add matrix of boolean in a list.
++ `list_bsparse_reading_API`_ How to read boolean sparse in a list.
++ `list_bsparse_writing_API`_ How to add boolean sparse matrix in a
+  list.
++ `list_createlist_API`_ How to get create a list in Scilab memory.
++ `list_double_reading_API`_ How to read matrix of double in a list.
++ `list_double_writing_API`_ How to add matrix of double in a list.
++ `list_getlistitemaddress_API`_ How to get the address of a list
+  child.
++ `list_getlistitemnumber_API`_ How to get the number of items in a
+  list (list, mlist, tlist).
++ `list_integer_reading_API`_ How to read matrix of integer in a list.
++ `list_integer_writing_API`_ How to add matrix of integer in a list.
++ `list_pointer_reading_API`_ How to read pointer in a list.
++ `list_pointer_writing_API`_ How to add pointer in a list.
++ `list_poly_reading_API`_ How to read matrix of polynomial in a list.
++ `list_poly_writing_API`_ How to add matrix of polynomial in a list.
++ `list_sparse_reading_API`_ How to read sparse in a list.
++ `list_sparse_writing_API`_ How to add sparse matrix in a list.
++ `list_string_reading_API`_ How to read matrix of string in a list.
++ `list_string_writing_API`_ How to add matrix of string in a list.
+
+
+.. _list_poly_writing_API: list_poly_writing_API.html
+.. _list_sparse_reading_API: list_sparse_reading_API.html
+.. _list_boolean_reading_API: list_boolean_reading_API.html
+.. _list_string_writing_API: list_string_writing_API.html
+.. _list_bsparse_reading_API: list_bsparse_reading_API.html
+.. _list_createlist_API: list_createlist_API.html
+.. _list_sparse_writing_API: list_sparse_writing_API.html
+.. _list_double_writing_API: list_double_writing_API.html
+.. _list_poly_reading_API: list_poly_reading_API.html
+.. _list_integer_reading_API: list_integer_reading_API.html
+.. _list_pointer_reading_API: list_pointer_reading_API.html
+.. _list_boolean_writing_API: list_boolean_writing_API.html
+.. _list_bsparse_writing_API: list_bsparse_writing_API.html
+.. _isListType: isListType.html
+.. _list_double_reading_API: list_double_reading_API.html
+.. _list_pointer_writing_API: list_pointer_writing_API.html
+.. _list_integer_writing_API: list_integer_writing_API.html
+.. _list_getlistitemnumber_API: list_getlistitemnumber_API.html
+.. _list_getlistitemaddress_API: list_getlistitemaddress_API.html
+.. _list_string_reading_API: list_string_reading_API.html
+
+

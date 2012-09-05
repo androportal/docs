@@ -1,0 +1,75 @@
+
+
+
+Sparse Matrix
+~~~~~~~~~~~~~
+
+
++ `Sparse Decompositions`_
+
+    + `ludel`_ utility function used with lufact
+    + `lufact`_ sparse lu factorization
+    + `luget`_ extraction of sparse LU factors
+    + `lusolve`_ sparse linear system solver
+    + `spchol`_ sparse cholesky factorization
+
++ `Linear Equations (Iterative Solvers)`_
+
+    + `gmres`_ Generalized Minimum RESidual method
+    + `pcg`_ precondioned conjugate gradient
+    + `qmr`_ quasi minimal resiqual method with preconditioning
+
++ `Sparse Matrix Manipulation`_
+
+    + `issparse`_ determine whether input is sparse
+    + `nnz`_ number of non zero entries in a matrix
+    + `speye`_ sparse identity matrix
+    + `spones`_ sparse matrix
+    + `sprand`_ sparse random matrix
+    + `spzeros`_ sparse zero matrix
+
++ `Sparse Matrix Conversion`_
+
+    + `adj2sp`_ converts adjacency form into sparse matrix.
+    + `full`_ sparse to full matrix conversion
+    + `mtlb_sparse`_ convert sparse matrix
+    + `sp2adj`_ converts sparse matrix into adjacency form
+    + `sparse`_ sparse matrix definition
+    + `spcompack`_ converts a compressed adjacency representation
+    + `spget`_ retrieves entries of sparse matrix
+
++ `chfact`_ sparse Cholesky factorization
++ `chsolve`_ sparse Cholesky solver
++ `ordmmd`_ Compute multiple minimum degree ordering
+
+
+.. _nnz: nnz.html
+.. _spzeros: spzeros.html
+.. _mtlb_sparse: mtlb_sparse.html
+.. _sparse: sparse.html
+.. _issparse: issparse.html
+.. _chsolve: chsolve.html
+.. _speye: speye.html
+.. _lusolve: lusolve.html
+.. _Sparse Decompositions: section_4d4d2115c3a70a6eb2389955a627561e.html
+.. _sp2adj: sp2adj.html
+.. _full: full.html
+.. _sprand: sprand.html
+.. _adj2sp: adj2sp.html
+.. _ludel: ludel.html
+.. _spget: spget.html
+.. _pcg: pcg.html
+.. _chfact: chfact.html
+.. _Sparse Matrix Manipulation: section_f2086a67391fa71b3516528e41f9ea69.html
+.. _ordmmd: ordmmd.html
+.. _qmr: qmr.html
+.. _lufact: lufact.html
+.. _Linear Equations (Iterative Solvers): section_b520c4651a99df8a19026ce42ae1293a.html
+.. _spcompack: spcompack.html
+.. _Sparse Matrix Conversion: section_2360515db941150ca972e1ea099d9004.html
+.. _spones: spones.html
+.. _gmres: gmres.html
+.. _spchol: spchol.html
+.. _luget: luget.html
+
+

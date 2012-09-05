@@ -1,0 +1,50 @@
+
+
+
+Programming xcos Blocks
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `C Computational Functions`_
+
+    + `C_macros`_ Utilities C macros
+    + `C_struct`_ C Block structure of a computational function
+    + `C_utils`_ Utilities C functions
+
++ `Scilab Computational Functions`_
+
+    + `sci_struct`_ Scicos block structure of a scilab computational
+      function
+
++ `Utilities Functions`_
+
+    + `curblock`_ Return the current called xcos block during the
+      simulation
+    + `getblocklabel`_ Get the label of a scicos block
+    + `getscicosvars`_ Supervisor utility function
+    + `phase_simulation`_ Get the current simulation phase
+    + `pointer_xproperty`_ Get the type of a continuous time state
+      variable
+    + `scicos_time`_ Returns the current time during simulation
+    + `set_blockerror`_ set the block error number
+    + `set_xproperty`_ Set the type of a continuous time state variable
+
+
+
+.. _Utilities Functions: section_7597adb46761e1792c33db2259d4c67b.html
+.. _Scilab Computational Functions: section_7ddadf5a188b954aa8e5e4a6d20701ab.html
+.. _C Computational Functions: section_2c511fc5601f3bc53f47c45500133069.html
+.. _C_struct: C_struct.html
+.. _getscicosvars: getscicosvars.html
+.. _curblock: curblock.html
+.. _set_blockerror: set_blockerror.html
+.. _sci_struct: sci_struct.html
+.. _scicos_time: scicos_time.html
+.. _phase_simulation: phase_simulation.html
+.. _C_macros: C_macros.html
+.. _pointer_xproperty: pointer_xproperty.html
+.. _getblocklabel: getblocklabel.html
+.. _C_utils: C_utils.html
+.. _set_xproperty: set_xproperty.html
+
+

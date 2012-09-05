@@ -1,0 +1,26 @@
+
+
+
+P
+~
+
+
++ `m2sci_perms`_ Array of all permutations of vector components
++ `m2sci_permute`_ Permute the dimensions of an array
++ `m2sci_pie`_ circular graphic
++ `m2sci_plot`_ Linear 2-D plot
++ `m2sci_pow2`_ Base 2 power and scale floating-point numbers
++ `m2sci_primes`_ Returns the primes numbers included between 1 and
+  given number
++ `m2sci_prod`_ Product of array elements
+
+
+.. _m2sci_prod: m2sci_prod.html
+.. _m2sci_permute: m2sci_permute.html
+.. _m2sci_pie: m2sci_pie.html
+.. _m2sci_pow2: m2sci_pow2.html
+.. _m2sci_plot: m2sci_plot.html
+.. _m2sci_perms: m2sci_perms.html
+.. _m2sci_primes: m2sci_primes.html
+
+

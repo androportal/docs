@@ -1,0 +1,49 @@
+
+
+
+Sinks palette
+~~~~~~~~~~~~~
+
+
++ `Sinks_pal`_ Sinks palette
++ `AFFICH_m`_ Display
++ `BARXY`_ y=f(x) animated viewer
++ `CANIMXY`_ y=f(x) animated viewer
++ `CANIMXY3D`_ z=f(x,y) animated viewer
++ `CFSCOPE`_ Floating point scope
++ `CMAT3D`_ Matrix z values 3D viewer
++ `CMATVIEW`_ Matrix Colormapped viewer
++ `CMSCOPE`_ Multi display scope
++ `CSCOPE`_ Single Display Scope
++ `CSCOPXY`_ y=f(x) permanent viewer
++ `CSCOPXY3D`_ z=f(x,y) permanent viewer
++ `ENDBLK`_ END block
++ `END_c`_ END_c block
++ `TOWS_c`_ Data to Scilab worspace
++ `TRASH_f`_ Trash block
++ `WFILE_f`_ Write to output file
++ `WRITEAU_f`_ Write AU sound file
++ `WRITEC_f`_ Write to C binary file
+
+
+.. _WRITEAU_f: WRITEAU_f.html
+.. _CANIMXY3D: CANIMXY3D.html
+.. _END_c: END_c.html
+.. _TRASH_f: TRASH_f.html
+.. _WFILE_f: WFILE_f.html
+.. _AFFICH_m: AFFICH_m.html
+.. _CMSCOPE: CMSCOPE.html
+.. _CSCOPE: CSCOPE.html
+.. _CANIMXY: CANIMXY.html
+.. _CSCOPXY3D: CSCOPXY3D.html
+.. _CMATVIEW: CMATVIEW.html
+.. _BARXY: BARXY.html
+.. _CSCOPXY: CSCOPXY.html
+.. _WRITEC_f: WRITEC_f.html
+.. _Sinks_pal: Sinks_pal.html
+.. _ENDBLK: ENDBLK.html
+.. _TOWS_c: TOWS_c.html
+.. _CMAT3D: CMAT3D.html
+.. _CFSCOPE: CFSCOPE.html
+
+

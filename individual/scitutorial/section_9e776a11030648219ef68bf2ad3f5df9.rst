@@ -1,0 +1,63 @@
+
+
+
+Color management
+~~~~~~~~~~~~~~~~
+
+
++ `addcolor`_ add new colors to the current colormap
++ `autumncolormap`_ red through orange to yellow colormap
++ `bonecolormap`_ gray colormap with a light blue tone
++ `color`_ returns the color id of a color
++ `color_list`_ list of named colors
++ `colorbar`_ draw a colorbar
++ `colordef`_ Set default color values to display different color
+  schemes
++ `colormap`_ using colormaps
++ `coolcolormap`_ cyan to magenta colormap
++ `coppercolormap`_ black to a light copper tone colormap
++ `getcolor`_ opens a dialog to show colors in the current colormap
++ `graycolormap`_ linear gray colormap
++ `hotcolormap`_ red to yellow colormap
++ `hsv2rgb`_ Converts HSV colors to RGB
++ `hsvcolormap`_ Hue-saturation-value colormap
++ `jetcolormap`_ blue to red colormap
++ `name2rgb`_ returns the RGB values of a named color
++ `oceancolormap`_ linear blue colormap
++ `pinkcolormap`_ sepia tone colorization on black and white images
++ `rainbowcolormap`_ red through orange, yellow, green,blue to violet
+  colormap
++ `rgb2name`_ returns the name of a color
++ `springcolormap`_ magenta to yellow colormap
++ `summercolormap`_ green to yellow colormap
++ `whitecolormap`_ completely white colormap
++ `wintercolormap`_ blue to green colormap
+
+
+.. _color: color.html
+.. _whitecolormap: whitecolormap.html
+.. _graycolormap: graycolormap.html
+.. _rgb2name: rgb2name.html
+.. _autumncolormap: autumncolormap.html
+.. _color_list: color_list.html
+.. _getcolor: getcolor.html
+.. _hsv2rgb: hsv2rgb.html
+.. _wintercolormap: wintercolormap.html
+.. _hotcolormap: hotcolormap.html
+.. _addcolor: addcolor.html
+.. _hsvcolormap: hsvcolormap.html
+.. _oceancolormap: oceancolormap.html
+.. _colordef: colordef.html
+.. _bonecolormap: bonecolormap.html
+.. _springcolormap: springcolormap.html
+.. _colorbar: colorbar.html
+.. _name2rgb: name2rgb.html
+.. _pinkcolormap: pinkcolormap.html
+.. _rainbowcolormap: rainbowcolormap.html
+.. _summercolormap: summercolormap.html
+.. _coolcolormap: coolcolormap.html
+.. _jetcolormap: jetcolormap.html
+.. _coppercolormap: coppercolormap.html
+.. _colormap: colormap.html
+
+

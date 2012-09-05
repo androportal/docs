@@ -1,0 +1,15 @@
+
+
+
+Hypothesis Testing
+~~~~~~~~~~~~~~~~~~
+
+
++ `ftest`_ Fisher ratio
++ `ftuneq`_ Fisher ratio for samples of unequal size.
+
+
+.. _ftest: ftest.html
+.. _ftuneq: ftuneq.html
+
+

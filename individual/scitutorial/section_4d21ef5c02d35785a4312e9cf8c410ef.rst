@@ -1,0 +1,17 @@
+
+
+
+Measures of Dispersion
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `iqr`_ interquartile range
++ `mad`_ mean absolute deviation
++ `strange`_ range
+
+
+.. _iqr: iqr.html
+.. _strange: strange.html
+.. _mad: mad.html
+
+

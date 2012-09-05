@@ -1,0 +1,14 @@
+
+
+
+How to
+~~~~~~
+
+
++ `DesignEllipticFilter`_ How to design an elliptic filter (analog and
+  digital)
+
+
+.. _DesignEllipticFilter: DesignEllipticFilter.html
+
+

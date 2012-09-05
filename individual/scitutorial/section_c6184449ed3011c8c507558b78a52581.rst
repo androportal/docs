@@ -1,0 +1,79 @@
+
+
+
+2d_plot
+~~~~~~~
+
+
++ `LineSpec`_ to quickly customize the lines appearance in a plot
++ `Matplot`_ 2D plot of a matrix using colors
++ `Matplot1`_ 2D plot of a matrix using colors
++ `Matplot_properties`_ description of the Matplot entities properties
++ `Sfgrayplot`_ smooth 2D plot of a surface defined by a function
+  using colors
++ `Sgrayplot`_ smooth 2D plot of a surface using colors
++ `champ`_ 2D vector field plot
++ `champ1`_ 2D vector field plot with colored arrows
++ `champ_properties`_ description of the 2D vector field entity
+  properties
++ `comet`_ 2D comet animated plot.
++ `contour2d`_ level curves of a surface on a 2D plot
++ `contour2di`_ compute level curves of a surface on a 2D plot
++ `contourf`_ filled level curves of a surface on a 2D plot
++ `errbar`_ Add vertical error bars on a 2D plot
++ `fchamp`_ direction field of a 2D first order ODE
++ `fcontour2d`_ Level curves of a surface defined by a function on a
+  2D plot (obsolete function)
++ `fec`_ pseudo-color plot of a function defined on a triangular mesh
++ `fec_properties`_ description of the fec entities properties
++ `fgrayplot`_ 2D plot of a surface defined by a function using colors
++ `fplot2d`_ 2D plot of a curve defined by a function
++ `grayplot`_ 2D plot of a surface using colors
++ `grayplot_properties`_ description of the grayplot entities
+  properties
++ `graypolarplot`_ Polar 2D plot of a surface using colors
++ `histplot`_ plot a histogram
++ `paramfplot2d`_ animated plot of a 2D parametrized curve.
++ `plot`_ 2D plot
++ `plot2d`_ 2D plot
++ `plot2d1`_ 2D plot (logarithmic axes) (obsolete)
++ `plot2d2`_ 2D plot (step function)
++ `plot2d3`_ 2D plot (vertical bars)
++ `plot2d4`_ 2D plot (arrows style)
++ `polarplot`_ Plot polar coordinates
+
+
+.. _Sgrayplot: Sgrayplot.html
+.. _plot2d2: plot2d2.html
+.. _grayplot_properties: grayplot_properties.html
+.. _fplot2d: fplot2d.html
+.. _champ: champ.html
+.. _plot2d4: plot2d4.html
+.. _Matplot: Matplot.html
+.. _contour2d: contour2d.html
+.. _plot2d3: plot2d3.html
+.. _plot2d1: plot2d1.html
+.. _Sfgrayplot: Sfgrayplot.html
+.. _Matplot1: Matplot1.html
+.. _polarplot: polarplot.html
+.. _graypolarplot: graypolarplot.html
+.. _paramfplot2d: paramfplot2d.html
+.. _contour2di: contour2di.html
+.. _fec_properties: fec_properties.html
+.. _Matplot_properties: Matplot_properties.html
+.. _fcontour2d: fcontour2d.html
+.. _champ_properties: champ_properties.html
+.. _contourf: contourf.html
+.. _comet: comet.html
+.. _errbar: errbar.html
+.. _fchamp: fchamp.html
+.. _fgrayplot: fgrayplot.html
+.. _LineSpec: LineSpec.html
+.. _champ1: champ1.html
+.. _histplot: histplot.html
+.. _grayplot: grayplot.html
+.. _plot2d: plot2d.html
+.. _plot: plot.html
+.. _fec: fec.html
+
+

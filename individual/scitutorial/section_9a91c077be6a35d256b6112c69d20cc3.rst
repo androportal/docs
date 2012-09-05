@@ -1,0 +1,14 @@
+
+
+
+Optimization base
+~~~~~~~~~~~~~~~~~
+
+
++ `optimbase`_ Provides an abstract class for a general optimization
+  component.
+
+
+.. _optimbase: optimbase.html
+
+

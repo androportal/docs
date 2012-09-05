@@ -1,0 +1,23 @@
+
+
+
+Debugging
+~~~~~~~~~
+
+
++ `debug`_ debugging level
++ `delbpt`_ delete breakpoints
++ `dispbpt`_ display breakpoints
++ `setbpt`_ set breakpoints
++ `where`_ get current instruction calling tree
++ `whereami`_ display current instruction calling tree
+
+
+.. _setbpt: setbpt.html
+.. _debug: debug.html
+.. _dispbpt: dispbpt.html
+.. _whereami: whereami.html
+.. _delbpt: delbpt.html
+.. _where: where.html
+
+

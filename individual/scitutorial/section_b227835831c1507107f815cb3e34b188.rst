@@ -1,0 +1,23 @@
+
+
+
+W
+~
+
+
++ `m2sci_waitforbuttonpress`_ Wait for key or mouse button press
++ `m2sci_warning`_ Display warning messages
++ `m2sci_while`_ Repeat statements an indefinite number of times
++ `m2sci_who`_ List variables in the workspace
++ `m2sci_whos`_ List variables in the workspace
++ `m2sci_winqueryreg`_ Get item from Microsoft Windows registry
+
+
+.. _m2sci_warning: m2sci_warning.html
+.. _m2sci_waitforbuttonpress: m2sci_waitforbuttonpress.html
+.. _m2sci_who: m2sci_who.html
+.. _m2sci_whos: m2sci_whos.html
+.. _m2sci_while: m2sci_while.html
+.. _m2sci_winqueryreg: m2sci_winqueryreg.html
+
+

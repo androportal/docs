@@ -1,0 +1,49 @@
+
+
+
+S
+~
+
+
++ `m2sci_save`_ Save workspace variables from disk
++ `m2sci_schur`_ Schur decomposition
++ `m2sci_setstr`_ Set string flag
++ `m2sci_sign`_ Signum function
++ `m2sci_sin`_ Sine
++ `m2sci_sinh`_ Hyperbolic sine
++ `m2sci_size`_ Array dimension
++ `m2sci_sort`_ Sort elements in ascending order
++ `m2sci_sparse`_ Create sparse matrix
++ `m2sci_sqrt`_ Square root
++ `m2sci_strcmp`_ Compare strings
++ `m2sci_strcmpi`_ Compare strings ignoring case
++ `m2sci_strfind`_ Find one string within another
++ `m2sci_strrep`_ String search and replace
++ `m2sci_struct`_ Create struct array
++ `m2sci_sum`_ Sum of array elements
++ `m2sci_surf`_ 3-D surface plot
++ `m2sci_svd`_ Singular value decomposition
++ `m2sci_switch`_ Switch among several cases based on expression
+
+
+.. _m2sci_strcmp: m2sci_strcmp.html
+.. _m2sci_switch: m2sci_switch.html
+.. _m2sci_sin: m2sci_sin.html
+.. _m2sci_surf: m2sci_surf.html
+.. _m2sci_sinh: m2sci_sinh.html
+.. _m2sci_svd: m2sci_svd.html
+.. _m2sci_strcmpi: m2sci_strcmpi.html
+.. _m2sci_schur: m2sci_schur.html
+.. _m2sci_setstr: m2sci_setstr.html
+.. _m2sci_sparse: m2sci_sparse.html
+.. _m2sci_strfind: m2sci_strfind.html
+.. _m2sci_sum: m2sci_sum.html
+.. _m2sci_sqrt: m2sci_sqrt.html
+.. _m2sci_size: m2sci_size.html
+.. _m2sci_strrep: m2sci_strrep.html
+.. _m2sci_save: m2sci_save.html
+.. _m2sci_sort: m2sci_sort.html
+.. _m2sci_sign: m2sci_sign.html
+.. _m2sci_struct: m2sci_struct.html
+
+

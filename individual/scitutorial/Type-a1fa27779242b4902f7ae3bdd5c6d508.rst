@@ -1,0 +1,64 @@
+
+
+
+Type
+====
+
+Create a tree containing type inference data
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+
+::
+
+    tp=Type(vtype,property)
+
+
+
+
+Arguments
+~~~~~~~~~
+
+:vtype data type (see m2scideclare)
+: :property property of data (see m2scideclare)
+: :tp a "type" tlist
+:
+
+
+
+Description
+~~~~~~~~~~~
+
+This function create a `tlist` representing type inference data when
+using M2SCI. All input parameters values are verified to be compatible
+with "M2SCI tlists". (Unknown=-1 in M2SCI)
+
+
+
+See Also
+~~~~~~~~
+
+
++ `Funcall`_ Create a tree representing a function call
++ `Operation`_ Create a tree representing an operation
++ `Variable`_ Create a tree representing a variable
++ `Cste`_ Create a tree representing a constant
++ `Infer`_ Create a tree containing inference data
++ `Contents`_ Create a tree containing contents inference data
++ `Equal`_ Create a tree representing an instruction
++ `m2scideclare`_ Giving tips to help M2SCI...
+
+
+.. _Equal: Equal-f5f286e73bda105e538310b3190f75c5.html
+.. _m2scideclare: m2scideclare.html
+.. _Infer: Infer.html
+.. _Variable: Variable.html
+.. _Funcall: Funcall.html
+.. _Operation: Operation.html
+.. _Cste: Cste.html
+.. _Contents: Contents.html
+
+

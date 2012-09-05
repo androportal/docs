@@ -1,0 +1,17 @@
+
+
+
+Symbolic
+~~~~~~~~
+
+
++ `solve`_ symbolic linear system solver
++ `trianfml`_ symbolic triangularization
++ `trisolve`_ symbolic linear system solver
+
+
+.. _solve: solve.html
+.. _trisolve: trisolve.html
+.. _trianfml: trianfml.html
+
+

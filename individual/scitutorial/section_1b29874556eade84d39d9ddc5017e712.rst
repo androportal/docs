@@ -1,0 +1,13 @@
+
+
+
+Optimization simplex
+~~~~~~~~~~~~~~~~~~~~
+
+
++ `optimsimplex`_ Manage a simplex with arbitrary number of points.
+
+
+.. _optimsimplex: optimsimplex.html
+
+

@@ -1,0 +1,54 @@
+
+
+
+UMFPACK Interface (sparse)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `PlotSparse`_ plot the pattern of non nul elements of a sparse
+  matrix
++ `ReadHBSparse`_ read a Harwell-Boeing sparse format file
++ `cond2sp`_ computes an approximation of the 2-norm condition number
+  of a s.p.d. sparse matrix
++ `condestsp`_ estimate the condition number of a sparse matrix
++ `rafiter`_ (obsolete) iterative refinement for a s.p.d. linear
+  system
++ `res_with_prec`_ computes the residual r = Ax-b with precision
++ `taucs_chdel`_ utility function used with taucs_chfact
++ `taucs_chfact`_ cholesky factorisation of a sparse s.p.d. matrix
++ `taucs_chget`_ retrieve the Cholesky factorization at the scilab
+  level
++ `taucs_chinfo`_ get information on Cholesky factors
++ `taucs_chsolve`_ solve a linear sparse (s.p.d.) system given the
+  Cholesky factors
++ `taucs_license`_ display the taucs license
++ `umf_license`_ display the umfpack license
++ `umf_ludel`_ utility function used with umf_lufact
++ `umf_lufact`_ lu factorisation of a sparse matrix
++ `umf_luget`_ retrieve lu factors at the scilab level
++ `umf_luinfo`_ get information on LU factors
++ `umf_lusolve`_ solve a linear sparse system given the LU factors
++ `umfpack`_ solve sparse linear system
+
+
+.. _res_with_prec: res_with_prec.html
+.. _ReadHBSparse: ReadHBSparse.html
+.. _taucs_chget: taucs_chget.html
+.. _umf_luinfo: umf_luinfo.html
+.. _umf_luget: umf_luget.html
+.. _condestsp: condestsp.html
+.. _umf_license: umf_license.html
+.. _taucs_license: taucs_license.html
+.. _umf_lusolve: umf_lusolve.html
+.. _taucs_chdel: taucs_chdel.html
+.. _umfpack: umfpack.html
+.. _umf_ludel: umf_ludel.html
+.. _cond2sp: cond2sp.html
+.. _taucs_chsolve: taucs_chsolve.html
+.. _PlotSparse: PlotSparse.html
+.. _rafiter: rafiter.html
+.. _umf_lufact: umf_lufact.html
+.. _taucs_chfact: taucs_chfact.html
+.. _taucs_chinfo: taucs_chinfo.html
+
+

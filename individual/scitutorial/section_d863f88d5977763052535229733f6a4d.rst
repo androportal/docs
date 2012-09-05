@@ -1,0 +1,42 @@
+
+
+
+Variables
+~~~~~~~~~
+
+
++ `Predefined variables`_
+
+    + `SCI`_ variable containing the value of the root path of Scilab.
+    + `SCIHOME`_ contains the path to preferences, history files of your
+      Scilab session.
+    + `TMPDIR`_ temporary directory path.
+
++ `clear`_ kills variables
++ `clearglobal`_ kills global variables
++ `exists`_ checks variable existence
++ `getvariablesonstack`_ get variable names on stack of scilab
++ `isglobal`_ check if a variable is global
++ `names`_ Scilab names syntax
++ `predef`_ variable protection
++ `who`_ listing of variables
++ `who_user`_ listing of user's variables
++ `whos`_ listing of variables in long form
+
+
+.. _clear: clear.html
+.. _clearglobal: clearglobal.html
+.. _who_user: who_user.html
+.. _who: who.html
+.. _exists: exists.html
+.. _SCI: SCI.html
+.. _getvariablesonstack: getvariablesonstack.html
+.. _SCIHOME: SCIHOME.html
+.. _predef: predef.html
+.. _names: names.html
+.. _whos: whos.html
+.. _Predefined variables: section_5d77ce7df86b7c615f331b9b45862999.html
+.. _isglobal: isglobal.html
+.. _TMPDIR: TMPDIR.html
+
+

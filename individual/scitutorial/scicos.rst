@@ -1,219 +1,40 @@
-======
+
+
+
 scicos
 ======
 
-Contents:
+OBSOLETE - see xcos
 
-.. toctree::
-   :maxdepth: 2
 
-   scicos/WRITEAU_f
-   scicos/CLKINV_f
-   scicos/CLSS_f
-   scicos/node90
-   scicos/OUTIMPL_f
-   scicos/node184
-   scicos/node41
-   scicos/DERIV
-   scicos/node43
-   scicos/scicos_block
-   scicos/CLKOUTV_f
-   scicos/node22
-   scicos/node30
-   scicos/SELECT_f
-   scicos/STEP_FUNCTION
-   scicos/node38
-   scicos/IN_f
-   scicos/node33
-   scicos/node67
-   scicos/RFILE_f
-   scicos/ConstantVoltage
-   scicos/node18
-   scicos/node26
-   scicos/TCLSS_f
-   scicos/CONSTRAINT_f
-   scicos/node49
-   scicos/node19
-   scicos/node44
-   scicos/CMSCOPE
-   scicos/node21
-   scicos/WRITEC_f
-   scicos/node62
-   scicos/node57
-   scicos/node28
-   scicos/MUX
-   scicos/VARIABLE_DELAY
-   scicos/AFFICH_f
-   scicos/node3
-   scicos/CBLOCK
-   scicos/PotentialSensor
-   scicos/TIME_DELAY
-   scicos/node13
-   scicos/PROD_f
-   scicos/node45
-   scicos/BACKLASH
-   scicos/CSCOPE
-   scicos/GAINBLK
-   scicos/node56
-   scicos/VsourceAC
-   scicos/NEGTOPOS_f
-   scicos/node54
-   scicos/node32
-   scicos/node9
-   scicos/node118
-   scicos/node42
-   scicos/ANIMXY_f
-   scicos/node27
-   scicos/node4
-   scicos/HYSTHERESIS
-   scicos/SAMPLEHOLD_f
-   scicos/node35
-   scicos/POWBLK_f
-   scicos/node69
-   scicos/LOGICAL_OP
-   scicos/REGISTER
-   scicos/node151
-   scicos/node39
-   scicos/ABS_VALUE
-   scicos/freq_div
-   scicos/c_block
-   scicos/node65
-   scicos/node46
-   scicos/Resistor
-   scicos/fortran_block
-   scicos/CurrentSensor
-   scicos/EVTDLY_f
-   scicos/node29
-   scicos/node36
-   scicos/SUPER_f
-   scicos/PRODUCT
-   scicos/GENSQR_f
-   scicos/node1
-   scicos/RAND_f
-   scicos/EVTVARDLY
-   scicos/node40
-   scicos/OUT_f
-   scicos/GENSIN_f
-   scicos/generic_block2
-   scicos/node63
-   scicos/node2
-   scicos/node51
-   scicos/whatis
-   scicos/scicos_cpr
-   scicos/TEXT_f
-   scicos/READC_f
-   scicos/SWITCH2
-   scicos/lincos
-   scicos/node104
-   scicos/TrigFun
-   scicos/VoltageSensor
-   scicos/DOLLAR
-   scicos/POSTONEG_f
-   scicos/SAMPLEHOLD
-   scicos/HALT_f
-   scicos/QUANT_f
-   scicos/CLKSOMV_f
-   scicos/Modulo_Count
-   scicos/LOOKUP_f
-   scicos/Ground
-   scicos/TIME_f
-   scicos/IFTHEL_f
-   scicos/ZCROSS_f
-   scicos/CLOCK_f
-   scicos/node12
-   scicos/EXPRESSION
-   scicos/node70
-   scicos/node10
-   scicos/node24
-   scicos/FSCOPE_f
-   scicos/node50
-   scicos/INIMPL_f
-   scicos/node52
-   scicos/node135
-   scicos/node71
-   scicos/SIGNUM
-   scicos/node23
-   scicos/node25
-   scicos/PDE
-   scicos/LOGBLK_f
-   scicos/INVBLK
-   scicos/INTRP2BLK_f
-   scicos/CLSS
-   scicos/SWITCH_f
-   scicos/node60
-   scicos/node68
-   scicos/DLR_f
-   scicos/node47
-   scicos/DEADBAND
-   scicos/ESELECT_f
-   scicos/node66
-   scicos/node72
-   scicos/MAXMIN
-   scicos/scicos_simulate
-   scicos/DLSS_f
-   scicos/node55
-   scicos/node15
-   scicos/SAWTOOTH_f
-   scicos/node17
-   scicos/EVENTSCOPE_f
-   scicos/DLR
-   scicos/node167
-   scicos/RELAY_f
-   scicos/NRMSOM_f
-   scicos/CURV_f
-   scicos/steadycos
-   scicos/Inductor
-   scicos/DOLLAR_f
-   scicos/CONST_f
-   scicos/node61
-   scicos/DLSS
-   scicos/CLR
-   scicos/RATELIMITER
-   scicos/EVTGEN_f
-   scicos/TCLSS
-   scicos/node37
-   scicos/SCALAR2VECTOR
-   scicos/ANDBLK
-   scicos/scicos_link
-   scicos/EXPBLK_f
-   scicos/SUM_f
-   scicos/node59
-   scicos/SATURATION
-   scicos/M_SWITCH
-   scicos/node53
-   scicos/INVBLK_f
-   scicos/whatis_chm
-   scicos/WFILE_f
-   scicos/EXTRACTOR
-   scicos/node31
-   scicos/ISELECT_f
-   scicos/VVsourceAC
-   scicos/node20
-   scicos/scicos
-   scicos/SUMMATION
-   scicos/Capacitor
-   scicos/REGISTER_f
-   scicos/node147
-   scicos/INTEGRAL
-   scicos/INTRPLBLK_f
-   scicos/node58
-   scicos/CLINDUMMY_f
-   scicos/scicosim
-   scicos/Diode
-   scicos/ANDLOG_f
-   scicos/node48
-   scicos/node11
-   scicos/DEMUX
-   scicos/node34
-   scicos/scicos_diagram
-   scicos/SCOPXY_f
-   scicos/scifunc_block
-   scicos/node64
-   scicos/READAU_f
-   scicos/VariableResistor
-   scicos/CLR_f
-   scicos/RAMP
-   scicos/RELATIONALOP
-   scicos/node16
-   scicos/node14
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+
+::
+
+    scs_m = scicos([toto])
+
+
+
+
+Module
+~~~~~~
+
+
++ `xcos`_
+
+
+
+
+See Also
+~~~~~~~~
+
+
++ `xcos`_
+
+
+.. _xcos: xcos.html
+
 

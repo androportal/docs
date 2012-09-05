@@ -1,0 +1,30 @@
+
+
+
+Output functions
+~~~~~~~~~~~~~~~~
+
+
++ `diary`_ diary of session
++ `disp`_ displays variables
++ `mprintf`_ converts, formats, and writes data to the main scilab
+  window
++ `msprintf`_ converts, formats, and writes data in a string
++ `prettyprint`_ From any Scilab datatype and provide a representation
+  to the TeX, LaTeX or MathML formats
++ `print`_ prints variables in a file
++ `printf_conversion`_ mprintf, msprintf, mfprintf conversion
+  specifications
++ `ssprint`_ pretty print for linear system
+
+
+.. _ssprint: ssprint.html
+.. _prettyprint: prettyprint.html
+.. _disp: disp.html
+.. _mprintf: mprintf.html
+.. _printf_conversion: printf_conversion.html
+.. _diary: diary.html
+.. _msprintf: msprintf.html
+.. _print: print.html
+
+

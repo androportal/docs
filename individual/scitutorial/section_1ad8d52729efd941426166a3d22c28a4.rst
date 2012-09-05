@@ -1,0 +1,59 @@
+
+
+
+Data Structures
+~~~~~~~~~~~~~~~
+
+
++ `boolean`_ Scilab Objects, boolean variables and operators & | ~
++ `cell`_ Create a cell array of empty matrices.
++ `definedfields`_ return index of list's defined fields
++ `fieldnames`_ get a tlist, mlist or struct fields names
++ `getfield`_ list field extraction
++ `hypermat`_ initialize an N dimensional matrices
++ `hypermatrices`_ Scilab object, N dimensional matrices in Scilab
++ `iscell`_ Check if a variable is a cell array
++ `iscellstr`_ Check if a variable is a cell array of strings
++ `isfield`_ Checks if the given fieldname exists in the structure
++ `isstruct`_ Check if a variable is a structure array
++ `list`_ Scilab object and list function definition
++ `lsslist`_ Scilab linear state space function definition
++ `lstcat`_ list concatenation
++ `matrices`_ Scilab object, matrices in Scilab
++ `mlist`_ Scilab object, matrix oriented typed list definition.
++ `null`_ delete an element in a list
++ `rlist`_ Scilab rational fraction function definition
++ `setfield`_ list field insertion
++ `struct`_ create a struct
++ `tlist`_ Scilab object and typed list definition.
++ `type`_ Returns the type of a variable
++ `typename`_ associates a name to variable type
++ `typeof`_ object type
+
+
+.. _setfield: setfield.html
+.. _lsslist: lsslist.html
+.. _isfield: isfield.html
+.. _matrices: matrices.html
+.. _iscell: iscell.html
+.. _lstcat: lstcat.html
+.. _isstruct: isstruct.html
+.. _iscellstr: iscellstr.html
+.. _definedfields: definedfields.html
+.. _mlist: mlist.html
+.. _type: type.html
+.. _getfield: getfield.html
+.. _hypermat: hypermat.html
+.. _tlist: tlist.html
+.. _rlist: rlist.html
+.. _typename: typename.html
+.. _cell: cell.html
+.. _list: list.html
+.. _boolean: boolean.html
+.. _null: null.html
+.. _struct: struct.html
+.. _fieldnames: fieldnames.html
+.. _typeof: typeof.html
+.. _hypermatrices: hypermatrices.html
+
+

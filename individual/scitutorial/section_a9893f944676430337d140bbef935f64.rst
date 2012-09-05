@@ -1,0 +1,31 @@
+
+
+
+Batch functions
+~~~~~~~~~~~~~~~
+
+
++ `lincos`_ Constructs by linearization a linear state-space model
+  from a general dynamical system described by a xcos diagram
++ `scicos`_ OBSOLETE - see xcos
++ `scicos_simulate`_ Function for running xcos simulation in batch
+  mode
++ `scicosim`_ xcos (batch) simulation function
++ `steadycos`_ Finds an equilibrium state of a general dynamical
+  system described by a xcos diagram
++ `xcosValidateBlockSet`_ Function to validate Xcos Block interface
+  function.
++ `xcosValidateCompareBlock`_ Function to compare two Xcos Blocks.
++ `xcos_simulate`_ Function for running xcos simulation in batch mode
+
+
+.. _scicosim: scicosim.html
+.. _scicos_simulate: scicos_simulate.html
+.. _scicos: scicos.html
+.. _lincos: lincos.html
+.. _xcosValidateBlockSet: xcosValidateBlockSet.html
+.. _xcosValidateCompareBlock: xcosValidateCompareBlock.html
+.. _steadycos: steadycos.html
+.. _xcos_simulate: xcos_simulate.html
+
+

@@ -1,0 +1,174 @@
+
+
+
+BITSET
+======
+
+Set a Bit
+
+
+
+Block Screenshot
+~~~~~~~~~~~~~~~~
+
+
+
+
+
+Contents
+~~~~~~~~
+
+
++ `Set a Bit`_
+  +
+
+    + `Palette`_
+    + `Description`_
+    + `Data types`_
+    + `Dialog box`_
+    + `Default properties`_
+    + `Example`_
+    + `Interfacing function`_
+    + `Computational function`_
+    + `See also`_
+
+
+
+
+
+Palette
+~~~~~~~
+
+
++ `Integer palette`_
+
+
+
+
+Description
+~~~~~~~~~~~
+
+This block sets to `1` the specified bit of its input. The user gives
+the bit index in the field **Index of Bit** with index `0`, as that of
+the least significant bit.The operation can be summarized by this
+expression:
+
+
+
+i.e. a bitwise `OR` between `Input` and `Mask`, an integer of the same
+length as the input with a value `1` for the bit to set and a value
+`0` for the other bits.
+
+
+
+
+
+Data types
+~~~~~~~~~~
+
+The block supports the following types :
+
+
++ Input : scalar. All Scilab's integer type ( **Data Type**
+  parameter).
++ Output : scalar. Same type than input.
+
+
+
+
+Dialog box
+~~~~~~~~~~
+
+
+
+
+
+
++ **Data Type (3:int32, 4:int16, 5int8, ...)** It indicates the
+  integer type of the input (output) data: between 3 and 8. Properties :
+  Type 'vec' of size 1.
++ **Index of Bit (0 is least significant)** It indicate the index of
+  the bit to set. The index must be, when the type is:
+
+    + int32 or uint32: positive and less than 32.
+    + int16 or uint16: positive and less than 16.
+    + int8 or uint8: positive and less than 8.
+  Properties : Type 'vec' of size 1.
+
+
+
+
+Default properties
+~~~~~~~~~~~~~~~~~~
+
+
++ **always active:** no
++ **direct-feedthrough:** yes
++ **zero-crossing:** no
++ **mode:** no
++ **regular inputs:** **- port 1 : size [1,1] / type 3**
++ **regular outputs:** **- port 1 : size [1,1] / type 3**
++ **number/sizes of activation inputs:** 0
++ **number/sizes of activation outputs:** 0
++ **continuous-time state:** no
++ **discrete-time state:** no
++ **object discrete-time state:** no
++ **name of computational function:** bit_set_32
+
+
+
+
+Example
+~~~~~~~
+
+Below a simple use case of the block. `Open this example in Xcos`_
+
+
+
+Interfacing function
+~~~~~~~~~~~~~~~~~~~~
+
+
++ `SCI/modules/scicos_blocks/macros/IntegerOp/BITSET.sci`_
+
+
+
+
+Computational function
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ SCI/modules/scicos_blocks/src/c/bit_set_32.c
++ SCI/modules/scicos_blocks/src/c/bit_set_16.c
++ SCI/modules/scicos_blocks/src/c/bit_set_8.c
+
+
+
+
+See also
+~~~~~~~~
+
+
++ `BITCLEAR`_ Clear a Bit
++ `EXTRACTBITS`_ Bits Extraction
++ `LOGICAL_OP`_ Logical operation
+
+
+.. _Palette: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Palette_BITSET
+.. _Dialog box: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Dialogbox_BITSET
+.. _BITCLEAR: BITCLEAR.html
+.. _See also: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Seealso_BITSET
+.. _Computational function: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Computationalfunction_BITSET
+.. _Example: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Example_BITSET
+.. _Default properties: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Defaultproperties_BITSET
+.. _EXTRACTBITS: EXTRACTBITS.html
+.. _Data types: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Data_Type_BITSET
+.. _Open this example in Xcos: nullscilab.xcos/xcos/examples/integer_pal/en_US/BITSET_en_US.xcos
+.. _Set a Bit: BITSET-b934c0d76f55255a47ccca35a05e32e3.html
+.. _SCI/modules/scicos_blocks/macros/IntegerOp/BITSET.sci: nullscilab.scinotes/scicos_blocks/macros/IntegerOp/BITSET.sci
+.. _LOGICAL_OP: LOGICAL_OP.html
+.. _Interfacing function: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Interfacingfunction_BITSET
+.. _Integer palette: Integer_pal.html
+.. _Description: BITSET-b934c0d76f55255a47ccca35a05e32e3.html#Description_BITSET
+
+

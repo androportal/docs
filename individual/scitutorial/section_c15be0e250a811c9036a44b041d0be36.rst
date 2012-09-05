@@ -1,0 +1,86 @@
+
+
+
+ATOMS
+~~~~~
+
+
++ `_atomsGettingStarted`_
++ `atoms`_
++ `atomsAutoload`_ Load the modules marked as "autoload"
++ `atomsAutoloadAdd`_ Add one or several modules to autoload
++ `atomsAutoloadDel`_ Remove one or several modules from the autoload
+  system
++ `atomsAutoloadList`_ Get the list of modules registered to autoload
++ `atomsCategoryList`_ List available categories
++ `atomsCheckModule`_ Check the given list of ATOMS modules
++ `atomsDepTreeShow`_ Show the dependency tree of a module
++ `atomsGetConfig`_ Get ATOMS system parameters
++ `atomsGetInstalled`_ Get the list of installed external modules
++ `atomsGetInstalledPath`_ Get the install path of installed external
+  modules
++ `atomsGetLoaded`_ Get the list of loaded external modules
++ `atomsGetLoadedPath`_ Get the list of loaded external modules
++ `atomsInstall`_ Install one or several external modules
++ `atomsIsInstalled`_ Determines whether the module is installed.
+  Returns true if the module is installed, false otherwise.
++ `atomsIsLoaded`_ determines whether a module is loaded or not
++ `atomsList`_ List available external modules
++ `atomsLoad`_ Load one or several external modules
++ `atomsQuit`_ Unload (call .quit file of) external modules previously
+  loaded by ATOMS
++ `atomsRemove`_ Remove one or several modules
++ `atomsRepositoryAdd`_ Add one or several URLs to the list of managed
+  repositories
++ `atomsRepositoryDel`_ Remove one or several URLs from the list of
+  managed repositories
++ `atomsRepositoryList`_ Get the list of managed repositories
++ `atomsRestoreConfig`_ Restore the configuration from the backup file
++ `atomsSaveConfig`_ Make a backup of the configuration file
++ `atomsSearch`_ Searches for external modules.
++ `atomsSetConfig`_ Manage ATOMS system parameters
++ `atomsShow`_ Show the caracteristics of a module
++ `atomsSystemInit`_ Sets the rightful write access for the ATOMS
+  system
++ `atomsSystemUpdate`_ Update the list of available modules
++ `atomsTest`_ Execute tests of given module installed
++ `atomsUpdate`_ Update one or several external modules
++ `atomsVersion`_ Show the ATOMS's version of Scilab
+
+
+.. _atomsCategoryList: atomsCategoryList.html
+.. _atomsSearch: atomsSearch.html
+.. _atomsRepositoryDel: atomsRepositoryDel.html
+.. _atomsRemove: atomsRemove.html
+.. _atomsAutoloadAdd: atomsAutoloadAdd.html
+.. _atomsIsInstalled: atomsIsInstalled.html
+.. _atoms: atoms.html
+.. _atomsAutoload: atomsAutoload.html
+.. __atomsGettingStarted: _atomsGettingStarted.html
+.. _atomsAutoloadDel: atomsAutoloadDel.html
+.. _atomsShow: atomsShow.html
+.. _atomsDepTreeShow: atomsDepTreeShow.html
+.. _atomsSystemInit: atomsSystemInit.html
+.. _atomsList: atomsList.html
+.. _atomsRepositoryList: atomsRepositoryList.html
+.. _atomsQuit: atomsQuit.html
+.. _atomsCheckModule: atomsCheckModule.html
+.. _atomsSystemUpdate: atomsSystemUpdate.html
+.. _atomsGetInstalledPath: atomsGetInstalledPath.html
+.. _atomsSaveConfig: atomsSaveConfig.html
+.. _atomsInstall: atomsInstall.html
+.. _atomsAutoloadList: atomsAutoloadList.html
+.. _atomsGetInstalled: atomsGetInstalled.html
+.. _atomsGetLoaded: atomsGetLoaded.html
+.. _atomsGetConfig: atomsGetConfig.html
+.. _atomsRestoreConfig: atomsRestoreConfig.html
+.. _atomsGetLoadedPath: atomsGetLoadedPath.html
+.. _atomsVersion: atomsVersion.html
+.. _atomsLoad: atomsLoad.html
+.. _atomsIsLoaded: atomsIsLoaded.html
+.. _atomsTest: atomsTest.html
+.. _atomsSetConfig: atomsSetConfig.html
+.. _atomsRepositoryAdd: atomsRepositoryAdd.html
+.. _atomsUpdate: atomsUpdate.html
+
+

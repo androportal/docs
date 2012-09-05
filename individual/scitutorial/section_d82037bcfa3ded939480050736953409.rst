@@ -1,0 +1,23 @@
+
+
+
+U
+~
+
+
++ `m2sci_uigetdir`_ Standard dialog box for selecting a directory
++ `m2sci_uint16`_ Convert to 16-bit unsigned integer
++ `m2sci_uint32`_ Convert to 32-bit unsigned integer
++ `m2sci_uint8`_ Convert to 8-bit unsigned integer
++ `m2sci_unix`_ Execute a UNIX command and return result
++ `m2sci_upper`_ Convert string to upper case
+
+
+.. _m2sci_uint32: m2sci_uint32.html
+.. _m2sci_uigetdir: m2sci_uigetdir.html
+.. _m2sci_unix: m2sci_unix.html
+.. _m2sci_upper: m2sci_upper.html
+.. _m2sci_uint16: m2sci_uint16.html
+.. _m2sci_uint8: m2sci_uint8.html
+
+

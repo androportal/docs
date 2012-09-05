@@ -1,0 +1,52 @@
+
+
+
+Genetic Algorithms
+~~~~~~~~~~~~~~~~~~
+
+
++ `algorithms`_
+
+    + `optim_ga`_ A flexible genetic algorithm
+    + `optim_moga`_ multi-objective genetic algorithm
+    + `optim_nsga`_ A multi-objective Niched Sharing Genetic Algorithm
+    + `optim_nsga2`_ A multi-objective Niched Sharing Genetic Algorithm
+      version 2
+
++ `utilities`_
+
+    + `coding_ga_binary`_ A function which performs conversion between
+      binary and continuous representation
+    + `coding_ga_identity`_ A "no-operation" conversion function
+    + `crossover_ga_binary`_ A crossover function for binary code
+    + `crossover_ga_default`_ A crossover function for continuous variable
+      functions
+    + `init_ga_default`_ A function a initialize a population
+    + `mutation_ga_binary`_ A function which performs binary mutation
+    + `mutation_ga_default`_ A continuous variable mutation function
+    + `pareto_filter`_ A function which extracts non dominated solution
+      from a set
+    + `selection_ga_elitist`_ An 'elitist' selection function
+    + `selection_ga_random`_ A function which performs a random selection
+      of individuals
+
+
+
+.. _coding_ga_identity: coding_ga_identity.html
+.. _optim_ga: optim_ga.html
+.. _mutation_ga_binary: mutation_ga_binary.html
+.. _selection_ga_elitist: selection_ga_elitist.html
+.. _mutation_ga_default: mutation_ga_default.html
+.. _optim_nsga: optim_nsga.html
+.. _optim_moga: optim_moga.html
+.. _init_ga_default: init_ga_default.html
+.. _crossover_ga_binary: crossover_ga_binary.html
+.. _coding_ga_binary: coding_ga_binary.html
+.. _optim_nsga2: optim_nsga2.html
+.. _algorithms: section_a3c095d7eae628433f02fab9bb53164c.html
+.. _crossover_ga_default: crossover_ga_default.html
+.. _selection_ga_random: selection_ga_random.html
+.. _pareto_filter: pareto_filter.html
+.. _utilities: section_138ea34c81b8f19c08ac44351b0ff644.html
+
+

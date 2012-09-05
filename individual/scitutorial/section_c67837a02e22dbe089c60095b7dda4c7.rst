@@ -1,0 +1,13 @@
+
+
+
+Y
+~
+
+
++ `m2sci_ylabel`_ Display a string along the y axis
+
+
+.. _m2sci_ylabel: m2sci_ylabel.html
+
+

@@ -1,0 +1,103 @@
+
+
+
+Low level functions
+~~~~~~~~~~~~~~~~~~~
+
+
++ `AssignOutputVariable`_ a C gateway function which specifies which
+  parameters created inside the C gateway will be returned as an output
+  argument into Scilab.
++ `CallOverloadFunction`_ a C gateway function uses to call overload
+  function or macro
++ `CheckInputArgument`_ C function which checks the number of input
+  arguments present in the calling Scilab function.
++ `CheckOutputArgument`_ C function which checks the number of output
+  arguments present in the calling Scilab function.
++ `ReturnArguments`_ A C gateway function which returns the various
+  variables.
++ `boolean_reading_API`_ How to read matrix of boolean.
++ `boolean_writing_API`_ How to write matrices of boolean.
++ `bsparse_reading_API`_ How to read boolean sparse in a gateway.
++ `bsparse_writing_API`_ How to add boolean sparse matrix in a
+  gateway.
++ `check_matrix_dimension`_ A C gateway functions which check
+  dimensions of a variable.
++ `Common_getvaraddr_API`_ How to get the address of an argument or a
+  variable in a gateway.
++ `Common_getvardimension_API`_ How to get the dimensions of an
+  argument or a variable stored as matrix.
++ `Common_getvartype_API`_ How to get the type of an argument or a
+  variable within a gateway.
++ `Common_iscomplex_API`_ How to get the argument or variable
+  complexity.
++ `Common_isvarmatrixtype_API`_ How to know if an argument or a
+  variable is stored as a matrix.
++ `deleteNamedVariable`_ a C gateway function uses to delete a
+  variable from name
++ `Double_management_reading_API`_ How to read matrices of double in a
+  gateway.
++ `Double_management_writing_API`_ How to write matrices of doubles in
+  a gateway.
++ `getNbInputArgument`_ A C gateway function which provides the number
+  of input arguments present in the calling Scilab function
++ `getNbOutputArgument`_ A C gateway function which provides the
+  number of output arguments present in the calling Scilab function
++ `int_getmatrixofintegerprecision_API`_ How to get precision of an
+  integer matrix.
++ `Integer_management_reading_API`_ How to read matrices of integer in
+  a gateway.
++ `Integer_management_writing_API`_ How to write matrices of integers
+  in a gateway.
++ `Pointer_reading_API`_ How to read pointer in a gateway.
++ `Pointer_writing_API`_ How to write pointer in a gateway.
++ `poly_getpolyvariablename_API`_ How to get the symbolic variable
+  name.
++ `Polynomial_management_reading_API`_ How to read matrices of
+  polynomials in a gateway.
++ `Polynomial_management_writing_API`_ How to write matrices of
+  polynomials in a gateway.
++ `Sparse_management_reading_API`_ How to read sparse matrices in a
+  gateway.
++ `Sparse_management_writing_API`_ How to write sparse matrix in a
+  gateway.
++ `String_management_reading_API`_ How to read matrices of strings in
+  a gateway.
++ `String_management_writing_API`_ How to write matrices of string in
+  a gateway.
+
+
+.. _Pointer_writing_API: Pointer_writing_API.html
+.. _CheckOutputArgument: CheckOutputArgument.html
+.. _Integer_management_writing_API: Integer_management_writing_API.html
+.. _deleteNamedVariable: deleteNamedVariable.html
+.. _Common_getvartype_API: Common_getvartype_API.html
+.. _boolean_reading_API: boolean_reading_API.html
+.. _Double_management_reading_API: Double_management_reading_API.html
+.. _Polynomial_management_reading_API: Polynomial_management_reading_API.html
+.. _Common_getvaraddr_API: Common_getvaraddr_API.html
+.. _Pointer_reading_API: Pointer_reading_API.html
+.. _check_matrix_dimension: check_matrix_dimension.html
+.. _Polynomial_management_writing_API: Polynomial_management_writing_API.html
+.. _Common_isvarmatrixtype_API: Common_isvarmatrixtype_API.html
+.. _Double_management_writing_API: Double_management_writing_API.html
+.. _AssignOutputVariable: AssignOutputVariable.html
+.. _Integer_management_reading_API: Integer_management_reading_API.html
+.. _getNbOutputArgument: getNbOutputArgument.html
+.. _Common_iscomplex_API: Common_iscomplex_API.html
+.. _poly_getpolyvariablename_API: poly_getpolyvariablename_API.html
+.. _bsparse_writing_API: bsparse_writing_API.html
+.. _String_management_writing_API: String_management_writing_API.html
+.. _ReturnArguments: ReturnArguments.html
+.. _CheckInputArgument: CheckInputArgument.html
+.. _int_getmatrixofintegerprecision_API: int_getmatrixofintegerprecision_API.html
+.. _bsparse_reading_API: bsparse_reading_API.html
+.. _getNbInputArgument: getNbInputArgument.html
+.. _Common_getvardimension_API: Common_getvardimension_API.html
+.. _boolean_writing_API: boolean_writing_API.html
+.. _Sparse_management_writing_API: Sparse_management_writing_API.html
+.. _CallOverloadFunction: CallOverloadFunction.html
+.. _String_management_reading_API: String_management_reading_API.html
+.. _Sparse_management_reading_API: Sparse_management_reading_API.html
+
+

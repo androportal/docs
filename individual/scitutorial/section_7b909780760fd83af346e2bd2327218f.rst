@@ -1,0 +1,21 @@
+
+
+
+N
+~
+
+
++ `m2sci_nargin`_ Number of function input arguments
++ `m2sci_nargout`_ Number of function output arguments
++ `m2sci_ndims`_ Number of array dimensions
++ `m2sci_norm`_ Vector and matrix norms
++ `m2sci_num2str`_ Number to string conversion
+
+
+.. _m2sci_ndims: m2sci_ndims.html
+.. _m2sci_nargin: m2sci_nargin.html
+.. _m2sci_norm: m2sci_norm.html
+.. _m2sci_nargout: m2sci_nargout.html
+.. _m2sci_num2str: m2sci_num2str.html
+
+

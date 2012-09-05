@@ -1,0 +1,15 @@
+
+
+
+Boolean
+~~~~~~~
+
+
++ `bool2s`_ convert boolean matrix to a zero one matrix.
++ `find`_ find indices of boolean vector or matrix true elements
+
+
+.. _bool2s: bool2s.html
+.. _find: find.html
+
+

@@ -1,0 +1,21 @@
+
+
+
+Matrix manipulation
+~~~~~~~~~~~~~~~~~~~
+
+
++ `flipdim`_ flip x components along a given dimension
++ `matrix`_ reshape a vector or a matrix to a different size matrix
++ `permute`_ permute the dimensions of an array
++ `repmat`_ Replicate and tile an array
++ `resize_matrix`_ create a new matrix with a different size
+
+
+.. _repmat: repmat.html
+.. _matrix: matrix.html
+.. _resize_matrix: resize_matrix.html
+.. _flipdim: flipdim.html
+.. _permute: permute.html
+
+

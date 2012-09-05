@@ -1,0 +1,31 @@
+
+
+
+User defined functions palette
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Userdefinedfunctions_pal`_ User defined functions palette
++ `CBLOCK`_ New C
++ `DSUPER`_ Masked super block
++ `EXPRESSION`_ Mathematical expression
++ `MBLOCK`_ Modelica generic block
++ `SUPER_f`_ Super block
++ `c_block`_ C language
++ `fortran_block`_ Fortran
++ `generic_block3`_ Generic block
++ `scifunc_block_m`_ Scilab function block
+
+
+.. _scifunc_block_m: scifunc_block_m.html
+.. _DSUPER: DSUPER.html
+.. _c_block: c_block.html
+.. _Userdefinedfunctions_pal: Userdefinedfunctions_pal.html
+.. _CBLOCK: CBLOCK.html
+.. _generic_block3: generic_block3.html
+.. _SUPER_f: SUPER_f.html
+.. _EXPRESSION: EXPRESSION.html
+.. _MBLOCK: MBLOCK.html
+.. _fortran_block: fortran_block.html
+
+

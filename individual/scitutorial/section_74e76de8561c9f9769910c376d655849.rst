@@ -1,0 +1,45 @@
+
+
+
+Online help management
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `add_help_chapter`_ Add an entry in the help list
++ `apropos`_ searches keywords in Scilab help
++ `del_help_chapter`_ Delete an entry in the help list
++ `help`_ on-line help command
++ `help_from_sci`_ Generate help files and demo files from the head
+  comments section of a .sci source file.
++ `help_skeleton`_ build the skeleton of the xml help file associated
+  to a Scilab function
++ `how_to_link_toolbox_help`_ How to make hyperlink in toolbox help
+  pointing to Scilab's items
++ `man`_ on line help XML file description format
++ `manedit`_ editing a manual item
++ `percenthelps`_ Variable defining the path of help directories
++ `xmltochm`_ converts xml Scilab help files to Microsoft Compressed
+  HTML format (Windows)
++ `xmltohtml`_ converts xml Scilab help files to HTML format
++ `xmltojar`_ converts xml Scilab help files to javaHelp format
++ `xmltopdf`_ converts xml Scilab help files to pdf format
++ `xmltops`_ converts xml Scilab help files to postscript format
+
+
+.. _add_help_chapter: add_help_chapter.html
+.. _manedit: manedit.html
+.. _help_skeleton: help_skeleton.html
+.. _man: man.html
+.. _xmltops: xmltops.html
+.. _xmltojar: xmltojar.html
+.. _xmltochm: xmltochm.html
+.. _xmltohtml: xmltohtml.html
+.. _del_help_chapter: del_help_chapter.html
+.. _help_from_sci: help_from_sci.html
+.. _help: help.html
+.. _xmltopdf: xmltopdf.html
+.. _apropos: apropos.html
+.. _percenthelps: percenthelps.html
+.. _how_to_link_toolbox_help: how_to_link_toolbox_help.html
+
+

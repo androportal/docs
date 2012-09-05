@@ -1,0 +1,49 @@
+
+
+
+call_scilab API (Scilab engine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `BooleanManagement_callscilab`_ How to manage Scilab's boolean read
+  and write process using call_scilab and api_scilab
++ `ComplexManagement_callscilab`_ How to manage Scilab's complex
+  variable read and write process using call_scilab
++ `DisableInteractiveMode`_ Disables some features (plotting, gui
+  creation, Tcl/Tk...) and leaves only the computing engine
++ `DoubleManagement_callscilab`_ How to manage Scilab's variable read
+  and write process using call_scilab and api_scilab
++ `GetLastJob`_ Returns the latest job sent to Scilab engine
++ `ScilabHaveAGraph`_ Check if any Scilab graphics have been opened.
++ `SendScilabJob`_ Send a Scilab task from a C/C++ code (call_scilab)
++ `SendScilabJobs`_ Send Scilab tasks from a C/C++ code (call_scilab)
++ `StartScilab`_ Initializes and starts Scilab engine in Call Scilab
++ `StringManagement_callscilab`_ How to manage Scilab's String read
+  and write process using call_scilab and api_scilab
++ `TerminateScilab`_ Stops and terminates Scilab engine in Call Scilab
++ `call_scilab`_ call_scilab is an interface which provides the
+  ability to call Scilab engine from C/C++ code
++ `compile_and_run_call_scilab`_ How to compile a native application
+  based on or using Scilab
++ `fromc`_ Checks if current Scilab is called from an external C
+  program (by StartScilab).
++ `fromjava`_ Checks if current Scilab is called from javasci
+
+
+.. _DisableInteractiveMode: DisableInteractiveMode.html
+.. _TerminateScilab: TerminateScilab.html
+.. _StartScilab: StartScilab.html
+.. _DoubleManagement_callscilab: DoubleManagement_callscilab.html
+.. _BooleanManagement_callscilab: BooleanManagement_callscilab.html
+.. _call_scilab: call_scilab.html
+.. _GetLastJob: GetLastJob.html
+.. _compile_and_run_call_scilab: compile_and_run_call_scilab.html
+.. _ScilabHaveAGraph: ScilabHaveAGraph.html
+.. _fromjava: fromjava.html
+.. _StringManagement_callscilab: StringManagement_callscilab.html
+.. _ComplexManagement_callscilab: ComplexManagement_callscilab.html
+.. _fromc: fromc.html
+.. _SendScilabJobs: SendScilabJobs.html
+.. _SendScilabJob: SendScilabJob.html
+
+

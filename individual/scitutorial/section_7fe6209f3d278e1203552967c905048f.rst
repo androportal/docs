@@ -1,0 +1,15 @@
+
+
+
+K
+~
+
+
++ `m2sci_keyboard`_ Invoke the keyboard in a file
++ `m2sci_kron`_ Kronecker tensor product
+
+
+.. _m2sci_keyboard: m2sci_keyboard.html
+.. _m2sci_kron: m2sci_kron.html
+
+

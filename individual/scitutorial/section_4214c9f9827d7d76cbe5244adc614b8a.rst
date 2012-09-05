@@ -1,0 +1,99 @@
+
+
+
+Strings
+~~~~~~~
+
+
++ `ascii`_ string ascii conversions
++ `blanks`_ Create string of blank characters
++ `code2str`_ returns character string associated with Scilab integer
+  codes. **This function is obsolete.**
++ `convstr`_ case conversion
++ `emptystr`_ zero length string
++ `eval`_ evaluation of a matrix of strings
++ `evstr`_ evaluation of expressions
++ `grep`_ find matches of a string in a vector of strings
++ `isalphanum`_ check that characters of a string are alphanumerics
++ `isascii`_ tests if character is a 7-bit US-ASCII character
++ `isdigit`_ check that characters of a string are digits between 0
+  and 9
++ `isletter`_ check that characters of a string are alphabetics
+  letters
++ `isnum`_ tests if a string represents a number
++ `justify`_ Justify character array.
++ `length`_ length of object
++ `part`_ extraction of strings
++ `regexp`_ find a substring that matches the regular expression
+  string
++ `sci2exp`_ converts an expression to a string
++ `str2code`_ return scilab integer codes associated with a character
+  string. **This function is obsolete.**
++ `strcat`_ concatenate character strings
++ `strchr`_ Find the first occurrence of a character in a string
++ `strcmp`_ compare character strings
++ `strcmpi`_ compare character strings (case independent)
++ `strcspn`_ Get span until character in string
++ `strindex`_ search position of a character string in an other
+  string.
++ `string`_ conversion to string
++ `strings`_ Scilab Object, character strings
++ `stripblanks`_ Strips / trims leading and trailing blanks (and tabs)
+  of strings
++ `strncpy`_ Copy characters from strings
++ `strrchr`_ Find the last occurrence of a character in a string
++ `strrev`_ returns string reversed
++ `strsplit`_ split a string into a vector of strings
++ `strspn`_ Get span of character set in string
++ `strstr`_ Locate substring
++ `strsubst`_ substitute a character string by another in a character
+  string.
++ `strtod`_ Convert string to double.
++ `strtok`_ Split string into tokens
++ `tokenpos`_ returns the tokens positions in a character string.
++ `tokens`_ returns the tokens of a character string.
++ `tree2code`_ generates ascii definition of a Scilab function
+
+
+.. _eval: eval.html
+.. _isdigit: isdigit.html
+.. _evstr: evstr.html
+.. _regexp: regexp.html
+.. _strrchr: strrchr.html
+.. _string: string.html
+.. _tree2code: tree2code.html
+.. _isascii: isascii.html
+.. _tokenpos: tokenpos.html
+.. _isnum: isnum.html
+.. _str2code: str2code.html
+.. _strcat: strcat.html
+.. _emptystr: emptystr.html
+.. _strings: strings.html
+.. _grep: grep.html
+.. _justify: justify.html
+.. _strsplit: strsplit.html
+.. _strncpy: strncpy.html
+.. _convstr: convstr.html
+.. _isalphanum: isalphanum.html
+.. _isletter: isletter.html
+.. _strindex: strindex.html
+.. _length: length.html
+.. _sci2exp: sci2exp.html
+.. _strtok: strtok.html
+.. _strcspn: strcspn.html
+.. _code2str: code2str.html
+.. _strcmpi: strcmpi.html
+.. _strtod: strtod.html
+.. _strrev: strrev.html
+.. _blanks: blanks.html
+.. _strstr: strstr.html
+.. _strchr: strchr.html
+.. _part: part.html
+.. _stripblanks: stripblanks.html
+.. _strcmp: strcmp.html
+.. _tokens: tokens.html
+.. _strsubst: strsubst.html
+.. _ascii: ascii.html
+.. _strspn: strspn.html
+
+

@@ -1,0 +1,24 @@
+
+
+
+Exponential
+~~~~~~~~~~~
+
+
++ `exp`_ element-wise exponential
++ `log`_ natural logarithm
++ `log10`_ base 10 logarithm
++ `log1p`_ computes with accuracy the natural logarithm of its
+  argument added by one
++ `log2`_ base 2 logarithm
++ `logm`_ square matrix logarithm
+
+
+.. _log: log.html
+.. _log2: log2.html
+.. _log1p: log1p.html
+.. _log10: log10.html
+.. _logm: logm.html
+.. _exp: exp.html
+
+

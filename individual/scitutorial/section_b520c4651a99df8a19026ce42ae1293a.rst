@@ -1,0 +1,17 @@
+
+
+
+Linear Equations (Iterative Solvers)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `gmres`_ Generalized Minimum RESidual method
++ `pcg`_ precondioned conjugate gradient
++ `qmr`_ quasi minimal resiqual method with preconditioning
+
+
+.. _gmres: gmres.html
+.. _pcg: pcg.html
+.. _qmr: qmr.html
+
+

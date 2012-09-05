@@ -1,0 +1,53 @@
+
+
+
+Event handling palette
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Events_pal`_ Event handling palette
++ `ANDBLK`_ Activation and
++ `ANDLOG_f`_ Logical and
++ `CEVENTSCOPE`_ Activation scope
++ `CLKFROM`_ Receives data from a corresponding CLKGOTO
++ `CLKGOTO`_ Pass block input to CLKFROM block
++ `CLKGotoTagVisibility`_ Define Scope of CLKGOTO tag visibility
++ `CLKSOMV_f`_ Activation union
++ `EDGE_TRIGGER`_ EDGE_TRIGGER block
++ `ESELECT_f`_ Synchronous block Event-Select
++ `EVTDLY_c`_ Event delay
++ `EVTGEN_f`_ Event generator
++ `EVTVARDLY`_ Event variable delay
++ `Extract_Activation`_ Extract_Activation block
++ `HALT_f`_ Halt
++ `IFTHEL_f`_ Synchronous block If-Then-Else
++ `MCLOCK_f`_ MCLOCK_f title
++ `MFCLCK_f`_ MFCLCK_f title
++ `M_freq`_ Multiple Frequencies
++ `VirtualCLK0`_ Triggered Always Active Blocks
++ `freq_div`_ Frequency division
+
+
+.. _EDGE_TRIGGER: EDGE_TRIGGER.html
+.. _ANDBLK: ANDBLK.html
+.. _Events_pal: Events_pal.html
+.. _VirtualCLK0: VirtualCLK0.html
+.. _IFTHEL_f: IFTHEL_f.html
+.. _freq_div: freq_div.html
+.. _ESELECT_f: ESELECT_f.html
+.. _EVTVARDLY: EVTVARDLY.html
+.. _CLKSOMV_f: CLKSOMV_f.html
+.. _HALT_f: HALT_f.html
+.. _MCLOCK_f: MCLOCK_f.html
+.. _ANDLOG_f: ANDLOG_f.html
+.. _M_freq: M_freq.html
+.. _CLKGotoTagVisibility: CLKGotoTagVisibility.html
+.. _CLKGOTO: CLKGOTO.html
+.. _MFCLCK_f: MFCLCK_f.html
+.. _CEVENTSCOPE: CEVENTSCOPE.html
+.. _Extract_Activation: Extract_Activation.html
+.. _EVTGEN_f: EVTGEN_f.html
+.. _EVTDLY_c: EVTDLY_c.html
+.. _CLKFROM: CLKFROM.html
+
+

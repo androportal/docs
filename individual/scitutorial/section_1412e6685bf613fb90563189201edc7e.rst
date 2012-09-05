@@ -1,0 +1,13 @@
+
+
+
+Links
+~~~~~
+
+
++ `scicos_link`_ Define a link structure
+
+
+.. _scicos_link: scicos_link.html
+
+

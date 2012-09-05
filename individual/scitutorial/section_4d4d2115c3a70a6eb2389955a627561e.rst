@@ -1,0 +1,21 @@
+
+
+
+Sparse Decompositions
+~~~~~~~~~~~~~~~~~~~~~
+
+
++ `ludel`_ utility function used with lufact
++ `lufact`_ sparse lu factorization
++ `luget`_ extraction of sparse LU factors
++ `lusolve`_ sparse linear system solver
++ `spchol`_ sparse cholesky factorization
+
+
+.. _lusolve: lusolve.html
+.. _ludel: ludel.html
+.. _spchol: spchol.html
+.. _luget: luget.html
+.. _lufact: lufact.html
+
+

@@ -1,0 +1,23 @@
+
+
+
+Bitwise operations
+~~~~~~~~~~~~~~~~~~
+
+
++ `bitand`_ bitwise AND
++ `bitcmp`_ bitwise complement
++ `bitget`_ bit at specified position
++ `bitor`_ bitwise OR
++ `bitset`_ set bit at specified position
++ `bitxor`_ bitwise XOR
+
+
+.. _bitor: bitor.html
+.. _bitand: bitand.html
+.. _bitget: bitget.html
+.. _bitcmp: bitcmp.html
+.. _bitxor: bitxor.html
+.. _bitset: bitset.html
+
+

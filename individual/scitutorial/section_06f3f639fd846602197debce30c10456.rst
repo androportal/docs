@@ -1,0 +1,31 @@
+
+
+
+L
+~
+
+
++ `m2sci_length`_ Length of vector
++ `m2sci_linspace`_ Linearly spaced vector
++ `m2sci_load`_ Load workspace variables from disk
++ `m2sci_log`_ Natural logarithm
++ `m2sci_log10`_ Common (base 10) logarithm
++ `m2sci_log2`_ Base 2 logarithm and dissect floating point number
++ `m2sci_logical`_ Convert numeric values to logical
++ `m2sci_lookfor`_ Search for specified keyword in all help entries
++ `m2sci_lower`_ Convert string to lower case
++ `m2sci_lu`_ LU matrix factorization
+
+
+.. _m2sci_log2: m2sci_log2.html
+.. _m2sci_log10: m2sci_log10.html
+.. _m2sci_length: m2sci_length.html
+.. _m2sci_linspace: m2sci_linspace.html
+.. _m2sci_lookfor: m2sci_lookfor.html
+.. _m2sci_lower: m2sci_lower.html
+.. _m2sci_logical: m2sci_logical.html
+.. _m2sci_log: m2sci_log.html
+.. _m2sci_load: m2sci_load.html
+.. _m2sci_lu: m2sci_lu.html
+
+

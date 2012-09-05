@@ -1,0 +1,41 @@
+
+
+
+Time and Date
+~~~~~~~~~~~~~
+
+
++ `calendar`_ Calendar
++ `clock`_ Return current time as date vector
++ `date`_ Current date as date string
++ `datenum`_ Convert to serial date number
++ `datevec`_ Date components
++ `eomday`_ Return last day of month
++ `etime`_ Elapsed time
++ `getdate`_ get date and time information
++ `now`_ Return current date and time
++ `realtime`_ set dates origin or waits until date
++ `sleep`_ suspend Scilab
++ `tic`_ start a stopwatch timer
++ `timer`_ cpu time
++ `toc`_ Read the stopwatch timer
++ `weekday`_ Return day of week
+
+
+.. _sleep: sleep.html
+.. _tic: tic.html
+.. _realtime: realtime.html
+.. _eomday: eomday.html
+.. _timer: timer.html
+.. _clock: clock.html
+.. _datevec: datevec.html
+.. _etime: etime.html
+.. _datenum: datenum.html
+.. _now: now.html
+.. _getdate: getdate.html
+.. _calendar: calendar.html
+.. _weekday: weekday.html
+.. _date: date.html
+.. _toc: toc.html
+
+

@@ -1,0 +1,27 @@
+
+
+
+Matlab binary files I/O
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `loadmatfile`_ loads a Matlab V6 MAT-file (binary or ASCII) into
+  Scilab
++ `matfile_close`_ Closes a Matlab V5 binary MAT-file.
++ `matfile_listvar`_ Lists variables of a Matlab V5 binary MAT-file.
++ `matfile_open`_ Opens a Matlab V5 binary MAT-file.
++ `matfile_varreadnext`_ Reads next variable in a Matlab V5 binary
+  MAT-file.
++ `matfile_varwrite`_ Write a variable in a Matlab V5 binary MAT-file.
++ `savematfile`_ write a Matlab MAT-file (binary or ASCII)
+
+
+.. _matfile_listvar: matfile_listvar.html
+.. _matfile_close: matfile_close.html
+.. _matfile_varwrite: matfile_varwrite.html
+.. _matfile_open: matfile_open.html
+.. _matfile_varreadnext: matfile_varreadnext.html
+.. _loadmatfile: loadmatfile.html
+.. _savematfile: savematfile.html
+
+

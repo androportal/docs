@@ -1,0 +1,40 @@
+
+
+
+Floating point
+~~~~~~~~~~~~~~
+
+
++ `ceil`_ round up
++ `double`_ conversion from integer to double precision representation
++ `fix`_ round towards zero
++ `floor`_ round down
++ `format`_ number printing and display format
++ `frexp`_ dissect floating-point numbers into base 2 exponent and
+  mantissa
++ `ieee`_ set floating point exception mode
++ `int`_ round towards zero
++ `isinf`_ check for infinite entries
++ `isnan`_ check for "Not a Number" entries
++ `nearfloat`_ get previous or next floating-point number
++ `nextpow2`_ next higher power of 2.
++ `number_properties`_ determine floating-point parameters
++ `round`_ round to nearest integer
+
+
+.. _nextpow2: nextpow2.html
+.. _isnan: isnan.html
+.. _floor: floor.html
+.. _frexp: frexp.html
+.. _format: format.html
+.. _number_properties: number_properties.html
+.. _ceil: ceil.html
+.. _ieee: ieee.html
+.. _int: int.html
+.. _isinf: isinf.html
+.. _double: double.html
+.. _fix: fix.html
+.. _round: round.html
+.. _nearfloat: nearfloat.html
+
+

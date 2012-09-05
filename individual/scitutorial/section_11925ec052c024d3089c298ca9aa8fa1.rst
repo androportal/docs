@@ -1,0 +1,45 @@
+
+
+
+Scilab/Xcos Data Structures
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Blocks`_
+
+    + `scicos_block`_ Define a block structure
+    + `scicos_graphics`_ Define a graphics structure
+    + `scicos_model`_ Define a model structure
+
++ `Compilation/Simulation`_
+
+    + `scicos_cpr`_ Compiled Scicos structure
+    + `scicos_sim`_ Define a sim structure
+    + `scicos_state`_ Define a state structure
+
++ `Diagram`_
+
+    + `scicos_diagram`_ Define a scs_m structure
+    + `scicos_params`_ Define a param structure
+
++ `Links`_
+
+    + `scicos_link`_ Define a link structure
+
+
+
+.. _scicos_block: scicos_block.html
+.. _scicos_state: scicos_state.html
+.. _scicos_cpr: scicos_cpr.html
+.. _scicos_diagram: scicos_diagram.html
+.. _scicos_graphics: scicos_graphics.html
+.. _scicos_params: scicos_params.html
+.. _scicos_sim: scicos_sim.html
+.. _Compilation/Simulation: section_850f6e15e21ea0cf9f6edd4f0037d851.html
+.. _scicos_link: scicos_link.html
+.. _Blocks: section_68a098fb1b930904b3a8b7dbc41ad58f.html
+.. _Links: section_1412e6685bf613fb90563189201edc7e.html
+.. _Diagram: section_524c4ad5266c3e5d0f57c49068612e33.html
+.. _scicos_model: scicos_model.html
+
+

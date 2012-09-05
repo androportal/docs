@@ -1,0 +1,18 @@
+
+
+
+Predefined variables
+~~~~~~~~~~~~~~~~~~~~
+
+
++ `SCI`_ variable containing the value of the root path of Scilab.
++ `SCIHOME`_ contains the path to preferences, history files of your
+  Scilab session.
++ `TMPDIR`_ temporary directory path.
+
+
+.. _SCI: SCI.html
+.. _TMPDIR: TMPDIR.html
+.. _SCIHOME: SCIHOME.html
+
+

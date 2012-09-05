@@ -1,0 +1,75 @@
+
+
+
+C
+~
+
+
++ `m2sci_case`_ Case switch
++ `m2sci_cat`_ Arrays concatenation
++ `m2sci_cd`_ Change/get working directory
++ `m2sci_ceil`_ Round up
++ `m2sci_cell`_ Create cell array
++ `m2sci_cell2mat`_ Convert a cell array into a matrix
++ `m2sci_cellstr`_ Convert strings vector (or strings matrix) into a
+  cell of strings
++ `m2sci_chol`_ Cholesky factorization
++ `m2sci_cla`_ Clear current axes
++ `m2sci_clc`_ Clear Command Window
++ `m2sci_clear`_ Remove items from workspace, freeing up system memory
++ `m2sci_clf`_ Clear current figure window
++ `m2sci_clock`_ Current time as a date vector
++ `m2sci_close`_ Delete specified figure
++ `m2sci_closereq`_ Default figure close request function
++ `m2sci_colordef`_ Set default property values to display different
+  color schemes
++ `m2sci_complex`_ Returns the complex form corresponding to the given
+  real part and imaginary part
++ `m2sci_continue`_ Keyword to pass control to the next iteration of a
+  loop
++ `m2sci_conv`_ 1-D Convolution
++ `m2sci_conv2`_ 2-D Convolution
++ `m2sci_cos`_ Cosine
++ `m2sci_cosh`_ Hyperbolic cosine
++ `m2sci_cot`_ Cotangent
++ `m2sci_coth`_ Hyperbolic cotangent
++ `m2sci_cputime`_ Elapsed CPU time
++ `m2sci_csc`_ Cosecant
++ `m2sci_csch`_ Hyperbolic cosecant
++ `m2sci_cumprod`_ Cumulative product
++ `m2sci_cumsum`_ Cumulative sum
++ `m2sci_conj`_ Complex conjugate
+
+
+.. _m2sci_clock: m2sci_clock.html
+.. _m2sci_cellstr: m2sci_cellstr.html
+.. _m2sci_cd: m2sci_cd.html
+.. _m2sci_cputime: m2sci_cputime.html
+.. _m2sci_clear: m2sci_clear.html
+.. _m2sci_conv2: m2sci_conv2.html
+.. _m2sci_clf: m2sci_clf.html
+.. _m2sci_coth: m2sci_coth.html
+.. _m2sci_continue: m2sci_continue.html
+.. _m2sci_clc: m2sci_clc.html
+.. _m2sci_case: m2sci_case.html
+.. _m2sci_cosh: m2sci_cosh.html
+.. _m2sci_chol: m2sci_chol.html
+.. _m2sci_csc: m2sci_csc.html
+.. _m2sci_ceil: m2sci_ceil.html
+.. _m2sci_cell: m2sci_cell.html
+.. _m2sci_conv: m2sci_conv.html
+.. _m2sci_csch: m2sci_csch.html
+.. _m2sci_cot: m2sci_cot.html
+.. _m2sci_closereq: m2sci_closereq.html
+.. _m2sci_colordef: m2sci_colordef.html
+.. _m2sci_complex: m2sci_complex.html
+.. _m2sci_cumprod: m2sci_cumprod.html
+.. _m2sci_close: m2sci_close.html
+.. _m2sci_cell2mat: m2sci_cell2mat.html
+.. _m2sci_cat: m2sci_cat.html
+.. _m2sci_cos: m2sci_cos.html
+.. _m2sci_cumsum: m2sci_cumsum.html
+.. _m2sci_cla: m2sci_cla.html
+.. _m2sci_conj: m2sci_conj.html
+
+

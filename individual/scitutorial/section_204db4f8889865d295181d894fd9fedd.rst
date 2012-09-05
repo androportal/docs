@@ -1,0 +1,19 @@
+
+
+
+Search and sort
+~~~~~~~~~~~~~~~
+
+
++ `dsearch`_ search in ordered sets
++ `gsort`_ sorting by quick sort agorithm
++ `lex_sort`_ lexicographic matrix rows sorting
++ `vectorfind`_ finds in a matrix rows or columns matching a vector
+
+
+.. _dsearch: dsearch.html
+.. _gsort: gsort.html
+.. _lex_sort: lex_sort.html
+.. _vectorfind: vectorfind.html
+
+

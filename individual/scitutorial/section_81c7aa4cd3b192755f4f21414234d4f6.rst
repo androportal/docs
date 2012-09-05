@@ -1,0 +1,13 @@
+
+
+
+Algorithms
+~~~~~~~~~~
+
+
++ `optim_sa`_ A Simulated Annealing optimization method
+
+
+.. _optim_sa: optim_sa.html
+
+

@@ -1,0 +1,109 @@
+
+
+
+Functions
+~~~~~~~~~
+
+
++ `profiling`_
+
+    + `add_profiling`_ Adds profiling instructions to a function.
+    + `plotprofile`_ extracts and displays execution profiles of a Scilab
+      function
+    + `profile`_ extract execution profiles of a Scilab function
+    + `remove_profiling`_ Removes profiling instructions toout of a
+      function.
+    + `reset_profiling`_ Resets profiling counters of a function.
+    + `showprofile`_ extracts and displays execution profiles of a Scilab
+      function
+
++ `argn`_ Returns the number of input/output arguments in a function
+  call
++ `bytecode`_ given a function returns the "bytecode" of a function in
+  a Scilab array and conversely.
++ `bytecodewalk`_ walk in function bytecode applying transformation.
++ `clearfun`_ removes primitive
++ `comp`_ scilab function compilation
++ `deff`_ on-line definition of function
++ `edit`_ function editing
++ `exec`_ script file execution
++ `execstr`_ execute Scilab code in strings
++ `external`_ Scilab Object, external function or routine
++ `fun2string`_ generates ascii definition of a scilab function
++ `funcprot`_ switch scilab functions protection mode
++ `function`_ closes a function definition
++ `functions`_ Scilab procedures and Scilab objects
++ `funptr`_ coding of primitives ( wizard stuff )
++ `genlib`_ build library from functions in given directory
++ `get_function_path`_ get source file path of a library function
++ `getd`_ getting all functions defined in a directory
++ `head_comments`_ display scilab function header comments
++ `intppty`_ set interface argument passing properties
++ `lib`_ library definition
++ `librarieslist`_ get scilab libraries
++ `library`_ library datatype description
++ `libraryinfo`_ get macros and path of a scilab library
++ `listfunctions`_ properties of all functions in the workspace
++ `macr2lst`_ function to list conversion
++ `macr2tree`_ function to tree conversion
++ `macro`_ Scilab procedure and Scilab object
++ `macrovar`_ variables of function
++ `mode`_ select a mode in an exec-file
++ `newfun`_ add a name in the table of functions
++ `readgateway`_ get primitives list of a module
++ `recompilefunction`_ recompiles a scilab function, changing its type
++ `sciargs`_ scilab command line arguments
++ `varargin`_ variable numbers of arguments in an input argument list
++ `varargout`_ variable numbers of arguments in an output argument
+  list
++ `what`_ list the Scilab primitives
++ `whereis`_ name of library containing a function
+
+
+.. _exec: exec.html
+.. _sciargs: sciargs.html
+.. _reset_profiling: reset_profiling.html
+.. _external: external.html
+.. _showprofile: showprofile.html
+.. _librarieslist: librarieslist.html
+.. _macrovar: macrovar.html
+.. _get_function_path: get_function_path.html
+.. _genlib: genlib.html
+.. _listfunctions: listfunctions.html
+.. _add_profiling: add_profiling.html
+.. _bytecodewalk: bytecodewalk.html
+.. _funcprot: funcprot.html
+.. _libraryinfo: libraryinfo.html
+.. _function: function.html
+.. _remove_profiling: remove_profiling.html
+.. _library: library.html
+.. _readgateway: readgateway.html
+.. _getd: getd.html
+.. _edit: edit.html
+.. _whereis: whereis.html
+.. _macr2tree: macr2tree.html
+.. _recompilefunction: recompilefunction.html
+.. _what: what.html
+.. _profiling: section_4f4efa86916b83c0066eef370de1b3d3.html
+.. _bytecode: bytecode.html
+.. _profile: profile.html
+.. _execstr: execstr.html
+.. _intppty: intppty.html
+.. _comp: comp.html
+.. _fun2string: fun2string.html
+.. _mode: mode.html
+.. _macro: macro.html
+.. _plotprofile: plotprofile.html
+.. _clearfun: clearfun.html
+.. _varargout: varargout.html
+.. _newfun: newfun.html
+.. _macr2lst: macr2lst.html
+.. _funptr: funptr.html
+.. _lib: lib.html
+.. _head_comments: head_comments.html
+.. _deff: deff.html
+.. _varargin: varargin.html
+.. _argn: argn.html
+.. _functions: functions.html
+
+

@@ -1,0 +1,31 @@
+
+
+
+T
+~
+
+
++ `m2sci_tan`_ Tangent
++ `m2sci_tanh`_ Hyperbolic tangent
++ `m2sci_tic`_ Starts a stopwatch timer
++ `m2sci_title`_ Display a title on a graphic window
++ `m2sci_toc`_ Read the stopwatch timer
++ `m2sci_toeplitz`_ Toeplitz matrix
++ `m2sci_tril`_ Lower triangular part of a matrix
++ `m2sci_triu`_ Upper triangular part of a matrix
++ `m2sci_true`_ True array
++ `m2sci_type`_ List file
+
+
+.. _m2sci_type: m2sci_type.html
+.. _m2sci_tril: m2sci_tril.html
+.. _m2sci_toeplitz: m2sci_toeplitz.html
+.. _m2sci_true: m2sci_true.html
+.. _m2sci_tic: m2sci_tic.html
+.. _m2sci_title: m2sci_title.html
+.. _m2sci_tanh: m2sci_tanh.html
+.. _m2sci_triu: m2sci_triu.html
+.. _m2sci_toc: m2sci_toc.html
+.. _m2sci_tan: m2sci_tan.html
+
+

@@ -1,0 +1,15 @@
+
+
+
+Summaries
+~~~~~~~~~
+
+
++ `nfreq`_ frequence of the values in a vector or matrix
++ `tabul`_ frequency of values of a matrix or vector
+
+
+.. _tabul: tabul.html
+.. _nfreq: nfreq.html
+
+

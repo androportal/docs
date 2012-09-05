@@ -1,0 +1,31 @@
+
+
+
+Demo Tools
+~~~~~~~~~~
+
+
++ `add_demo`_ Add an entry in the demos list
++ `demo_begin`_ begin a demonstration
++ `demo_choose`_ create a dialog box for the choice of options
++ `demo_compiler`_ test the presence of a compileur
++ `demo_end`_ completes a demonstration
++ `demo_file_choice`_ choose and executes an item within a list
++ `demo_function_choice`_ choose and execute an item within a list
++ `demo_mdialog`_ create a dialog box
++ `demo_message`_ display a message
++ `demo_run`_ script file execution
+
+
+.. _demo_file_choice: demo_file_choice.html
+.. _demo_end: demo_end.html
+.. _demo_begin: demo_begin.html
+.. _demo_function_choice: demo_function_choice.html
+.. _demo_run: demo_run.html
+.. _add_demo: add_demo.html
+.. _demo_choose: demo_choose.html
+.. _demo_mdialog: demo_mdialog.html
+.. _demo_compiler: demo_compiler.html
+.. _demo_message: demo_message.html
+
+

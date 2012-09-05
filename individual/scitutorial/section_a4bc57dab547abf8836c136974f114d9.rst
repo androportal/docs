@@ -1,0 +1,328 @@
+
+
+
+CACSD (Computer Aided Control Systems Design)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `abcd`_ state-space matrices
++ `abinv`_ AB invariant subspace
++ `arhnk`_ Hankel norm approximant
++ `arl2`_ SISO model realization by L2 transfer approximation
++ `arma`_ Scilab arma library
++ `arma2p`_ extract polynomial matrices from ar representation
++ `arma2ss`_ transform an armax data structure into state space
+  representation.
++ `armac`_ Scilab description of an armax process
++ `armax`_ armax identification
++ `armax1`_ armax identification
++ `arsimul`_ armax simulation
++ `augment`_ augmented plant
++ `balreal`_ balanced realization
++ `bilin`_ general bilinear transform
++ `black`_ Black-Nichols diagram of a linear dynamical system
++ `bode`_ Bode plot
++ `bstap`_ hankel approximant
++ `cainv`_ Dual of abinv
++ `calfrq`_ frequency response discretization
++ `canon`_ canonical controllable form
++ `ccontrg`_ Central H-infinity continuous time controller
++ `chart`_ Nichols chart
++ `cls2dls`_ bilinear transform
++ `colinout`_ inner-outer factorization
++ `colregul`_ removing poles and zeros at infinity
++ `cont_frm`_ transfer to controllable state-space
++ `cont_mat`_ controllability matrix
++ `contr`_ controllability, controllable subspace, staircase
++ `contrss`_ controllable part
++ `copfac`_ right coprime factorization of continuous time dynamical
+  systems
++ `csim`_ simulation (time response) of linear system
++ `ctr_gram`_ controllability gramian
++ `damp`_ Natural frequencies and damping factors.
++ `dbphi`_ frequency response to phase and magnitude representation
++ `dcf`_ double coprime factorization
++ `ddp`_ disturbance decoupling
++ `des2ss`_ descriptor to state-space
++ `des2tf`_ descriptor to transfer function conversion
++ `dhinf`_ H_infinity design of discrete-time systems
++ `dhnorm`_ discrete H-infinity norm
++ `dscr`_ discretization of linear system
++ `dsimul`_ state space discrete time simulation
++ `dt_ility`_ detectability test
++ `dtsi`_ Continuous time dynamical systems stable anti-stable
+  decomposition
++ `equil`_ balancing of pair of symmetric matrices
++ `equil1`_ balancing (nonnegative) pair of matrices
++ `evans`_ Evans root locus
++ `feedback`_ feedback operation
++ `findABCD`_ discrete-time system subspace identification
++ `findAC`_ discrete-time system subspace identification
++ `findBD`_ initial state and system matrices B and D of a discrete-
+  time system
++ `findBDK`_ Kalman gain and B D system matrices of a discrete-time
+  system
++ `findR`_ Preprocessor for estimating the matrices of a linear time-
+  invariant dynamical system
++ `findx0BD`_ Estimates state and B and D matrices of a discrete-time
+  linear system
++ `flts`_ time response (discrete time, sampled system)
++ `fourplan`_ augmented plant to four plants
++ `frep2tf`_ transfer function realization from frequency response
++ `freq`_ frequency response
++ `freson`_ peak frequencies
++ `fspecg`_ stable factorization of continuous time dynamical systems
++ `fstabst`_ Youla's parametrization of continuous time linear
+  dynmaical systems
++ `g_margin`_ gain margin and associated crossover frequency
++ `gainplot`_ magnitude plot
++ `gamitg`_ H-infinity gamma iterations for continuous time systems
++ `gcare`_ Continuous time control Riccati equation
++ `gfare`_ Continuous time filter Riccati equation
++ `gfrancis`_ Francis equations for tracking
++ `gtild`_ tilde operation
++ `h2norm`_ H2 norm of a continuous time proper dynamical system
++ `h_cl`_ closed loop matrix
++ `h_inf`_ Continuous time H-infinity (central) controller
++ `h_inf_st`_ static H_infinity problem
++ `h_norm`_ H-infinity norm
++ `hallchart`_ Draws the Hall chart
++ `hankelsv`_ Hankel singular values
++ `hinf`_ H_infinity design of continuous-time systems
++ `imrep2ss`_ state-space realization of an impulse response
++ `inistate`_ Estimates the initial state of a discrete-time system
++ `invsyslin`_ system inversion
++ `kpure`_ continuous SISO system limit feedback gain
++ `krac2`_ continuous SISO system limit feedback gain
++ `lcf`_ Continuous time dynamical systems normalized coprime
+  factorization
++ `leqr`_ H-infinity LQ gain (full state)
++ `lft`_ linear fractional transformation
++ `lin`_ linearization
++ `linf`_ infinity norm
++ `linfn`_ infinity norm
++ `linmeq`_ Sylvester and Lyapunov equations solver
++ `lqe`_ linear quadratic estimator (Kalman Filter)
++ `lqg`_ LQG compensator
++ `lqg2stan`_ LQG to standard problem
++ `lqg_ltr`_ LQG with loop transform recovery
++ `lqr`_ LQ compensator (full state)
++ `ltitr`_ discrete time response (state space)
++ `m_circle`_ plots the complex plane iso-gain contours of y/(1+y)
+  (obsolete)
++ `macglov`_ Continuous time dynamical systems Mac Farlane Glover
+  problem
++ `markp2ss`_ Markov parameters to state-space
++ `minreal`_ minimal balanced realization
++ `minss`_ minimal realization
++ `mucomp`_ mu (structured singular value) calculation
++ `narsimul`_ armax simulation ( using rtitr)
++ `nehari`_ Nehari approximant of continuous time dynamical systems
++ `nicholschart`_ Nichols chart
++ `noisegen`_ noise generation
++ `nyquist`_ nyquist plot
++ `nyquistfrequencybounds`_ Computes the frequencies for which the
+  nyquist locus enters and leaves a given rectangle.
++ `obs_gram`_ observability gramian
++ `obscont`_ observer based controller
++ `observer`_ observer design
++ `obsv_mat`_ observability matrix
++ `obsvss`_ observable part
++ `p_margin`_ phase margin and associated crossover frequency
++ `parrot`_ Parrot's problem
++ `pfss`_ partial fraction decomposition
++ `phasemag`_ phase and magnitude computation
++ `phaseplot`_ frequency phase plot
++ `ppol`_ pole placement
++ `prbs_a`_ pseudo random binary sequences generation
++ `projsl`_ linear system projection
++ `reglin`_ Linear regression
++ `repfreq`_ frequency response
++ `ric_desc`_ Riccati equation
++ `ricc`_ Riccati equation
++ `riccati`_ Riccati equation
++ `routh_t`_ Routh's table
++ `rowinout`_ inner-outer factorization
++ `rowregul`_ removing poles and zeros at infinity
++ `rtitr`_ discrete time response (transfer matrix)
++ `sensi`_ sensitivity functions
++ `sgrid`_ s-plane grid lines.
++ `show_margins`_ display gain and phase margin and associated
+  crossover frequencies
++ `sident`_ discrete-time state-space realization and Kalman gain
++ `sm2des`_ system matrix to descriptor
++ `sm2ss`_ system matrix to state-space
++ `sorder`_ computing the order of a discrete-time system
++ `specfact`_ spectral factor
++ `ss2des`_ (polynomial) state-space to descriptor form
++ `ss2ss`_ state-space to state-space conversion, feedback, injection
++ `ss2tf`_ conversion from state-space to transfer function
++ `st_ility`_ stabilizability test
++ `stabil`_ stabilization
++ `svplot`_ singular-value sigma-plot
++ `sysfact`_ system factorization
++ `syssize`_ size of state-space system
++ `tf2des`_ transfer function to descriptor
++ `tf2ss`_ transfer to state-space
++ `time_id`_ SISO least square identification
++ `trzeros`_ transmission zeros and normal rank
++ `ui_observer`_ unknown input observer
++ `unobs`_ unobservable subspace
++ `zeropen`_ zero pencil
++ `zgrid`_ zgrid plot
+
+
+.. _h_norm: h_norm.html
+.. _canon: canon.html
+.. _ui_observer: ui_observer.html
+.. _des2ss: des2ss.html
+.. _obs_gram: obs_gram.html
+.. _specfact: specfact.html
+.. _observer: observer.html
+.. _tf2des: tf2des.html
+.. _findBDK: findBDK.html
+.. _zgrid: zgrid.html
+.. _fstabst: fstabst.html
+.. _augment: augment.html
+.. _dsimul: dsimul.html
+.. _lqr: lqr.html
+.. _dtsi: dtsi.html
+.. _nyquistfrequencybounds: nyquistfrequencybounds.html
+.. _lcf: lcf.html
+.. _ss2ss: ss2ss.html
+.. _contr: contr.html
+.. _balreal: balreal.html
+.. _evans: evans.html
+.. _cainv: cainv.html
+.. _gfrancis: gfrancis.html
+.. _parrot: parrot.html
+.. _colinout: colinout.html
+.. _noisegen: noisegen.html
+.. _armax1: armax1.html
+.. _ss2tf: ss2tf.html
+.. _ccontrg: ccontrg.html
+.. _invsyslin: invsyslin.html
+.. _armac: armac.html
+.. _frep2tf: frep2tf.html
+.. _chart: chart.html
+.. _equil1: equil1.html
+.. _ctr_gram: ctr_gram.html
+.. _syssize: syssize.html
+.. _freq: freq.html
+.. _narsimul: narsimul.html
+.. _obsv_mat: obsv_mat.html
+.. _nicholschart: nicholschart.html
+.. _zeropen: zeropen.html
+.. _ric_desc: ric_desc.html
+.. _imrep2ss: imrep2ss.html
+.. _markp2ss: markp2ss.html
+.. _linf: linf.html
+.. _minreal: minreal.html
+.. _nehari: nehari.html
+.. _findR: findR.html
+.. _stabil: stabil.html
+.. _svplot: svplot.html
+.. _findBD: findBD.html
+.. _ltitr: ltitr.html
+.. _cont_frm: cont_frm.html
+.. _gtild: gtild.html
+.. _projsl: projsl.html
+.. _macglov: macglov.html
+.. _colregul: colregul.html
+.. _bstap: bstap.html
+.. _calfrq: calfrq.html
+.. _equil: equil.html
+.. _gamitg: gamitg.html
+.. _gainplot: gainplot.html
+.. _ss2des: ss2des.html
+.. _freson: freson.html
+.. _lqg_ltr: lqg_ltr.html
+.. _show_margins: show_margins.html
+.. _lin: lin.html
+.. _lqe: lqe.html
+.. _tf2ss: tf2ss.html
+.. _linfn: linfn.html
+.. _ddp: ddp.html
+.. _repfreq: repfreq.html
+.. _dhinf: dhinf.html
+.. _lqg: lqg.html
+.. _arl2: arl2.html
+.. _sm2ss: sm2ss.html
+.. _sm2des: sm2des.html
+.. _csim: csim.html
+.. _contrss: contrss.html
+.. _p_margin: p_margin.html
+.. _leqr: leqr.html
+.. _sensi: sensi.html
+.. _st_ility: st_ility.html
+.. _hinf: hinf.html
+.. _pfss: pfss.html
+.. _fspecg: fspecg.html
+.. _sident: sident.html
+.. _linmeq: linmeq.html
+.. _h_inf: h_inf.html
+.. _cont_mat: cont_mat.html
+.. _h_cl: h_cl.html
+.. _gcare: gcare.html
+.. _phasemag: phasemag.html
+.. _riccati: riccati.html
+.. _obsvss: obsvss.html
+.. _routh_t: routh_t.html
+.. _arma2p: arma2p.html
+.. _cls2dls: cls2dls.html
+.. _ppol: ppol.html
+.. _feedback: feedback.html
+.. _time_id: time_id.html
+.. _damp: damp.html
+.. _m_circle: m_circle.html
+.. _minss: minss.html
+.. _arma2ss: arma2ss.html
+.. _phaseplot: phaseplot.html
+.. _dscr: dscr.html
+.. _unobs: unobs.html
+.. _trzeros: trzeros.html
+.. _copfac: copfac.html
+.. _black: black.html
+.. _bilin: bilin.html
+.. _armax: armax.html
+.. _krac2: krac2.html
+.. _fourplan: fourplan.html
+.. _arma: arma.html
+.. _reglin: reglin.html
+.. _bode: bode.html
+.. _inistate: inistate.html
+.. _nyquist: nyquist.html
+.. _findAC: findAC.html
+.. _dcf: dcf.html
+.. _sorder: sorder.html
+.. _lft: lft.html
+.. _h_inf_st: h_inf_st.html
+.. _obscont: obscont.html
+.. _abcd: abcd.html
+.. _hallchart: hallchart.html
+.. _hankelsv: hankelsv.html
+.. _rowinout: rowinout.html
+.. _ricc: ricc.html
+.. _findABCD: findABCD.html
+.. _arhnk: arhnk.html
+.. _prbs_a: prbs_a.html
+.. _rtitr: rtitr.html
+.. _kpure: kpure.html
+.. _lqg2stan: lqg2stan.html
+.. _dhnorm: dhnorm.html
+.. _sysfact: sysfact.html
+.. _dt_ility: dt_ility.html
+.. _abinv: abinv.html
+.. _des2tf: des2tf.html
+.. _flts: flts.html
+.. _rowregul: rowregul.html
+.. _g_margin: g_margin.html
+.. _arsimul: arsimul.html
+.. _findx0BD: findx0BD.html
+.. _sgrid: sgrid.html
+.. _gfare: gfare.html
+.. _mucomp: mucomp.html
+.. _h2norm: h2norm.html
+.. _dbphi: dbphi.html
+
+

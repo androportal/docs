@@ -1,0 +1,33 @@
+
+
+
+Elementary matrices
+~~~~~~~~~~~~~~~~~~~
+
+
++ `diag`_ diagonal including or extracting
++ `eye`_ identity matrix
++ `ind2sub`_ linear index to matrix subscript values
++ `linspace`_ linearly spaced vector
++ `logspace`_ logarithmically spaced vector
++ `meshgrid`_ create matrices or 3-D arrays
++ `ndgrid`_ arrays for multidimensional function evaluation on grid
++ `ones`_ matrix made of ones
++ `rand`_ Random numbers
++ `sub2ind`_ matrix subscript values to linear index
++ `zeros`_ matrix made of zeros
+
+
+.. _ind2sub: ind2sub.html
+.. _ones: ones.html
+.. _sub2ind: sub2ind.html
+.. _linspace: linspace.html
+.. _logspace: logspace.html
+.. _eye: eye.html
+.. _meshgrid: meshgrid.html
+.. _zeros: zeros.html
+.. _diag: diag.html
+.. _ndgrid: ndgrid.html
+.. _rand: rand.html
+
+

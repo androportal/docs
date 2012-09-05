@@ -1,0 +1,35 @@
+
+
+
+Descriptive Statistics
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `center`_ center
++ `correl`_ correlation of two variables
++ `covar`_ covariance of two variables
++ `median`_ median (row median, column median,...) of
+  vector/matrix/array entries
++ `msd`_ mean squared deviation
++ `mvvacov`_ computes variance-covariance matrix
++ `st_deviation`_ standard deviation (row or column-wise) of
+  vector/matrix entries
++ `stdevf`_ standard deviation
++ `variance`_ variance of the values of a vector or matrix
++ `variancef`_ standard deviation of the values of a vector or matrix
++ `wcenter`_ center and weight
+
+
+.. _variancef: variancef.html
+.. _msd: msd.html
+.. _variance: variance.html
+.. _wcenter: wcenter.html
+.. _mvvacov: mvvacov.html
+.. _covar: covar.html
+.. _median: median.html
+.. _correl: correl.html
+.. _stdevf: stdevf.html
+.. _st_deviation: st_deviation.html
+.. _center: center.html
+
+

@@ -1,0 +1,18 @@
+
+
+
+bar_histogram
+~~~~~~~~~~~~~
+
+
++ `bar`_ bar histogram
++ `barh`_ horizontal display of bar histogram
++ `barhomogenize`_ homogenize all the bars included in the current
+  working axes
+
+
+.. _barhomogenize: barhomogenize.html
+.. _bar: bar.html
+.. _barh: barh.html
+
+

@@ -1,0 +1,59 @@
+
+
+
+Matrix operation palette
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Matrix_pal`_ Matrix operation palette
++ `CUMSUM`_ Cumulative Sum
++ `EXTRACT`_ Matrix extractor
++ `EXTTRI`_ Triangular or Diagonal Extraction
++ `MATBKSL`_ Left matrix division
++ `MATCATH`_ Horizontal Concatenation
++ `MATCATV`_ Vertical Concatenation
++ `MATDET`_ Matrix Determinant
++ `MATDIAG`_ Create Diagonal Matrix
++ `MATDIV`_ Matrix division
++ `MATEIG`_ Matrix Eigenvalues
++ `MATEXPM`_ Matrix Exponential
++ `MATINV`_ Matrix Inverse
++ `MATLU`_ LU Factorization
++ `MATMUL`_ Matrix Multiplication
++ `MATPINV`_ Matrix PseudoInverse
++ `MATRESH`_ Matrix Reshape
++ `MATSING`_ SVD Decomposition
++ `MATSUM`_ Sum of Matrix's Elements
++ `MATTRAN`_ Matrix Transpose
++ `MATZCONJ`_ Conjugate of Matrix's Elements
++ `RICC`_ Riccati Equation
++ `ROOTCOEF`_ Polynomial Coefficient Computation
++ `SUBMAT`_ Sub-matrix Extraction
+
+
+.. _MATEXPM: MATEXPM.html
+.. _MATPINV: MATPINV.html
+.. _MATRESH: MATRESH.html
+.. _MATSING: MATSING.html
+.. _EXTTRI: EXTTRI.html
+.. _MATLU: MATLU.html
+.. _Matrix_pal: Matrix_pal.html
+.. _MATDIAG: MATDIAG.html
+.. _MATSUM: MATSUM.html
+.. _SUBMAT: SUBMAT.html
+.. _MATMUL: MATMUL.html
+.. _RICC: RICC-3640f0aabea1a4c3d1b9c40b31c8b3d5.html
+.. _MATZCONJ: MATZCONJ.html
+.. _MATINV: MATINV.html
+.. _MATBKSL: MATBKSL.html
+.. _MATCATV: MATCATV.html
+.. _CUMSUM: CUMSUM-a85e04b226fbdce6a2da89e965ea9df.html
+.. _MATDIV: MATDIV.html
+.. _MATCATH: MATCATH.html
+.. _ROOTCOEF: ROOTCOEF.html
+.. _MATTRAN: MATTRAN.html
+.. _EXTRACT: EXTRACT.html
+.. _MATDET: MATDET.html
+.. _MATEIG: MATEIG.html
+
+

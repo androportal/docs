@@ -1,0 +1,433 @@
+
+
+
+Elementary Functions
+~~~~~~~~~~~~~~~~~~~~
+
+
++ `Bitwise operations`_
+
+    + `bitand`_ bitwise AND
+    + `bitcmp`_ bitwise complement
+    + `bitget`_ bit at specified position
+    + `bitor`_ bitwise OR
+    + `bitset`_ set bit at specified position
+    + `bitxor`_ bitwise XOR
+
++ `Complex`_
+
+    + `complex`_ Create a complex number.
+    + `imag`_ imaginary part
+    + `imult`_ multiplication by i the imaginary unitary
+    + `isreal`_ check if a variable has real or complex entries
+    + `real`_ real part
+
++ `Discrete mathematics`_
+
+    + `binomial`_ binomial distribution probabilities
+    + `factor`_ factor function
+    + `factorial`_ The factorial function
+    + `perms`_ all permutations of vector components
+    + `primes`_ primes function
+    + `rat`_ Floating point rational approximation
+
++ `Elementary matrices`_
+
+    + `diag`_ diagonal including or extracting
+    + `eye`_ identity matrix
+    + `ind2sub`_ linear index to matrix subscript values
+    + `linspace`_ linearly spaced vector
+    + `logspace`_ logarithmically spaced vector
+    + `meshgrid`_ create matrices or 3-D arrays
+    + `ndgrid`_ arrays for multidimensional function evaluation on grid
+    + `ones`_ matrix made of ones
+    + `rand`_ Random numbers
+    + `sub2ind`_ matrix subscript values to linear index
+    + `zeros`_ matrix made of zeros
+
++ `Exponential`_
+
+    + `exp`_ element-wise exponential
+    + `log`_ natural logarithm
+    + `log10`_ base 10 logarithm
+    + `log1p`_ computes with accuracy the natural logarithm of its
+      argument added by one
+    + `log2`_ base 2 logarithm
+    + `logm`_ square matrix logarithm
+
++ `Floating point`_
+
+    + `ceil`_ round up
+    + `double`_ conversion from integer to double precision representation
+    + `fix`_ round towards zero
+    + `floor`_ round down
+    + `format`_ number printing and display format
+    + `frexp`_ dissect floating-point numbers into base 2 exponent and
+      mantissa
+    + `ieee`_ set floating point exception mode
+    + `int`_ round towards zero
+    + `isinf`_ check for infinite entries
+    + `isnan`_ check for "Not a Number" entries
+    + `nearfloat`_ get previous or next floating-point number
+    + `nextpow2`_ next higher power of 2.
+    + `number_properties`_ determine floating-point parameters
+    + `round`_ round to nearest integer
+
++ `Integer representation`_
+
+    + `base2dec`_ convert from base b to decimal
+    + `bin2dec`_ convert from binary to decimal
+    + `dec2base`_ Convert decimal to base N number in string
+    + `dec2bin`_ convert from decimal to binary
+    + `dec2hex`_ convert from decimal to hexadecimal
+    + `dec2oct`_ convert from decimal to octal
+    + `hex2dec`_ convert from hexadecimal to decimal
+    + `oct2dec`_ convert from octal to decimal
+
++ `Matrix manipulation`_
+
+    + `flipdim`_ flip x components along a given dimension
+    + `matrix`_ reshape a vector or a matrix to a different size matrix
+    + `permute`_ permute the dimensions of an array
+    + `repmat`_ Replicate and tile an array
+    + `resize_matrix`_ create a new matrix with a different size
+
++ `Matrix operations`_
+
+    + `cumprod`_ cumulative product of array elements
+    + `cumsum`_ cumulative sum of array elements
+    + `kron`_ Kronecker product (.*.)
+    + `prod`_ product of array elements
+    + `sum`_ sum of array elements
+    + `tril`_ lower triangular part of matrix
+    + `triu`_ upper triangle
+
++ `Search and sort`_
+
+    + `dsearch`_ search in ordered sets
+    + `gsort`_ sorting by quick sort agorithm
+    + `lex_sort`_ lexicographic matrix rows sorting
+    + `vectorfind`_ finds in a matrix rows or columns matching a vector
+
++ `Set operations`_
+
+    + `intersect`_ returns the vector of common values of two vectors
+    + `setdiff`_ returns components of a vector which do not belong to
+      another one
+    + `union`_ extract union components of a vector
+    + `unique`_ extract unique components of a vector or matrices
+
++ `Signal processing`_
+
+    + `bloc2exp`_ Conversion of a block-diagram to its symbolic expression
+    + `bloc2ss`_ block-diagram to state-space conversion
+    + `pen2ea`_ pencil to E,A conversion
+    + `ssrand`_ random system generator
+    + `sysconv`_ system conversion
+    + `sysdiag`_ block diagonal system connection
+    + `syslin`_ linear system definition
+    + `trfmod`_ poles and zeros display
+
++ `Symbolic`_
+
+    + `solve`_ symbolic linear system solver
+    + `trianfml`_ symbolic triangularization
+    + `trisolve`_ symbolic linear system solver
+
++ `Trigonometry`_
+
+    + `acos`_ element wise cosine inverse (radians)
+    + `acosd`_ element wise cosine inverse, result in degree.
+    + `acosh`_ hyperbolic cosine inverse
+    + `acoshm`_ matrix hyperbolic inverse cosine
+    + `acosm`_ matrix wise cosine inverse
+    + `acot`_ computes the element-wise inverse cotangeant of the
+      argument.
+    + `acotd`_ computes the element-wise inverse cotangeant of the
+      argument, result in degree.
+    + `acoth`_ element wise hyperbolic cotangeant inverse.
+    + `acsc`_ computes the element-wise inverse cosecant of the argument.
+    + `acscd`_ computes the element-wise inverse cosecant of the argument,
+      results in degree.
+    + `acsch`_ computes the element-wise inverse hyperbolic cosecant of
+      the argument.
+    + `asec`_ computes the element-wise inverse secant of the argument.
+    + `asecd`_ computes the element-wise inverse secant of the argument,
+      results in degree.
+    + `asech`_ computes the element-wise inverse hyperbolic secant of the
+      argument.
+    + `asin`_ sine inverse (radians)
+    + `asind`_ sine inverse, results in degree
+    + `asinh`_ hyperbolic sine inverse
+    + `asinhm`_ matrix hyperbolic inverse sine
+    + `asinm`_ matrix wise sine inverse
+    + `atan`_ 2-quadrant and 4-quadrant inverse tangent
+    + `atand`_ 2-quadrant and 4-quadrant element-wise inverse tangent,
+      result in degree.
+    + `atanh`_ hyperbolic tangent inverse
+    + `atanhm`_ matrix hyperbolic tangent inverse
+    + `atanm`_ square matrix tangent inverse
+    + `conj`_ conjugate
+    + `cos`_ cosine function
+    + `cosd`_ element-wise cosine function, argument in degree
+    + `cosh`_ hyperbolic cosine
+    + `coshm`_ matrix hyperbolic cosine
+    + `cosm`_ matrix cosine function
+    + `cotd`_ element-wise cotangent function, argument in degree
+    + `cotg`_ cotangent
+    + `coth`_ hyperbolic cotangent
+    + `cothm`_ matrix hyperbolic cotangent
+    + `csc`_ Computes the element-wise cosecant of the argument.
+    + `cscd`_ Computes the element-wise cosecant of the argument given in
+      degree.
+    + `csch`_ Computes the element-wise hyperbolic cosecant of the
+      argument.
+    + `csgn`_ Returns the sign of a vector of real of complex values.
+    + `sec`_ Compute the element-wise secant of the argument.
+    + `secd`_ Compute the element-wise secant of the argument given in
+      degree.
+    + `sech`_ Compute the element-wise hyperbolic secant of the argument.
+    + `sin`_ sine function
+    + `sinc`_ sinc function
+    + `sind`_ sine function, argument in degree.
+    + `sinh`_ hyperbolic sine
+    + `sinhm`_ matrix hyperbolic sine
+    + `sinm`_ matrix sine function
+    + `tan`_ tangent
+    + `tand`_ tangent, argument in degree.
+    + `tanh`_ hyperbolic tangent
+    + `tanhm`_ matrix hyperbolic tangent
+    + `tanm`_ matrix tangent
+
++ `abs`_ absolute value, magnitude
++ `amell`_ Jacobi's am function
++ `and`_ logical AND of the elements of an array
++ `and_op`_ logical AND operator
++ `cat`_ concatenate several arrays
++ `cell2mat`_ converts a cell array into a matrix
++ `cellstr`_ converts strings vector (or strings matrix) into a cell
+  array of strings
++ `char`_ converts in a character array
++ `delip`_ complete and incomplete elliptic integral of first kind
++ `diff`_ Difference and discrete derivative
++ `isdef`_ checks variable existence
++ `isempty`_ check if a variable is an empty matrix or an empty list
++ `isequal`_ objects comparison
++ `isequalbitwise`_ bitwise comparison of variables
++ `isvector`_ check if a variable is a vector
++ `lstsize`_ list, tlist, mlist numbers of entries
++ `max`_ maximum
++ `min`_ minimum
++ `modulo`_ positive arithmetic remainder modulo m
++ `ndims`_ number of dimensions of an array
++ `norm`_ matrix norm
++ `nthroot`_ Real nth root of real numbers
++ `or`_ logical OR of the elements of an array
++ `or_op`_ logical OR operator
++ `percenteps`_ epsilon (floating-point relative accuracy)
++ `percenti`_ imaginary unit
++ `percentinf`_ infinity
++ `percentnan`_ not-a-number
++ `percentpi`_ ratio of circle's circumference to its diameter
++ `pertrans`_ simultaneous permutation and transposition
++ `sign`_ signum function
++ `signm`_ matrix signum function
++ `size`_ size of objects
++ `sqrt`_ square root
++ `sqrtm`_ matrix square root
++ `squarewave`_ generates a square wave with period 2*%pi
++ `toeplitz`_ Toeplitz matrix
+
+
+.. _cumsum: cumsum.html
+.. _sysconv: sysconv.html
+.. _frexp: frexp.html
+.. _secd: secd.html
+.. _sqrt: sqrt.html
+.. _Search and sort: section_204db4f8889865d295181d894fd9fedd.html
+.. _lstsize: lstsize.html
+.. _cat: cat.html
+.. _bitget: bitget.html
+.. _and_op: and_op.html
+.. _solve: solve.html
+.. _toeplitz: toeplitz.html
+.. _exp: exp.html
+.. _rand: rand.html
+.. _oct2dec: oct2dec.html
+.. _sinh: sinh.html
+.. _acoth: acoth.html
+.. _cotd: cotd.html
+.. _tan: tan.html
+.. _sum: sum.html
+.. _acosd: acosd.html
+.. _sinc: sinc.html
+.. _ndims: ndims.html
+.. _sysdiag: sysdiag.html
+.. _Signal processing: section_b88e71819a1021a194b266f5de3950d4.html
+.. _nextpow2: nextpow2.html
+.. _Matrix manipulation: section_54cbd01fae0b5001ef7c0949694ab148.html
+.. _format: format.html
+.. _dec2base: dec2base.html
+.. _lex_sort: lex_sort.html
+.. _and: and.html
+.. _isvector: isvector.html
+.. _log1p: log1p.html
+.. _norm: norm.html
+.. _sinhm: sinhm.html
+.. _sind: sind.html
+.. _primes: primes.html
+.. _binomial: binomial.html
+.. _dec2hex: dec2hex.html
+.. _tand: tand.html
+.. _percentinf: percentinf.html
+.. _int: int.html
+.. _bloc2exp: bloc2exp.html
+.. _ieee: ieee.html
+.. _pen2ea: pen2ea.html
+.. _sub2ind: sub2ind.html
+.. _tanh: tanh.html
+.. _cotg: cotg.html
+.. _percentnan: percentnan.html
+.. _imag: imag.html
+.. _percenteps: percenteps.html
+.. _isequalbitwise: isequalbitwise.html
+.. _ones: ones.html
+.. _log10: log10.html
+.. _cothm: cothm.html
+.. _double: double.html
+.. _Trigonometry: section_337b4e6dd32fd9593fba54eb3f65dbcc.html
+.. _bitxor: bitxor.html
+.. _cosh: cosh.html
+.. _hex2dec: hex2dec.html
+.. _cell2mat: cell2mat.html
+.. _real: real.html
+.. _asinm: asinm.html
+.. _signm: signm.html
+.. _vectorfind: vectorfind.html
+.. _conj: conj.html
+.. _coshm: coshm.html
+.. _permute: permute.html
+.. _unique: unique.html
+.. _coth: coth.html
+.. _bitset: bitset.html
+.. _union: union.html
+.. _acsch: acsch.html
+.. _acoshm: acoshm.html
+.. _eye: eye.html
+.. _cscd: cscd.html
+.. _Matrix operations: section_32d872e8abf1f829c680ec61ddaa94da.html
+.. _acotd: acotd.html
+.. _acscd: acscd.html
+.. _log: log.html
+.. _percenti: percenti.html
+.. _bloc2ss: bloc2ss.html
+.. _atanh: atanh.html
+.. _cosd: cosd.html
+.. _acos: acos.html
+.. _sech: sech.html
+.. _dec2oct: dec2oct.html
+.. _setdiff: setdiff.html
+.. _or: or.html
+.. _char: char.html
+.. _complex: complex.html
+.. _sqrtm: sqrtm.html
+.. _resize_matrix: resize_matrix.html
+.. _prod: prod.html
+.. _matrix: matrix.html
+.. _isnan: isnan.html
+.. _repmat: repmat.html
+.. _tril: tril.html
+.. _number_properties: number_properties.html
+.. _syslin: syslin.html
+.. _triu: triu.html
+.. _ssrand: ssrand.html
+.. _abs: abs.html
+.. _factor: factor.html
+.. _cellstr: cellstr.html
+.. _dsearch: dsearch.html
+.. _Discrete mathematics: section_6532542a2a1a85dd4cb9086506069b58.html
+.. _isequal: isequal.html
+.. _sec: sec.html
+.. _cos: cos.html
+.. _trfmod: trfmod.html
+.. _bitcmp: bitcmp.html
+.. _intersect: intersect.html
+.. _factorial: factorial.html
+.. _sign: sign.html
+.. _kron: kron.html
+.. _imult: imult.html
+.. _round: round.html
+.. _atand: atand.html
+.. _bin2dec: bin2dec.html
+.. _linspace: linspace.html
+.. _logspace: logspace.html
+.. _acsc: acsc.html
+.. _Exponential: section_e7efa1a1090c20cd27637c80116d1cd2.html
+.. _Floating point: section_5cc62125242586eb1e2ed40fd313124c.html
+.. _atanhm: atanhm.html
+.. _Integer representation: section_ffdc7dbc0642f0a1572e75d33e3610e7.html
+.. _amell: amell.html
+.. _tanhm: tanhm.html
+.. _tanm: tanm.html
+.. _csgn: csgn.html
+.. _csc: csc.html
+.. _nthroot: nthroot.html
+.. _isdef: isdef.html
+.. _asin: asin.html
+.. _trisolve: trisolve.html
+.. _gsort: gsort.html
+.. _acosh: acosh.html
+.. _flipdim: flipdim.html
+.. _Symbolic: section_db6d51f8fc20252922e5535b93019793.html
+.. _dec2bin: dec2bin.html
+.. _modulo: modulo.html
+.. _atan: atan.html
+.. _asec: asec.html
+.. _asech: asech.html
+.. _sinm: sinm.html
+.. _log2: log2.html
+.. _zeros: zeros.html
+.. _percentpi: percentpi.html
+.. _or_op: or_op.html
+.. _pertrans: pertrans.html
+.. _ndgrid: ndgrid.html
+.. _asinh: asinh.html
+.. _asecd: asecd.html
+.. _bitor: bitor.html
+.. _bitand: bitand.html
+.. _trianfml: trianfml.html
+.. _sin: sin.html
+.. _acot: acot.html
+.. _Bitwise operations: section_e012f914965cd06d74a865c123ee3b2b.html
+.. _cosm: cosm.html
+.. _diff: diff.html
+.. _max: max.html
+.. _fix: fix.html
+.. _isreal: isreal.html
+.. _meshgrid: meshgrid.html
+.. _isempty: isempty.html
+.. _min: min.html
+.. _floor: floor.html
+.. _asind: asind.html
+.. _Elementary matrices: section_b6826d9288eae80d3ca4d4f72682e864.html
+.. _rat: rat.html
+.. _delip: delip.html
+.. _csch: csch.html
+.. _asinhm: asinhm.html
+.. _cumprod: cumprod.html
+.. _squarewave: squarewave.html
+.. _ind2sub: ind2sub.html
+.. _diag: diag.html
+.. _perms: perms.html
+.. _atanm: atanm.html
+.. _nearfloat: nearfloat.html
+.. _size: size.html
+.. _acosm: acosm.html
+.. _Set operations: section_9114e20d8df546cbd9b4311a356cc3ad.html
+.. _Complex: section_c2299fae99263e092f87c30f90c4427f.html
+.. _ceil: ceil.html
+.. _logm: logm.html
+.. _base2dec: base2dec.html
+.. _isinf: isinf.html
+
+

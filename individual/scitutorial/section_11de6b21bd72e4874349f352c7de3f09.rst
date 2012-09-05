@@ -1,0 +1,15 @@
+
+
+
+Annotations palette
+~~~~~~~~~~~~~~~~~~~
+
+
++ `Annotations_pal`_ Annotations palette
++ `TEXT_f`_ Free annotation
+
+
+.. _Annotations_pal: Annotations_pal.html
+.. _TEXT_f: TEXT_f.html
+
+

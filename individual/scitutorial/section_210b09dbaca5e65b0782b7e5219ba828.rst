@@ -1,0 +1,173 @@
+
+
+
+Statistics
+~~~~~~~~~~
+
+
++ `Cumulated Distribution Functions`_
+
+    + `cdfbet`_ cumulative distribution function Beta distribution
+    + `cdfbin`_ cumulative distribution function Binomial distribution
+    + `cdfchi`_ cumulative distribution function chi-square distribution
+    + `cdfchn`_ cumulative distribution function non-central chi-square
+      distribution
+    + `cdff`_ cumulative distribution function F distribution
+    + `cdffnc`_ cumulative distribution function non-central
+      f-distribution
+    + `cdfgam`_ cumulative distribution function gamma distribution
+    + `cdfnbn`_ cumulative distribution function negative binomial
+      distribution
+    + `cdfnor`_ cumulative distribution function normal distribution
+    + `cdfpoi`_ cumulative distribution function poisson distribution
+    + `cdft`_ cumulative distribution function Student's T distribution
+
++ `Central Tendency`_
+
+    + `geomean`_ geometric mean
+    + `harmean`_ harmonic mean
+    + `mean`_ mean (row mean, column mean) of vector/matrix entries
+    + `meanf`_ weighted mean of a vector or a matrix
+    + `trimmean`_ trimmed mean of a vector or a matrix
+
++ `Data with Missing Values`_
+
+    + `nancumsum`_ Thos function returns the cumulative sum of the values
+      of a matrix
+    + `nand2mean`_ difference of the means of two independent samples
+    + `nanmax`_ max (ignoring Nan's)
+    + `nanmean`_ mean (ignoring Nan's)
+    + `nanmeanf`_ mean (ignoring Nan's) with a given frequency.
+    + `nanmedian`_ median of the values of a numerical vector or matrix
+    + `nanmin`_ min (ignoring Nan's)
+    + `nanstdev`_ standard deviation (ignoring the NANs).
+    + `nansum`_ Sum of values ignoring NAN's
+    + `thrownan`_ Eliminates nan values
+
++ `Descriptive Statistics`_
+
+    + `center`_ center
+    + `correl`_ correlation of two variables
+    + `covar`_ covariance of two variables
+    + `median`_ median (row median, column median,...) of
+      vector/matrix/array entries
+    + `msd`_ mean squared deviation
+    + `mvvacov`_ computes variance-covariance matrix
+    + `st_deviation`_ standard deviation (row or column-wise) of
+      vector/matrix entries
+    + `stdevf`_ standard deviation
+    + `variance`_ variance of the values of a vector or matrix
+    + `variancef`_ standard deviation of the values of a vector or matrix
+    + `wcenter`_ center and weight
+
++ `Hypothesis Testing`_
+
+    + `ftest`_ Fisher ratio
+    + `ftuneq`_ Fisher ratio for samples of unequal size.
+
++ `Measures of Dispersion`_
+
+    + `iqr`_ interquartile range
+    + `mad`_ mean absolute deviation
+    + `strange`_ range
+
++ `Measures of Shape`_
+
+    + `cmoment`_ central moments of all orders
+    + `moment`_ non central moments of all orders
+    + `perctl`_ computation of percentils
+    + `quart`_ computation of quartiles
+
++ `Principal Component Analysis`_
+
+    + `pca`_ Computes principal components analysis with standardized
+      variables
+    + `princomp`_ Principal components analysis
+    + `show_pca`_ Visualization of principal components analysis results
+
++ `Regression`_
+
+    + `regress`_ regression coefficients of two variables
+
++ `Sampling`_
+
+    + `sample`_ Sampling with replacement
+    + `samplef`_ sample with replacement from a population and frequences
+      of his values.
+    + `samwr`_ Sampling without replacement
+
++ `Summaries`_
+
+    + `nfreq`_ frequence of the values in a vector or matrix
+    + `tabul`_ frequency of values of a matrix or vector
+
+
+
+.. _Measures of Shape: section_565b2e938b33b6b0abdeaf0a021a6b27.html
+.. _Hypothesis Testing: section_addc87040d750601166434bde93e97ef.html
+.. _Sampling: section_9ddfc32a13d54d7e881149ef1d9bb2e9.html
+.. _variancef: variancef.html
+.. _ftuneq: ftuneq.html
+.. _Regression: section_d3ce323945f744a9e1329f04c35dc59c.html
+.. _nanmax: nanmax.html
+.. _show_pca: show_pca.html
+.. _quart: quart.html
+.. _cdfchn: cdfchn.html
+.. _nanmedian: nanmedian.html
+.. _nansum: nansum.html
+.. _Central Tendency: section_b9fbc92bf77ff97f57e093d53dc83546.html
+.. _strange: strange.html
+.. _nanmeanf: nanmeanf.html
+.. _mvvacov: mvvacov.html
+.. _princomp: princomp.html
+.. _moment: moment.html
+.. _samplef: samplef.html
+.. _mad: mad.html
+.. _nancumsum: nancumsum.html
+.. _msd: msd.html
+.. _Descriptive Statistics: section_94707d8163dcd422d6160ffdd0a01e71.html
+.. _ftest: ftest.html
+.. _regress: regress.html
+.. _sample: sample.html
+.. _tabul: tabul.html
+.. _median: median.html
+.. _mean: mean.html
+.. _cdff: cdff.html
+.. _cdfbet: cdfbet.html
+.. _trimmean: trimmean.html
+.. _Principal Component Analysis: section_cada0ed775fc09d2bc9dc01637e052d5.html
+.. _samwr: samwr.html
+.. _Summaries: section_d82e9f132a7612939d7d6793434435c1.html
+.. _variance: variance.html
+.. _cdfbin: cdfbin.html
+.. _harmean: harmean.html
+.. _cdfpoi: cdfpoi.html
+.. _Data with Missing Values: section_60b76bef1290025b66b3e07e246bae5e.html
+.. _cdffnc: cdffnc.html
+.. _nfreq: nfreq.html
+.. _cdfgam: cdfgam.html
+.. _thrownan: thrownan.html
+.. _nanmean: nanmean.html
+.. _cdft: cdft.html
+.. _cmoment: cmoment.html
+.. _iqr: iqr.html
+.. _meanf: meanf.html
+.. _correl: correl.html
+.. _Measures of Dispersion: section_4d21ef5c02d35785a4312e9cf8c410ef.html
+.. _covar: covar.html
+.. _st_deviation: st_deviation.html
+.. _cdfnbn: cdfnbn.html
+.. _perctl: perctl.html
+.. _nanstdev: nanstdev.html
+.. _wcenter: wcenter.html
+.. _geomean: geomean.html
+.. _cdfnor: cdfnor.html
+.. _nand2mean: nand2mean.html
+.. _pca: pca.html
+.. _Cumulated Distribution Functions: section_75906b9065cbd2ee7311fea5e3358997.html
+.. _cdfchi: cdfchi.html
+.. _stdevf: stdevf.html
+.. _center: center.html
+.. _nanmin: nanmin.html
+
+

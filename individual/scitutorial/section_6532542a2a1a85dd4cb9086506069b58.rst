@@ -1,0 +1,23 @@
+
+
+
+Discrete mathematics
+~~~~~~~~~~~~~~~~~~~~
+
+
++ `binomial`_ binomial distribution probabilities
++ `factor`_ factor function
++ `factorial`_ The factorial function
++ `perms`_ all permutations of vector components
++ `primes`_ primes function
++ `rat`_ Floating point rational approximation
+
+
+.. _primes: primes.html
+.. _factorial: factorial.html
+.. _rat: rat.html
+.. _factor: factor.html
+.. _perms: perms.html
+.. _binomial: binomial.html
+
+

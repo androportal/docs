@@ -40,7 +40,6 @@ help:
 
 clean:
 	-rm -rf $(BUILDDIR)/*
-	-rm -rf *~
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

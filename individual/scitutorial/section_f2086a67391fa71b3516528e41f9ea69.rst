@@ -1,0 +1,23 @@
+
+
+
+Sparse Matrix Manipulation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `issparse`_ determine whether input is sparse
++ `nnz`_ number of non zero entries in a matrix
++ `speye`_ sparse identity matrix
++ `spones`_ sparse matrix
++ `sprand`_ sparse random matrix
++ `spzeros`_ sparse zero matrix
+
+
+.. _speye: speye.html
+.. _spones: spones.html
+.. _spzeros: spzeros.html
+.. _nnz: nnz.html
+.. _issparse: issparse.html
+.. _sprand: sprand.html
+
+

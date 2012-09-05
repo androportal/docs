@@ -1,0 +1,25 @@
+
+
+
+Port & Subsystem palette
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Portaction_pal`_ Port & Subsystem palette
++ `CLKINV_f`_ Input activation port
++ `CLKOUTV_f`_ Output activation port
++ `INIMPL_f`_ Implicit Input port
++ `IN_f`_ Regular Input Port
++ `OUTIMPL_f`_ Output implicit port
++ `OUT_f`_ Regular Output Port
+
+
+.. _Portaction_pal: Portaction_pal.html
+.. _IN_f: IN_f.html
+.. _CLKOUTV_f: CLKOUTV_f.html
+.. _OUTIMPL_f: OUTIMPL_f.html
+.. _INIMPL_f: INIMPL_f.html
+.. _CLKINV_f: CLKINV_f.html
+.. _OUT_f: OUT_f.html
+
+

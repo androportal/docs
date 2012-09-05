@@ -1,0 +1,53 @@
+
+
+
+macro
+=====
+
+Scilab procedure and Scilab object
+
+
+
+Description
+~~~~~~~~~~~
+
+Macros are Scilab procedures ("macro", "function" and "procedure" have
+the save meaning). Usually, they are defined in files with an editor
+and loaded into Scilab by `exec` or through a library.
+
+They can also be defined on-line (see `deff`). A file which contains a
+macro must begin as follows:
+
+
+::
+
+    function [y1, ..., yn]=foo(x1, ...,xm)
+
+
+The `yi` are output variables calculated as functions of input
+variables and variables existing in Scilab when the macro is executed.
+A macro can be compiled for faster execution. Collections of macros
+can be collected in libraries. Macros which begin with `%` sign (e.g.
+`%foo`) and whose arguments are lists are used to perform specific
+operations: for example, `z=%rmr(x,y)` is equivalent to `z=x*y` when
+`x` and `z` are rationals (i.e. `x=list('r',n,d,[])` with `n` and `d`
+polynomials).
+
+
+
+See Also
+~~~~~~~~
+
+
++ `deff`_ on-line definition of function
++ `exec`_ script file execution
++ `comp`_ scilab function compilation
++ `lib`_ library definition
+
+
+.. _exec: exec.html
+.. _comp: comp.html
+.. _lib: lib.html
+.. _deff: deff.html
+
+

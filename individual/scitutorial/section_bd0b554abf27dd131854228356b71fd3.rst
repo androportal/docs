@@ -1,0 +1,82 @@
+
+
+
+I
+~
+
+
++ `m2sci_if`_ Conditionally execute statements
++ `m2sci_ifft`_ Inverse discrete Fourier transform
++ `m2sci_imag`_ Complex imaginary part
++ `m2sci_input`_ Request user input
++ `m2sci_int16`_ Convert to 16-bit signed integer
++ `m2sci_int32`_ Convert to 32-bit signed integer
++ `m2sci_int8`_ Convert to 8-bit signed integer
++ `m2sci_interp1`_ One_dimension interpolation function
++ `m2sci_inv`_ Matrix inverse
++ `m2sci_isa`_ Detect an object of a given type
++ `m2sci_iscell`_ Determine if input is a cell array
++ `m2sci_ischar`_ Determine if item is a character array
++ `m2sci_isdir`_ Determine if item is a directory
++ `m2sci_isempty`_ True for empty matrix
++ `m2sci_isequal`_ Determine if arrays are numerically equal
++ `m2sci_isfield`_ Determine if input is a structure array field
++ `m2sci_isfinite`_ True for finite elements
++ `m2sci_isglobal`_ Determine if item is a global variable
++ `m2sci_ishandle`_ Determines if values are valid graphics object
+  handles
++ `m2sci_ishold`_ Return hold state
++ `m2sci_isinf`_ True for infinite elements
++ `m2sci_isinteger`_ Detect whether an array has integer data type
++ `m2sci_isletter`_ True for letters of the alphabet
++ `m2sci_islogical`_ Determine if item is a logical array
++ `m2sci_isnan`_ Detect NaN elements of an array
++ `m2sci_isnumeric`_ Determine if input is a numeric array
++ `m2sci_ispc`_ Determine if PC (Windows) version
++ `m2sci_isreal`_ Determine if all array elements are real numbers
++ `m2sci_isscalar`_ Determine if input is scalar
++ `m2sci_isspace`_ Detect elements that are ASCII white spaces
++ `m2sci_isstr`_ Determine if item is a character array
++ `m2sci_isstruct`_ Determine if input is a structure array
++ `m2sci_isunix`_ Determine if Unix version
++ `m2sci_isvector`_ Determine if input is a vector
++ `m2sci_issparse`_ Test if matrix is sparse
+
+
+.. _m2sci_isunix: m2sci_isunix.html
+.. _m2sci_isinf: m2sci_isinf.html
+.. _m2sci_isspace: m2sci_isspace.html
+.. _m2sci_int16: m2sci_int16.html
+.. _m2sci_isvector: m2sci_isvector.html
+.. _m2sci_isequal: m2sci_isequal.html
+.. _m2sci_isdir: m2sci_isdir.html
+.. _m2sci_isnumeric: m2sci_isnumeric.html
+.. _m2sci_ischar: m2sci_ischar.html
+.. _m2sci_isnan: m2sci_isnan.html
+.. _m2sci_isglobal: m2sci_isglobal.html
+.. _m2sci_ispc: m2sci_ispc.html
+.. _m2sci_imag: m2sci_imag.html
+.. _m2sci_isempty: m2sci_isempty.html
+.. _m2sci_ifft: m2sci_ifft.html
+.. _m2sci_islogical: m2sci_islogical.html
+.. _m2sci_input: m2sci_input.html
+.. _m2sci_isa: m2sci_isa.html
+.. _m2sci_issparse: m2sci_issparse.html
+.. _m2sci_int8: m2sci_int8.html
+.. _m2sci_iscell: m2sci_iscell.html
+.. _m2sci_isletter: m2sci_isletter.html
+.. _m2sci_isfinite: m2sci_isfinite.html
+.. _m2sci_isreal: m2sci_isreal.html
+.. _m2sci_isfield: m2sci_isfield.html
+.. _m2sci_isstr: m2sci_isstr.html
+.. _m2sci_inv: m2sci_inv.html
+.. _m2sci_ishold: m2sci_ishold.html
+.. _m2sci_ishandle: m2sci_ishandle.html
+.. _m2sci_isinteger: m2sci_isinteger.html
+.. _m2sci_isstruct: m2sci_isstruct.html
+.. _m2sci_int32: m2sci_int32.html
+.. _m2sci_if: m2sci_if.html
+.. _m2sci_isscalar: m2sci_isscalar.html
+.. _m2sci_interp1: m2sci_interp1.html
+
+

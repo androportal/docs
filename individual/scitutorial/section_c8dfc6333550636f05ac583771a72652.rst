@@ -1,0 +1,55 @@
+
+
+
+Differential calculus, Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `bvode`_ Simplified call to bvode
++ `dae`_ Differential algebraic equations solver
++ `daeoptions`_ set options for dae solver
++ `dasrt`_ DAE solver with zero crossing
++ `dassl`_ differential algebraic equation
++ `feval`_ multiple evaluation
++ `impl`_ differential algebraic equation
++ `int2d`_ definite 2D integral by quadrature and cubature method
++ `int3d`_ definite 3D integral by quadrature and cubature method
++ `intc`_ Cauchy integral
++ `integrate`_ integration of an expression by quadrature
++ `intg`_ definite integral
++ `intl`_ Cauchy integral
++ `intsplin`_ integration of experimental data by spline interpolation
++ `inttrap`_ integration of experimental data by trapezoidal
+  interpolation
++ `ode`_ ordinary differential equation solver
++ `ode_discrete`_ ordinary differential equation solver, discrete time
+  simulation
++ `ode_optional_output`_ ode solvers optional outputs description
++ `ode_root`_ ordinary differential equation solver with root finding
++ `odedc`_ discrete/continuous ode solver
++ `odeoptions`_ set options for ode solvers
+
+
+.. _odeoptions: odeoptions.html
+.. _feval: feval.html
+.. _intg: intg.html
+.. _ode: ode.html
+.. _odedc: odedc.html
+.. _intl: intl.html
+.. _inttrap: inttrap.html
+.. _dassl: dassl.html
+.. _intc: intc.html
+.. _ode_optional_output: ode_optional_output.html
+.. _int3d: int3d.html
+.. _dae: dae.html
+.. _integrate: integrate.html
+.. _int2d: int2d.html
+.. _ode_root: ode_root.html
+.. _bvode: bvode.html
+.. _dasrt: dasrt.html
+.. _ode_discrete: ode_discrete.html
+.. _impl: impl.html
+.. _intsplin: intsplin.html
+.. _daeoptions: daeoptions.html
+
+

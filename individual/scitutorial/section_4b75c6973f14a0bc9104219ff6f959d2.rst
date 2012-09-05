@@ -1,0 +1,62 @@
+
+
+
+3d_plot
+~~~~~~~
+
+
++ `comet3d`_ 3D comet animated plot.
++ `contour`_ level curves on a 3D surface
++ `eval3d`_ values of a function on a grid
++ `eval3dp`_ compute facets of a 3D parametric surface
++ `fac3d`_ 3D plot of a surface (obsolete)
++ `fcontour`_ level curves on a 3D surface defined by a function
+  (obsolete function)
++ `fplot3d`_ 3D plot of a surface defined by a function
++ `fplot3d1`_ 3D gray or color level plot of a surface defined by a
+  function
++ `genfac3d`_ Compute facets of a 3D surface
++ `geom3d`_ projection from 3D on 2D after a 3D plot
++ `hist3d`_ 3D representation of a histogram
++ `mesh`_ 3D mesh plot
++ `milk_drop`_ Milk drop 3D function
++ `nf3d`_ Rectangular facets to plot3d parameters
++ `param3d`_ 3D plot of a parametric curve
++ `param3d1`_ 3D plot of parametric curves
++ `param3d_properties`_ description of the 3D curves entities
+  properties
++ `plot3d`_ 3D plot of a surface
++ `plot3d1`_ 3D gray or color level plot of a surface
++ `plot3d2`_ plot surface defined by rectangular facets
++ `plot3d3`_ mesh plot surface defined by rectangular facets
++ `secto3d`_ 3D surfaces conversion
++ `surf`_ 3D surface plot
++ `surface_properties`_ description of the 3D entities properties
+
+
+.. _mesh: mesh.html
+.. _plot3d3: plot3d3.html
+.. _plot3d: plot3d.html
+.. _param3d_properties: param3d_properties.html
+.. _fac3d: fac3d.html
+.. _surf: surf.html
+.. _plot3d1: plot3d1.html
+.. _eval3d: eval3d.html
+.. _param3d: param3d.html
+.. _param3d1: param3d1.html
+.. _eval3dp: eval3dp.html
+.. _comet3d: comet3d.html
+.. _genfac3d: genfac3d.html
+.. _contour: contour.html
+.. _hist3d: hist3d.html
+.. _fplot3d: fplot3d.html
+.. _fcontour: fcontour.html
+.. _nf3d: nf3d.html
+.. _fplot3d1: fplot3d1.html
+.. _surface_properties: surface_properties.html
+.. _milk_drop: milk_drop.html
+.. _plot3d2: plot3d2.html
+.. _geom3d: geom3d.html
+.. _secto3d: secto3d.html
+
+

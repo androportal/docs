@@ -1,0 +1,25 @@
+
+
+
+Sparse Matrix Conversion
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `adj2sp`_ converts adjacency form into sparse matrix.
++ `full`_ sparse to full matrix conversion
++ `mtlb_sparse`_ convert sparse matrix
++ `sp2adj`_ converts sparse matrix into adjacency form
++ `sparse`_ sparse matrix definition
++ `spcompack`_ converts a compressed adjacency representation
++ `spget`_ retrieves entries of sparse matrix
+
+
+.. _adj2sp: adj2sp.html
+.. _spget: spget.html
+.. _spcompack: spcompack.html
+.. _mtlb_sparse: mtlb_sparse.html
+.. _sp2adj: sp2adj.html
+.. _full: full.html
+.. _sparse: sparse.html
+
+

@@ -1,0 +1,35 @@
+
+
+
+Tree
+~~~~
+
+
++ `uiConcatTree`_ Concatenation of Trees
++ `uiCreateNode`_ Creation of node (for Scilab Tree)
++ `uiCreateTree`_ Creation of a Tree
++ `uiDeleteNode`_ Deletion in a Tree
++ `uiDisplayTree`_ Printing a Tree in GUI mode
++ `uiDumpTree`_ Printing a Tree in the console (text mode)
++ `uiEqualsTree`_ Comparing two trees
++ `uiFindNode`_ Find node in Tree
++ `uiGetChildrenNode`_ Get Children of a node
++ `uiGetNodePosition`_ Get the position(s) of a node
++ `uiGetParentNode`_ Get Parent of a node
++ `uiInsertNode`_ Insertion in a Tree
+
+
+.. _uiInsertNode: uiInsertNode.html
+.. _uiCreateNode: uiCreateNode.html
+.. _uiConcatTree: uiConcatTree.html
+.. _uiFindNode: uiFindNode.html
+.. _uiDeleteNode: uiDeleteNode.html
+.. _uiDisplayTree: uiDisplayTree.html
+.. _uiDumpTree: uiDumpTree.html
+.. _uiCreateTree: uiCreateTree.html
+.. _uiGetNodePosition: uiGetNodePosition.html
+.. _uiEqualsTree: uiEqualsTree.html
+.. _uiGetChildrenNode: uiGetChildrenNode.html
+.. _uiGetParentNode: uiGetParentNode.html
+
+

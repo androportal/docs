@@ -1,0 +1,33 @@
+
+
+
+Special Functions
+~~~~~~~~~~~~~~~~~
+
+
++ `bessel`_ Bessel functions of the third kind (aka Hankel functions)
++ `beta`_ beta function
++ `calerf`_ computes error functions.
++ `dlgamma`_ derivative of gammaln function, psi function
++ `erf`_ The error function.
++ `erfc`_ The complementary error function.
++ `erfcx`_ scaled complementary error function.
++ `erfinv`_ inverse error function
++ `gamma`_ The gamma function.
++ `gammaln`_ The logarithm of gamma function.
++ `legendre`_ associated Legendre functions
+
+
+.. _erfc: erfc.html
+.. _calerf: calerf.html
+.. _erfcx: erfcx.html
+.. _legendre: legendre.html
+.. _beta: beta.html
+.. _bessel: bessel.html
+.. _erfinv: erfinv.html
+.. _gammaln: gammaln.html
+.. _erf: erf.html
+.. _gamma: gamma.html
+.. _dlgamma: dlgamma.html
+
+

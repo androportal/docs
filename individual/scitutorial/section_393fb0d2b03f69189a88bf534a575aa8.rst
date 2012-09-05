@@ -1,0 +1,40 @@
+
+
+
+History manager
+~~~~~~~~~~~~~~~
+
+
++ `addhistory`_ add lines to current history.
++ `browsehistory`_ Open the Scilab history browser
++ `displayhistory`_ displays current scilab history
++ `gethistory`_ returns current scilab history in a string matrix
++ `gethistoryfile`_ get filename used for scilab's history
++ `historymanager`_ enable or disable history manager
++ `historysize`_ get number of lines in history
++ `loadhistory`_ load a history file
++ `removelinehistory`_ remove the Nth line in history.
++ `resethistory`_ Deletes all entries in the scilab history.
++ `saveafterncommands`_ Save the history file after n statements are
+  added to the file.
++ `saveconsecutivecommands`_ Save consecutive duplicate commands.
++ `savehistory`_ save the current history in a file
++ `sethistoryfile`_ set filename for scilab history
+
+
+.. _addhistory: addhistory.html
+.. _saveconsecutivecommands: saveconsecutivecommands.html
+.. _gethistory: gethistory.html
+.. _gethistoryfile: gethistoryfile.html
+.. _historymanager: historymanager.html
+.. _savehistory: savehistory.html
+.. _displayhistory: displayhistory.html
+.. _resethistory: resethistory.html
+.. _saveafterncommands: saveafterncommands.html
+.. _loadhistory: loadhistory.html
+.. _sethistoryfile: sethistoryfile.html
+.. _historysize: historysize.html
+.. _removelinehistory: removelinehistory.html
+.. _browsehistory: browsehistory.html
+
+

@@ -1,0 +1,577 @@
+
+
+
+Graphics
+~~~~~~~~
+
+
++ `2d_plot`_
+
+    + `LineSpec`_ to quickly customize the lines appearance in a plot
+    + `Matplot`_ 2D plot of a matrix using colors
+    + `Matplot1`_ 2D plot of a matrix using colors
+    + `Matplot_properties`_ description of the Matplot entities properties
+    + `Sfgrayplot`_ smooth 2D plot of a surface defined by a function
+      using colors
+    + `Sgrayplot`_ smooth 2D plot of a surface using colors
+    + `champ`_ 2D vector field plot
+    + `champ1`_ 2D vector field plot with colored arrows
+    + `champ_properties`_ description of the 2D vector field entity
+      properties
+    + `comet`_ 2D comet animated plot.
+    + `contour2d`_ level curves of a surface on a 2D plot
+    + `contour2di`_ compute level curves of a surface on a 2D plot
+    + `contourf`_ filled level curves of a surface on a 2D plot
+    + `errbar`_ Add vertical error bars on a 2D plot
+    + `fchamp`_ direction field of a 2D first order ODE
+    + `fcontour2d`_ Level curves of a surface defined by a function on a
+      2D plot (obsolete function)
+    + `fec`_ pseudo-color plot of a function defined on a triangular mesh
+    + `fec_properties`_ description of the fec entities properties
+    + `fgrayplot`_ 2D plot of a surface defined by a function using colors
+    + `fplot2d`_ 2D plot of a curve defined by a function
+    + `grayplot`_ 2D plot of a surface using colors
+    + `grayplot_properties`_ description of the grayplot entities
+      properties
+    + `graypolarplot`_ Polar 2D plot of a surface using colors
+    + `histplot`_ plot a histogram
+    + `paramfplot2d`_ animated plot of a 2D parametrized curve.
+    + `plot`_ 2D plot
+    + `plot2d`_ 2D plot
+    + `plot2d1`_ 2D plot (logarithmic axes) (obsolete)
+    + `plot2d2`_ 2D plot (step function)
+    + `plot2d3`_ 2D plot (vertical bars)
+    + `plot2d4`_ 2D plot (arrows style)
+    + `polarplot`_ Plot polar coordinates
+
++ `3d_plot`_
+
+    + `comet3d`_ 3D comet animated plot.
+    + `contour`_ level curves on a 3D surface
+    + `eval3d`_ values of a function on a grid
+    + `eval3dp`_ compute facets of a 3D parametric surface
+    + `fac3d`_ 3D plot of a surface (obsolete)
+    + `fcontour`_ level curves on a 3D surface defined by a function
+      (obsolete function)
+    + `fplot3d`_ 3D plot of a surface defined by a function
+    + `fplot3d1`_ 3D gray or color level plot of a surface defined by a
+      function
+    + `genfac3d`_ Compute facets of a 3D surface
+    + `geom3d`_ projection from 3D on 2D after a 3D plot
+    + `hist3d`_ 3D representation of a histogram
+    + `mesh`_ 3D mesh plot
+    + `milk_drop`_ Milk drop 3D function
+    + `nf3d`_ Rectangular facets to plot3d parameters
+    + `param3d`_ 3D plot of a parametric curve
+    + `param3d1`_ 3D plot of parametric curves
+    + `param3d_properties`_ description of the 3D curves entities
+      properties
+    + `plot3d`_ 3D plot of a surface
+    + `plot3d1`_ 3D gray or color level plot of a surface
+    + `plot3d2`_ plot surface defined by rectangular facets
+    + `plot3d3`_ mesh plot surface defined by rectangular facets
+    + `secto3d`_ 3D surfaces conversion
+    + `surf`_ 3D surface plot
+    + `surface_properties`_ description of the 3D entities properties
+
++ `annotation`_
+
+    + `captions`_ draw graph captions
+    + `label_properties`_ description of the Label entity properties
+    + `legend`_ draw graph legend
+    + `legend_properties`_ description of the Legend entity properties.
+    + `legends`_ draw graph legend
+    + `title`_ display a title on a graphic window
+    + `xlabel`_ label z-axis
+    + `xtitle`_ add titles on a graphics window
+
++ `axes_operations`_
+
+    + `axes_properties`_ description of the axes entity properties
+    + `gca`_ Return handle of current axes.
+    + `gda`_ Return handle of default axes.
+    + `graduate`_ Pretty axis graduations
+    + `isoview`_ set scales for isometric plot (do not change the size of
+      the window)
+    + `newaxes`_ Creates a new Axes entity
+    + `plotframe`_ plot a frame with scaling and grids. **This function is
+      obsolete.**
+    + `replot`_ redraw the current graphics window with new boundaries
+    + `rotate_axes`_ Interactive rotation of an Axes handle.
+    + `sca`_ set the current axes entity
+    + `sda`_ Set default axes.
+    + `subplot`_ divide a graphics window into a matrix of sub-windows
+    + `unzoom`_ unzoom graphics
+    + `zoom_rect`_ zoom a selection of the current graphic figure
+
++ `axis`_
+
+    + `axis_properties`_ description of the axis entity properties
+    + `drawaxis`_ draw an axis
+
++ `bar_histogram`_
+
+    + `bar`_ bar histogram
+    + `barh`_ horizontal display of bar histogram
+    + `barhomogenize`_ homogenize all the bars included in the current
+      working axes
+
++ `Color management`_
+
+    + `addcolor`_ add new colors to the current colormap
+    + `autumncolormap`_ red through orange to yellow colormap
+    + `bonecolormap`_ gray colormap with a light blue tone
+    + `color`_ returns the color id of a color
+    + `color_list`_ list of named colors
+    + `colorbar`_ draw a colorbar
+    + `colordef`_ Set default color values to display different color
+      schemes
+    + `colormap`_ using colormaps
+    + `coolcolormap`_ cyan to magenta colormap
+    + `coppercolormap`_ black to a light copper tone colormap
+    + `getcolor`_ opens a dialog to show colors in the current colormap
+    + `graycolormap`_ linear gray colormap
+    + `hotcolormap`_ red to yellow colormap
+    + `hsv2rgb`_ Converts HSV colors to RGB
+    + `hsvcolormap`_ Hue-saturation-value colormap
+    + `jetcolormap`_ blue to red colormap
+    + `name2rgb`_ returns the RGB values of a named color
+    + `oceancolormap`_ linear blue colormap
+    + `pinkcolormap`_ sepia tone colorization on black and white images
+    + `rainbowcolormap`_ red through orange, yellow, green,blue to violet
+      colormap
+    + `rgb2name`_ returns the name of a color
+    + `springcolormap`_ magenta to yellow colormap
+    + `summercolormap`_ green to yellow colormap
+    + `whitecolormap`_ completely white colormap
+    + `wintercolormap`_ blue to green colormap
+
++ `Datatips`_
+
+    + `datatipCreate`_ Create a data tip on a polyline by program
+    + `datatipGetEntities`_ Get all the entities compatible with datatips
+      in the given axes.
+    + `datatipGetStruct`_ Retreive the datatips data structure from the
+      polyline entity.
+    + `datatipInitStruct`_ Initialize the datatip structure associated
+      with the given polyline.
+    + `datatipManagerMode`_ Set or toggles the data tips mode.
+    + `datatipMove`_ Move a specified datatip using the mouse.
+    + `datatipRedraw`_ Redraw all datatips after a 3D rotation to adjust
+      their positions
+    + `datatipRemove`_ Removes a selected datatip
+    + `datatipRemoveAll`_ Removes all datatips on a set of polylines.
+    + `datatipSetDisplay`_ Set the function used to compute the datatip
+      string.
+    + `datatipSetInterp`_ Set the interpolation mode for tip location.
+    + `datatipSetOrientation`_ Set the position of the text box associated
+      with the given tip.
+    + `datatipSetStruct`_ Stores the datatips data structure in the
+      polyline entity.
+    + `datatipSetStyle`_ Set the tip style for the given polyline
+      datatips.
+    + `datatipToggle`_ toggles the data tips mode.
+    + `datatips`_ Tool for placing and editing tips along the plotted
+      curves.
+    + `orthProj`_ Computes the orthogonal projection of a point to a
+      polyline in the plane.
+
++ `figure_operations`_
+
+    + `clf`_ clear or reset the current graphic figure (window) to default
+      values
+    + `drawlater`_ makes axes children invisible.
+    + `drawnow`_ draw hidden graphics entities.
+    + `figure_properties`_ description of the graphics figure entity
+      properties
+    + `gcf`_ Return handle of current graphic window.
+    + `gdf`_ Return handle of default figure.
+    + `scf`_ set the current graphic figure (window)
+    + `sdf`_ Set default figure.
+
++ `geometric_shapes`_
+
+    + `arc_properties`_ description of the Arc entity properties
+    + `rectangle_properties`_ description of the Rectangle entity
+      properties
+    + `xarc`_ draw a part of an ellipse
+    + `xarcs`_ draw parts of a set of ellipses
+    + `xarrows`_ draw a set of arrows
+    + `xfarc`_ Fill a part of an ellipse
+    + `xfarcs`_ Fill parts of a set of ellipses
+    + `xfrect`_ fill a rectangle
+    + `xrect`_ draw a rectangle
+    + `xrects`_ draw or fill a set of rectangles
+
++ `handle`_
+
+    + `copy`_ copy a graphics entity.
+    + `delete`_ delete a graphic entity and its children.
+    + `draw`_ draw an entity. **This function is obsolete.**
+    + `gce`_ Get current entity handle.
+    + `ged`_ Scilab Graphic Editor
+    + `get_figure_handle`_ get a figure handle from its id
+    + `glue`_ glue a set of graphics entities into an Compound.
+    + `is_handle_valid`_ Check wether a set of graphic handles is still
+      valid.
+    + `relocate_handle`_ Move handles inside the graphic hierarchy.
+    + `swap_handles`_ Permute two handles in the graphic Hierarchy.
+    + `unglue`_ unglue a coumpound object and replace it by individual
+      children.
+
++ `interaction`_
+
+    + `dragrect`_ Drag rectangle(s) with mouse
+    + `edit_curv`_ interactive graphic curve editor
+    + `eventhandlerfunctions`_ Prototype of functions which may be used as
+      event handler.
+    + `locate`_ mouse selection of a set of points
+    + `seteventhandler`_ set an event handler for the current graphic
+      window
+    + `xclick`_ Wait for a mouse click or an event in a graphic window.
+    + `xgetmouse`_ get the mouse events and current position
+
++ `load_save`_
+
+    + `xload`_ load a saved graphics
+    + `xsave`_ save graphics into a file
+
++ `pie`_
+
+    + `pie`_ draw a pie
+
++ `polygon`_
+
+    + `polyline_properties`_ description of the Polyline entity properties
+    + `xfpoly`_ fill a polygon
+    + `xfpolys`_ fill a set of polygons
+    + `xpoly`_ draw a polyline or a polygon
+    + `xpolys`_ draw a set of polylines or polygons
+    + `xrpoly`_ draw a regular polygon
+
++ `property`_
+
+    + `get`_ Retrieve a property value from a graphics entity or an User
+      Interface object.
+    + `set`_ set a property value of a graphic entity object or of a User
+      Interface object.
+
++ `style`_
+
+    + `getlinestyle`_ dialog to select linestyle. **Obsolete function.**
+    + `getmark`_ dialog to select mark (symbol). **Obsolete function**
+    + `getsymbol`_ dialog to select a symbol and its size. **Obsolete
+      function**
+
++ `text`_
+
+    + `getfont`_ dialog to select font **.Obsolete function.**
+    + `graphics_fonts`_ description of fonts used in graphic figures
+    + `math_rendering_features_in_graphic`_ Display mathematical equations
+      in Scilab graphics through the LaTeX or MathML languages.
+    + `stringbox`_ Compute the bounding rectangle of a text or a label.
+    + `text_properties`_ description of the Text entity properties
+    + `titlepage`_ add a title in the middle of a graphics window
+    + `xinfo`_ draw an info string in the message subwindow
+    + `xlfont`_ load a font in the graphic context or query loaded font
+    + `xstring`_ draw strings
+    + `xstringb`_ draw strings into a box
+    + `xstringl`_ compute a box which surrounds strings
+
++ `transform`_
+
+    + `move`_ move, translate, a graphic entity and its children.
+    + `rotate`_ rotation of a set of points
+    + `scaling`_ affine transformation of a set of points
+
++ `window_control`_
+
+    + `havewindow`_ return scilab window mode
+    + `show_window`_ raises a graphics window
+    + `winsid`_ return the list of graphics windows
+    + `xselect`_ raise the current graphics window
+
++ `GlobalProperty`_ to customize the objects appearance (curves,
+  surfaces...) in a plot or surf command.
++ `Graphics`_ graphics library overview
++ `alufunctions`_ pixel drawing functions. **This function is
+  obsolete.**
++ `clear_pixmap`_ erase the pixmap buffer **This function is
+  obsolete.**
++ `Compound_properties`_ description of the Compound entity properties
++ `graphics_entities`_ description of the graphics entities data
+  structures
++ `object_editor`_ description of the graphic object editor capacities
++ `pixel_drawing_mode`_ bitwise pixel rendering functions.
++ `plzr`_ pole-zero plot
++ `rubberbox`_ Rubberband box for rectangle selection
++ `segs_properties`_ description of the Segments entity properties
++ `show_pixmap`_ send the pixmap buffer to the screen **This function
+  is obsolete.**
++ `square`_ set scales for isometric plot (change the size of the
+  window)
++ `twinkle`_ is used to have a graphics entity twinkle
++ `xbasr`_ redraw a graphics window
++ `xchange`_ transform real to pixel coordinates
++ `xclear`_ clears a graphics window
++ `xdel`_ delete a graphics window
++ `xget`_ get current values of the graphics context. **This function
+  is obsolete.**
++ `xgetech`_ get the current graphics scale
++ `xgraduate`_ axis graduation
++ `xgrid`_ add a grid on a 2D plot
++ `xname`_ change the name of the current graphics window
++ `xnumb`_ draw numbers
++ `xpause`_ suspend Scilab
++ `xsegs`_ draw unconnected segments
++ `xset`_ set values of the graphics context. **This function is
+  obsolete.**
++ `xsetech`_ set the sub-window of a graphics window for plotting
++ `xsetm`_ dialog to set values of the graphics context. **Obsolete
+  function.**
+
+
+.. _mesh: mesh.html
+.. _Datatips: section_801793dea005b69cc373e084471fe1aa.html
+.. _getsymbol: getsymbol.html
+.. _plot3d3: plot3d3.html
+.. _clear_pixmap: clear_pixmap.html
+.. _xsetech: xsetech.html
+.. _rgb2name: rgb2name.html
+.. _load_save: section_9c0b740f709e5f75b193db5cb4aae16b.html
+.. _color: color.html
+.. _figure_properties: figure_properties.html
+.. _move: move.html
+.. _xdel: xdel.html
+.. _GlobalProperty: GlobalProperty.html
+.. _hsv2rgb: hsv2rgb.html
+.. _plot2d4: plot2d4.html
+.. _legend: legend.html
+.. _xarrows: xarrows.html
+.. _xstring: xstring.html
+.. _havewindow: havewindow.html
+.. _text: section_751e57145e7c88d4e4190e805e9cc924.html
+.. _clf: clf.html
+.. _polygon: section_dd30ba24d52ae4ee091a56ddff06c205.html
+.. _genfac3d: genfac3d.html
+.. _twinkle: twinkle.html
+.. _datatipSetStyle: datatipSetStyle.html
+.. _relocate_handle: relocate_handle.html
+.. _Matplot1: Matplot1.html
+.. _set: set.html
+.. _plotframe: plotframe.html
+.. _xarc: xarc.html
+.. _bonecolormap: bonecolormap.html
+.. _xstringb: xstringb.html
+.. _springcolormap: springcolormap.html
+.. _graycolormap: graycolormap.html
+.. _oceancolormap: oceancolormap.html
+.. _xgrid: xgrid.html
+.. _fcontour2d: fcontour2d.html
+.. _isoview: isoview.html
+.. _subplot: subplot.html
+.. _xclick: xclick.html
+.. _pie: pie.html
+.. _scf: scf.html
+.. _axis_properties: axis_properties.html
+.. _drawaxis: drawaxis.html
+.. _gca: gca.html
+.. _fgrayplot: fgrayplot.html
+.. _graphics_fonts: graphics_fonts.html
+.. _rotate_axes: rotate_axes.html
+.. _xgetech: xgetech.html
+.. _xbasr: xbasr.html
+.. _barh: barh.html
+.. _Graphics: Graphics.html
+.. _fac3d: fac3d.html
+.. _seteventhandler: seteventhandler.html
+.. _grayplot: grayplot.html
+.. _math_rendering_features_in_graphic: math_rendering_features_in_graphic.html
+.. _plot2d: plot2d.html
+.. _ged: ged.html
+.. _getlinestyle: getlinestyle.html
+.. _fcontour: fcontour.html
+.. _xget: xget.html
+.. _xpoly: xpoly.html
+.. _unzoom: unzoom.html
+.. _winsid: winsid.html
+.. _zoom_rect: zoom_rect.html
+.. _xset: xset.html
+.. _xpolys: xpolys.html
+.. _Sgrayplot: Sgrayplot.html
+.. _xrects: xrects.html
+.. _surf: surf.html
+.. _title: title.html
+.. _xfpoly: xfpoly.html
+.. _coppercolormap: coppercolormap.html
+.. _datatipInitStruct: datatipInitStruct.html
+.. _xinfo: xinfo.html
+.. _autumncolormap: autumncolormap.html
+.. _xtitle: xtitle.html
+.. _datatipGetEntities: datatipGetEntities.html
+.. _xgetmouse: xgetmouse.html
+.. _pie: section_25f0d262a161e736adea486dfdd13252.html
+.. _axes_operations: section_828699b729d1431f6ce22683aae2e9ba.html
+.. _eval3d: eval3d.html
+.. _polyline_properties: polyline_properties.html
+.. _wintercolormap: wintercolormap.html
+.. _style: section_733da8aac261289ed838e57ee2f43198.html
+.. _rubberbox: rubberbox.html
+.. _hotcolormap: hotcolormap.html
+.. _glue: glue.html
+.. _datatipCreate: datatipCreate.html
+.. _addcolor: addcolor.html
+.. _xnumb: xnumb.html
+.. _graduate: graduate.html
+.. _newaxes: newaxes.html
+.. _contour2d: contour2d.html
+.. _getfont: getfont.html
+.. _get: get.html
+.. _contour: contour.html
+.. _hist3d: hist3d.html
+.. _xrect: xrect.html
+.. _xfrect: xfrect.html
+.. _locate: locate.html
+.. _xfarcs: xfarcs.html
+.. _object_editor: object_editor.html
+.. _transform: section_1843e2e0ad41ba833ff17570abbfa881.html
+.. _paramfplot2d: paramfplot2d.html
+.. _name2rgb: name2rgb.html
+.. _get_figure_handle: get_figure_handle.html
+.. _fec_properties: fec_properties.html
+.. _stringbox: stringbox.html
+.. _datatips: datatips.html
+.. _captions: captions.html
+.. _LineSpec: LineSpec.html
+.. _property: section_10ecd9d2e70f950638ea02af7bf0ef79.html
+.. _comet: comet.html
+.. _gda: gda.html
+.. _text_properties: text_properties.html
+.. _annotation: section_aedd216de99d2d3cee412e47a44d1a8e.html
+.. _handle: section_ebb8f8860c6812a0395843962ab552d1.html
+.. _gcf: gcf.html
+.. _draw: draw.html
+.. _datatipSetInterp: datatipSetInterp.html
+.. _geom3d: geom3d.html
+.. _pixel_drawing_mode: pixel_drawing_mode.html
+.. _datatipManagerMode: datatipManagerMode.html
+.. _histplot: histplot.html
+.. _3d_plot: section_4b75c6973f14a0bc9104219ff6f959d2.html
+.. _coolcolormap: coolcolormap.html
+.. _colormap: colormap.html
+.. _legend_properties: legend_properties.html
+.. _copy: copy.html
+.. _fec: fec.html
+.. _xlabel: xlabel.html
+.. _plot3d: plot3d.html
+.. _swap_handles: swap_handles.html
+.. _param3d_properties: param3d_properties.html
+.. _window_control: section_a89ceeebe0239dcecf35318dfeba0c19.html
+.. _segs_properties: segs_properties.html
+.. _colorbar: colorbar.html
+.. _bar_histogram: section_f149d123478ef89567dfd03f11d9e1d6.html
+.. _xfpolys: xfpolys.html
+.. _legends: legends.html
+.. _plot2d2: plot2d2.html
+.. _eventhandlerfunctions: eventhandlerfunctions.html
+.. _square: square.html
+.. _rotate: rotate.html
+.. _color_list: color_list.html
+.. _getcolor: getcolor.html
+.. _param3d: param3d.html
+.. _datatipSetOrientation: datatipSetOrientation.html
+.. _comet3d: comet3d.html
+.. _datatipSetDisplay: datatipSetDisplay.html
+.. _is_handle_valid: is_handle_valid.html
+.. _plot2d3: plot2d3.html
+.. _datatipToggle: datatipToggle.html
+.. _Sfgrayplot: Sfgrayplot.html
+.. _figure_operations: section_117e012164ef3101749540a1bbec6be2.html
+.. _colordef: colordef.html
+.. _show_window: show_window.html
+.. _datatipRemove: datatipRemove.html
+.. _nf3d: nf3d.html
+.. _gce: gce.html
+.. _fplot3d1: fplot3d1.html
+.. _Compound_properties: Compound_properties.html
+.. _drawnow: drawnow.html
+.. _xarcs: xarcs.html
+.. _champ_properties: champ_properties.html
+.. _rainbowcolormap: rainbowcolormap.html
+.. _milk_drop: milk_drop.html
+.. _xlfont: xlfont.html
+.. _xchange: xchange.html
+.. _show_pixmap: show_pixmap.html
+.. _fchamp: fchamp.html
+.. _xsave: xsave.html
+.. _drawlater: drawlater.html
+.. _datatipRemoveAll: datatipRemoveAll.html
+.. _getmark: getmark.html
+.. _graphics_entities: graphics_entities.html
+.. _plot3d2: plot3d2.html
+.. _scaling: scaling.html
+.. _datatipMove: datatipMove.html
+.. _gdf: gdf.html
+.. _champ: champ.html
+.. _xpause: xpause.html
+.. _2d_plot: section_c6184449ed3011c8c507558b78a52581.html
+.. _jetcolormap: jetcolormap.html
+.. _plot: plot.html
+.. _Color management: section_9e776a11030648219ef68bf2ad3f5df9.html
+.. _surface_properties: surface_properties.html
+.. _xstringl: xstringl.html
+.. _axis: section_746403c865a9a29d80dbf117991b3440.html
+.. _bar: bar.html
+.. _xrpoly: xrpoly.html
+.. _whitecolormap: whitecolormap.html
+.. _edit_curv: edit_curv.html
+.. _xfarc: xfarc.html
+.. _replot: replot.html
+.. _datatipSetStruct: datatipSetStruct.html
+.. _alufunctions: alufunctions.html
+.. _fplot3d: fplot3d.html
+.. _plot3d1: plot3d1.html
+.. _grayplot_properties: grayplot_properties.html
+.. _xload: xload.html
+.. _plzr: plzr.html
+.. _fplot2d: fplot2d.html
+.. _sda: sda.html
+.. _graypolarplot: graypolarplot.html
+.. _arc_properties: arc_properties.html
+.. _param3d1: param3d1.html
+.. _eval3dp: eval3dp.html
+.. _xname: xname.html
+.. _Matplot: Matplot.html
+.. _xsetm: xsetm.html
+.. _hsvcolormap: hsvcolormap.html
+.. _unglue: unglue.html
+.. _plot2d1: plot2d1.html
+.. _datatipGetStruct: datatipGetStruct.html
+.. _geometric_shapes: section_32b0df19ca3ab0e0712f9e8a94e2e9be.html
+.. _xclear: xclear.html
+.. _xselect: xselect.html
+.. _label_properties: label_properties.html
+.. _polarplot: polarplot.html
+.. _orthProj: orthProj.html
+.. _contour2di: contour2di.html
+.. _sdf: sdf.html
+.. _Matplot_properties: Matplot_properties.html
+.. _xgraduate: xgraduate.html
+.. _pinkcolormap: pinkcolormap.html
+.. _contourf: contourf.html
+.. _xsegs: xsegs.html
+.. _errbar: errbar.html
+.. _rectangle_properties: rectangle_properties.html
+.. _summercolormap: summercolormap.html
+.. _datatipRedraw: datatipRedraw.html
+.. _champ1: champ1.html
+.. _delete: delete.html
+.. _sca: sca.html
+.. _barhomogenize: barhomogenize.html
+.. _secto3d: secto3d.html
+.. _axes_properties: axes_properties.html
+.. _titlepage: titlepage.html
+.. _dragrect: dragrect.html
+.. _interaction: section_d5a362bfc5837baa7ce6c93e74c80fdc.html
+
+

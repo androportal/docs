@@ -1,0 +1,23 @@
+
+
+
+Discontinuities palette
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `discontinuities_pal`_ discontinuities palette
++ `BACKLASH`_ Backlash
++ `DEADBAND`_ Deadband
++ `HYSTHERESIS`_ Hystheresis
++ `RATELIMITER`_ Rate limiter
++ `SATURATION`_ Saturation
+
+
+.. _discontinuities_pal: discontinuities_pal.html
+.. _BACKLASH: BACKLASH.html
+.. _HYSTHERESIS: HYSTHERESIS.html
+.. _SATURATION: SATURATION.html
+.. _DEADBAND: DEADBAND.html
+.. _RATELIMITER: RATELIMITER.html
+
+

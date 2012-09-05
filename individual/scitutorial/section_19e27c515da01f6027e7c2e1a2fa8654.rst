@@ -1,0 +1,41 @@
+
+
+
+E
+~
+
+
++ `m2sci_echo`_ Echo lines during execution
++ `m2sci_eig`_ Find eigenvalues and eigenvectors
++ `m2sci_else`_ Conditionally execute statements
++ `m2sci_elseif`_ Conditionally execute statements
++ `m2sci_erf`_ Error function
++ `m2sci_erfc`_ Complementary error function
++ `m2sci_erfcx`_ Scaled complementary error function
++ `m2sci_error`_ Display error messages
++ `m2sci_etime`_ Elapsed time
++ `m2sci_eval`_ Execute a string containing an instruction/expression
++ `m2sci_exist`_ Check if a variable or file exists
++ `m2sci_exit`_ Ends current session
++ `m2sci_exp`_ Exponential
++ `m2sci_expm`_ Matrix exponential
++ `m2sci_eye`_ Identity matrix
+
+
+.. _m2sci_etime: m2sci_etime.html
+.. _m2sci_erfcx: m2sci_erfcx.html
+.. _m2sci_exp: m2sci_exp.html
+.. _m2sci_exist: m2sci_exist.html
+.. _m2sci_eval: m2sci_eval.html
+.. _m2sci_eye: m2sci_eye.html
+.. _m2sci_else: m2sci_else.html
+.. _m2sci_expm: m2sci_expm.html
+.. _m2sci_erf: m2sci_erf.html
+.. _m2sci_error: m2sci_error.html
+.. _m2sci_exit: m2sci_exit.html
+.. _m2sci_elseif: m2sci_elseif.html
+.. _m2sci_echo: m2sci_echo.html
+.. _m2sci_erfc: m2sci_erfc.html
+.. _m2sci_eig: m2sci_eig.html
+
+

@@ -1,0 +1,102 @@
+
+
+
+Optimization and Simulation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Neldermead`_
+
+    + `fminsearch`_ Computes the unconstrained minimimum of given function
+      with the Nelder-Mead algorithm.
+    + `neldermead`_ Provides direct search optimization algorithms.
+    + `neldermead_overview`_ An overview of the Nelder-Mead toolbox.
+    + `nmplot`_ Provides direct search optimization algorithms.
+    + `optimget`_ Queries an optimization data structure.
+    + `optimplotfunccount`_ Plot the number of function evaluations of an
+      optimization algorithm
+    + `optimplotfval`_ Plot the function value of an optimization
+      algorithm
+    + `optimplotx`_ Plot the value of the parameters of an optimization
+      algorithm
+    + `optimset`_ Configures and returns an optimization data structure.
+
++ `Optimization base`_
+
+    + `optimbase`_ Provides an abstract class for a general optimization
+      component.
+
++ `Optimization simplex`_
+
+    + `optimsimplex`_ Manage a simplex with arbitrary number of points.
+
++ `Semidefinite Programming`_
+
+    + `aplat`_ Flattens a list.
+    + `list2vec`_ Concatenates list entries in a matrix.
+    + `lmisolver`_ Solve linear matrix inequations.
+    + `lmitool`_ Graphical tool for solving linear matrix inequations.
+    + `pack`_ Compress a list of block-diagonal symmetric matrices.
+    + `recons`_ Inverse function for aplat.
+    + `semidef`_ Solve semidefinite problems.
+    + `unpack`_ Uncompress a list of block-diagonal symmetric matrices.
+    + `vec2list`_ Inverse function of list2vec.
+
++ `NDcost`_ generic external for optim computing gradient using finite
+  differences
++ `datafit`_ Parameter identification based on measured data
++ `derivative`_ approximate derivatives of a function
++ `fit_dat`_ Parameter identification based on measured data
++ `fsolve`_ find a zero of a system of n nonlinear functions
++ `karmarkar`_ Solves a linear optimization problem.
++ `leastsq`_ Solves non-linear least squares problems
++ `lsqrsolve`_ minimize the sum of the squares of nonlinear functions,
+  levenberg-marquardt algorithm
++ `numdiff`_ numerical gradient estimation
++ `optim`_ non-linear optimization routine
++ `qld`_ linear quadratic programming solver
++ `qp_solve`_ linear quadratic programming solver builtin
++ `qpsolve`_ linear quadratic programming solver
++ `readmps`_ Reads a Linear Program from a MPS file.
+
+
+.. _vec2list: vec2list.html
+.. _fit_dat: fit_dat.html
+.. _Optimization simplex: section_1b29874556eade84d39d9ddc5017e712.html
+.. _numdiff: numdiff.html
+.. _readmps: readmps.html
+.. _lsqrsolve: lsqrsolve.html
+.. _unpack: unpack.html
+.. _qp_solve: qp_solve.html
+.. _datafit: datafit.html
+.. _karmarkar: karmarkar.html
+.. _lmisolver: lmisolver.html
+.. _optimsimplex: optimsimplex.html
+.. _nmplot: nmplot.html
+.. _optimbase: optimbase.html
+.. _optimplotfunccount: optimplotfunccount.html
+.. _neldermead_overview: neldermead_overview.html
+.. _optimget: optimget.html
+.. _semidef: semidef.html
+.. _optimplotfval: optimplotfval.html
+.. _fsolve: fsolve.html
+.. _optim: optim.html
+.. _lmitool: lmitool.html
+.. _neldermead: neldermead.html
+.. _Neldermead: section_996ac45bd8bf6981675a3deffce13c8a.html
+.. _Optimization base: section_9a91c077be6a35d256b6112c69d20cc3.html
+.. _NDcost: NDcost.html
+.. _Semidefinite Programming: section_2df5343d55388884ee2de90972931fe0.html
+.. _qld: qld.html
+.. _optimplotx: optimplotx.html
+.. _optimset: optimset.html
+.. _derivative: derivative.html
+.. _fminsearch: fminsearch.html
+.. _leastsq: leastsq.html
+.. _recons: recons.html
+.. _aplat: aplat.html
+.. _list2vec: list2vec.html
+.. _pack: pack.html
+.. _qpsolve: qpsolve.html
+
+

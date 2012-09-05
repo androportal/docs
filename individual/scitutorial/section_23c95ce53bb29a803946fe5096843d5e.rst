@@ -1,0 +1,21 @@
+
+
+
+Spreadsheet
+~~~~~~~~~~~
+
+
++ `read_csv`_ reads comma-separated value file
++ `readxls`_ reads an Excel file
++ `write_csv`_ writes comma-separated value file
++ `xls_open`_ opens an Excel file for reading
++ `xls_read`_ reads a sheet in an Excel file
+
+
+.. _xls_read: xls_read.html
+.. _xls_open: xls_open.html
+.. _read_csv: read_csv.html
+.. _readxls: readxls.html
+.. _write_csv: write_csv.html
+
+

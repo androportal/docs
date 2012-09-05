@@ -1,0 +1,55 @@
+
+
+
+Datatips
+~~~~~~~~
+
+
++ `datatipCreate`_ Create a data tip on a polyline by program
++ `datatipGetEntities`_ Get all the entities compatible with datatips
+  in the given axes.
++ `datatipGetStruct`_ Retreive the datatips data structure from the
+  polyline entity.
++ `datatipInitStruct`_ Initialize the datatip structure associated
+  with the given polyline.
++ `datatipManagerMode`_ Set or toggles the data tips mode.
++ `datatipMove`_ Move a specified datatip using the mouse.
++ `datatipRedraw`_ Redraw all datatips after a 3D rotation to adjust
+  their positions
++ `datatipRemove`_ Removes a selected datatip
++ `datatipRemoveAll`_ Removes all datatips on a set of polylines.
++ `datatipSetDisplay`_ Set the function used to compute the datatip
+  string.
++ `datatipSetInterp`_ Set the interpolation mode for tip location.
++ `datatipSetOrientation`_ Set the position of the text box associated
+  with the given tip.
++ `datatipSetStruct`_ Stores the datatips data structure in the
+  polyline entity.
++ `datatipSetStyle`_ Set the tip style for the given polyline
+  datatips.
++ `datatipToggle`_ toggles the data tips mode.
++ `datatips`_ Tool for placing and editing tips along the plotted
+  curves.
++ `orthProj`_ Computes the orthogonal projection of a point to a
+  polyline in the plane.
+
+
+.. _datatipSetDisplay: datatipSetDisplay.html
+.. _datatipSetOrientation: datatipSetOrientation.html
+.. _datatipRemove: datatipRemove.html
+.. _datatipSetStyle: datatipSetStyle.html
+.. _orthProj: orthProj.html
+.. _datatipRedraw: datatipRedraw.html
+.. _datatipCreate: datatipCreate.html
+.. _datatipToggle: datatipToggle.html
+.. _datatipManagerMode: datatipManagerMode.html
+.. _datatipSetStruct: datatipSetStruct.html
+.. _datatipMove: datatipMove.html
+.. _datatipRemoveAll: datatipRemoveAll.html
+.. _datatipSetInterp: datatipSetInterp.html
+.. _datatipInitStruct: datatipInitStruct.html
+.. _datatipGetEntities: datatipGetEntities.html
+.. _datatipGetStruct: datatipGetStruct.html
+.. _datatips: datatips.html
+
+

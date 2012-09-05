@@ -1,0 +1,27 @@
+
+
+
+Signal processing
+~~~~~~~~~~~~~~~~~
+
+
++ `bloc2exp`_ Conversion of a block-diagram to its symbolic expression
++ `bloc2ss`_ block-diagram to state-space conversion
++ `pen2ea`_ pencil to E,A conversion
++ `ssrand`_ random system generator
++ `sysconv`_ system conversion
++ `sysdiag`_ block diagonal system connection
++ `syslin`_ linear system definition
++ `trfmod`_ poles and zeros display
+
+
+.. _bloc2ss: bloc2ss.html
+.. _sysconv: sysconv.html
+.. _syslin: syslin.html
+.. _trfmod: trfmod.html
+.. _ssrand: ssrand.html
+.. _bloc2exp: bloc2exp.html
+.. _sysdiag: sysdiag.html
+.. _pen2ea: pen2ea.html
+
+

@@ -1,0 +1,21 @@
+
+
+
+boolean
+~~~~~~~
+
+
++ `isBooleanType`_ Check if it is a boolean variable.
++ `getScalarBoolean`_ Read scalar boolean data from a gateway
+  argument.
++ `createScalarBoolean`_ Create scalar boolean variable in Scilab
+  memory.
++ `booleanExample`_ Boolean use case.
+
+
+.. _getScalarBoolean: getScalarBoolean.html
+.. _isBooleanType: isBooleanType.html
+.. _booleanExample: booleanExample.html
+.. _createScalarBoolean: createScalarBoolean.html
+
+

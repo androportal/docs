@@ -1,0 +1,62 @@
+
+
+
+Equal
+=====
+
+Create a tree representing an instruction
+
+
+
+Calling Sequence
+~~~~~~~~~~~~~~~~
+
+
+::
+
+    eq=Equal(lhslist,expression)
+
+
+
+
+Arguments
+~~~~~~~~~
+
+:lhslist list of lhs parameters (list of "M2SCI tlists")
+: :expression right member of equal (an "M2SCI tlist")
+: :eq an "equal" tlist
+:
+
+
+
+Description
+~~~~~~~~~~~
+
+This function create a `tlist` representing an instruction when using
+M2SCI. All input parameters values are verified to be compatible with
+"M2SCI tlists".
+
+
+
+See Also
+~~~~~~~~
+
+
++ `Funcall`_ Create a tree representing a function call
++ `Operation`_ Create a tree representing an operation
++ `Variable`_ Create a tree representing a variable
++ `Cste`_ Create a tree representing a constant
++ `Infer`_ Create a tree containing inference data
++ `Contents`_ Create a tree containing contents inference data
++ `Type`_ Create a tree containing type inference data
+
+
+.. _Infer: Infer.html
+.. _Variable: Variable.html
+.. _Funcall: Funcall.html
+.. _Operation: Operation.html
+.. _Cste: Cste.html
+.. _Contents: Contents.html
+.. _Type: Type-a1fa27779242b4902f7ae3bdd5c6d508.html
+
+

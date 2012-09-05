@@ -1,0 +1,32 @@
+
+
+
+Data with Missing Values
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `nancumsum`_ Thos function returns the cumulative sum of the values
+  of a matrix
++ `nand2mean`_ difference of the means of two independent samples
++ `nanmax`_ max (ignoring Nan's)
++ `nanmean`_ mean (ignoring Nan's)
++ `nanmeanf`_ mean (ignoring Nan's) with a given frequency.
++ `nanmedian`_ median of the values of a numerical vector or matrix
++ `nanmin`_ min (ignoring Nan's)
++ `nanstdev`_ standard deviation (ignoring the NANs).
++ `nansum`_ Sum of values ignoring NAN's
++ `thrownan`_ Eliminates nan values
+
+
+.. _nanmin: nanmin.html
+.. _thrownan: thrownan.html
+.. _nancumsum: nancumsum.html
+.. _nanstdev: nanstdev.html
+.. _nanmax: nanmax.html
+.. _nanmedian: nanmedian.html
+.. _nansum: nansum.html
+.. _nand2mean: nand2mean.html
+.. _nanmeanf: nanmeanf.html
+.. _nanmean: nanmean.html
+
+

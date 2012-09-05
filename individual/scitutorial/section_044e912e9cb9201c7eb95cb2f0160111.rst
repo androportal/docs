@@ -1,0 +1,27 @@
+
+
+
+Parameters
+~~~~~~~~~~
+
+
++ `add_param`_ Add a parameter to a list of parameters
++ `get_param`_ Get the value of a parameter in a parameter list
++ `init_param`_ Initialize the structure which will handles the
+  parameters list
++ `is_param`_ Check if a parameter is present in a parameter list
++ `list_param`_ List all the parameters name in a list of parameters
++ `remove_param`_ Remove a parameter and its associated value from a
+  list of parameters
++ `set_param`_ Set the value of a parameter in a parameter list
+
+
+.. _list_param: list_param.html
+.. _is_param: is_param.html
+.. _add_param: add_param.html
+.. _init_param: init_param.html
+.. _get_param: get_param.html
+.. _set_param: set_param.html
+.. _remove_param: remove_param.html
+
+

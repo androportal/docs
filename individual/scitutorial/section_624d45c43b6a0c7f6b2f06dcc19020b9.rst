@@ -1,0 +1,13 @@
+
+
+
+X
+~
+
+
++ `m2sci_xlabel`_ Display a string along the x axis
+
+
+.. _m2sci_xlabel: m2sci_xlabel.html
+
+

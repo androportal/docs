@@ -1,0 +1,29 @@
+
+
+
+figure_operations
+~~~~~~~~~~~~~~~~~
+
+
++ `clf`_ clear or reset the current graphic figure (window) to default
+  values
++ `drawlater`_ makes axes children invisible.
++ `drawnow`_ draw hidden graphics entities.
++ `figure_properties`_ description of the graphics figure entity
+  properties
++ `gcf`_ Return handle of current graphic window.
++ `gdf`_ Return handle of default figure.
++ `scf`_ set the current graphic figure (window)
++ `sdf`_ Set default figure.
+
+
+.. _drawlater: drawlater.html
+.. _gcf: gcf.html
+.. _sdf: sdf.html
+.. _gdf: gdf.html
+.. _drawnow: drawnow.html
+.. _clf: clf.html
+.. _scf: scf.html
+.. _figure_properties: figure_properties.html
+
+

@@ -1,0 +1,29 @@
+
+
+
+Semidefinite Programming
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `aplat`_ Flattens a list.
++ `list2vec`_ Concatenates list entries in a matrix.
++ `lmisolver`_ Solve linear matrix inequations.
++ `lmitool`_ Graphical tool for solving linear matrix inequations.
++ `pack`_ Compress a list of block-diagonal symmetric matrices.
++ `recons`_ Inverse function for aplat.
++ `semidef`_ Solve semidefinite problems.
++ `unpack`_ Uncompress a list of block-diagonal symmetric matrices.
++ `vec2list`_ Inverse function of list2vec.
+
+
+.. _semidef: semidef.html
+.. _vec2list: vec2list.html
+.. _unpack: unpack.html
+.. _lmitool: lmitool.html
+.. _list2vec: list2vec.html
+.. _recons: recons.html
+.. _aplat: aplat.html
+.. _pack: pack.html
+.. _lmisolver: lmisolver.html
+
+

@@ -1,0 +1,18 @@
+
+
+
+style
+~~~~~
+
+
++ `getlinestyle`_ dialog to select linestyle. **Obsolete function.**
++ `getmark`_ dialog to select mark (symbol). **Obsolete function**
++ `getsymbol`_ dialog to select a symbol and its size. **Obsolete
+  function**
+
+
+.. _getlinestyle: getlinestyle.html
+.. _getmark: getmark.html
+.. _getsymbol: getsymbol.html
+
+

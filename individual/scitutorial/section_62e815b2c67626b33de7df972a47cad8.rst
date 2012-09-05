@@ -1,0 +1,14 @@
+
+
+
+Intersci
+~~~~~~~~
+
+
++ `intersci`_ Scilab tool to interface C or Fortran functions with
+  scilab. Deprecated: Please use SWIG
+
+
+.. _intersci: intersci.html
+
+

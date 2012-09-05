@@ -1,0 +1,36 @@
+
+
+
+Cumulated Distribution Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `cdfbet`_ cumulative distribution function Beta distribution
++ `cdfbin`_ cumulative distribution function Binomial distribution
++ `cdfchi`_ cumulative distribution function chi-square distribution
++ `cdfchn`_ cumulative distribution function non-central chi-square
+  distribution
++ `cdff`_ cumulative distribution function F distribution
++ `cdffnc`_ cumulative distribution function non-central
+  f-distribution
++ `cdfgam`_ cumulative distribution function gamma distribution
++ `cdfnbn`_ cumulative distribution function negative binomial
+  distribution
++ `cdfnor`_ cumulative distribution function normal distribution
++ `cdfpoi`_ cumulative distribution function poisson distribution
++ `cdft`_ cumulative distribution function Student's T distribution
+
+
+.. _cdfgam: cdfgam.html
+.. _cdfnbn: cdfnbn.html
+.. _cdfbin: cdfbin.html
+.. _cdfpoi: cdfpoi.html
+.. _cdffnc: cdffnc.html
+.. _cdfchn: cdfchn.html
+.. _cdfnor: cdfnor.html
+.. _cdft: cdft.html
+.. _cdfchi: cdfchi.html
+.. _cdff: cdff.html
+.. _cdfbet: cdfbet.html
+
+

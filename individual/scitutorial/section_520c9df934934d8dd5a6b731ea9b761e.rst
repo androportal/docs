@@ -1,0 +1,17 @@
+
+
+
+Integers
+~~~~~~~~
+
+
++ `iconvert`_ conversion to 1 or 4 byte integer representation
++ `int8`_ conversion to 4 bytes unsigned integer representation
++ `inttype`_ type integers used in integer data types
+
+
+.. _inttype: inttype.html
+.. _iconvert: iconvert.html
+.. _int8: int8.html
+
+

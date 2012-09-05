@@ -1,0 +1,55 @@
+
+
+
+Operators
+~~~~~~~~~
+
+
++ `m2sci_addition`_ Plus
++ `m2sci_and`_ Logical AND
++ `m2sci_colon`_ Colon
++ `m2sci_elementwise_left_division`_ Elementwise left division
++ `m2sci_elementwise_multiplication`_ Elementwise multiplication
++ `m2sci_elementwise_power`_ Elementwise exponent
++ `m2sci_elementwise_right_division`_ Elementwise right division
++ `m2sci_elementwise_transpose`_ Elementwise transpose
++ `m2sci_equal`_ Equal to
++ `m2sci_great`_ Greater than
++ `m2sci_great_equal`_ Greater or equal to
++ `m2sci_left_division`_ Left division
++ `m2sci_less`_ Smaller than
++ `m2sci_less_equal`_ Smaller or equal to
++ `m2sci_multiplication`_ Multiplication
++ `m2sci_not`_ Negation
++ `m2sci_not_equal`_ Not equal to
++ `m2sci_or`_ Logical OR
++ `m2sci_power`_ Exponent
++ `m2sci_right_division`_ Right division
++ `m2sci_substraction`_ Minus
++ `m2sci_transpose`_ Transpose
+
+
+.. _m2sci_addition: m2sci_addition.html
+.. _m2sci_transpose: m2sci_transpose.html
+.. _m2sci_elementwise_multiplication: m2sci_elementwise_multiplication.html
+.. _m2sci_less_equal: m2sci_less_equal.html
+.. _m2sci_elementwise_power: m2sci_elementwise_power.html
+.. _m2sci_elementwise_left_division: m2sci_elementwise_left_division.html
+.. _m2sci_equal: m2sci_equal.html
+.. _m2sci_great: m2sci_great.html
+.. _m2sci_not: m2sci_not.html
+.. _m2sci_substraction: m2sci_substraction.html
+.. _m2sci_power: m2sci_power.html
+.. _m2sci_great_equal: m2sci_great_equal.html
+.. _m2sci_left_division: m2sci_left_division.html
+.. _m2sci_multiplication: m2sci_multiplication.html
+.. _m2sci_elementwise_right_division: m2sci_elementwise_right_division.html
+.. _m2sci_and: m2sci_and.html
+.. _m2sci_right_division: m2sci_right_division.html
+.. _m2sci_less: m2sci_less.html
+.. _m2sci_not_equal: m2sci_not_equal.html
+.. _m2sci_colon: m2sci_colon.html
+.. _m2sci_elementwise_transpose: m2sci_elementwise_transpose.html
+.. _m2sci_or: m2sci_or.html
+
+

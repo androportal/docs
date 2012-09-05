@@ -1,0 +1,35 @@
+
+
+
+handle
+~~~~~~
+
+
++ `copy`_ copy a graphics entity.
++ `delete`_ delete a graphic entity and its children.
++ `draw`_ draw an entity. **This function is obsolete.**
++ `gce`_ Get current entity handle.
++ `ged`_ Scilab Graphic Editor
++ `get_figure_handle`_ get a figure handle from its id
++ `glue`_ glue a set of graphics entities into an Compound.
++ `is_handle_valid`_ Check wether a set of graphic handles is still
+  valid.
++ `relocate_handle`_ Move handles inside the graphic hierarchy.
++ `swap_handles`_ Permute two handles in the graphic Hierarchy.
++ `unglue`_ unglue a coumpound object and replace it by individual
+  children.
+
+
+.. _draw: draw.html
+.. _swap_handles: swap_handles.html
+.. _gce: gce.html
+.. _glue: glue.html
+.. _get_figure_handle: get_figure_handle.html
+.. _delete: delete.html
+.. _unglue: unglue.html
+.. _is_handle_valid: is_handle_valid.html
+.. _ged: ged.html
+.. _relocate_handle: relocate_handle.html
+.. _copy: copy.html
+
+

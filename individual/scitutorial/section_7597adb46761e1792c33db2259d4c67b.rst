@@ -1,0 +1,29 @@
+
+
+
+Utilities Functions
+~~~~~~~~~~~~~~~~~~~
+
+
++ `curblock`_ Return the current called xcos block during the
+  simulation
++ `getblocklabel`_ Get the label of a scicos block
++ `getscicosvars`_ Supervisor utility function
++ `phase_simulation`_ Get the current simulation phase
++ `pointer_xproperty`_ Get the type of a continuous time state
+  variable
++ `scicos_time`_ Returns the current time during simulation
++ `set_blockerror`_ set the block error number
++ `set_xproperty`_ Set the type of a continuous time state variable
+
+
+.. _phase_simulation: phase_simulation.html
+.. _getscicosvars: getscicosvars.html
+.. _curblock: curblock.html
+.. _set_blockerror: set_blockerror.html
+.. _pointer_xproperty: pointer_xproperty.html
+.. _scicos_time: scicos_time.html
+.. _set_xproperty: set_xproperty.html
+.. _getblocklabel: getblocklabel.html
+
+

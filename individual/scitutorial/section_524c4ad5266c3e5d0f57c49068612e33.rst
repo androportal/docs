@@ -1,0 +1,15 @@
+
+
+
+Diagram
+~~~~~~~
+
+
++ `scicos_diagram`_ Define a scs_m structure
++ `scicos_params`_ Define a param structure
+
+
+.. _scicos_diagram: scicos_diagram.html
+.. _scicos_params: scicos_params.html
+
+

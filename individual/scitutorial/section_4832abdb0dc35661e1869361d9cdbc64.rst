@@ -1,0 +1,49 @@
+
+
+
+B
+~
+
+
++ `m2sci_balance`_ Diagonal scaling to improve eigenvalue accuracy
++ `m2sci_bar`_ Bar histogram
++ `m2sci_barh`_ Bar histogram horizontal
++ `m2sci_beep`_ Produce a beep sound
++ `m2sci_besseli`_ Modified Bessel functions of the first kind
++ `m2sci_besselj`_ Bessel functions of the first kind
++ `m2sci_besselk`_ Modified Bessel functions of the second kind
++ `m2sci_bessely`_ Bessel functions of the second kind
++ `m2sci_beta`_ Beta function
++ `m2sci_bin2dec`_ Returns the integer corresponding to a Given binary
+  representation
++ `m2sci_bitand`_ The AND of two integers
++ `m2sci_bitcmp`_ The binary complementary of an integer
++ `m2sci_bitget`_ Gets the bit of an integer whose the positon is
+  given in the input argument
++ `m2sci_bitor`_ The OR of two integers
++ `m2sci_bitxor`_ Returns the exclusive OR of two integers
++ `m2sci_blanks`_ A string of blanks
++ `m2sci_box`_ Display axes border
++ `m2sci_break`_ Terminate execution of a for loop or while loop
+
+
+.. _m2sci_besselj: m2sci_besselj.html
+.. _m2sci_bessely: m2sci_bessely.html
+.. _m2sci_bitget: m2sci_bitget.html
+.. _m2sci_beep: m2sci_beep.html
+.. _m2sci_beta: m2sci_beta.html
+.. _m2sci_bin2dec: m2sci_bin2dec.html
+.. _m2sci_barh: m2sci_barh.html
+.. _m2sci_bar: m2sci_bar.html
+.. _m2sci_blanks: m2sci_blanks.html
+.. _m2sci_box: m2sci_box.html
+.. _m2sci_bitor: m2sci_bitor.html
+.. _m2sci_besseli: m2sci_besseli.html
+.. _m2sci_balance: m2sci_balance.html
+.. _m2sci_bitand: m2sci_bitand.html
+.. _m2sci_bitxor: m2sci_bitxor.html
+.. _m2sci_bitcmp: m2sci_bitcmp.html
+.. _m2sci_break: m2sci_break.html
+.. _m2sci_besselk: m2sci_besselk.html
+
+

@@ -1,0 +1,17 @@
+
+
+
+Commonly used blocks palette
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `Commonlyusedblocks_pal`_ Commonly used blocks palette
++ `LOGICAL_OP`_ Logical operation
++ `RELATIONALOP`_ Relational operation
+
+
+.. _LOGICAL_OP: LOGICAL_OP.html
+.. _Commonlyusedblocks_pal: Commonlyusedblocks_pal.html
+.. _RELATIONALOP: RELATIONALOP.html
+
+

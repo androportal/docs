@@ -1,0 +1,41 @@
+
+
+
+axes_operations
+~~~~~~~~~~~~~~~
+
+
++ `axes_properties`_ description of the axes entity properties
++ `gca`_ Return handle of current axes.
++ `gda`_ Return handle of default axes.
++ `graduate`_ Pretty axis graduations
++ `isoview`_ set scales for isometric plot (do not change the size of
+  the window)
++ `newaxes`_ Creates a new Axes entity
++ `plotframe`_ plot a frame with scaling and grids. **This function is
+  obsolete.**
++ `replot`_ redraw the current graphics window with new boundaries
++ `rotate_axes`_ Interactive rotation of an Axes handle.
++ `sca`_ set the current axes entity
++ `sda`_ Set default axes.
++ `subplot`_ divide a graphics window into a matrix of sub-windows
++ `unzoom`_ unzoom graphics
++ `zoom_rect`_ zoom a selection of the current graphic figure
+
+
+.. _unzoom: unzoom.html
+.. _plotframe: plotframe.html
+.. _zoom_rect: zoom_rect.html
+.. _isoview: isoview.html
+.. _rotate_axes: rotate_axes.html
+.. _replot: replot.html
+.. _sca: sca.html
+.. _graduate: graduate.html
+.. _newaxes: newaxes.html
+.. _subplot: subplot.html
+.. _axes_properties: axes_properties.html
+.. _gda: gda.html
+.. _gca: gca.html
+.. _sda: sda.html
+
+

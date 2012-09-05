@@ -1,0 +1,18 @@
+
+
+
+Text editor (Scinotes)
+~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `edit_error`_ opens in scilab editor the source of the last recorded
+  error
++ `editor`_ Call a the text editor as defined in the preferences
++ `scinotes`_ Scinotes: Embedded Scilab text editor
+
+
+.. _edit_error: edit_error.html
+.. _scinotes: scinotes.html
+.. _editor: editor.html
+
+

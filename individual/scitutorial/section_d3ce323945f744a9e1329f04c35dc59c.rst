@@ -1,0 +1,13 @@
+
+
+
+Regression
+~~~~~~~~~~
+
+
++ `regress`_ regression coefficients of two variables
+
+
+.. _regress: regress.html
+
+

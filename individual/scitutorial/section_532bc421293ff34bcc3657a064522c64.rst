@@ -1,0 +1,21 @@
+
+
+
+M
+~
+
+
++ `m2sci_max`_ Maximum
++ `m2sci_min`_ Minimum
++ `m2sci_mkdir`_ Make new folder
++ `m2sci_mod`_ Modulus after division
++ `m2sci_more`_ Display Command Window output one screenful at a time
+
+
+.. _m2sci_mod: m2sci_mod.html
+.. _m2sci_max: m2sci_max.html
+.. _m2sci_min: m2sci_min.html
+.. _m2sci_more: m2sci_more.html
+.. _m2sci_mkdir: m2sci_mkdir.html
+
+

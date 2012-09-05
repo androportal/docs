@@ -1,0 +1,21 @@
+
+
+
+Complex
+~~~~~~~
+
+
++ `complex`_ Create a complex number.
++ `imag`_ imaginary part
++ `imult`_ multiplication by i the imaginary unitary
++ `isreal`_ check if a variable has real or complex entries
++ `real`_ real part
+
+
+.. _real: real.html
+.. _imag: imag.html
+.. _imult: imult.html
+.. _complex: complex.html
+.. _isreal: isreal.html
+
+

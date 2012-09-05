@@ -1,0 +1,44 @@
+
+
+
+Scilab Gateway API
+~~~~~~~~~~~~~~~~~~
+
+
++ `How to`_
+
+    + `CallingAScilabFunctionFromACInterface`_ Calling a scilab function
+      (macros) from a C interface
+
++ `CheckLhs`_ C macro which checks the number of output arguments
+  present in the calling Scilab function.
++ `CheckRhs`_ C macro which checks the number of input arguments
+  present in the calling Scilab function.
++ `Lhs`_ A C gateway function which provides the number of output
+  arguments present in the calling Scilab function
++ `LhsVar`_ a C gateway function which specifies which parameters
+  created inside the C gateway will be returned as an output argument
+  into Scilab.
++ `Rhs`_ A C gateway function which provides the number of input
+  arguments present in the calling Scilab function
++ `Scierror`_ C gateway function which displays an error message to
+  the user (same profil as the printf function) and returns an integer
+  value specifying an error level
++ `sci_types`_ a C enumeration which defines the types available for a
+  variable
++ `sciprint`_ A C gateway function which displays standard messages to
+  the user (same profil as the C printf function)
+
+
+.. _How to: section_f4c0046e94e1db84a36d793fd8cb58c2.html
+.. _CheckLhs: CheckLhs.html
+.. _sci_types: sci_types.html
+.. _Lhs: Lhs.html
+.. _Scierror: Scierror.html
+.. _sciprint: sciprint.html
+.. _CallingAScilabFunctionFromACInterface: CallingAScilabFunctionFromACInterface.html
+.. _Rhs: Rhs.html
+.. _CheckRhs: CheckRhs.html
+.. _LhsVar: LhsVar.html
+
+

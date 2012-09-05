@@ -1,0 +1,23 @@
+
+
+
+Variables
+~~~~~~~~~
+
+
++ `m2sci_ans`_ The most recent answer
++ `m2sci_end`_ Last index
++ `m2sci_eps`_ Floating-point relative accuracy
++ `m2sci_i`_ Imaginary unit
++ `m2sci_j`_ Imaginary unit
++ `m2sci_pi`_ Ratio of a circle's circumference to its diameter
+
+
+.. _m2sci_j: m2sci_j.html
+.. _m2sci_eps: m2sci_eps.html
+.. _m2sci_ans: m2sci_ans.html
+.. _m2sci_end: m2sci_end.html
+.. _m2sci_i: m2sci_i.html
+.. _m2sci_pi: m2sci_pi.html
+
+

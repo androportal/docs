@@ -1,0 +1,25 @@
+
+
+
+Console
+~~~~~~~
+
+
++ `clc`_ Clear Command Window
++ `completion`_ returns words that start with the text you pass as
+  parameter.
++ `console`_ Keyboard Shortcuts in NW/NWNI mode
++ `lines`_ rows and columns used for display
++ `prompt`_ Get/Set current prompt
++ `tohome`_ Move the cursor to the upper left corner of the Command
+  Window
+
+
+.. _completion: completion.html
+.. _clc: clc.html
+.. _lines: lines.html
+.. _prompt: prompt.html
+.. _console: console.html
+.. _tohome: tohome.html
+
+

@@ -1,0 +1,143 @@
+
+
+
+Files : Input/Output functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
++ `basename`_ strip directory and suffix from filenames
++ `chdir`_ changes Scilab current directory
++ `copyfile`_ copies a file
++ `createdir`_ makes new directory
++ `deletefile`_ deletes a file
++ `dir`_ gets file list
++ `dirname`_ gets directory from filenames
++ `dispfiles`_ displays opened files properties
++ `fileext`_ returns extension for a file path
++ `fileinfo`_ provides information about a file
++ `fileparts`_ returns the path, filename and extension for a file
+  path
++ `filesep`_ returns directory separator for current platform
++ `findfiles`_ finding all files with a given file specification
++ `fprintf`_ Emulator of C language fprintf function. *This function
+  is obsolete*
++ `fprintfMat`_ writes a matrix in a file
++ `fscanf`_ Converts formatted input read on a file
++ `fscanfMat`_ reads a matrix from a text file
++ `fullfile`_ builds a full filename from parts
++ `fullpath`_ creates an full path name for the specified relative
+  path name.
++ `get_absolute_file_path`_ gives an absolute pathname of a file
+  opened in Scilab
++ `getdrives`_ gets the drive letters of all mounted filesystems on
+  the computer
++ `getlongpathname`_ gets long path name
++ `getmd5`_ get md5 checksum
++ `getrelativefilename`_ given an absolute directory and an absolute
+  filename, returns a relative file name
++ `getshortpathname`_ gets short path name
++ `percentio`_ a variable, which keeps standard input and standard
+  output (file descriptor)
++ `isdir`_ checks if argument is a directory path
++ `isfile`_ checks whether argument is an existing file
++ `listfiles`_ list of files
++ `listvarinfile`_ list of variables in a saved data file
++ `ls`_ shows files
++ `maxfiles`_ sets the limit for the number of files a Scilab is
+  allowed to have open simultaneously
++ `mclearerr`_ resets binary file access errors
++ `mclose`_ closes an opened file
++ `mdelete`_ deletes file(s)
++ `meof`_ check if end of file has been reached
++ `merror`_ tests the file access errors indicator
++ `mfprintf`_ converts, formats, and writes data to a file
++ `mfscanf`_ reads its input from the character string (interface to
+  the C sscanf function)
++ `mget`_ reads byte or word in a given binary format and returns an
+  int type
++ `mgetl`_ reads lines from an text file
++ `mgetstr`_ reads a character string from a file
++ `mkdir`_ Make new directory
++ `mopen`_ open a file in Scilab
++ `movefile`_ Move file or directory
++ `mput`_ writes byte or word in a given binary format
++ `mputl`_ writes strings in an ascii file
++ `mputstr`_ write a character string in a file
++ `mseek`_ set current position in binary file.
++ `mtell`_ binary file management
++ `newest`_ returns newest file of a set of files
++ `pathconvert`_ pathnames convertion between POSIX and windows.
++ `pathsep`_ returns path separator for current platform
++ `pwd`_ get Scilab current directory
++ `removedir`_ Remove a directory
++ `rmdir`_ Remove a directory
++ `save_format`_ format of files produced by "save"
++ `scanf`_ Converts formatted input on standard input
++ `scanf_conversion`_ scanf, sscanf, fscanf conversion specifications
++ `sscanf`_ Converts formatted input given by a string
++ `tempname`_ Unique name for temporary file
+
+
+.. _isdir: isdir.html
+.. _mget: mget.html
+.. _meof: meof.html
+.. _mgetstr: mgetstr.html
+.. _fscanfMat: fscanfMat.html
+.. _movefile: movefile.html
+.. _mclearerr: mclearerr.html
+.. _tempname: tempname.html
+.. _getdrives: getdrives.html
+.. _mopen: mopen.html
+.. _basename: basename.html
+.. _createdir: createdir.html
+.. _mclose: mclose.html
+.. _pathsep: pathsep.html
+.. _pwd: pwd.html
+.. _mfscanf: mfscanf.html
+.. _filesep: filesep.html
+.. _mput: mput.html
+.. _scanf: scanf.html
+.. _getmd5: getmd5.html
+.. _getrelativefilename: getrelativefilename.html
+.. _pathconvert: pathconvert.html
+.. _fprintf: fprintf.html
+.. _mdelete: mdelete.html
+.. _fullpath: fullpath.html
+.. _listvarinfile: listvarinfile.html
+.. _listfiles: listfiles.html
+.. _dir: dir.html
+.. _fullfile: fullfile.html
+.. _mseek: mseek.html
+.. _maxfiles: maxfiles.html
+.. _fscanf: fscanf.html
+.. _getshortpathname: getshortpathname.html
+.. _fprintfMat: fprintfMat.html
+.. _get_absolute_file_path: get_absolute_file_path.html
+.. _chdir: chdir.html
+.. _fileinfo: fileinfo.html
+.. _deletefile: deletefile.html
+.. _save_format: save_format.html
+.. _removedir: removedir.html
+.. _mkdir: mkdir.html
+.. _mfprintf: mfprintf.html
+.. _sscanf: sscanf.html
+.. _scanf_conversion: scanf_conversion.html
+.. _mtell: mtell.html
+.. _dispfiles: dispfiles.html
+.. _mputstr: mputstr.html
+.. _rmdir: rmdir.html
+.. _fileext: fileext.html
+.. _findfiles: findfiles.html
+.. _percentio: percentio.html
+.. _copyfile: copyfile.html
+.. _mgetl: mgetl.html
+.. _ls: ls.html
+.. _isfile: isfile.html
+.. _dirname: dirname.html
+.. _fileparts: fileparts.html
+.. _merror: merror.html
+.. _getlongpathname: getlongpathname.html
+.. _newest: newest.html
+.. _mputl: mputl.html
+
+
