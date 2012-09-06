@@ -22,5 +22,9 @@ clean:
 	cd apl/; make clean
 	-rm -rvf *~	
 
+sclean:
+	cd apl/; make sclean
+	cd individual/; make sclean
+
 clean-all: clean 
 	cd individual/; make clean

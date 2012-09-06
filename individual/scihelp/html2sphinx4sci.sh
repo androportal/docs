@@ -40,3 +40,15 @@ function reSt() {
 convert
 reSt
 
+
+# NOTE:
+# -------------------------------------------------------------------
+# All the docs are converted by first converting a CHM file to .html
+# pages using ``extract_chmLib``. See its man page for more details.
+# command was::
+
+# extract_chmLib manual_scilab-5.4.0-beta-2_en_US.chm html/
+
+# Once all the .html files are created in html/ dir. run *this* script
+# to convert all .html pages to respective .rst files + this script
+# also does the linking job. 

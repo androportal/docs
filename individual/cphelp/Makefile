@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+SOURCE	      = html/_sources	
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -41,6 +42,9 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 	-rm -rf *~
+
+sclean:
+	-rm -rf $(BUILDDIR)/$(SOURCE)
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
@@ -78,17 +82,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/python.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/c.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/python.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/c.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/python"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/python"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/c"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/c"
 	@echo "# devhelp"
 
 epub:

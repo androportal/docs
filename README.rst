@@ -25,34 +25,52 @@ clone the repo using
    git clone git://github.com/androportal/docs.git
 
 
-to generate all html in one go, type:
+to generate all html in one go, type
 
 ::
 
    make all
 
-to make individual html pages for APL, C, C++ and Scilab, type:
+to make individual html pages for APL, C, C++ and Scilab, type
 
 ::
 
    make APL
+
+::
+
    make c
+
+::
+
    make cpp
+
+::
+
    make py
+
+::
+
    make sci
 
-to remove or clean all html pages type:
+if you want to remove *source files* from ``../_built/html/_source``
+(just to save some space), then do
+
+::
+
+   make sclean
+
+to remove or clean all html pages type
 
 ::
    
    make clean-all
 
-or you can do seperate cleaning by typing in particular directory:
+or you can do seperate cleaning, visit the each directory and type
 
 ::
 
    make clean
-
 
 Browse docs
 -----------

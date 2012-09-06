@@ -1,28 +1,45 @@
 # Makefile for individual
 
+# common vars
+C	=	chelp
+CPP	= 	cphelp
+PY	=	pyhelp
+SCI	=	scihelp
+
+# phony targets
+.PHONY:	c cpp py sci sclean clean 
+
 all: c cpp py sci
 
 c:
 	@echo "generating sphinx for c"
-	cd ctutor/; make html
+	cd $(C)/; make html
 
 cpp:
 	@echo "generating sphinx for cpp"	
-	cd cptutorial/; make html
+	cd $(CPP)/; make html
 
 py:
 	@echo "generating sphinx for python"	
-	cd python/; make html
+	cd $(PY)/; make html
 
 sci:
 	@echo "generating sphinx for scilab"		
-	cd scitutorial/; make html
+	cd $(SCI)/; make html
+
+sclean:
+	@echo "cleaning source ..."
+	cd $(C)/; make sclean
+	cd $(CPP)/; make sclean
+	cd $(PY)/; make sclean
+	cd $(SCI)/; make sclean
 
 clean:
 	@echo "cleaning up ..."
 	@echo 
-	cd ctutor/; make clean
-	cd cptutorial/; make clean
-	cd python/; make clean
-	cd scitutorial/; make clean
+	cd $(C)/; make clean
+	cd $(CPP)/; make clean
+	cd $(PY)/; make clean
+	cd $(SCI)/; make clean
 	-rm -rvf *~
+
