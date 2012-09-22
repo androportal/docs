@@ -8,9 +8,7 @@ Document all Aakash related work here.
 This repo contains user's manual and reference for ``Aakash
 programming lab(APL)`` in `sphinx <http://sphinx.pocoo.org/>`_ 
 
-1) **apl** directory contains documentation related to installation,
-   overview about ``Aakash programming lab(APL)`` on ``Aakash`` tablet
-
+1) **devel** directory contains developer's manual.
 2) **individual** directory contains seperate documentation on C, C++,
    Python and Scilab for APL.
 
@@ -31,11 +29,11 @@ to generate all html in one go, type
 
    make all
 
-to make individual html pages for APL, C, C++ and Scilab, type
+to make individual html pages for devel, C, C++ and Scilab, type
 
 ::
 
-   make APL
+   make devel
 
 ::
 

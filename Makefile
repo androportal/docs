@@ -1,6 +1,8 @@
 # Make file for APL docs
 
-all: APL c cpp py sci
+.PHONY: all c cpp py sci devel clean sclean clean-all
+
+all: c cpp py sci devel
 
 c:
 	cd individual/; make c
@@ -14,16 +16,16 @@ py:
 sci:
 	cd individual/; make sci
 
-APL:
+devel:
 	@echo "generating sphinx for APL"
-	cd apl/; make html
+	cd devel/; make html
 
 clean:	
-	cd apl/; make clean
+	cd devel/; make clean
 	-rm -rvf *~	
 
 sclean:
-	cd apl/; make sclean
+	cd devel/; make sclean
 	cd individual/; make sclean
 
 clean-all: clean 

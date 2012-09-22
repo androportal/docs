@@ -1,6 +1,6 @@
-====
-Developer's manual
-====
+=====
+Index
+=====
 
 .. toctree::    
    :maxdepth: 5

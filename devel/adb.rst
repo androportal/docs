@@ -1,16 +1,17 @@
-====
-ADB Installation and ADB commands
-====
+===================================
+  ADB Installation and ADB commands
+===================================
 
 
 Introduction
-============
+------------
 
-* ADB installation via linux terminal makes it ease to push or pull
-  files in the android environment or basically the sdcard.
+* ADB installation via linux terminal makes it ease to ``push`` or
+  ``pull`` files in/out from the android environment or basically the
+  sdcard.
 * The content of the sdcard can easily be accessed from the terminal,
-  and huge files and foldes can be easily and speedy pushed or pulled
-  from the sdcard.
+  and huge files and foldes can be easily pushed or pulled from
+  sdcard.
 * ADB installation via linux terminal brings the power to execute the
   adb commands like ``adb connect``, ``adb devices``, ``adb install``,
   ``adb uninstall``, ``adb push`` and ``adb pull``
@@ -19,64 +20,59 @@ Introduction
   features to make the android application more innovative.
 
 
-Installation of the ADB in the android sdk manager	
-===================================================
+Setting up Android Debug Bridge ``adb`` and is usage
+----------------------------------------------------
 
-* In the terminal direct to the android-linux-sdk path.
+NOTE: You need to download **android sdk** from `developer.android.com
+<developer.android.com>`_ for your system and extract it to suitable
+location.
+
+* In the terminal go to the ``android-linux-sdk/tools`` directory annd
+  verify whether ``adb`` binary exists in its path
 
 ::
    
-   cd home/android-sdk-linux/
+   cd /home/<USER>/android-sdk-linux/tools
 	
-* Enter the tools folder in android sdk linux
-* Export the path of tools to ``~/bashrc`` file
+* Make an entry in your ``~/.bashrc`` file to export ``adb`` in a
+  ``$PATH``
 
 ::
-
-   echo "export PATH=/home/android-sdk-linux/tools:$PATH" >> ~/.bashrc 
+   
+   echo "export PATH=/home/<USER>/android-sdk-linux/tools:$PATH" >> ~/.bashrc 
 
 * In case we can also export the path of android tools by editing the
-  ``bashrc`` file
-* Open the ``.bashrc`` by `vim` or by `gedit`.
-* At the end of bashrc script end the export line (basically after ``fi``
-  command in ``.bashrc``)
+  ``~/.bashrc`` file
+
+* Open the ``~/.bashrc`` by `vim` or by `gedit`.
+
+* At the end of .bashrc script(basically after ``fi`` command in
+  ``.bashrc``), enter below line
 
 ::
 
-   export PATH=:/home/android-sdk-linux/tools:$PATH 
+   export PATH=:/home/<USER>/android-sdk-linux/tools:$PATH 
 	
-* Similar operation has to be performed for the platform tools folder
-  in the android to export its path.
-* Direct to the platform-tools in ath android-sdk-linux
-* Export the path of platform-tools to ``.bashrc``
+* Similar operation has to be performed for the ``platform-tools``
+  directory in the android to export its path.
+* Direct to the ``platform-tools`` directory
+* Export the path of ``platform-tools`` to ``~/.bashrc``
 
 ::
 
-   echo "export PATH=/home/android-sdk-linux/platform-tools:$PATH">> ~/.bashrc 
+   echo "export PATH=/home/<USER>/android-sdk-linux/platform-tools:$PATH">> ~/.bashrc 
 
 * In case we can also export the path of android platform-tools by
   editing the bashrc
 
 * Open the ``.bashrc`` by `vim` or by `gedit`
 
-* At the end of `.bashrc` script end the export line (basically after
-  ``fi`` command in ``.bashrc``)
+* At the end of `.bashrc` script(basically after ``fi`` command in
+  ``.bashrc``), enter below line
 
 ::
 
-   export PATH=:/home/android-sdk-linux/platform-tools:$PATH 	
-
-* In case we can also export the path of android tools by editing the
-  ``.bashrc``
-
-* Open the .bashrc by vi or by gedit
-
-* At the end of bashrc script end the export line (basically after ``fi``
-  command in ``.bashrc``)
-
-::
-
-   export PATH=:/home/android-sdk-linux/platform-tools:$PATH 
+   export PATH=:/home/<USER>/android-sdk-linux/platform-tools:$PATH 	
 
 * Connect to the real devices by ``adb connect``, in case of the
   virtual machine(emulator) launch the emulator by the ``avd``
@@ -86,7 +82,7 @@ Installation of the ADB in the android sdk manager
   the devices your machine is connected to.
 
 ADB Commands
-============
+------------
 
 **adb connect <device-ip-address>**
 
@@ -119,10 +115,11 @@ Example::
    adb push sample.txt /sdcard/mydir/
 
 * In case if the folder does not exists, we can make it by
-   
-:: 
 
-     adb push sample.txt “/sdcard/mydir/”
+::
+
+   adb push sample.txt /sdcard/mydir
+   
 
 **adb pull**
 
@@ -132,7 +129,7 @@ Example::
 
 ::
    
-   adb pull /sdcard/mydir/sample.txt /home/Documents/
+   adb pull /sdcard/mydir/sample.txt /home/<USER>/Documents/
 
 **adb install**
 
