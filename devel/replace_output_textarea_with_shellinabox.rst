@@ -1,6 +1,8 @@
-====
-Implementations in Shellinabox to implement horizontal and vertical scrolling and cursor problem.
-====
+============
+Shellinabox 
+============
+
+what is shell is a box, and why we are using it??
 
 
 Vertical scroll
@@ -86,3 +88,8 @@ Following lines were edited in ``vt100.js`` file in
       var transform                  = this.getTransformName();
 
 
+==========
+codeMirror
+==========
+
+content of codeMirror goes here

@@ -17,10 +17,84 @@ which are restored at every bootup. ``/etc`` is symlink to
 Filesystem acts same as in linux. ``/sdcard`` is external SD-card
 directory. 
 
+**Android filesystem**
+:: 
+
+   /
+   | -> acct/
+   | -> cache/
+   | -> config/
+   | -> d/
+   | -> data/
+             | -> local/
+   | -> default.prop
+   | -> dev/
+            | -> alarm
+            | -> android_adb
+            | -> ashmem
+            | -> aw_i2c_ts1
+            | -> binder
+            | -> block
+	    .
+	    .
+	    .         
+   | -> etc/
+            | -> apns-conf.xml
+	    | -> audio_effects.conf
+	    | -> bluetooth
+	    | -> camera.cfg
+	    | -> dbus.conf
+	    | -> dhcpcd
+	    .
+	    .
+	    .
+   | -> init
+   | -> init.goldfish.rc
+   | -> init.rc
+   | -> init.sun5i.rc
+   | -> init.sun5i.usb.rc
+   | -> initlogo.rle
+   | -> mnt/
+   | -> oem/
+   | -> proc/
+   | -> root/
+   | -> sbin
+   | -> sdcard/
+   | -> sys/
+   | -> system/
+               | -> app
+	       | -> bin/
+	                | -> preinstall
+	       | -> build.prop
+	       | -> etc/
+	       | -> fonts/
+	       | -> framework/
+	       | -> lib/
+	       | -> media/
+	       | -> preinstall/
+   | -> ueventd.goldfish.rc
+   | -> ueventd.rc
+   | -> ueventd.sun5i.rc
+   | -> vendor
 
 Introduction to ``chroot``
 ===========================
 
+.. sidebar:: code 
+
+   example of chroot
+
+   SYNTAX : ``chroot <chroot-dir> <shell>``
+   ::
+   
+      chroot /linux /bin/bash
+
+   running Xvfb
+
+   ::
+      
+      nohup Xvfb :1 -screen 0 640x480x24 -ac < /dev/null > Xvfb.out 2>
+      Xvfb.err &
 
 Aakash Programming Language(APL) is a web based front end to four
 programming languages C, C++, Python and Scilab. In the backend, we
@@ -38,3 +112,4 @@ more information on chroot, Visit its ``man page``.  Chroot as its own
 advantage, apart from what we have used in APL. For developer's, it
 can be a good development environment to test their new software as it
 is totally isolated from host machine.
+

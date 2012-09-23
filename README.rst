@@ -16,7 +16,7 @@ programming lab(APL)`` in `sphinx <http://sphinx.pocoo.org/>`_
 How to use
 ----------
 
-clone the repo using 
+to clone this repo, type
 
 ::
 
@@ -29,46 +29,11 @@ to generate all html in one go, type
 
    make all
 
-to make individual html pages for devel, C, C++ and Scilab, type
+for more help regarding ``make``, type 
 
 ::
 
-   make devel
-
-::
-
-   make c
-
-::
-
-   make cpp
-
-::
-
-   make py
-
-::
-
-   make sci
-
-if you want to remove *source files* from ``../_built/html/_source``
-(just to save some space), then do
-
-::
-
-   make sclean
-
-to remove or clean all html pages type
-
-::
-   
-   make clean-all
-
-or you can do seperate cleaning, visit the each directory and type
-
-::
-
-   make clean
+   make help
 
 Browse docs
 -----------

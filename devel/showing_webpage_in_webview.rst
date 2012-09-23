@@ -792,10 +792,6 @@ The Android ``Manifest.xml``
             android:label="@string/app_name8" >
           </activity>
 
-========================================
-Shell in a box version
-========================================
-
 Need of another version
 =======================
 
